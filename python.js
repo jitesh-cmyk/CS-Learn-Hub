@@ -20306,189 +20306,9138 @@ print("Hostname:", hostname)
 print("IP Address:", ip_address)`
 },
   {
-    key: 'web-scraping',
-    title: 'Web Scraping',
-    description: 'Web scraping extracts data from web pages with Requests and BeautifulSoup.',
-    theory: [
-      'Requests downloads page HTML.',
-      'BeautifulSoup parses HTML elements and attributes.'
-    ],
-    practice: [
-      'Fetch a web page with requests.',
-      'Parse HTML with BeautifulSoup to find data.'
-    ],
-    code: `print("Use Requests and BeautifulSoup for web scraping.")`
-  },
+  key: 'web-scraping',
+  title: 'Web Scraping',
+  description: 'Web scraping is the process of collecting information from websites automatically using a program. Python provides libraries such as requests and BeautifulSoup that can be used to download web pages and extract useful information from HTML documents.',
+
+  theory: [
+    `
+    <h3>1. What is Web Scraping?</h3>
+
+    <p>
+      <strong>Web scraping</strong> is the process of automatically
+      collecting information from websites using a program.
+    </p>
+
+    <p>
+      Instead of manually copying information from a website, a Python
+      program can request a web page, read its HTML content, and extract
+      the required information.
+    </p>
+
+    <div class="scraping-flow">
+      <div class="scraping-box">
+        🌐
+        <strong>Website</strong>
+        <span>Web Page</span>
+      </div>
+
+      <div class="scraping-arrow">→</div>
+
+      <div class="scraping-box">
+        🐍
+        <strong>Python</strong>
+        <span>Scraper</span>
+      </div>
+
+      <div class="scraping-arrow">→</div>
+
+      <div class="scraping-box">
+        📄
+        <strong>HTML</strong>
+        <span>Page Content</span>
+      </div>
+
+      <div class="scraping-arrow">→</div>
+
+      <div class="scraping-box">
+        💾
+        <strong>Data</strong>
+        <span>Extracted Data</span>
+      </div>
+    </div>
+
+
+    <h3>2. How Web Scraping Works</h3>
+
+    <p>
+      A basic web scraping process usually follows these steps:
+    </p>
+
+    <ol>
+      <li>Send a request to a web page.</li>
+      <li>Receive the HTML response.</li>
+      <li>Parse the HTML document.</li>
+      <li>Find the required elements.</li>
+      <li>Extract the information.</li>
+      <li>Process or save the extracted data.</li>
+    </ol>
+
+
+    <h3>3. Common Python Libraries for Web Scraping</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Library</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>requests</td>
+          <td>Sends HTTP requests and receives web responses.</td>
+        </tr>
+
+        <tr>
+          <td>BeautifulSoup</td>
+          <td>Parses HTML and helps extract information from web pages.</td>
+        </tr>
+
+        <tr>
+          <td>Scrapy</td>
+          <td>A framework for building larger and more advanced web crawlers and scrapers.</td>
+        </tr>
+
+        <tr>
+          <td>lxml</td>
+          <td>Provides fast XML and HTML parsing.</td>
+        </tr>
+
+        <tr>
+          <td>pandas</td>
+          <td>Useful for processing and storing tabular data.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>4. Installing Required Libraries</h3>
+
+    <p>
+      The <strong>requests</strong> and <strong>beautifulsoup4</strong>
+      packages can be installed using pip.
+    </p>
+
+    <pre><code>pip install requests beautifulsoup4</code></pre>
+
+
+    <h3>5. Sending a Request</h3>
+
+    <p>
+      The <strong>requests</strong> library can be used to send an HTTP
+      request to a web page.
+    </p>
+
+    <pre><code>import requests
+
+url = "https://example.com"
+
+response = requests.get(url)
+
+print(response.status_code)</code></pre>
+
+
+    <h3>6. HTTP Status Codes</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Status Code</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>200</td>
+          <td>Request was successful.</td>
+        </tr>
+
+        <tr>
+          <td>301</td>
+          <td>Resource has been permanently redirected.</td>
+        </tr>
+
+        <tr>
+          <td>302</td>
+          <td>Temporary redirect.</td>
+        </tr>
+
+        <tr>
+          <td>403</td>
+          <td>Access to the resource is forbidden.</td>
+        </tr>
+
+        <tr>
+          <td>404</td>
+          <td>Resource was not found.</td>
+        </tr>
+
+        <tr>
+          <td>500</td>
+          <td>Server encountered an internal error.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>7. Reading HTML Content</h3>
+
+    <p>
+      The HTML returned by a request can be accessed using
+      <strong>response.text</strong>.
+    </p>
+
+    <pre><code>import requests
+
+response = requests.get("https://example.com")
+
+html = response.text
+
+print(html)</code></pre>
+
+
+    <h3>8. BeautifulSoup</h3>
+
+    <p>
+      <strong>BeautifulSoup</strong> is a Python library used to parse
+      HTML and XML documents and navigate their structure.
+    </p>
+
+    <pre><code>from bs4 import BeautifulSoup
+
+html = "&lt;h1&gt;Hello World&lt;/h1&gt;"
+
+soup = BeautifulSoup(html, "html.parser")
+
+print(soup.h1.text)</code></pre>
+
+
+    <h3>9. Finding HTML Elements</h3>
+
+    <p>
+      The <strong>find()</strong> method can be used to find the first
+      matching HTML element.
+    </p>
+
+    <pre><code>from bs4 import BeautifulSoup
+
+html = """
+&lt;html&gt;
+&lt;body&gt;
+&lt;h1&gt;Python Course&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"""
+
+soup = BeautifulSoup(html, "html.parser")
+
+heading = soup.find("h1")
+
+print(heading.text)</code></pre>
+
+
+    <h3>10. find_all()</h3>
+
+    <p>
+      The <strong>find_all()</strong> method returns all matching
+      elements.
+    </p>
+
+    <pre><code>from bs4 import BeautifulSoup
+
+html = """
+&lt;p&gt;Python&lt;/p&gt;
+&lt;p&gt;Java&lt;/p&gt;
+&lt;p&gt;C++&lt;/p&gt;
+"""
+
+soup = BeautifulSoup(html, "html.parser")
+
+items = soup.find_all("p")
+
+for item in items:
+    print(item.text)</code></pre>
+
+
+    <h3>11. Extracting Links</h3>
+
+    <p>
+      Links are commonly represented using the HTML
+      <strong>&lt;a&gt;</strong> element.
+    </p>
+
+    <pre><code>from bs4 import BeautifulSoup
+
+html = """
+&lt;a href="https://example.com"&gt;Example&lt;/a&gt;
+"""
+
+soup = BeautifulSoup(html, "html.parser")
+
+link = soup.find("a")
+
+print(link.text)
+print(link.get("href"))</code></pre>
+
+
+    <h3>12. Extracting Images</h3>
+
+    <p>
+      Image URLs can be obtained from the <strong>src</strong> attribute
+      of an HTML image element.
+    </p>
+
+    <pre><code>image = soup.find("img")
+
+if image:
+    print(image.get("src"))</code></pre>
+
+
+    <h3>13. CSS Selectors</h3>
+
+    <p>
+      BeautifulSoup provides the <strong>select()</strong> method for
+      finding elements using CSS selectors.
+    </p>
+
+    <pre><code>elements = soup.select(".product")
+
+for element in elements:
+    print(element.text)</code></pre>
+
+
+    <h3>14. Selecting by ID</h3>
+
+    <p>
+      An element with a specific HTML ID can be selected using a
+      <strong>#</strong> selector.
+    </p>
+
+    <pre><code>element = soup.select_one("#main")
+
+if element:
+    print(element.text)</code></pre>
+
+
+    <h3>15. Selecting by Class</h3>
+
+    <p>
+      A class selector begins with a dot.
+    </p>
+
+    <pre><code>items = soup.select(".item")
+
+for item in items:
+    print(item.text)</code></pre>
+
+
+    <h3>16. Extracting Text</h3>
+
+    <p>
+      The <strong>get_text()</strong> method extracts readable text from
+      an HTML element.
+    </p>
+
+    <pre><code>text = soup.get_text(" ", strip=True)
+
+print(text)</code></pre>
+
+
+    <h3>17. Extracting Attributes</h3>
+
+    <p>
+      HTML attributes such as href, src, class, and id can be accessed
+      using the <strong>get()</strong> method.
+    </p>
+
+    <pre><code>link = soup.find("a")
+
+print(link.get("href"))</code></pre>
+
+
+    <h3>18. Scraping a List of Items</h3>
+
+    <p>
+      If a web page contains multiple similar elements, they can be
+      collected using <strong>find_all()</strong>.
+    </p>
+
+    <pre><code>items = soup.find_all("li")
+
+for item in items:
+    print(item.get_text(strip=True))</code></pre>
+
+
+    <h3>19. Saving Scraped Data</h3>
+
+    <p>
+      Extracted information can be saved into files such as CSV,
+      JSON, or text files.
+    </p>
+
+    <pre><code>import csv
+
+data = [
+    ["Name", "Course"],
+    ["Aman", "Python"],
+    ["Riya", "Java"]
+]
+
+with open("data.csv", "w", newline="", encoding="utf-8") as file:
+    writer = csv.writer(file)
+    writer.writerows(data)</code></pre>
+
+
+    <h3>20. Web Scraping and JSON</h3>
+
+    <p>
+      Some websites provide data through APIs or JSON responses. In
+      such cases, using the API directly is generally preferable to
+      scraping rendered HTML.
+    </p>
+
+    <pre><code>import requests
+
+response = requests.get("https://example.com/data.json")
+
+data = response.json()
+
+print(data)</code></pre>
+
+
+    <h3>21. Headers</h3>
+
+    <p>
+      HTTP headers provide additional information about a request or
+      response. A program may need to send appropriate headers when
+      accessing a website.
+    </p>
+
+    <pre><code>import requests
+
+headers = {
+    "User-Agent": "Mozilla/5.0"
+}
+
+response = requests.get(
+    "https://example.com",
+    headers=headers
+)
+
+print(response.status_code)</code></pre>
+
+
+    <h3>22. Request Timeout</h3>
+
+    <p>
+      A timeout can prevent a program from waiting indefinitely for a
+      server response.
+    </p>
+
+    <pre><code>import requests
+
+response = requests.get(
+    "https://example.com",
+    timeout=10
+)
+
+print(response.status_code)</code></pre>
+
+
+    <h3>23. Handling Request Errors</h3>
+
+    <p>
+      Network requests can fail because of connection problems, timeouts,
+      invalid URLs, or server errors. Exceptions should be handled
+      appropriately.
+    </p>
+
+    <pre><code>import requests
+
+try:
+    response = requests.get(
+        "https://example.com",
+        timeout=10
+    )
+
+    response.raise_for_status()
+
+    print("Request successful")
+
+except requests.RequestException as error:
+    print("Request failed:", error)</code></pre>
+
+
+    <h3>24. Basic Web Scraping Example</h3>
+
+    <pre><code>import requests
+from bs4 import BeautifulSoup
+
+url = "https://example.com"
+
+response = requests.get(url, timeout=10)
+response.raise_for_status()
+
+soup = BeautifulSoup(
+    response.text,
+    "html.parser"
+)
+
+heading = soup.find("h1")
+
+if heading:
+    print("Heading:", heading.get_text(strip=True))</code></pre>
+
+
+    <h3>25. Web Scraping Process</h3>
+
+    <div class="scraping-process">
+
+      <div class="process-step">
+        <span>1</span>
+        <strong>Request</strong>
+        <small>Send HTTP request</small>
+      </div>
+
+      <div class="process-arrow">→</div>
+
+      <div class="process-step">
+        <span>2</span>
+        <strong>Response</strong>
+        <small>Receive HTML</small>
+      </div>
+
+      <div class="process-arrow">→</div>
+
+      <div class="process-step">
+        <span>3</span>
+        <strong>Parse</strong>
+        <small>Read HTML</small>
+      </div>
+
+      <div class="process-arrow">→</div>
+
+      <div class="process-step">
+        <span>4</span>
+        <strong>Extract</strong>
+        <small>Get required data</small>
+      </div>
+
+      <div class="process-arrow">→</div>
+
+      <div class="process-step">
+        <span>5</span>
+        <strong>Save</strong>
+        <small>Store the data</small>
+      </div>
+
+    </div>
+
+
+    <h3>26. Static vs Dynamic Websites</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Common Approach</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Static</td>
+          <td>Content is present directly in the HTML response.</td>
+          <td>Requests + BeautifulSoup</td>
+        </tr>
+
+        <tr>
+          <td>Dynamic</td>
+          <td>Content may be generated or loaded using JavaScript.</td>
+          <td>API or browser automation when appropriate</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>27. Web Scraping vs Web Crawling</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Web Scraping</th>
+          <th>Web Crawling</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Focuses on extracting specific information.</td>
+          <td>Focuses on discovering and visiting web pages.</td>
+        </tr>
+
+        <tr>
+          <td>Usually targets particular elements or data.</td>
+          <td>May follow links across many pages.</td>
+        </tr>
+
+        <tr>
+          <td>Often used for data collection.</td>
+          <td>Often used for indexing and discovery.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>28. Responsible Web Scraping</h3>
+
+    <p>
+      Web scraping should be performed responsibly. Before collecting
+      data from a website, check its terms of service, robots.txt
+      guidance where applicable, access restrictions, and applicable
+      laws.
+    </p>
+
+    <ul>
+      <li>Respect website terms and access policies.</li>
+      <li>Do not overload servers with excessive requests.</li>
+      <li>Use reasonable delays when appropriate.</li>
+      <li>Respect authentication and access controls.</li>
+      <li>Prefer official APIs when they are available.</li>
+      <li>Handle personal or copyrighted data responsibly.</li>
+    </ul>
+
+
+    <h3>29. Advantages of Web Scraping</h3>
+
+    <ul>
+      <li>Automates repetitive data collection.</li>
+      <li>Can collect large amounts of publicly available information.</li>
+      <li>Reduces manual copying.</li>
+      <li>Can transform web data into structured formats.</li>
+      <li>Useful for research and data analysis.</li>
+    </ul>
+
+
+    <h3>30. Limitations of Web Scraping</h3>
+
+    <ul>
+      <li>Website structures can change.</li>
+      <li>Some content requires JavaScript execution.</li>
+      <li>Websites may limit automated requests.</li>
+      <li>Network errors can interrupt scraping.</li>
+      <li>Legal and usage restrictions may apply.</li>
+    </ul>
+
+
+    <h3>31. Web Scraping Summary</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>requests</td>
+          <td>Sends HTTP requests.</td>
+        </tr>
+
+        <tr>
+          <td>BeautifulSoup</td>
+          <td>Parses HTML and extracts information.</td>
+        </tr>
+
+        <tr>
+          <td>find()</td>
+          <td>Finds the first matching element.</td>
+        </tr>
+
+        <tr>
+          <td>find_all()</td>
+          <td>Finds multiple matching elements.</td>
+        </tr>
+
+        <tr>
+          <td>select()</td>
+          <td>Finds elements using CSS selectors.</td>
+        </tr>
+
+        <tr>
+          <td>get_text()</td>
+          <td>Extracts text from an HTML element.</td>
+        </tr>
+
+        <tr>
+          <td>get()</td>
+          <td>Reads an HTML attribute.</td>
+        </tr>
+
+        <tr>
+          <td>response.text</td>
+          <td>Provides the response body as text.</td>
+        </tr>
+
+        <tr>
+          <td>response.status_code</td>
+          <td>Provides the HTTP response status code.</td>
+        </tr>
+      </tbody>
+    </table>
+    `
+  ],
+
+  practice: [
+    'Install requests and BeautifulSoup using pip.',
+    'Send a GET request to a web page and print its status code.',
+    'Extract the page title using BeautifulSoup.',
+    'Find all headings on a web page.',
+    'Extract all links and their URLs.',
+    'Extract text from selected HTML elements.',
+    'Save extracted data into a CSV file.',
+    'Handle request errors and timeouts.',
+    'Use CSS selectors to extract specific elements.',
+    'Build a small scraper for a website that permits automated access.'
+  ],
+
+  code: `import requests
+from bs4 import BeautifulSoup
+
+url = "https://example.com"
+
+try:
+    response = requests.get(
+        url,
+        timeout=10
+    )
+
+    response.raise_for_status()
+
+    soup = BeautifulSoup(
+        response.text,
+        "html.parser"
+    )
+
+    print("Title:", soup.title.get_text(strip=True))
+
+    for link in soup.find_all("a"):
+        text = link.get_text(" ", strip=True)
+        href = link.get("href")
+
+        print(text, "->", href)
+
+except requests.RequestException as error:
+    print("Request failed:", error)`
+},
   {
-    key: 'apis',
-    title: 'APIs',
-    description: 'APIs let Python communicate with web services using HTTP and JSON.',
-    theory: [
-      'APIs exchange structured data like JSON.',
-      'Requests.get() retrieves data from a web service.'
-    ],
-    practice: [
-      'Call a public API and inspect the response.',
-      'Parse JSON data returned by the API.'
-    ],
-    code: `print("Use APIs to communicate with web services.")`
-  },
+  key: 'apis',
+  title: 'APIs',
+  description: 'An API (Application Programming Interface) is a set of rules and methods that allows different software applications to communicate and exchange data. In Python, APIs are commonly accessed using HTTP requests and data is often exchanged in JSON format.',
+
+  theory: [
+    `
+    <h3>1. What is an API?</h3>
+
+    <p>
+      <strong>API (Application Programming Interface)</strong> is a
+      mechanism that allows different software applications to communicate
+      with each other.
+    </p>
+
+    <p>
+      An API defines how a client can request information or perform an
+      operation and how the server should respond.
+    </p>
+
+    <div class="api-flow">
+      <div class="api-box">
+        💻
+        <strong>Client</strong>
+        <span>Python Program</span>
+      </div>
+
+      <div class="api-arrow">
+        →
+        <small>Request</small>
+      </div>
+
+      <div class="api-box api-server">
+        🖥️
+        <strong>API Server</strong>
+        <span>Processes Request</span>
+      </div>
+
+      <div class="api-arrow">
+        →
+        <small>Response</small>
+      </div>
+
+      <div class="api-box">
+        📦
+        <strong>Data</strong>
+        <span>JSON Response</span>
+      </div>
+    </div>
+
+
+    <h3>2. How an API Works</h3>
+
+    <ol>
+      <li>The client sends a request to an API endpoint.</li>
+      <li>The API receives and processes the request.</li>
+      <li>The server performs the requested operation.</li>
+      <li>The server sends a response back to the client.</li>
+      <li>The client processes the returned data.</li>
+    </ol>
+
+
+    <h3>3. API Request and Response</h3>
+
+    <div class="api-request-response">
+      <div class="api-request">
+        <strong>Request</strong>
+        <code>GET /users</code>
+      </div>
+
+      <div class="api-big-arrow">↔</div>
+
+      <div class="api-response">
+        <strong>Response</strong>
+        <code>{"name": "Aman"}</code>
+      </div>
+    </div>
+
+
+    <h3>4. API Endpoint</h3>
+
+    <p>
+      An <strong>API endpoint</strong> is a specific URL through which
+      a client can access a particular API resource or operation.
+    </p>
+
+    <pre><code>https://api.example.com/users</code></pre>
+
+
+    <h3>5. HTTP Methods</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>GET</td>
+          <td>Retrieve data.</td>
+        </tr>
+
+        <tr>
+          <td>POST</td>
+          <td>Submit data or create a resource.</td>
+        </tr>
+
+        <tr>
+          <td>PUT</td>
+          <td>Replace or update a resource.</td>
+        </tr>
+
+        <tr>
+          <td>PATCH</td>
+          <td>Partially update a resource.</td>
+        </tr>
+
+        <tr>
+          <td>DELETE</td>
+          <td>Delete a resource.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>6. GET Request</h3>
+
+    <p>
+      A <strong>GET</strong> request is commonly used to retrieve
+      information from an API.
+    </p>
+
+    <pre><code>import requests
+
+response = requests.get(
+    "https://api.example.com/users"
+)
+
+print(response.status_code)</code></pre>
+
+
+    <h3>7. POST Request</h3>
+
+    <p>
+      A <strong>POST</strong> request is commonly used to send data to
+      a server, for example when creating a new resource.
+    </p>
+
+    <pre><code>import requests
+
+data = {
+    "name": "Aman",
+    "course": "Python"
+}
+
+response = requests.post(
+    "https://api.example.com/users",
+    json=data
+)
+
+print(response.status_code)</code></pre>
+
+
+    <h3>8. JSON</h3>
+
+    <p>
+      <strong>JSON (JavaScript Object Notation)</strong> is a common
+      format for exchanging structured data between clients and servers.
+    </p>
+
+    <pre><code>{
+  "name": "Aman",
+  "age": 21,
+  "course": "Python"
+}</code></pre>
+
+
+    <h3>9. Reading JSON in Python</h3>
+
+    <p>
+      The requests library provides the <strong>json()</strong> method
+      to convert a JSON response into Python data structures.
+    </p>
+
+    <pre><code>import requests
+
+response = requests.get(
+    "https://api.example.com/users"
+)
+
+data = response.json()
+
+print(data)</code></pre>
+
+
+    <h3>10. Accessing JSON Data</h3>
+
+    <pre><code>data = {
+    "name": "Aman",
+    "age": 21,
+    "course": "Python"
+}
+
+print(data["name"])
+print(data["course"])</code></pre>
+
+
+    <h3>11. API Status Codes</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Status Code</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>200</td>
+          <td>Request successful.</td>
+        </tr>
+
+        <tr>
+          <td>201</td>
+          <td>Resource successfully created.</td>
+        </tr>
+
+        <tr>
+          <td>400</td>
+          <td>Bad request.</td>
+        </tr>
+
+        <tr>
+          <td>401</td>
+          <td>Authentication is required or credentials are invalid.</td>
+        </tr>
+
+        <tr>
+          <td>403</td>
+          <td>Request is understood but access is forbidden.</td>
+        </tr>
+
+        <tr>
+          <td>404</td>
+          <td>Requested resource was not found.</td>
+        </tr>
+
+        <tr>
+          <td>500</td>
+          <td>Internal server error.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>12. API Parameters</h3>
+
+    <p>
+      Parameters allow a client to provide additional information with
+      an API request.
+    </p>
+
+    <p><strong>Query parameter example:</strong></p>
+
+    <pre><code>https://api.example.com/users?page=2</code></pre>
+
+    <p>
+      Here, <strong>page=2</strong> is a query parameter.
+    </p>
+
+
+    <h3>13. Query Parameters in Python</h3>
+
+    <pre><code>import requests
+
+params = {
+    "page": 2,
+    "limit": 10
+}
+
+response = requests.get(
+    "https://api.example.com/users",
+    params=params
+)
+
+print(response.url)</code></pre>
+
+
+    <h3>14. Path Parameters</h3>
+
+    <p>
+      A path parameter is included directly in the URL path to identify
+      a specific resource.
+    </p>
+
+    <pre><code>https://api.example.com/users/10</code></pre>
+
+
+    <h3>15. API Headers</h3>
+
+    <p>
+      HTTP headers provide additional information about a request.
+      APIs commonly use headers for content types, authorization,
+      and other request metadata.
+    </p>
+
+    <pre><code>import requests
+
+headers = {
+    "Accept": "application/json"
+}
+
+response = requests.get(
+    "https://api.example.com/users",
+    headers=headers
+)
+
+print(response.status_code)</code></pre>
+
+
+    <h3>16. API Authentication</h3>
+
+    <p>
+      Some APIs require authentication before allowing access to
+      protected resources.
+    </p>
+
+    <p>
+      Common authentication mechanisms include API keys, bearer tokens,
+      OAuth, and session-based authentication.
+    </p>
+
+    <pre><code>import requests
+
+headers = {
+    "Authorization": "Bearer YOUR_TOKEN"
+}
+
+response = requests.get(
+    "https://api.example.com/profile",
+    headers=headers
+)
+
+print(response.status_code)</code></pre>
+
+
+    <h3>17. API Key</h3>
+
+    <p>
+      An <strong>API key</strong> is a credential provided by an API
+      service to identify or authorize a client.
+    </p>
+
+    <p>
+      API keys should not be hard-coded into public source code or
+      uploaded to public repositories.
+    </p>
+
+
+    <h3>18. REST API</h3>
+
+    <p>
+      A <strong>REST API</strong> is an API designed around the principles
+      of REST (Representational State Transfer). REST APIs commonly use
+      HTTP methods and resource-oriented URLs.
+    </p>
+
+    <div class="rest-api-figure">
+
+      <div class="rest-item">
+        <span class="method get">GET</span>
+        <strong>/users</strong>
+        <small>Get users</small>
+      </div>
+
+      <div class="rest-item">
+        <span class="method post">POST</span>
+        <strong>/users</strong>
+        <small>Create user</small>
+      </div>
+
+      <div class="rest-item">
+        <span class="method put">PUT</span>
+        <strong>/users/1</strong>
+        <small>Update user</small>
+      </div>
+
+      <div class="rest-item">
+        <span class="method delete">DELETE</span>
+        <strong>/users/1</strong>
+        <small>Delete user</small>
+      </div>
+
+    </div>
+
+
+    <h3>19. REST API Example</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>HTTP Method</th>
+          <th>Endpoint</th>
+          <th>Operation</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>GET</td>
+          <td>/users</td>
+          <td>Get all users</td>
+        </tr>
+
+        <tr>
+          <td>GET</td>
+          <td>/users/1</td>
+          <td>Get user 1</td>
+        </tr>
+
+        <tr>
+          <td>POST</td>
+          <td>/users</td>
+          <td>Create a user</td>
+        </tr>
+
+        <tr>
+          <td>PUT</td>
+          <td>/users/1</td>
+          <td>Update user 1</td>
+        </tr>
+
+        <tr>
+          <td>DELETE</td>
+          <td>/users/1</td>
+          <td>Delete user 1</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>20. Handling API Errors</h3>
+
+    <p>
+      API requests can fail because of network problems, invalid
+      parameters, authentication failures, or server errors.
+    </p>
+
+    <pre><code>import requests
+
+try:
+    response = requests.get(
+        "https://api.example.com/users",
+        timeout=10
+    )
+
+    response.raise_for_status()
+
+    print(response.json())
+
+except requests.RequestException as error:
+    print("API request failed:", error)</code></pre>
+
+
+    <h3>21. API Request with JSON Data</h3>
+
+    <pre><code>import requests
+
+user = {
+    "name": "Jitesh",
+    "course": "Python"
+}
+
+response = requests.post(
+    "https://api.example.com/users",
+    json=user,
+    timeout=10
+)
+
+print(response.status_code)</code></pre>
+
+
+    <h3>22. API vs Web Scraping</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>API</th>
+          <th>Web Scraping</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Provides structured data through an interface.</td>
+          <td>Extracts information from web pages.</td>
+        </tr>
+
+        <tr>
+          <td>Usually returns JSON, XML, or another defined format.</td>
+          <td>Often starts with HTML content.</td>
+        </tr>
+
+        <tr>
+          <td>Usually more stable when officially supported.</td>
+          <td>Can break when page structure changes.</td>
+        </tr>
+
+        <tr>
+          <td>Often has authentication and rate limits.</td>
+          <td>Must respect website access rules and restrictions.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>23. API Workflow</h3>
+
+    <div class="api-workflow">
+
+      <div class="workflow-step">
+        <span>1</span>
+        <strong>Client</strong>
+        <small>Python Application</small>
+      </div>
+
+      <div class="workflow-arrow">→</div>
+
+      <div class="workflow-step">
+        <span>2</span>
+        <strong>Request</strong>
+        <small>HTTP Request</small>
+      </div>
+
+      <div class="workflow-arrow">→</div>
+
+      <div class="workflow-step">
+        <span>3</span>
+        <strong>API</strong>
+        <small>Process Request</small>
+      </div>
+
+      <div class="workflow-arrow">→</div>
+
+      <div class="workflow-step">
+        <span>4</span>
+        <strong>Response</strong>
+        <small>JSON Data</small>
+      </div>
+
+    </div>
+
+
+    <h3>24. Complete Python API Example</h3>
+
+    <pre><code>import requests
+
+url = "https://api.example.com/users"
+
+try:
+    response = requests.get(
+        url,
+        timeout=10
+    )
+
+    response.raise_for_status()
+
+    data = response.json()
+
+    for user in data:
+        print(user)
+
+except requests.RequestException as error:
+    print("Error:", error)</code></pre>
+
+
+    <h3>25. Important API Concepts</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>API</td>
+          <td>Interface used for communication between software systems.</td>
+        </tr>
+
+        <tr>
+          <td>Endpoint</td>
+          <td>URL through which an API resource or operation is accessed.</td>
+        </tr>
+
+        <tr>
+          <td>Request</td>
+          <td>Message sent by a client to an API.</td>
+        </tr>
+
+        <tr>
+          <td>Response</td>
+          <td>Message returned by the server.</td>
+        </tr>
+
+        <tr>
+          <td>JSON</td>
+          <td>Common structured data format used by APIs.</td>
+        </tr>
+
+        <tr>
+          <td>Authentication</td>
+          <td>Process of verifying access to protected API resources.</td>
+        </tr>
+
+        <tr>
+          <td>API Key</td>
+          <td>Credential used by some APIs to identify or authorize clients.</td>
+        </tr>
+
+        <tr>
+          <td>REST</td>
+          <td>A common architectural style for web APIs.</td>
+        </tr>
+
+        <tr>
+          <td>Status Code</td>
+          <td>HTTP code indicating the result of a request.</td>
+        </tr>
+      </tbody>
+    </table>
+    `
+  ],
+
+  practice: [
+    'Install the requests library using pip.',
+    'Send a GET request to a public API.',
+    'Print the HTTP status code of an API response.',
+    'Read JSON data returned by an API.',
+    'Use query parameters in an API request.',
+    'Send JSON data using a POST request.',
+    'Practice GET, POST, PUT, PATCH, and DELETE requests.',
+    'Handle API errors using try and except.',
+    'Use request headers in an API call.',
+    'Create a Python program that reads and displays data from a public API.'
+  ],
+
+  code: `import requests
+
+url = "https://api.example.com/users"
+
+try:
+    response = requests.get(
+        url,
+        timeout=10
+    )
+
+    response.raise_for_status()
+
+    data = response.json()
+
+    print("API Response:")
+
+    for item in data:
+        print(item)
+
+except requests.RequestException as error:
+    print("Request failed:", error)`
+},
   {
-    key: 'gui-development',
-    title: 'GUI Development',
-    description: 'Tkinter builds desktop GUIs with buttons, labels, and windows.',
-    theory: [
-      'Tkinter widgets include labels, buttons, and entry fields.',
-      'A mainloop keeps the GUI responsive.'
-    ],
-    practice: [
-      'Create a Tkinter window.',
-      'Add a label and button to the window.'
-    ],
-    code: `print("Use Tkinter to build simple GUIs.")`
-  },
+  key: 'gui-development',
+  title: 'GUI Development',
+  description: 'GUI (Graphical User Interface) development is the process of creating applications with visual elements such as windows, buttons, labels, text fields, menus, and dialogs. Python provides libraries such as Tkinter for building desktop GUI applications.',
+
+  theory: [
+    `
+    <h3>1. What is GUI?</h3>
+
+    <p>
+      <strong>GUI (Graphical User Interface)</strong> is a user interface
+      that allows users to interact with a program using visual elements
+      such as windows, buttons, menus, text boxes, and icons.
+    </p>
+
+    <p>
+      Unlike a command-line interface, a GUI allows users to interact
+      with an application using a mouse, keyboard, and visual controls.
+    </p>
+
+    <div class="gui-figure">
+      <div class="gui-window">
+        <div class="gui-titlebar">
+          <strong>Python Application</strong>
+          <span>− □ ×</span>
+        </div>
+
+        <div class="gui-content">
+          <h4>Welcome to Python GUI</h4>
+
+          <input type="text" placeholder="Enter your name">
+
+          <div class="gui-buttons">
+            <button>Submit</button>
+            <button>Clear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <h3>2. GUI Development in Python</h3>
+
+    <p>
+      Python provides several libraries and frameworks for developing
+      graphical user interfaces.
+    </p>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Library / Framework</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Tkinter</td>
+          <td>Built-in Python library for creating desktop GUI applications.</td>
+        </tr>
+
+        <tr>
+          <td>PyQt</td>
+          <td>Framework for creating feature-rich cross-platform applications.</td>
+        </tr>
+
+        <tr>
+          <td>Kivy</td>
+          <td>Framework for building multi-touch and cross-platform applications.</td>
+        </tr>
+
+        <tr>
+          <td>wxPython</td>
+          <td>Toolkit for creating native-looking desktop applications.</td>
+        </tr>
+
+        <tr>
+          <td>PySide</td>
+          <td>Python bindings for the Qt framework.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>3. Tkinter</h3>
+
+    <p>
+      <strong>Tkinter</strong> is Python's standard GUI toolkit. It is
+      commonly used for learning desktop GUI development and creating
+      small to medium-sized applications.
+    </p>
+
+    <pre><code>import tkinter as tk
+
+window = tk.Tk()
+
+window.title("My Application")
+window.geometry("400x300")
+
+window.mainloop()</code></pre>
+
+
+    <h3>4. Creating a Window</h3>
+
+    <p>
+      The <strong>Tk()</strong> function creates the main application
+      window.
+    </p>
+
+    <pre><code>import tkinter as tk
+
+root = tk.Tk()
+
+root.title("Python GUI")
+root.geometry("500x350")
+
+root.mainloop()</code></pre>
+
+
+    <h3>5. Window Properties</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>title()</td>
+          <td>Sets the window title.</td>
+        </tr>
+
+        <tr>
+          <td>geometry()</td>
+          <td>Sets the window size and position.</td>
+        </tr>
+
+        <tr>
+          <td>resizable()</td>
+          <td>Controls whether the window can be resized.</td>
+        </tr>
+
+        <tr>
+          <td>minsize()</td>
+          <td>Sets the minimum window size.</td>
+        </tr>
+
+        <tr>
+          <td>maxsize()</td>
+          <td>Sets the maximum window size.</td>
+        </tr>
+
+        <tr>
+          <td>mainloop()</td>
+          <td>Starts the GUI event loop.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>6. Label</h3>
+
+    <p>
+      A <strong>Label</strong> is used to display text or information
+      inside a GUI application.
+    </p>
+
+    <pre><code>import tkinter as tk
+
+root = tk.Tk()
+
+label = tk.Label(
+    root,
+    text="Hello Python"
+)
+
+label.pack()
+
+root.mainloop()</code></pre>
+
+
+    <h3>7. Button</h3>
+
+    <p>
+      A <strong>Button</strong> allows the user to perform an action
+      when it is clicked.
+    </p>
+
+    <pre><code>import tkinter as tk
+
+def show_message():
+    print("Button clicked")
+
+root = tk.Tk()
+
+button = tk.Button(
+    root,
+    text="Click Me",
+    command=show_message
+)
+
+button.pack()
+
+root.mainloop()</code></pre>
+
+
+    <h3>8. Entry Widget</h3>
+
+    <p>
+      The <strong>Entry</strong> widget is used to accept a single line
+      of text from the user.
+    </p>
+
+    <pre><code>import tkinter as tk
+
+root = tk.Tk()
+
+entry = tk.Entry(root)
+entry.pack()
+
+root.mainloop()</code></pre>
+
+
+    <h3>9. Getting Input from Entry</h3>
+
+    <pre><code>import tkinter as tk
+
+def show_name():
+    name = entry.get()
+    print("Name:", name)
+
+root = tk.Tk()
+
+entry = tk.Entry(root)
+entry.pack()
+
+button = tk.Button(
+    root,
+    text="Submit",
+    command=show_name
+)
+
+button.pack()
+
+root.mainloop()</code></pre>
+
+
+    <h3>10. Common Tkinter Widgets</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Widget</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Label</td>
+          <td>Displays text or information.</td>
+        </tr>
+
+        <tr>
+          <td>Button</td>
+          <td>Performs an action when clicked.</td>
+        </tr>
+
+        <tr>
+          <td>Entry</td>
+          <td>Accepts single-line text input.</td>
+        </tr>
+
+        <tr>
+          <td>Text</td>
+          <td>Accepts multiple lines of text.</td>
+        </tr>
+
+        <tr>
+          <td>Checkbutton</td>
+          <td>Provides a checkbox option.</td>
+        </tr>
+
+        <tr>
+          <td>Radiobutton</td>
+          <td>Allows selection of one option from a group.</td>
+        </tr>
+
+        <tr>
+          <td>Listbox</td>
+          <td>Displays a list of selectable items.</td>
+        </tr>
+
+        <tr>
+          <td>Combobox</td>
+          <td>Provides a dropdown selection.</td>
+        </tr>
+
+        <tr>
+          <td>Frame</td>
+          <td>Groups related widgets together.</td>
+        </tr>
+
+        <tr>
+          <td>Canvas</td>
+          <td>Used for drawing shapes and graphics.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>11. Frame</h3>
+
+    <p>
+      A <strong>Frame</strong> is a container used to organize and
+      group other widgets.
+    </p>
+
+    <pre><code>import tkinter as tk
+
+root = tk.Tk()
+
+frame = tk.Frame(root)
+frame.pack()
+
+label = tk.Label(
+    frame,
+    text="Inside Frame"
+)
+
+label.pack()
+
+root.mainloop()</code></pre>
+
+
+    <h3>12. Layout Managers</h3>
+
+    <p>
+      Tkinter provides layout managers to control the position of
+      widgets inside a window.
+    </p>
+
+    <div class="gui-layout-figure">
+
+      <div class="layout-box">
+        <strong>pack()</strong>
+        <span>Simple arrangement</span>
+      </div>
+
+      <div class="layout-box">
+        <strong>grid()</strong>
+        <span>Rows and columns</span>
+      </div>
+
+      <div class="layout-box">
+        <strong>place()</strong>
+        <span>Exact position</span>
+      </div>
+
+    </div>
+
+
+    <h3>13. pack()</h3>
+
+    <p>
+      The <strong>pack()</strong> geometry manager arranges widgets
+      relative to each other.
+    </p>
+
+    <pre><code>label.pack()
+button.pack()</code></pre>
+
+
+    <h3>14. grid()</h3>
+
+    <p>
+      The <strong>grid()</strong> geometry manager arranges widgets
+      in rows and columns.
+    </p>
+
+    <pre><code>label.grid(row=0, column=0)
+entry.grid(row=0, column=1)
+
+button.grid(row=1, column=0)</code></pre>
+
+
+    <h3>15. place()</h3>
+
+    <p>
+      The <strong>place()</strong> geometry manager allows widgets to
+      be positioned using coordinates.
+    </p>
+
+    <pre><code>button.place(
+    x=100,
+    y=150
+)</code></pre>
+
+
+    <h3>16. Event Handling</h3>
+
+    <p>
+      GUI applications are event-driven. An event can occur when the
+      user clicks a button, presses a key, moves the mouse, or performs
+      another interaction.
+    </p>
+
+    <pre><code>import tkinter as tk
+
+def clicked():
+    label.config(text="Button was clicked!")
+
+root = tk.Tk()
+
+label = tk.Label(root, text="Click the button")
+label.pack()
+
+button = tk.Button(
+    root,
+    text="Click",
+    command=clicked
+)
+
+button.pack()
+
+root.mainloop()</code></pre>
+
+
+    <h3>17. Message Box</h3>
+
+    <p>
+      The <strong>messagebox</strong> module provides dialog boxes for
+      displaying messages, warnings, and confirmation dialogs.
+    </p>
+
+    <pre><code>import tkinter as tk
+from tkinter import messagebox
+
+root = tk.Tk()
+
+def show_message():
+    messagebox.showinfo(
+        "Message",
+        "Welcome to Python GUI!"
+    )
+
+button = tk.Button(
+    root,
+    text="Show Message",
+    command=show_message
+)
+
+button.pack()
+
+root.mainloop()</code></pre>
+
+
+    <h3>18. Checkbutton</h3>
+
+    <p>
+      A <strong>Checkbutton</strong> allows the user to select or
+      deselect an option.
+    </p>
+
+    <pre><code>import tkinter as tk
+
+root = tk.Tk()
+
+value = tk.BooleanVar()
+
+check = tk.Checkbutton(
+    root,
+    text="I agree",
+    variable=value
+)
+
+check.pack()
+
+root.mainloop()</code></pre>
+
+
+    <h3>19. Radiobutton</h3>
+
+    <p>
+      Radiobuttons are used when the user should select one option
+      from a group.
+    </p>
+
+    <pre><code>import tkinter as tk
+
+root = tk.Tk()
+
+choice = tk.StringVar(value="Python")
+
+tk.Radiobutton(
+    root,
+    text="Python",
+    variable=choice,
+    value="Python"
+).pack()
+
+tk.Radiobutton(
+    root,
+    text="Java",
+    variable=choice,
+    value="Java"
+).pack()
+
+root.mainloop()</code></pre>
+
+
+    <h3>20. Text Widget</h3>
+
+    <p>
+      The <strong>Text</strong> widget is used to enter and display
+      multiple lines of text.
+    </p>
+
+    <pre><code>import tkinter as tk
+
+root = tk.Tk()
+
+text = tk.Text(
+    root,
+    width=40,
+    height=10
+)
+
+text.pack()
+
+root.mainloop()</code></pre>
+
+
+    <h3>21. GUI Event Flow</h3>
+
+    <div class="gui-event-flow">
+
+      <div class="event-box">
+        👤
+        <strong>User</strong>
+        <span>Clicks Button</span>
+      </div>
+
+      <div class="event-arrow">→</div>
+
+      <div class="event-box">
+        ⚡
+        <strong>Event</strong>
+        <span>Click Event</span>
+      </div>
+
+      <div class="event-arrow">→</div>
+
+      <div class="event-box">
+        🐍
+        <strong>Function</strong>
+        <span>Runs Code</span>
+      </div>
+
+      <div class="event-arrow">→</div>
+
+      <div class="event-box">
+        🖥️
+        <strong>GUI</strong>
+        <span>Updates</span>
+      </div>
+
+    </div>
+
+
+    <h3>22. Simple Login GUI</h3>
+
+    <p>
+      A simple login interface can be created using labels, entry
+      fields, and a button.
+    </p>
+
+    <pre><code>import tkinter as tk
+from tkinter import messagebox
+
+def login():
+    username = username_entry.get()
+    password = password_entry.get()
+
+    if username == "admin" and password == "1234":
+        messagebox.showinfo(
+            "Login",
+            "Login successful"
+        )
+    else:
+        messagebox.showerror(
+            "Login",
+            "Invalid username or password"
+        )
+
+root = tk.Tk()
+root.title("Login")
+root.geometry("350x250")
+
+tk.Label(
+    root,
+    text="Username"
+).pack()
+
+username_entry = tk.Entry(root)
+username_entry.pack()
+
+tk.Label(
+    root,
+    text="Password"
+).pack()
+
+password_entry = tk.Entry(
+    root,
+    show="*"
+)
+
+password_entry.pack()
+
+tk.Button(
+    root,
+    text="Login",
+    command=login
+).pack(pady=15)
+
+root.mainloop()</code></pre>
+
+
+    <h3>23. GUI Application Structure</h3>
+
+    <div class="gui-architecture">
+
+      <div class="architecture-box">
+        🪟
+        <strong>Window</strong>
+        <span>Main Application</span>
+      </div>
+
+      <div class="architecture-line">↓</div>
+
+      <div class="architecture-box">
+        🧩
+        <strong>Widgets</strong>
+        <span>Label • Button • Entry</span>
+      </div>
+
+      <div class="architecture-line">↓</div>
+
+      <div class="architecture-box">
+        ⚡
+        <strong>Events</strong>
+        <span>Click • Key • Mouse</span>
+      </div>
+
+      <div class="architecture-line">↓</div>
+
+      <div class="architecture-box">
+        🐍
+        <strong>Python Logic</strong>
+        <span>Program Operations</span>
+      </div>
+
+    </div>
+
+
+    <h3>24. Advantages of GUI Development</h3>
+
+    <ul>
+      <li>Easy for users to interact with applications.</li>
+      <li>Provides visual controls and feedback.</li>
+      <li>Useful for desktop applications.</li>
+      <li>Can make applications more user-friendly.</li>
+      <li>Supports event-driven programming.</li>
+    </ul>
+
+
+    <h3>25. Limitations of GUI Development</h3>
+
+    <ul>
+      <li>GUI applications can require more code than command-line programs.</li>
+      <li>Designing a good user interface requires planning.</li>
+      <li>Different operating systems may have different UI behavior.</li>
+      <li>Complex applications may require advanced GUI frameworks.</li>
+    </ul>
+
+
+    <h3>26. GUI vs Command Line Interface</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>GUI</th>
+          <th>CLI</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Uses windows, buttons, menus, and other visual elements.</td>
+          <td>Uses text commands.</td>
+        </tr>
+
+        <tr>
+          <td>Usually easier for beginners to interact with.</td>
+          <td>Requires knowledge of commands.</td>
+        </tr>
+
+        <tr>
+          <td>Uses mouse and keyboard.</td>
+          <td>Primarily uses keyboard commands.</td>
+        </tr>
+
+        <tr>
+          <td>Common in desktop applications.</td>
+          <td>Common in terminals and command-line tools.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>27. Important GUI Concepts</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Window</td>
+          <td>Main area of a GUI application.</td>
+        </tr>
+
+        <tr>
+          <td>Widget</td>
+          <td>Visual component such as a button or label.</td>
+        </tr>
+
+        <tr>
+          <td>Event</td>
+          <td>User or system action that triggers program behavior.</td>
+        </tr>
+
+        <tr>
+          <td>Callback</td>
+          <td>Function executed in response to an event.</td>
+        </tr>
+
+        <tr>
+          <td>Layout Manager</td>
+          <td>Controls the position of widgets.</td>
+        </tr>
+
+        <tr>
+          <td>mainloop()</td>
+          <td>Runs the GUI event loop.</td>
+        </tr>
+
+        <tr>
+          <td>Tkinter</td>
+          <td>Python's standard GUI toolkit.</td>
+        </tr>
+      </tbody>
+    </table>
+    `
+  ],
+
+  practice: [
+    'Create a basic Tkinter window.',
+    'Add a label and a button to the window.',
+    'Create an Entry field and display the entered text.',
+    'Practice the pack(), grid(), and place() layout managers.',
+    'Create a GUI with multiple buttons.',
+    'Use a Checkbutton and Radiobutton.',
+    'Display a message using messagebox.',
+    'Create a simple calculator GUI.',
+    'Create a simple login GUI.',
+    'Build a small desktop application using Tkinter.'
+  ],
+
+  code: `import tkinter as tk
+from tkinter import messagebox
+
+def greet():
+    name = entry.get()
+
+    if name:
+        messagebox.showinfo(
+            "Greeting",
+            f"Hello, {name}!"
+        )
+    else:
+        messagebox.showwarning(
+            "Warning",
+            "Please enter your name."
+        )
+
+root = tk.Tk()
+
+root.title("Python GUI")
+root.geometry("400x250")
+
+label = tk.Label(
+    root,
+    text="Enter your name"
+)
+
+label.pack(pady=15)
+
+entry = tk.Entry(root)
+entry.pack()
+
+button = tk.Button(
+    root,
+    text="Greet",
+    command=greet
+)
+
+button.pack(pady=20)
+
+root.mainloop()`
+},
   {
-    key: 'data-analysis',
-    title: 'Data Analysis',
-    description: 'NumPy and Pandas are used for analyzing and manipulating data.',
-    theory: [
-      'NumPy provides arrays and fast numerical operations.',
-      'Pandas provides DataFrame structures for tabular data.'
-    ],
-    practice: [
-      'Inspect how data is stored in a DataFrame.',
-      'Use Pandas to read and analyze data.'
-    ],
-    code: `print("NumPy and Pandas are used for data analysis.")`
-  },
+  key: 'data-analysis',
+  title: 'Data Analysis',
+  description: 'Data analysis is the process of collecting, cleaning, transforming, exploring, and interpreting data to find useful information and support decision-making. Python provides powerful libraries such as NumPy, Pandas, and Matplotlib for working with and analyzing data.',
+
+  theory: [
+    `
+    <h3>1. What is Data Analysis?</h3>
+
+    <p>
+      <strong>Data Analysis</strong> is the process of examining,
+      cleaning, transforming, and interpreting data to discover useful
+      information, patterns, and relationships.
+    </p>
+
+    <div class="data-analysis-flow">
+
+      <div class="analysis-box">
+        📥
+        <strong>Collect</strong>
+        <span>Gather Data</span>
+      </div>
+
+      <div class="analysis-arrow">→</div>
+
+      <div class="analysis-box">
+        🧹
+        <strong>Clean</strong>
+        <span>Fix Data</span>
+      </div>
+
+      <div class="analysis-arrow">→</div>
+
+      <div class="analysis-box">
+        🔍
+        <strong>Analyze</strong>
+        <span>Find Patterns</span>
+      </div>
+
+      <div class="analysis-arrow">→</div>
+
+      <div class="analysis-box">
+        📊
+        <strong>Visualize</strong>
+        <span>Show Results</span>
+      </div>
+
+      <div class="analysis-arrow">→</div>
+
+      <div class="analysis-box">
+        💡
+        <strong>Insights</strong>
+        <span>Make Decisions</span>
+      </div>
+
+    </div>
+
+
+    <h3>2. Data Analysis with Python</h3>
+
+    <p>
+      Python is widely used for data analysis because it provides
+      libraries that make it easier to work with numerical, tabular,
+      and visual data.
+    </p>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Library</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>NumPy</td>
+          <td>Numerical computing and multidimensional arrays.</td>
+        </tr>
+
+        <tr>
+          <td>Pandas</td>
+          <td>Data manipulation and analysis using Series and DataFrame.</td>
+        </tr>
+
+        <tr>
+          <td>Matplotlib</td>
+          <td>Creating charts and visualizations.</td>
+        </tr>
+
+        <tr>
+          <td>Seaborn</td>
+          <td>Statistical data visualization.</td>
+        </tr>
+
+        <tr>
+          <td>SciPy</td>
+          <td>Scientific and statistical computing.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>3. Installing Data Analysis Libraries</h3>
+
+    <pre><code>pip install numpy pandas matplotlib seaborn</code></pre>
+
+
+    <h3>4. NumPy</h3>
+
+    <p>
+      <strong>NumPy</strong> is a Python library used for numerical
+      computing. It provides efficient multidimensional arrays and
+      mathematical operations.
+    </p>
+
+    <pre><code>import numpy as np
+
+numbers = np.array([10, 20, 30, 40, 50])
+
+print(numbers)
+print(numbers.mean())</code></pre>
+
+
+    <h3>5. NumPy Array</h3>
+
+    <p>
+      A NumPy array stores elements in a structured multidimensional
+      format and supports fast numerical operations.
+    </p>
+
+    <pre><code>import numpy as np
+
+data = np.array([
+    [10, 20],
+    [30, 40]
+])
+
+print(data)
+print(data.shape)</code></pre>
+
+
+    <h3>6. Pandas</h3>
+
+    <p>
+      <strong>Pandas</strong> is one of the most commonly used Python
+      libraries for data analysis. It provides powerful data structures
+      such as Series and DataFrame.
+    </p>
+
+
+    <h3>7. Pandas Series</h3>
+
+    <p>
+      A <strong>Series</strong> is a one-dimensional labeled data
+      structure.
+    </p>
+
+    <pre><code>import pandas as pd
+
+marks = pd.Series([
+    75, 82, 91, 68
+])
+
+print(marks)</code></pre>
+
+
+    <h3>8. Pandas DataFrame</h3>
+
+    <p>
+      A <strong>DataFrame</strong> is a two-dimensional tabular data
+      structure consisting of rows and columns.
+    </p>
+
+    <div class="dataframe-figure">
+
+      <div class="dataframe-title">
+        Student Data
+      </div>
+
+      <div class="dataframe-row header">
+        <span>Name</span>
+        <span>Age</span>
+        <span>Marks</span>
+      </div>
+
+      <div class="dataframe-row">
+        <span>Aman</span>
+        <span>20</span>
+        <span>85</span>
+      </div>
+
+      <div class="dataframe-row">
+        <span>Riya</span>
+        <span>21</span>
+        <span>91</span>
+      </div>
+
+      <div class="dataframe-row">
+        <span>Rahul</span>
+        <span>20</span>
+        <span>76</span>
+      </div>
+
+    </div>
+
+    <pre><code>import pandas as pd
+
+data = {
+    "Name": ["Aman", "Riya", "Rahul"],
+    "Age": [20, 21, 20],
+    "Marks": [85, 91, 76]
+}
+
+df = pd.DataFrame(data)
+
+print(df)</code></pre>
+
+
+    <h3>9. Reading CSV Files</h3>
+
+    <p>
+      Pandas can read data from CSV files using
+      <strong>read_csv()</strong>.
+    </p>
+
+    <pre><code>import pandas as pd
+
+df = pd.read_csv("students.csv")
+
+print(df)</code></pre>
+
+
+    <h3>10. Reading Excel Files</h3>
+
+    <p>
+      Pandas can also be used to read Excel files.
+    </p>
+
+    <pre><code>import pandas as pd
+
+df = pd.read_excel("students.xlsx")
+
+print(df)</code></pre>
+
+
+    <h3>11. Viewing Data</h3>
+
+    <p>
+      Pandas provides methods such as <strong>head()</strong>,
+      <strong>tail()</strong>, and <strong>sample()</strong> to inspect
+      data.
+    </p>
+
+    <pre><code>print(df.head())
+print(df.tail())
+print(df.sample(3))</code></pre>
+
+
+    <h3>12. Understanding Data</h3>
+
+    <p>
+      The <strong>info()</strong> and <strong>describe()</strong>
+      methods provide useful information about a DataFrame.
+    </p>
+
+    <pre><code>print(df.info())
+print(df.describe())</code></pre>
+
+
+    <h3>13. Selecting Columns</h3>
+
+    <pre><code>names = df["Name"]
+
+marks = df["Marks"]
+
+print(names)
+print(marks)</code></pre>
+
+
+    <h3>14. Selecting Multiple Columns</h3>
+
+    <pre><code>selected = df[
+    ["Name", "Marks"]
+]
+
+print(selected)</code></pre>
+
+
+    <h3>15. Filtering Data</h3>
+
+    <p>
+      Data can be filtered using conditions.
+    </p>
+
+    <pre><code>high_marks = df[
+    df["Marks"] >= 80
+]
+
+print(high_marks)</code></pre>
+
+
+    <h3>16. Sorting Data</h3>
+
+    <p>
+      The <strong>sort_values()</strong> method sorts data according to
+      one or more columns.
+    </p>
+
+    <pre><code>sorted_data = df.sort_values(
+    "Marks",
+    ascending=False
+)
+
+print(sorted_data)</code></pre>
+
+
+    <h3>17. Adding a Column</h3>
+
+    <pre><code>df["Passed"] = df["Marks"] >= 40
+
+print(df)</code></pre>
+
+
+    <h3>18. Removing a Column</h3>
+
+    <pre><code>df = df.drop(
+    columns=["Passed"]
+)
+
+print(df)</code></pre>
+
+
+    <h3>19. Missing Data</h3>
+
+    <p>
+      Real-world datasets may contain missing values. Pandas provides
+      methods such as <strong>isnull()</strong>, <strong>dropna()</strong>,
+      and <strong>fillna()</strong> for handling them.
+    </p>
+
+    <pre><code>print(df.isnull())
+
+df = df.dropna()
+
+df = df.fillna(0)</code></pre>
+
+
+    <h3>20. Removing Duplicate Data</h3>
+
+    <pre><code>df = df.drop_duplicates()
+
+print(df)</code></pre>
+
+
+    <h3>21. Grouping Data</h3>
+
+    <p>
+      The <strong>groupby()</strong> method is used to group data based
+      on one or more columns.
+    </p>
+
+    <pre><code>result = df.groupby(
+    "Department"
+)["Marks"].mean()
+
+print(result)</code></pre>
+
+
+    <h3>22. Basic Statistical Analysis</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>mean()</td>
+          <td>Calculates the average.</td>
+        </tr>
+
+        <tr>
+          <td>median()</td>
+          <td>Finds the middle value.</td>
+        </tr>
+
+        <tr>
+          <td>mode()</td>
+          <td>Finds the most frequently occurring value.</td>
+        </tr>
+
+        <tr>
+          <td>min()</td>
+          <td>Finds the minimum value.</td>
+        </tr>
+
+        <tr>
+          <td>max()</td>
+          <td>Finds the maximum value.</td>
+        </tr>
+
+        <tr>
+          <td>sum()</td>
+          <td>Calculates the total.</td>
+        </tr>
+
+        <tr>
+          <td>std()</td>
+          <td>Calculates standard deviation.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>23. Calculating Statistics</h3>
+
+    <pre><code>print(df["Marks"].mean())
+print(df["Marks"].median())
+print(df["Marks"].min())
+print(df["Marks"].max())
+print(df["Marks"].sum())</code></pre>
+
+
+    <h3>24. Data Visualization</h3>
+
+    <p>
+      Data visualization represents information using charts and graphs.
+      It makes patterns, trends, and comparisons easier to understand.
+    </p>
+
+    <div class="chart-types-figure">
+
+      <div class="chart-card">
+        📊
+        <strong>Bar Chart</strong>
+        <span>Compare values</span>
+      </div>
+
+      <div class="chart-card">
+        📈
+        <strong>Line Chart</strong>
+        <span>Show trends</span>
+      </div>
+
+      <div class="chart-card">
+        🥧
+        <strong>Pie Chart</strong>
+        <span>Show proportions</span>
+      </div>
+
+      <div class="chart-card">
+        🔵
+        <strong>Scatter Plot</strong>
+        <span>Show relationships</span>
+      </div>
+
+    </div>
+
+
+    <h3>25. Matplotlib</h3>
+
+    <p>
+      <strong>Matplotlib</strong> is a popular Python library for
+      creating charts and graphs.
+    </p>
+
+    <pre><code>import matplotlib.pyplot as plt
+
+names = ["Aman", "Riya", "Rahul"]
+marks = [85, 91, 76]
+
+plt.bar(names, marks)
+
+plt.title("Student Marks")
+plt.xlabel("Students")
+plt.ylabel("Marks")
+
+plt.show()</code></pre>
+
+
+    <h3>26. Line Chart</h3>
+
+    <pre><code>import matplotlib.pyplot as plt
+
+months = ["Jan", "Feb", "Mar", "Apr"]
+sales = [100, 150, 130, 180]
+
+plt.plot(months, sales)
+
+plt.title("Monthly Sales")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+
+plt.show()</code></pre>
+
+
+    <h3>27. Histogram</h3>
+
+    <p>
+      A histogram shows the distribution of numerical data.
+    </p>
+
+    <pre><code>import matplotlib.pyplot as plt
+
+marks = [45, 50, 55, 60, 65, 70, 75, 80, 85, 90]
+
+plt.hist(marks)
+
+plt.title("Marks Distribution")
+plt.xlabel("Marks")
+plt.ylabel("Frequency")
+
+plt.show()</code></pre>
+
+
+    <h3>28. Correlation</h3>
+
+    <p>
+      <strong>Correlation</strong> describes the relationship between
+      two numerical variables.
+    </p>
+
+    <pre><code>correlation = df[
+    ["Age", "Marks"]
+].corr()
+
+print(correlation)</code></pre>
+
+
+    <h3>29. Data Analysis Workflow</h3>
+
+    <div class="analysis-workflow">
+
+      <div class="workflow-analysis-box">
+        <span>1</span>
+        <strong>Collect</strong>
+        <small>Obtain Dataset</small>
+      </div>
+
+      <div class="workflow-analysis-arrow">→</div>
+
+      <div class="workflow-analysis-box">
+        <span>2</span>
+        <strong>Clean</strong>
+        <small>Fix Missing Data</small>
+      </div>
+
+      <div class="workflow-analysis-arrow">→</div>
+
+      <div class="workflow-analysis-box">
+        <span>3</span>
+        <strong>Explore</strong>
+        <small>Understand Data</small>
+      </div>
+
+      <div class="workflow-analysis-arrow">→</div>
+
+      <div class="workflow-analysis-box">
+        <span>4</span>
+        <strong>Analyze</strong>
+        <small>Find Patterns</small>
+      </div>
+
+      <div class="workflow-analysis-arrow">→</div>
+
+      <div class="workflow-analysis-box">
+        <span>5</span>
+        <strong>Visualize</strong>
+        <small>Show Results</small>
+      </div>
+
+    </div>
+
+
+    <h3>30. Exporting Data</h3>
+
+    <p>
+      After processing data, a DataFrame can be exported to formats
+      such as CSV and Excel.
+    </p>
+
+    <pre><code>df.to_csv(
+    "cleaned_data.csv",
+    index=False
+)
+
+df.to_excel(
+    "cleaned_data.xlsx",
+    index=False
+)</code></pre>
+
+
+    <h3>31. Data Cleaning</h3>
+
+    <p>
+      Data cleaning is the process of detecting and correcting
+      inaccurate, incomplete, duplicated, or inconsistent data.
+    </p>
+
+    <ul>
+      <li>Handle missing values.</li>
+      <li>Remove duplicate records.</li>
+      <li>Correct incorrect data types.</li>
+      <li>Standardize inconsistent values.</li>
+      <li>Remove unnecessary data.</li>
+    </ul>
+
+
+    <h3>32. Advantages of Python for Data Analysis</h3>
+
+    <ul>
+      <li>Easy-to-understand syntax.</li>
+      <li>Large ecosystem of data science libraries.</li>
+      <li>Powerful DataFrame and numerical tools.</li>
+      <li>Excellent visualization support.</li>
+      <li>Can work with CSV, Excel, JSON, SQL, and other data sources.</li>
+    </ul>
+
+
+    <h3>33. Important Data Analysis Concepts</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>NumPy</td>
+          <td>Numerical computing and arrays.</td>
+        </tr>
+
+        <tr>
+          <td>Pandas</td>
+          <td>Data manipulation and analysis.</td>
+        </tr>
+
+        <tr>
+          <td>DataFrame</td>
+          <td>Two-dimensional tabular data structure.</td>
+        </tr>
+
+        <tr>
+          <td>Series</td>
+          <td>One-dimensional labeled data structure.</td>
+        </tr>
+
+        <tr>
+          <td>Data Cleaning</td>
+          <td>Improves data quality and consistency.</td>
+        </tr>
+
+        <tr>
+          <td>Filtering</td>
+          <td>Selects records based on conditions.</td>
+        </tr>
+
+        <tr>
+          <td>Grouping</td>
+          <td>Organizes data into groups for analysis.</td>
+        </tr>
+
+        <tr>
+          <td>Visualization</td>
+          <td>Represents data using charts and graphs.</td>
+        </tr>
+
+        <tr>
+          <td>Correlation</td>
+          <td>Measures the relationship between variables.</td>
+        </tr>
+      </tbody>
+    </table>
+    `
+  ],
+
+  practice: [
+    'Install NumPy, Pandas, and Matplotlib using pip.',
+    'Create a NumPy array and perform mathematical operations.',
+    'Create a Pandas Series and DataFrame.',
+    'Read a CSV file using Pandas.',
+    'Display the first and last records of a dataset.',
+    'Filter data using conditions.',
+    'Sort a DataFrame by a column.',
+    'Find and handle missing values.',
+    'Remove duplicate records.',
+    'Calculate mean, median, minimum, and maximum values.',
+    'Group data using groupby().',
+    'Create a bar chart using Matplotlib.',
+    'Create a line chart and histogram.',
+    'Clean a dataset and export the result to a CSV file.'
+  ],
+
+  code: `import pandas as pd
+import matplotlib.pyplot as plt
+
+# Create sample data
+data = {
+    "Name": ["Aman", "Riya", "Rahul", "Neha"],
+    "Marks": [85, 92, 76, 88]
+}
+
+df = pd.DataFrame(data)
+
+# Display data
+print(df)
+
+# Basic analysis
+print("Average:", df["Marks"].mean())
+print("Highest:", df["Marks"].max())
+print("Lowest:", df["Marks"].min())
+
+# Filter data
+high_marks = df[df["Marks"] >= 80]
+
+print("\\nStudents with marks >= 80:")
+print(high_marks)
+
+# Visualization
+plt.bar(
+    df["Name"],
+    df["Marks"]
+)
+
+plt.title("Student Marks")
+plt.xlabel("Student")
+plt.ylabel("Marks")
+
+plt.show()`
+},
   {
-    key: 'data-visualization',
-    title: 'Data Visualization',
-    description: 'Matplotlib and Seaborn create charts and graphs for data.',
-    theory: [
-      'Matplotlib makes basic plots and Seaborn adds statistical charts.',
-      'Visualization helps reveal patterns in data.'
-    ],
-    practice: [
-      'Plot sample data using Matplotlib.',
-      'Customize labels and titles.'
-    ],
-    code: `print("Use Matplotlib and Seaborn for visualization.")`
-  },
+  key: 'machine-learning',
+  title: 'Machine Learning',
+  description: 'Machine Learning is a branch of Artificial Intelligence that enables computers to learn patterns from data and make predictions or decisions without being explicitly programmed for every task. Python provides powerful libraries such as NumPy, Pandas, Matplotlib, and Scikit-learn for building machine learning applications.',
+
+  theory: [
+    `
+    <h3>1. What is Machine Learning?</h3>
+
+    <p>
+      <strong>Machine Learning (ML)</strong> is a branch of Artificial
+      Intelligence that allows computers to learn patterns from data
+      and use those patterns to make predictions or decisions.
+    </p>
+
+    <p>
+      Instead of writing separate rules for every situation, a machine
+      learning system learns from examples and improves its performance
+      based on data.
+    </p>
+
+    <div class="ml-flow">
+
+      <div class="ml-box">
+        📊
+        <strong>Data</strong>
+        <span>Training Examples</span>
+      </div>
+
+      <div class="ml-arrow">→</div>
+
+      <div class="ml-box">
+        ⚙️
+        <strong>Algorithm</strong>
+        <span>Learning Process</span>
+      </div>
+
+      <div class="ml-arrow">→</div>
+
+      <div class="ml-box">
+        🧠
+        <strong>Model</strong>
+        <span>Learned Pattern</span>
+      </div>
+
+      <div class="ml-arrow">→</div>
+
+      <div class="ml-box">
+        🔮
+        <strong>Prediction</strong>
+        <span>New Result</span>
+      </div>
+
+    </div>
+
+
+    <h3>2. Machine Learning vs Traditional Programming</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Traditional Programming</th>
+          <th>Machine Learning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Rules + Data → Output</td>
+          <td>Data + Output → Learned Model</td>
+        </tr>
+
+        <tr>
+          <td>Programmer defines the rules.</td>
+          <td>Algorithm learns patterns from data.</td>
+        </tr>
+
+        <tr>
+          <td>Rules are explicitly written.</td>
+          <td>Rules are learned from examples.</td>
+        </tr>
+
+        <tr>
+          <td>Suitable for well-defined problems.</td>
+          <td>Useful when patterns are difficult to define manually.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>3. Types of Machine Learning</h3>
+
+    <div class="ml-types">
+
+      <div class="ml-type-card">
+        🎯
+        <strong>Supervised Learning</strong>
+        <span>Uses labeled data</span>
+      </div>
+
+      <div class="ml-type-card">
+        🔍
+        <strong>Unsupervised Learning</strong>
+        <span>Finds patterns in data</span>
+      </div>
+
+      <div class="ml-type-card">
+        🤖
+        <strong>Reinforcement Learning</strong>
+        <span>Learns through rewards</span>
+      </div>
+
+    </div>
+
+
+    <h3>4. Supervised Learning</h3>
+
+    <p>
+      <strong>Supervised Learning</strong> uses a dataset where the
+      correct output or target is already known. The model learns the
+      relationship between input features and the target.
+    </p>
+
+    <p>
+      Common supervised learning tasks include
+      <strong>classification</strong> and <strong>regression</strong>.
+    </p>
+
+    <pre><code>Input Data
+     ↓
+Features + Labels
+     ↓
+Training Algorithm
+     ↓
+Machine Learning Model
+     ↓
+Prediction</code></pre>
+
+
+    <h3>5. Unsupervised Learning</h3>
+
+    <p>
+      <strong>Unsupervised Learning</strong> works with data that does
+      not contain predefined labels. The algorithm tries to discover
+      hidden patterns, structures, or groups within the data.
+    </p>
+
+    <p>
+      <strong>Clustering</strong> is one of the common unsupervised
+      learning techniques.
+    </p>
+
+
+    <h3>6. Reinforcement Learning</h3>
+
+    <p>
+      <strong>Reinforcement Learning</strong> is a type of machine
+      learning in which an agent learns by interacting with an
+      environment.
+    </p>
+
+    <div class="reinforcement-flow">
+
+      <div class="rl-box">
+        🤖
+        <strong>Agent</strong>
+      </div>
+
+      <div class="rl-arrow">→</div>
+
+      <div class="rl-box">
+        🌍
+        <strong>Environment</strong>
+      </div>
+
+      <div class="rl-arrow">→</div>
+
+      <div class="rl-box">
+        🎯
+        <strong>Action</strong>
+      </div>
+
+      <div class="rl-arrow">→</div>
+
+      <div class="rl-box">
+        ⭐
+        <strong>Reward</strong>
+      </div>
+
+    </div>
+
+
+    <h3>7. Dataset</h3>
+
+    <p>
+      A <strong>dataset</strong> is a collection of data used for
+      analysis and machine learning. A dataset may contain rows
+      representing records and columns representing features.
+    </p>
+
+    <div class="ml-dataset">
+
+      <div class="ml-dataset-row header">
+        <span>Hours</span>
+        <span>Attendance</span>
+        <span>Marks</span>
+      </div>
+
+      <div class="ml-dataset-row">
+        <span>5</span>
+        <span>90%</span>
+        <span>85</span>
+      </div>
+
+      <div class="ml-dataset-row">
+        <span>3</span>
+        <span>75%</span>
+        <span>68</span>
+      </div>
+
+      <div class="ml-dataset-row">
+        <span>7</span>
+        <span>95%</span>
+        <span>92</span>
+      </div>
+
+    </div>
+
+
+    <h3>8. Features and Labels</h3>
+
+    <p>
+      <strong>Features</strong> are input variables used by a machine
+      learning model. A <strong>label</strong> is the target value that
+      the model tries to predict in supervised learning.
+    </p>
+
+    <pre><code>Features:
+Hours Studied
+Attendance
+
+Label:
+Marks</code></pre>
+
+
+    <h3>9. Training and Testing Data</h3>
+
+    <p>
+      A dataset is commonly divided into training and testing portions.
+      The training data is used to learn the model, while testing data
+      is used to evaluate how well the model performs on unseen data.
+    </p>
+
+    <div class="train-test-flow">
+
+      <div class="dataset-part">
+        📊
+        <strong>Complete Dataset</strong>
+      </div>
+
+      <div class="train-test-arrow">→</div>
+
+      <div class="dataset-part training">
+        ⚙️
+        <strong>Training Data</strong>
+        <span>Learn Model</span>
+      </div>
+
+      <div class="dataset-part testing">
+        🧪
+        <strong>Testing Data</strong>
+        <span>Evaluate Model</span>
+      </div>
+
+    </div>
+
+
+    <h3>10. Scikit-learn</h3>
+
+    <p>
+      <strong>Scikit-learn</strong> is a popular Python library for
+      machine learning. It provides algorithms and tools for
+      classification, regression, clustering, preprocessing, and model
+      evaluation.
+    </p>
+
+    <pre><code>pip install scikit-learn</code></pre>
+
+
+    <h3>11. Machine Learning Workflow</h3>
+
+    <div class="ml-workflow">
+
+      <div class="workflow-ml-box">
+        <span>1</span>
+        <strong>Collect Data</strong>
+      </div>
+
+      <div class="workflow-ml-arrow">→</div>
+
+      <div class="workflow-ml-box">
+        <span>2</span>
+        <strong>Clean Data</strong>
+      </div>
+
+      <div class="workflow-ml-arrow">→</div>
+
+      <div class="workflow-ml-box">
+        <span>3</span>
+        <strong>Split Data</strong>
+      </div>
+
+      <div class="workflow-ml-arrow">→</div>
+
+      <div class="workflow-ml-box">
+        <span>4</span>
+        <strong>Train Model</strong>
+      </div>
+
+      <div class="workflow-ml-arrow">→</div>
+
+      <div class="workflow-ml-box">
+        <span>5</span>
+        <strong>Evaluate</strong>
+      </div>
+
+      <div class="workflow-ml-arrow">→</div>
+
+      <div class="workflow-ml-box">
+        <span>6</span>
+        <strong>Predict</strong>
+      </div>
+
+    </div>
+
+
+    <h3>12. Data Preprocessing</h3>
+
+    <p>
+      <strong>Data preprocessing</strong> prepares raw data before it
+      is provided to a machine learning algorithm.
+    </p>
+
+    <ul>
+      <li>Handling missing values.</li>
+      <li>Removing duplicate records.</li>
+      <li>Encoding categorical data.</li>
+      <li>Scaling numerical features.</li>
+      <li>Splitting data into training and testing sets.</li>
+    </ul>
+
+
+    <h3>13. Linear Regression</h3>
+
+    <p>
+      <strong>Linear Regression</strong> is a supervised learning
+      algorithm used to predict a continuous numerical value.
+    </p>
+
+    <p>
+      For example, it can be used to predict house prices based on
+      area or predict marks based on study hours.
+    </p>
+
+    <pre><code>from sklearn.linear_model import LinearRegression
+
+model = LinearRegression()
+
+model.fit(X_train, y_train)
+
+prediction = model.predict(X_test)
+
+print(prediction)</code></pre>
+
+
+    <h3>14. Classification</h3>
+
+    <p>
+      <strong>Classification</strong> is used when the output belongs
+      to a specific category or class.
+    </p>
+
+    <p>
+      Examples include spam detection, disease classification,
+      sentiment classification, and image classification.
+    </p>
+
+
+    <h3>15. Logistic Regression</h3>
+
+    <p>
+      <strong>Logistic Regression</strong> is commonly used for
+      classification problems where the output represents categories.
+    </p>
+
+    <pre><code>from sklearn.linear_model import LogisticRegression
+
+model = LogisticRegression()
+
+model.fit(X_train, y_train)
+
+prediction = model.predict(X_test)
+
+print(prediction)</code></pre>
+
+
+    <h3>16. Decision Tree</h3>
+
+    <p>
+      A <strong>Decision Tree</strong> uses a tree-like structure of
+      decisions to make predictions.
+    </p>
+
+    <pre><code>from sklearn.tree import DecisionTreeClassifier
+
+model = DecisionTreeClassifier()
+
+model.fit(X_train, y_train)
+
+prediction = model.predict(X_test)
+
+print(prediction)</code></pre>
+
+
+    <h3>17. K-Nearest Neighbors</h3>
+
+    <p>
+      <strong>K-Nearest Neighbors (KNN)</strong> predicts the class
+      of a data point based on the classes of nearby data points.
+    </p>
+
+    <pre><code>from sklearn.neighbors import KNeighborsClassifier
+
+model = KNeighborsClassifier(
+    n_neighbors=3
+)
+
+model.fit(X_train, y_train)
+
+prediction = model.predict(X_test)
+
+print(prediction)</code></pre>
+
+
+    <h3>18. Clustering</h3>
+
+    <p>
+      <strong>Clustering</strong> is an unsupervised learning technique
+      used to group similar data points together.
+    </p>
+
+    <pre><code>from sklearn.cluster import KMeans
+
+model = KMeans(
+    n_clusters=3,
+    random_state=42
+)
+
+model.fit(X)
+
+labels = model.labels_
+
+print(labels)</code></pre>
+
+
+    <h3>19. Model Prediction</h3>
+
+    <p>
+      After training, a machine learning model can be used to predict
+      results for new or unseen data.
+    </p>
+
+    <pre><code>model.fit(X_train, y_train)
+
+prediction = model.predict(X_test)
+
+print(prediction)</code></pre>
+
+
+    <h3>20. Model Evaluation</h3>
+
+    <p>
+      Model evaluation measures how well a machine learning model
+      performs on data that it has not seen during training.
+    </p>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Accuracy</td>
+          <td>Measures the proportion of correct predictions.</td>
+        </tr>
+
+        <tr>
+          <td>Precision</td>
+          <td>Measures how many predicted positive cases are actually positive.</td>
+        </tr>
+
+        <tr>
+          <td>Recall</td>
+          <td>Measures how many actual positive cases were correctly identified.</td>
+        </tr>
+
+        <tr>
+          <td>F1 Score</td>
+          <td>Combines precision and recall into a single metric.</td>
+        </tr>
+
+        <tr>
+          <td>Mean Squared Error</td>
+          <td>Measures average squared error for regression models.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>21. Accuracy Score</h3>
+
+    <pre><code>from sklearn.metrics import accuracy_score
+
+accuracy = accuracy_score(
+    y_test,
+    prediction
+)
+
+print("Accuracy:", accuracy)</code></pre>
+
+
+    <h3>22. Overfitting</h3>
+
+    <p>
+      <strong>Overfitting</strong> occurs when a model learns the
+      training data too closely, including noise, and performs poorly
+      on new data.
+    </p>
+
+    <div class="ml-comparison">
+
+      <div class="model-state">
+        🎯
+        <strong>Good Fit</strong>
+        <span>Works well on training and new data</span>
+      </div>
+
+      <div class="model-state">
+        ⚠️
+        <strong>Overfitting</strong>
+        <span>Excellent training performance but poor new-data performance</span>
+      </div>
+
+      <div class="model-state">
+        📉
+        <strong>Underfitting</strong>
+        <span>Model is too simple to learn the pattern</span>
+      </div>
+
+    </div>
+
+
+    <h3>23. Underfitting</h3>
+
+    <p>
+      <strong>Underfitting</strong> occurs when a model is too simple
+      to capture the important patterns in the training data.
+    </p>
+
+
+    <h3>24. Model Performance</h3>
+
+    <p>
+      A good machine learning model should generalize well to unseen
+      data instead of simply memorizing the training dataset.
+    </p>
+
+
+    <h3>25. Common Machine Learning Algorithms</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Algorithm</th>
+          <th>Common Use</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Linear Regression</td>
+          <td>Predicting continuous values.</td>
+        </tr>
+
+        <tr>
+          <td>Logistic Regression</td>
+          <td>Classification problems.</td>
+        </tr>
+
+        <tr>
+          <td>Decision Tree</td>
+          <td>Classification and regression.</td>
+        </tr>
+
+        <tr>
+          <td>KNN</td>
+          <td>Classification and prediction based on nearby data.</td>
+        </tr>
+
+        <tr>
+          <td>K-Means</td>
+          <td>Clustering similar data points.</td>
+        </tr>
+
+        <tr>
+          <td>Random Forest</td>
+          <td>Classification and regression using multiple trees.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>26. Applications of Machine Learning</h3>
+
+    <ul>
+      <li>Recommendation systems.</li>
+      <li>Spam email detection.</li>
+      <li>Fraud detection.</li>
+      <li>Image and object recognition.</li>
+      <li>Speech recognition.</li>
+      <li>Customer segmentation.</li>
+      <li>Price prediction.</li>
+      <li>Predictive analytics.</li>
+      <li>Search and ranking systems.</li>
+    </ul>
+
+
+    <h3>27. Important Machine Learning Concepts</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Dataset</td>
+          <td>Collection of data used by a machine learning system.</td>
+        </tr>
+
+        <tr>
+          <td>Feature</td>
+          <td>Input variable used to make predictions.</td>
+        </tr>
+
+        <tr>
+          <td>Label</td>
+          <td>Target value in supervised learning.</td>
+        </tr>
+
+        <tr>
+          <td>Model</td>
+          <td>Learned representation of patterns in data.</td>
+        </tr>
+
+        <tr>
+          <td>Training</td>
+          <td>Process of learning from training data.</td>
+        </tr>
+
+        <tr>
+          <td>Testing</td>
+          <td>Process of evaluating a model on unseen data.</td>
+        </tr>
+
+        <tr>
+          <td>Prediction</td>
+          <td>Output generated by a trained model.</td>
+        </tr>
+
+        <tr>
+          <td>Overfitting</td>
+          <td>Model performs well on training data but poorly on new data.</td>
+        </tr>
+
+        <tr>
+          <td>Underfitting</td>
+          <td>Model is too simple to learn important patterns.</td>
+        </tr>
+      </tbody>
+    </table>
+    `
+  ],
+
+  practice: [
+    'Install Scikit-learn using pip.',
+    'Create a simple dataset using Pandas.',
+    'Separate features and labels.',
+    'Split a dataset into training and testing data.',
+    'Train a Linear Regression model.',
+    'Create a classification model using Logistic Regression.',
+    'Build a Decision Tree classifier.',
+    'Practice K-Nearest Neighbors.',
+    'Create a K-Means clustering model.',
+    'Calculate model accuracy.',
+    'Practice handling missing data before training.',
+    'Compare training and testing performance.',
+    'Identify examples of overfitting and underfitting.',
+    'Build a small machine learning prediction project.'
+  ],
+
+  code: `import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+
+# Sample dataset
+data = {
+    "Hours": [1, 2, 3, 4, 5, 6],
+    "Marks": [40, 45, 55, 65, 75, 85]
+}
+
+df = pd.DataFrame(data)
+
+# Features and target
+X = df[["Hours"]]
+y = df["Marks"]
+
+# Split data
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42
+)
+
+# Create and train model
+model = LinearRegression()
+
+model.fit(
+    X_train,
+    y_train
+)
+
+# Prediction
+prediction = model.predict(X_test)
+
+print("Prediction:", prediction)
+
+# Evaluation
+error = mean_squared_error(
+    y_test,
+    prediction
+)
+
+print("Mean Squared Error:", error)`
+},
   {
-    key: 'machine-learning',
-    title: 'Machine Learning',
-    description: 'Scikit-learn provides tools for building and evaluating models.',
-    theory: [
-      'Machine learning includes classification, regression, and clustering.',
-      'Scikit-learn makes model training and evaluation easier.'
-    ],
-    practice: [
-      'Prepare data for a model.',
-      'Train a simple machine learning model.'
-    ],
-    code: `print("Use scikit-learn for basic machine learning.")`
-  },
+  key: 'deep-learning',
+  title: 'Deep Learning',
+  description: 'Deep Learning is a subset of Machine Learning that uses artificial neural networks with multiple layers to learn complex patterns from large amounts of data. It is widely used in image recognition, natural language processing, speech recognition, computer vision, and many other AI applications.',
+
+  theory: [
+    `
+    <h3>1. What is Deep Learning?</h3>
+
+    <p>
+      <strong>Deep Learning</strong> is a branch of Machine Learning
+      that uses artificial neural networks with multiple layers to
+      automatically learn complex patterns from data.
+    </p>
+
+    <p>
+      Deep Learning is especially useful for large and complex
+      datasets such as images, audio, video, and text.
+    </p>
+
+    <div class="deep-learning-flow">
+
+      <div class="dl-box">
+        📊
+        <strong>Input Data</strong>
+        <span>Images, Text, Audio</span>
+      </div>
+
+      <div class="dl-arrow">→</div>
+
+      <div class="dl-box">
+        🧠
+        <strong>Neural Network</strong>
+        <span>Multiple Layers</span>
+      </div>
+
+      <div class="dl-arrow">→</div>
+
+      <div class="dl-box">
+        ⚙️
+        <strong>Learning</strong>
+        <span>Pattern Detection</span>
+      </div>
+
+      <div class="dl-arrow">→</div>
+
+      <div class="dl-box">
+        🎯
+        <strong>Output</strong>
+        <span>Prediction</span>
+      </div>
+
+    </div>
+
+
+    <h3>2. Machine Learning vs Deep Learning</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Machine Learning</th>
+          <th>Deep Learning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Often requires feature engineering.</td>
+          <td>Can automatically learn useful features.</td>
+        </tr>
+
+        <tr>
+          <td>Can work well with smaller datasets.</td>
+          <td>Usually benefits from large datasets.</td>
+        </tr>
+
+        <tr>
+          <td>Uses many different algorithms.</td>
+          <td>Primarily uses neural networks with multiple layers.</td>
+        </tr>
+
+        <tr>
+          <td>Usually requires less computational power.</td>
+          <td>Often requires more computational resources.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>3. Artificial Neural Network</h3>
+
+    <p>
+      An <strong>Artificial Neural Network (ANN)</strong> is a
+      computational model inspired by the structure of biological
+      neural networks.
+    </p>
+
+    <p>
+      A neural network consists of interconnected nodes called
+      <strong>neurons</strong>. These neurons are organized into
+      different layers.
+    </p>
+
+    <div class="neural-network">
+
+      <div class="nn-layer">
+        <strong>Input Layer</strong>
+        <div class="nn-node">●</div>
+        <div class="nn-node">●</div>
+        <div class="nn-node">●</div>
+      </div>
+
+      <div class="nn-arrow">→</div>
+
+      <div class="nn-layer">
+        <strong>Hidden Layer</strong>
+        <div class="nn-node">●</div>
+        <div class="nn-node">●</div>
+        <div class="nn-node">●</div>
+        <div class="nn-node">●</div>
+      </div>
+
+      <div class="nn-arrow">→</div>
+
+      <div class="nn-layer">
+        <strong>Output Layer</strong>
+        <div class="nn-node">●</div>
+      </div>
+
+    </div>
+
+
+    <h3>4. Layers of a Neural Network</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Layer</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Input Layer</td>
+          <td>Receives input features or data.</td>
+        </tr>
+
+        <tr>
+          <td>Hidden Layer</td>
+          <td>Learns patterns and representations from the input.</td>
+        </tr>
+
+        <tr>
+          <td>Output Layer</td>
+          <td>Produces the final prediction or result.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>5. Neuron</h3>
+
+    <p>
+      A <strong>neuron</strong> receives input values, applies weights
+      and a bias, and passes the result through an activation function.
+    </p>
+
+    <pre><code>Input
+  ↓
+Weighted Sum
+  ↓
+Add Bias
+  ↓
+Activation Function
+  ↓
+Output</code></pre>
+
+
+    <h3>6. Weights and Bias</h3>
+
+    <p>
+      <strong>Weights</strong> determine the importance of input
+      values. A <strong>bias</strong> allows the neuron to adjust its
+      output independently of the input values.
+    </p>
+
+    <pre><code>output = (input × weight) + bias</code></pre>
+
+
+    <h3>7. Activation Functions</h3>
+
+    <p>
+      An <strong>activation function</strong> determines whether and
+      how strongly a neuron should be activated. It also introduces
+      non-linearity into neural networks.
+    </p>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Function</th>
+          <th>Common Use</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>ReLU</td>
+          <td>Commonly used in hidden layers.</td>
+        </tr>
+
+        <tr>
+          <td>Sigmoid</td>
+          <td>Often used for binary classification outputs.</td>
+        </tr>
+
+        <tr>
+          <td>Softmax</td>
+          <td>Commonly used for multi-class classification.</td>
+        </tr>
+
+        <tr>
+          <td>Tanh</td>
+          <td>Used in some neural network architectures.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>8. ReLU</h3>
+
+    <p>
+      <strong>ReLU (Rectified Linear Unit)</strong> returns zero for
+      negative values and returns the input value for positive values.
+    </p>
+
+    <pre><code>ReLU(x) = max(0, x)</code></pre>
+
+
+    <h3>9. Forward Propagation</h3>
+
+    <p>
+      <strong>Forward Propagation</strong> is the process of passing
+      input data through the neural network from the input layer to the
+      output layer to generate a prediction.
+    </p>
+
+    <div class="propagation-flow">
+
+      <div class="propagation-box">
+        📥
+        <strong>Input</strong>
+      </div>
+
+      <div class="propagation-arrow">→</div>
+
+      <div class="propagation-box">
+        🧠
+        <strong>Hidden Layers</strong>
+      </div>
+
+      <div class="propagation-arrow">→</div>
+
+      <div class="propagation-box">
+        📤
+        <strong>Prediction</strong>
+      </div>
+
+    </div>
+
+
+    <h3>10. Loss Function</h3>
+
+    <p>
+      A <strong>loss function</strong> measures the difference between
+      the predicted output and the actual output. The training process
+      tries to reduce this error.
+    </p>
+
+    <pre><code>Actual Value
+     ↓
+Compare
+     ↓
+Predicted Value
+     ↓
+Loss / Error</code></pre>
+
+
+    <h3>11. Backpropagation</h3>
+
+    <p>
+      <strong>Backpropagation</strong> is a training technique used to
+      calculate how much each weight contributed to the prediction
+      error. The network uses this information to update its weights.
+    </p>
+
+    <div class="backprop-flow">
+
+      <div class="backprop-box">
+        📤
+        <strong>Prediction</strong>
+      </div>
+
+      <div class="backprop-arrow">→</div>
+
+      <div class="backprop-box">
+        ❌
+        <strong>Calculate Loss</strong>
+      </div>
+
+      <div class="backprop-arrow">→</div>
+
+      <div class="backprop-box">
+        🔄
+        <strong>Update Weights</strong>
+      </div>
+
+      <div class="backprop-arrow">↩</div>
+
+      <div class="backprop-box">
+        🧠
+        <strong>Improve Model</strong>
+      </div>
+
+    </div>
+
+
+    <h3>12. Optimizer</h3>
+
+    <p>
+      An <strong>optimizer</strong> updates the weights of a neural
+      network during training to minimize the loss function.
+    </p>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Optimizer</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>SGD</td>
+          <td>Stochastic Gradient Descent.</td>
+        </tr>
+
+        <tr>
+          <td>Adam</td>
+          <td>An adaptive optimization algorithm widely used in deep learning.</td>
+        </tr>
+
+        <tr>
+          <td>RMSprop</td>
+          <td>An optimizer that adapts the learning rate during training.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>13. Epoch</h3>
+
+    <p>
+      An <strong>epoch</strong> represents one complete pass through
+      the training dataset during model training.
+    </p>
+
+    <pre><code>Dataset
+   ↓
+Epoch 1
+   ↓
+Epoch 2
+   ↓
+Epoch 3
+   ↓
+Improved Model</code></pre>
+
+
+    <h3>14. Batch Size</h3>
+
+    <p>
+      <strong>Batch size</strong> is the number of training examples
+      processed by the model before the weights are updated.
+    </p>
+
+
+    <h3>15. Learning Rate</h3>
+
+    <p>
+      The <strong>learning rate</strong> controls how large the weight
+      updates are during training.
+    </p>
+
+    <p>
+      A learning rate that is too large can make training unstable,
+      while a very small learning rate can make training slow.
+    </p>
+
+
+    <h3>16. TensorFlow</h3>
+
+    <p>
+      <strong>TensorFlow</strong> is an open-source machine learning
+      framework commonly used to build and train neural networks.
+    </p>
+
+    <pre><code>pip install tensorflow</code></pre>
+
+
+    <h3>17. Keras</h3>
+
+    <p>
+      <strong>Keras</strong> is a high-level deep learning API that
+      provides a simple way to create and train neural networks.
+    </p>
+
+    <pre><code>from tensorflow import keras
+
+model = keras.Sequential([
+    keras.layers.Dense(10, activation="relu"),
+    keras.layers.Dense(1)
+])</code></pre>
+
+
+    <h3>18. Creating a Simple Neural Network</h3>
+
+    <pre><code>from tensorflow import keras
+
+model = keras.Sequential([
+    keras.layers.Dense(
+        16,
+        activation="relu"
+    ),
+
+    keras.layers.Dense(
+        8,
+        activation="relu"
+    ),
+
+    keras.layers.Dense(
+        1,
+        activation="sigmoid"
+    )
+])
+
+model.compile(
+    optimizer="adam",
+    loss="binary_crossentropy",
+    metrics=["accuracy"]
+)</code></pre>
+
+
+    <h3>19. Training a Neural Network</h3>
+
+    <p>
+      The <strong>fit()</strong> method is commonly used to train a
+      neural network using training data.
+    </p>
+
+    <pre><code>model.fit(
+    X_train,
+    y_train,
+    epochs=10,
+    batch_size=32
+)</code></pre>
+
+
+    <h3>20. Evaluating a Model</h3>
+
+    <pre><code>loss, accuracy = model.evaluate(
+    X_test,
+    y_test
+)
+
+print("Loss:", loss)
+print("Accuracy:", accuracy)</code></pre>
+
+
+    <h3>21. Making Predictions</h3>
+
+    <pre><code>predictions = model.predict(
+    X_test
+)
+
+print(predictions)</code></pre>
+
+
+    <h3>22. Convolutional Neural Network</h3>
+
+    <p>
+      A <strong>Convolutional Neural Network (CNN)</strong> is a deep
+      learning architecture commonly used for image and computer
+      vision tasks.
+    </p>
+
+    <div class="cnn-flow">
+
+      <div class="cnn-box">
+        🖼️
+        <strong>Image</strong>
+      </div>
+
+      <div class="cnn-arrow">→</div>
+
+      <div class="cnn-box">
+        🔍
+        <strong>Convolution</strong>
+      </div>
+
+      <div class="cnn-arrow">→</div>
+
+      <div class="cnn-box">
+        📦
+        <strong>Pooling</strong>
+      </div>
+
+      <div class="cnn-arrow">→</div>
+
+      <div class="cnn-box">
+        🧠
+        <strong>Dense Layer</strong>
+      </div>
+
+      <div class="cnn-arrow">→</div>
+
+      <div class="cnn-box">
+        🎯
+        <strong>Prediction</strong>
+      </div>
+
+    </div>
+
+
+    <h3>23. Recurrent Neural Network</h3>
+
+    <p>
+      A <strong>Recurrent Neural Network (RNN)</strong> is designed
+      to work with sequential or time-dependent data. It can use
+      information from previous steps while processing new inputs.
+    </p>
+
+    <p>
+      RNNs can be used for tasks involving sequences such as text,
+      speech, and time-series data.
+    </p>
+
+
+    <h3>24. LSTM</h3>
+
+    <p>
+      <strong>Long Short-Term Memory (LSTM)</strong> is a type of
+      recurrent neural network designed to better handle long-term
+      dependencies in sequential data.
+    </p>
+
+
+    <h3>25. CNN vs RNN</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>CNN</th>
+          <th>RNN</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Commonly used for images.</td>
+          <td>Commonly used for sequential data.</td>
+        </tr>
+
+        <tr>
+          <td>Extracts spatial features.</td>
+          <td>Processes information across sequences.</td>
+        </tr>
+
+        <tr>
+          <td>Used in computer vision.</td>
+          <td>Used in text, speech, and time-series tasks.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>26. Overfitting in Deep Learning</h3>
+
+    <p>
+      <strong>Overfitting</strong> occurs when a neural network learns
+      the training data too closely and performs poorly on unseen data.
+    </p>
+
+    <p>
+      Techniques such as dropout, regularization, data augmentation,
+      and early stopping can help reduce overfitting.
+    </p>
+
+
+    <h3>27. Dropout</h3>
+
+    <p>
+      <strong>Dropout</strong> is a regularization technique that
+      temporarily disables a portion of neurons during training.
+      This can help prevent the network from relying too heavily on
+      particular neurons.
+    </p>
+
+    <pre><code>keras.layers.Dropout(0.5)</code></pre>
+
+
+    <h3>28. Applications of Deep Learning</h3>
+
+    <ul>
+      <li>Image recognition.</li>
+      <li>Face recognition.</li>
+      <li>Object detection.</li>
+      <li>Speech recognition.</li>
+      <li>Natural Language Processing.</li>
+      <li>Machine translation.</li>
+      <li>Recommendation systems.</li>
+      <li>Autonomous systems.</li>
+      <li>Medical image analysis.</li>
+      <li>Generative AI.</li>
+    </ul>
+
+
+    <h3>29. Deep Learning Workflow</h3>
+
+    <div class="dl-workflow">
+
+      <div class="workflow-dl-box">
+        <span>1</span>
+        <strong>Collect Data</strong>
+      </div>
+
+      <div class="workflow-dl-arrow">→</div>
+
+      <div class="workflow-dl-box">
+        <span>2</span>
+        <strong>Preprocess</strong>
+      </div>
+
+      <div class="workflow-dl-arrow">→</div>
+
+      <div class="workflow-dl-box">
+        <span>3</span>
+        <strong>Build Network</strong>
+      </div>
+
+      <div class="workflow-dl-arrow">→</div>
+
+      <div class="workflow-dl-box">
+        <span>4</span>
+        <strong>Train</strong>
+      </div>
+
+      <div class="workflow-dl-arrow">→</div>
+
+      <div class="workflow-dl-box">
+        <span>5</span>
+        <strong>Evaluate</strong>
+      </div>
+
+      <div class="workflow-dl-arrow">→</div>
+
+      <div class="workflow-dl-box">
+        <span>6</span>
+        <strong>Predict</strong>
+      </div>
+
+    </div>
+
+
+    <h3>30. Important Deep Learning Concepts</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Neuron</td>
+          <td>Basic computational unit of a neural network.</td>
+        </tr>
+
+        <tr>
+          <td>Layer</td>
+          <td>Group of neurons arranged at a particular stage.</td>
+        </tr>
+
+        <tr>
+          <td>Weight</td>
+          <td>Controls the importance of an input.</td>
+        </tr>
+
+        <tr>
+          <td>Bias</td>
+          <td>Helps adjust the output of a neuron.</td>
+        </tr>
+
+        <tr>
+          <td>Activation Function</td>
+          <td>Introduces non-linearity into the network.</td>
+        </tr>
+
+        <tr>
+          <td>Loss Function</td>
+          <td>Measures prediction error.</td>
+        </tr>
+
+        <tr>
+          <td>Optimizer</td>
+          <td>Updates model weights to reduce loss.</td>
+        </tr>
+
+        <tr>
+          <td>Epoch</td>
+          <td>One complete pass through the training dataset.</td>
+        </tr>
+
+        <tr>
+          <td>Batch Size</td>
+          <td>Number of samples processed before a weight update.</td>
+        </tr>
+
+        <tr>
+          <td>CNN</td>
+          <td>Neural network commonly used for image-related tasks.</td>
+        </tr>
+
+        <tr>
+          <td>RNN</td>
+          <td>Neural network designed for sequential data.</td>
+        </tr>
+
+        <tr>
+          <td>LSTM</td>
+          <td>RNN architecture designed to handle long-term dependencies.</td>
+        </tr>
+      </tbody>
+    </table>
+    `
+  ],
+
+  practice: [
+    'Install TensorFlow using pip.',
+    'Create a simple neural network using Keras.',
+    'Understand neurons, layers, weights, and biases.',
+    'Practice different activation functions.',
+    'Train a simple neural network.',
+    'Experiment with epochs and batch size.',
+    'Compare different optimizers.',
+    'Create a binary classification neural network.',
+    'Build a simple CNN for image classification.',
+    'Practice an RNN with sequential data.',
+    'Experiment with dropout to reduce overfitting.',
+    'Evaluate a neural network using test data.',
+    'Create a small deep learning project.'
+  ],
+
+  code: `from tensorflow import keras
+
+# Create a simple neural network
+model = keras.Sequential([
+    keras.layers.Dense(
+        16,
+        activation="relu",
+        input_shape=(4,)
+    ),
+
+    keras.layers.Dense(
+        8,
+        activation="relu"
+    ),
+
+    keras.layers.Dense(
+        1,
+        activation="sigmoid"
+    )
+])
+
+# Compile the model
+model.compile(
+    optimizer="adam",
+    loss="binary_crossentropy",
+    metrics=["accuracy"]
+)
+
+# Display model structure
+model.summary()`
+},
   {
-    key: 'deep-learning',
-    title: 'Deep Learning',
-    description: 'TensorFlow and PyTorch build neural networks for deep learning.',
-    theory: [
-      'Deep learning models learn from large datasets.',
-      'TensorFlow and PyTorch are the most popular deep learning frameworks.'
-    ],
-    practice: [
-      'Understand the structure of a neural network.',
-      'Learn how training and inference work.'
-    ],
-    code: `print("TensorFlow and PyTorch are used in deep learning.")`
-  },
+  key: 'automation',
+  title: 'Automation',
+  description: 'Python Automation is the process of using Python programs to perform repetitive tasks automatically with little or no human intervention. Python provides powerful built-in modules and external libraries for automating files, folders, data processing, web browsers, emails, system tasks, and scheduled operations.',
+
+  theory: [
+    `
+    <h3>1. What is Automation?</h3>
+
+    <p>
+      <strong>Automation</strong> means using a computer program to
+      perform tasks automatically instead of doing them manually.
+      Python is widely used for automation because it has a simple
+      syntax and provides many useful libraries.
+    </p>
+
+    <div class="automation-flow">
+
+      <div class="automation-box">
+        👤
+        <strong>Manual Task</strong>
+        <span>Repeated Work</span>
+      </div>
+
+      <div class="automation-arrow">→</div>
+
+      <div class="automation-box">
+        🐍
+        <strong>Python Script</strong>
+        <span>Automates Task</span>
+      </div>
+
+      <div class="automation-arrow">→</div>
+
+      <div class="automation-box">
+        ⚙️
+        <strong>Automatic Process</strong>
+        <span>Less Human Effort</span>
+      </div>
+
+      <div class="automation-arrow">→</div>
+
+      <div class="automation-box">
+        ✅
+        <strong>Result</strong>
+        <span>Fast & Consistent</span>
+      </div>
+
+    </div>
+
+
+    <h3>2. Why Use Python for Automation?</h3>
+
+    <ul>
+      <li>Simple and easy-to-read syntax.</li>
+      <li>Large collection of built-in modules.</li>
+      <li>Supports file and folder operations.</li>
+      <li>Can automate browser-based tasks.</li>
+      <li>Can process large amounts of data.</li>
+      <li>Can interact with operating system commands.</li>
+      <li>Supports scheduling and repetitive tasks.</li>
+    </ul>
+
+
+    <h3>3. Common Automation Tasks</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>File Automation</td>
+          <td>Rename, copy, move, or delete files.</td>
+        </tr>
+
+        <tr>
+          <td>Folder Automation</td>
+          <td>Create and organize directories automatically.</td>
+        </tr>
+
+        <tr>
+          <td>Data Automation</td>
+          <td>Process CSV, Excel, and other datasets.</td>
+        </tr>
+
+        <tr>
+          <td>Web Automation</td>
+          <td>Automate browser-based repetitive tasks.</td>
+        </tr>
+
+        <tr>
+          <td>Email Automation</td>
+          <td>Send automated emails and reports.</td>
+        </tr>
+
+        <tr>
+          <td>System Automation</td>
+          <td>Run system commands and applications.</td>
+        </tr>
+
+        <tr>
+          <td>Task Scheduling</td>
+          <td>Run scripts at a specific time or interval.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>4. File Automation</h3>
+
+    <p>
+      Python can automatically create, read, rename, copy, move,
+      and delete files. This is useful when dealing with a large
+      number of files.
+    </p>
+
+    <pre><code>from pathlib import Path
+
+file = Path("example.txt")
+
+if file.exists():
+    print("File exists")
+else:
+    print("File not found")</code></pre>
+
+
+    <h3>5. Creating Folders Automatically</h3>
+
+    <p>
+      The <strong>pathlib</strong> module can be used to create
+      directories programmatically.
+    </p>
+
+    <pre><code>from pathlib import Path
+
+folder = Path("Reports")
+
+folder.mkdir(
+    exist_ok=True
+)
+
+print("Folder created")</code></pre>
+
+
+    <h3>6. Copying and Moving Files</h3>
+
+    <p>
+      The <strong>shutil</strong> module provides functions for
+      copying and moving files and folders.
+    </p>
+
+    <pre><code>import shutil
+
+shutil.copy(
+    "report.txt",
+    "backup/report.txt"
+)
+
+shutil.move(
+    "old.txt",
+    "documents/old.txt"
+)</code></pre>
+
+
+    <h3>7. Renaming Files</h3>
+
+    <pre><code>from pathlib import Path
+
+old_name = Path("old_name.txt")
+new_name = Path("new_name.txt")
+
+old_name.rename(new_name)
+
+print("File renamed")</code></pre>
+
+
+    <h3>8. Organizing Files Automatically</h3>
+
+    <p>
+      Python can organize files based on their extensions. For example,
+      images can be moved to an Images folder and documents can be moved
+      to a Documents folder.
+    </p>
+
+    <pre><code>from pathlib import Path
+import shutil
+
+source = Path("Downloads")
+
+for file in source.iterdir():
+
+    if file.is_file():
+
+        if file.suffix.lower() == ".jpg":
+            destination = source / "Images"
+            destination.mkdir(exist_ok=True)
+
+            shutil.move(
+                str(file),
+                str(destination / file.name)
+            )</code></pre>
+
+
+    <h3>9. Operating System Automation</h3>
+
+    <p>
+      The <strong>os</strong> module allows Python programs to interact
+      with the operating system and perform tasks such as listing
+      directories and accessing environment variables.
+    </p>
+
+    <pre><code>import os
+
+print(os.getcwd())
+
+print(os.listdir())</code></pre>
+
+
+    <h3>10. Running System Commands</h3>
+
+    <p>
+      The <strong>subprocess</strong> module can be used to execute
+      external programs and system commands from Python.
+    </p>
+
+    <pre><code>import subprocess
+
+result = subprocess.run(
+    ["python", "--version"],
+    capture_output=True,
+    text=True
+)
+
+print(result.stdout)</code></pre>
+
+
+    <h3>11. CSV Automation</h3>
+
+    <p>
+      Python can automatically read and process CSV files using the
+      built-in <strong>csv</strong> module or libraries such as Pandas.
+    </p>
+
+    <pre><code>import csv
+
+with open(
+    "students.csv",
+    "r",
+    newline=""
+) as file:
+
+    reader = csv.reader(file)
+
+    for row in reader:
+        print(row)</code></pre>
+
+
+    <h3>12. Excel Automation</h3>
+
+    <p>
+      Excel files can be automated using libraries such as
+      <strong>openpyxl</strong>. Python can read, update, and create
+      spreadsheet data.
+    </p>
+
+    <pre><code>from openpyxl import load_workbook
+
+workbook = load_workbook(
+    "students.xlsx"
+)
+
+sheet = workbook.active
+
+sheet["A1"] = "Student Name"
+
+workbook.save(
+    "students.xlsx"
+)</code></pre>
+
+
+    <h3>13. Web Automation</h3>
+
+    <p>
+      Web automation allows Python programs to interact with web
+      browsers automatically. Tools such as Selenium can be used for
+      browser testing and other legitimate repetitive browser tasks.
+    </p>
+
+    <pre><code>from selenium import webdriver
+
+driver = webdriver.Chrome()
+
+driver.get(
+    "https://example.com"
+)
+
+print(driver.title)
+
+driver.quit()</code></pre>
+
+
+    <h3>14. Browser Automation Workflow</h3>
+
+    <div class="browser-flow">
+
+      <div class="browser-box">
+        🌐
+        <strong>Open Browser</strong>
+      </div>
+
+      <div class="browser-arrow">→</div>
+
+      <div class="browser-box">
+        🔗
+        <strong>Open Website</strong>
+      </div>
+
+      <div class="browser-arrow">→</div>
+
+      <div class="browser-box">
+        🖱️
+        <strong>Perform Action</strong>
+      </div>
+
+      <div class="browser-arrow">→</div>
+
+      <div class="browser-box">
+        📄
+        <strong>Read Result</strong>
+      </div>
+
+      <div class="browser-arrow">→</div>
+
+      <div class="browser-box">
+        ❌
+        <strong>Close Browser</strong>
+      </div>
+
+    </div>
+
+
+    <h3>15. Email Automation</h3>
+
+    <p>
+      Python can be used to automate email-related tasks such as
+      sending reports or notifications. The <strong>smtplib</strong>
+      module provides SMTP functionality.
+    </p>
+
+    <pre><code>import smtplib
+
+server = smtplib.SMTP(
+    "smtp.example.com",
+    587
+)
+
+server.starttls()
+
+# Authenticate and send email
+# Use your email provider's
+# supported authentication method.
+
+server.quit()</code></pre>
+
+
+    <h3>16. Task Scheduling</h3>
+
+    <p>
+      Automation scripts can be scheduled to run at specific times or
+      intervals. Python can also work with operating-system schedulers
+      such as Windows Task Scheduler and cron on Linux.
+    </p>
+
+    <pre><code>import time
+
+while True:
+
+    print("Task executed")
+
+    time.sleep(60)</code></pre>
+
+
+    <h3>17. Time-Based Automation</h3>
+
+    <p>
+      The <strong>datetime</strong> module can be used to work with
+      dates and times in automation programs.
+    </p>
+
+    <pre><code>from datetime import datetime
+
+now = datetime.now()
+
+print("Current time:", now)</code></pre>
+
+
+    <h3>18. Automation with APIs</h3>
+
+    <p>
+      Python can communicate with web APIs to automatically retrieve
+      or send data. The <strong>requests</strong> library is commonly
+      used for HTTP requests.
+    </p>
+
+    <pre><code>import requests
+
+response = requests.get(
+    "https://api.example.com/data"
+)
+
+if response.ok:
+    data = response.json()
+    print(data)</code></pre>
+
+
+    <h3>19. Logging in Automation</h3>
+
+    <p>
+      Logging helps record what an automation script is doing. It is
+      useful for troubleshooting errors and checking whether automated
+      tasks completed successfully.
+    </p>
+
+    <pre><code>import logging
+
+logging.basicConfig(
+    level=logging.INFO
+)
+
+logging.info(
+    "Automation started"
+)
+
+logging.info(
+    "Task completed"
+)</code></pre>
+
+
+    <h3>20. Error Handling in Automation</h3>
+
+    <p>
+      Automation programs should handle errors properly so that one
+      unexpected problem does not stop the entire workflow.
+    </p>
+
+    <pre><code>try:
+
+    with open(
+        "data.txt",
+        "r"
+    ) as file:
+
+        data = file.read()
+
+except FileNotFoundError:
+
+    print("File not found")
+
+except Exception as error:
+
+    print("Error:", error)</code></pre>
+
+
+    <h3>21. Automation Workflow</h3>
+
+    <div class="automation-workflow">
+
+      <div class="workflow-auto-box">
+        <span>1</span>
+        <strong>Identify Task</strong>
+      </div>
+
+      <div class="workflow-auto-arrow">→</div>
+
+      <div class="workflow-auto-box">
+        <span>2</span>
+        <strong>Write Script</strong>
+      </div>
+
+      <div class="workflow-auto-arrow">→</div>
+
+      <div class="workflow-auto-box">
+        <span>3</span>
+        <strong>Test</strong>
+      </div>
+
+      <div class="workflow-auto-arrow">→</div>
+
+      <div class="workflow-auto-box">
+        <span>4</span>
+        <strong>Schedule</strong>
+      </div>
+
+      <div class="workflow-auto-arrow">→</div>
+
+      <div class="workflow-auto-box">
+        <span>5</span>
+        <strong>Monitor</strong>
+      </div>
+
+    </div>
+
+
+    <h3>22. Common Python Automation Libraries</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Library / Module</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>os</td>
+          <td>Operating system interaction.</td>
+        </tr>
+
+        <tr>
+          <td>pathlib</td>
+          <td>Modern file and path handling.</td>
+        </tr>
+
+        <tr>
+          <td>shutil</td>
+          <td>Copying and moving files and directories.</td>
+        </tr>
+
+        <tr>
+          <td>subprocess</td>
+          <td>Running external commands and programs.</td>
+        </tr>
+
+        <tr>
+          <td>csv</td>
+          <td>Reading and writing CSV files.</td>
+        </tr>
+
+        <tr>
+          <td>openpyxl</td>
+          <td>Working with Excel workbooks.</td>
+        </tr>
+
+        <tr>
+          <td>requests</td>
+          <td>Sending HTTP requests to APIs and websites.</td>
+        </tr>
+
+        <tr>
+          <td>Selenium</td>
+          <td>Browser automation and web testing.</td>
+        </tr>
+
+        <tr>
+          <td>logging</td>
+          <td>Recording program activity and errors.</td>
+        </tr>
+
+        <tr>
+          <td>schedule</td>
+          <td>Simple time-based task scheduling.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>23. Benefits of Automation</h3>
+
+    <ul>
+      <li>Saves time.</li>
+      <li>Reduces repetitive manual work.</li>
+      <li>Reduces human errors.</li>
+      <li>Improves consistency.</li>
+      <li>Can process large amounts of data.</li>
+      <li>Allows tasks to run automatically.</li>
+      <li>Improves productivity.</li>
+    </ul>
+
+
+    <h3>24. Real-World Applications</h3>
+
+    <ul>
+      <li>Automatic file organization.</li>
+      <li>Automatic report generation.</li>
+      <li>Data cleaning and processing.</li>
+      <li>Website testing.</li>
+      <li>System monitoring.</li>
+      <li>Email notifications.</li>
+      <li>Database backups.</li>
+      <li>Scheduled data collection.</li>
+      <li>Excel report processing.</li>
+      <li>Routine development tasks.</li>
+    </ul>
+
+
+    <h3>25. Important Automation Concepts</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Automation</td>
+          <td>Performing tasks automatically using software.</td>
+        </tr>
+
+        <tr>
+          <td>Script</td>
+          <td>A program written to perform a specific task.</td>
+        </tr>
+
+        <tr>
+          <td>Scheduling</td>
+          <td>Running a task at a specified time or interval.</td>
+        </tr>
+
+        <tr>
+          <td>File Automation</td>
+          <td>Automatically managing files and folders.</td>
+        </tr>
+
+        <tr>
+          <td>Web Automation</td>
+          <td>Automatically interacting with web browsers.</td>
+        </tr>
+
+        <tr>
+          <td>API Automation</td>
+          <td>Automatically exchanging data with APIs.</td>
+        </tr>
+
+        <tr>
+          <td>Logging</td>
+          <td>Recording the activities of an automation program.</td>
+        </tr>
+
+        <tr>
+          <td>Error Handling</td>
+          <td>Managing errors without unexpectedly stopping the workflow.</td>
+        </tr>
+      </tbody>
+    </table>
+    `
+  ],
+
+  practice: [
+    'Create a Python script that creates multiple folders automatically.',
+    'Write a program to rename multiple files.',
+    'Build a file organizer based on file extensions.',
+    'Copy important files to a backup folder automatically.',
+    'Read and process a CSV file automatically.',
+    'Create and update an Excel file using Python.',
+    'Run a system command using subprocess.',
+    'Create a simple browser automation script using Selenium.',
+    'Build a script that records its activities using logging.',
+    'Create a simple scheduled task.',
+    'Fetch data from an API and save it to a file.',
+    'Create an automated report generation script.',
+    'Build a small file-backup automation project.'
+  ],
+
+  code: `from pathlib import Path
+import shutil
+
+# Source folder
+source = Path("Downloads")
+
+# Create destination folders
+images = source / "Images"
+documents = source / "Documents"
+
+images.mkdir(exist_ok=True)
+documents.mkdir(exist_ok=True)
+
+# Organize files
+for file in source.iterdir():
+
+    if not file.is_file():
+        continue
+
+    if file.suffix.lower() in [".jpg", ".png", ".jpeg"]:
+        shutil.move(
+            str(file),
+            str(images / file.name)
+        )
+
+    elif file.suffix.lower() in [".pdf", ".docx", ".txt"]:
+        shutil.move(
+            str(file),
+            str(documents / file.name)
+        )
+
+print("Files organized successfully.")`
+},
   {
-    key: 'automation',
-    title: 'Automation',
-    description: 'Use Selenium and PyAutoGUI to automate browser and desktop tasks.',
-    theory: [
-      'Selenium automates web browsers.',
-      'PyAutoGUI simulates mouse and keyboard events.'
-    ],
-    practice: [
-      'Automate a browser action with Selenium.',
-      'Control the desktop using PyAutoGUI.'
-    ],
-    code: `print("Use Selenium and PyAutoGUI for automation tasks.")`
-  },
+  key: 'testing',
+  title: 'Testing',
+  description: 'Testing is the process of checking a program to verify that it works correctly and produces the expected results. Python provides built-in and third-party testing tools such as unittest and pytest to create, run, and automate tests.',
+
+  theory: [
+    `
+    <h3>1. What is Testing?</h3>
+
+    <p>
+      <strong>Testing</strong> is the process of checking a software
+      application or program to find errors and verify that it behaves
+      as expected.
+    </p>
+
+    <p>
+      Testing helps developers identify problems early and improve the
+      reliability, quality, and maintainability of software.
+    </p>
+
+    <div class="testing-flow">
+
+      <div class="testing-box">
+        💻
+        <strong>Program</strong>
+        <span>Code to Test</span>
+      </div>
+
+      <div class="testing-arrow">→</div>
+
+      <div class="testing-box">
+        🧪
+        <strong>Test</strong>
+        <span>Check Behavior</span>
+      </div>
+
+      <div class="testing-arrow">→</div>
+
+      <div class="testing-box">
+        🔍
+        <strong>Find Errors</strong>
+        <span>Identify Problems</span>
+      </div>
+
+      <div class="testing-arrow">→</div>
+
+      <div class="testing-box">
+        ✅
+        <strong>Reliable Code</strong>
+        <span>Expected Result</span>
+      </div>
+
+    </div>
+
+
+    <h3>2. Why is Testing Important?</h3>
+
+    <ul>
+      <li>Helps find bugs and errors.</li>
+      <li>Verifies that code produces expected results.</li>
+      <li>Prevents previously fixed bugs from returning.</li>
+      <li>Improves software quality.</li>
+      <li>Makes code easier to maintain.</li>
+      <li>Provides confidence when changing existing code.</li>
+      <li>Helps automate repetitive checks.</li>
+    </ul>
+
+
+    <h3>3. Testing Process</h3>
+
+    <div class="test-process">
+
+      <div class="process-test-box">
+        <span>1</span>
+        <strong>Write Code</strong>
+      </div>
+
+      <div class="process-test-arrow">→</div>
+
+      <div class="process-test-box">
+        <span>2</span>
+        <strong>Create Tests</strong>
+      </div>
+
+      <div class="process-test-arrow">→</div>
+
+      <div class="process-test-box">
+        <span>3</span>
+        <strong>Run Tests</strong>
+      </div>
+
+      <div class="process-test-arrow">→</div>
+
+      <div class="process-test-box">
+        <span>4</span>
+        <strong>Check Results</strong>
+      </div>
+
+      <div class="process-test-arrow">→</div>
+
+      <div class="process-test-box">
+        <span>5</span>
+        <strong>Fix Bugs</strong>
+      </div>
+
+    </div>
+
+
+    <h3>4. Test Case</h3>
+
+    <p>
+      A <strong>test case</strong> is a specific set of inputs,
+      conditions, and expected results used to verify a particular
+      behavior of a program.
+    </p>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Test Case</th>
+          <th>Input</th>
+          <th>Expected Result</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Addition</td>
+          <td>5, 3</td>
+          <td>8</td>
+        </tr>
+
+        <tr>
+          <td>Positive Number</td>
+          <td>10</td>
+          <td>True</td>
+        </tr>
+
+        <tr>
+          <td>Empty String</td>
+          <td>""</td>
+          <td>False</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>5. Assertion</h3>
+
+    <p>
+      An <strong>assertion</strong> checks whether a condition is true.
+      If the condition is false, Python raises an
+      <strong>AssertionError</strong>.
+    </p>
+
+    <pre><code>def add(a, b):
+    return a + b
+
+assert add(2, 3) == 5
+
+print("Test passed")</code></pre>
+
+
+    <h3>6. Unit Testing</h3>
+
+    <p>
+      <strong>Unit Testing</strong> tests small individual parts of a
+      program, such as functions or methods, independently.
+    </p>
+
+    <p>
+      For example, a calculator program can have separate unit tests
+      for addition, subtraction, multiplication, and division.
+    </p>
+
+    <pre><code>def multiply(a, b):
+    return a * b
+
+assert multiply(4, 5) == 20</code></pre>
+
+
+    <h3>7. Python unittest Module</h3>
+
+    <p>
+      Python provides the built-in <strong>unittest</strong> module
+      for creating and running automated unit tests.
+    </p>
+
+    <pre><code>import unittest
+
+def add(a, b):
+    return a + b
+
+class TestCalculator(unittest.TestCase):
+
+    def test_add(self):
+        self.assertEqual(
+            add(2, 3),
+            5
+        )
+
+if __name__ == "__main__":
+    unittest.main()</code></pre>
+
+
+    <h3>8. Common unittest Assertions</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Assertion</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>assertEqual()</td>
+          <td>Checks whether two values are equal.</td>
+        </tr>
+
+        <tr>
+          <td>assertNotEqual()</td>
+          <td>Checks whether two values are different.</td>
+        </tr>
+
+        <tr>
+          <td>assertTrue()</td>
+          <td>Checks whether a condition is true.</td>
+        </tr>
+
+        <tr>
+          <td>assertFalse()</td>
+          <td>Checks whether a condition is false.</td>
+        </tr>
+
+        <tr>
+          <td>assertIsNone()</td>
+          <td>Checks whether a value is None.</td>
+        </tr>
+
+        <tr>
+          <td>assertIn()</td>
+          <td>Checks whether a value exists inside a collection.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>9. pytest</h3>
+
+    <p>
+      <strong>pytest</strong> is a popular third-party Python testing
+      framework. It provides a simple syntax and powerful features for
+      writing and running tests.
+    </p>
+
+    <pre><code>pip install pytest</code></pre>
+
+
+    <h3>10. Creating a pytest Test</h3>
+
+    <pre><code>def add(a, b):
+    return a + b
+
+def test_add():
+    assert add(2, 3) == 5
+
+def test_add_negative():
+    assert add(-2, 2) == 0</code></pre>
+
+
+    <h3>11. Running pytest</h3>
+
+    <p>
+      If the test file is named <strong>test_calculator.py</strong>,
+      pytest can discover and run the tests automatically.
+    </p>
+
+    <pre><code>pytest</code></pre>
+
+
+    <h3>12. Test Result</h3>
+
+    <div class="result-testing">
+
+      <div class="result-box success">
+        ✅
+        <strong>Test Passed</strong>
+        <span>Expected result was received.</span>
+      </div>
+
+      <div class="result-box failed">
+        ❌
+        <strong>Test Failed</strong>
+        <span>Actual result differs from expected result.</span>
+      </div>
+
+    </div>
+
+
+    <h3>13. Unit Testing vs Integration Testing</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Unit Testing</th>
+          <th>Integration Testing</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Tests individual components.</td>
+          <td>Tests multiple components together.</td>
+        </tr>
+
+        <tr>
+          <td>Usually smaller and faster.</td>
+          <td>Usually more complex.</td>
+        </tr>
+
+        <tr>
+          <td>Focuses on one function or module.</td>
+          <td>Focuses on interaction between components.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>14. Integration Testing</h3>
+
+    <p>
+      <strong>Integration Testing</strong> checks whether different
+      modules or components work correctly when combined.
+    </p>
+
+    <pre><code>def calculate_total(price, tax):
+    return price + tax
+
+def get_tax(price):
+    return price * 0.10
+
+def test_total():
+    price = 100
+    tax = get_tax(price)
+
+    assert calculate_total(
+        price,
+        tax
+    ) == 110</code></pre>
+
+
+    <h3>15. Functional Testing</h3>
+
+    <p>
+      <strong>Functional Testing</strong> verifies whether a software
+      feature behaves according to its requirements.
+    </p>
+
+    <p>
+      For example, a login system can be tested with valid credentials,
+      invalid credentials, empty fields, and incorrect passwords.
+    </p>
+
+
+    <h3>16. Regression Testing</h3>
+
+    <p>
+      <strong>Regression Testing</strong> checks that new code changes
+      have not broken existing functionality.
+    </p>
+
+    <div class="regression-flow">
+
+      <div class="regression-box">
+        🧩
+        <strong>Existing Code</strong>
+      </div>
+
+      <div class="regression-arrow">→</div>
+
+      <div class="regression-box">
+        🔧
+        <strong>New Changes</strong>
+      </div>
+
+      <div class="regression-arrow">→</div>
+
+      <div class="regression-box">
+        🧪
+        <strong>Run Old Tests</strong>
+      </div>
+
+      <div class="regression-arrow">→</div>
+
+      <div class="regression-box">
+        ✅
+        <strong>Verify</strong>
+      </div>
+
+    </div>
+
+
+    <h3>17. Test-Driven Development</h3>
+
+    <p>
+      <strong>Test-Driven Development (TDD)</strong> is a development
+      approach where tests are written before the implementation code.
+    </p>
+
+    <pre><code>Write Test
+    ↓
+Test Fails
+    ↓
+Write Code
+    ↓
+Test Passes
+    ↓
+Improve Code</code></pre>
+
+
+    <h3>18. Test Fixtures</h3>
+
+    <p>
+      Test fixtures provide the setup and cleanup required by tests.
+      They help prepare a consistent environment before a test runs.
+    </p>
+
+    <pre><code>import unittest
+
+class TestExample(unittest.TestCase):
+
+    def setUp(self):
+        self.number = 10
+
+    def test_value(self):
+        self.assertEqual(
+            self.number,
+            10
+        )</code></pre>
+
+
+    <h3>19. Testing Exceptions</h3>
+
+    <p>
+      Tests can verify that a program correctly raises an expected
+      exception.
+    </p>
+
+    <pre><code>import unittest
+
+def divide(a, b):
+    return a / b
+
+class TestDivide(unittest.TestCase):
+
+    def test_zero_division(self):
+
+        with self.assertRaises(
+            ZeroDivisionError
+        ):
+            divide(10, 0)</code></pre>
+
+
+    <h3>20. Mocking</h3>
+
+    <p>
+      <strong>Mocking</strong> replaces a real dependency with a
+      controlled object during testing. It is useful when testing code
+      that depends on external services, APIs, databases, or other
+      components.
+    </p>
+
+    <pre><code>from unittest.mock import Mock
+
+service = Mock()
+
+service.get_data.return_value = "Test Data"
+
+result = service.get_data()
+
+print(result)</code></pre>
+
+
+    <h3>21. Test Coverage</h3>
+
+    <p>
+      <strong>Test Coverage</strong> measures how much of the program's
+      code is executed by the test suite. High coverage does not
+      automatically mean that the software is completely bug-free, but
+      it can help identify untested areas.
+    </p>
+
+    <pre><code>pip install coverage
+
+coverage run -m pytest
+
+coverage report</code></pre>
+
+
+    <h3>22. Debugging vs Testing</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Testing</th>
+          <th>Debugging</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Finds whether the program has problems.</td>
+          <td>Finds and fixes the cause of a problem.</td>
+        </tr>
+
+        <tr>
+          <td>Uses test cases.</td>
+          <td>Uses debugging tools and code inspection.</td>
+        </tr>
+
+        <tr>
+          <td>Can be automated.</td>
+          <td>Often requires investigation by the developer.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>23. Automated Testing</h3>
+
+    <p>
+      <strong>Automated Testing</strong> uses software tools to execute
+      tests automatically and compare actual results with expected
+      results.
+    </p>
+
+    <div class="automated-testing-flow">
+
+      <div class="auto-test-box">
+        🧪
+        <strong>Test Cases</strong>
+      </div>
+
+      <div class="auto-test-arrow">→</div>
+
+      <div class="auto-test-box">
+        ⚙️
+        <strong>Test Runner</strong>
+      </div>
+
+      <div class="auto-test-arrow">→</div>
+
+      <div class="auto-test-box">
+        📊
+        <strong>Results</strong>
+      </div>
+
+      <div class="auto-test-arrow">→</div>
+
+      <div class="auto-test-box">
+        ✅
+        <strong>Report</strong>
+      </div>
+
+    </div>
+
+
+    <h3>24. Testing Best Practices</h3>
+
+    <ul>
+      <li>Write clear and independent tests.</li>
+      <li>Use meaningful test names.</li>
+      <li>Test normal and edge cases.</li>
+      <li>Keep tests easy to understand.</li>
+      <li>Run tests after important code changes.</li>
+      <li>Automate repetitive tests.</li>
+      <li>Do not depend unnecessarily on test execution order.</li>
+      <li>Keep test data controlled and predictable.</li>
+    </ul>
+
+
+    <h3>25. Common Python Testing Tools</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>unittest</td>
+          <td>Python's built-in unit testing framework.</td>
+        </tr>
+
+        <tr>
+          <td>pytest</td>
+          <td>Popular and flexible testing framework.</td>
+        </tr>
+
+        <tr>
+          <td>coverage.py</td>
+          <td>Measures code coverage.</td>
+        </tr>
+
+        <tr>
+          <td>unittest.mock</td>
+          <td>Creates mock objects for testing.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>26. Important Testing Concepts</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Test Case</td>
+          <td>Specific input and expected result used for testing.</td>
+        </tr>
+
+        <tr>
+          <td>Unit Test</td>
+          <td>Tests a small individual part of a program.</td>
+        </tr>
+
+        <tr>
+          <td>Integration Test</td>
+          <td>Tests multiple components working together.</td>
+        </tr>
+
+        <tr>
+          <td>Assertion</td>
+          <td>Checks whether an expected condition is true.</td>
+        </tr>
+
+        <tr>
+          <td>Regression Test</td>
+          <td>Checks that existing features still work after changes.</td>
+        </tr>
+
+        <tr>
+          <td>Mock</td>
+          <td>Simulates a dependency during testing.</td>
+        </tr>
+
+        <tr>
+          <td>Test Coverage</td>
+          <td>Measures how much code is executed by tests.</td>
+        </tr>
+
+        <tr>
+          <td>Test Runner</td>
+          <td>Executes test cases and reports their results.</td>
+        </tr>
+      </tbody>
+    </table>
+    `
+  ],
+
+  practice: [
+    'Create a simple function and write unit tests for it.',
+    'Practice assertEqual() and assertTrue().',
+    'Create tests using Python unittest.',
+    'Install pytest and create pytest test cases.',
+    'Test normal and edge-case inputs.',
+    'Write a test for an expected exception.',
+    'Create an integration test for two functions.',
+    'Practice mocking an external dependency.',
+    'Measure test coverage using coverage.py.',
+    'Create a small automated test suite for a Python project.'
+  ],
+
+  code: `import unittest
+
+def add(a, b):
+    return a + b
+
+def divide(a, b):
+    return a / b
+
+
+class TestCalculator(unittest.TestCase):
+
+    def test_add(self):
+        self.assertEqual(
+            add(5, 3),
+            8
+        )
+
+    def test_add_negative(self):
+        self.assertEqual(
+            add(-5, 3),
+            -2
+        )
+
+    def test_divide(self):
+        self.assertEqual(
+            divide(10, 2),
+            5
+        )
+
+    def test_zero_division(self):
+
+        with self.assertRaises(
+            ZeroDivisionError
+        ):
+            divide(10, 0)
+
+
+if __name__ == "__main__":
+    unittest.main()`
+},
   {
-    key: 'testing',
-    title: 'Testing',
-    description: 'unittest and pytest help verify Python code using test cases.',
-    theory: [
-      'Write tests that assert expected behavior.',
-      'pytest supports simple, readable test syntax.'
-    ],
-    practice: [
-      'Create a unit test for a function.',
-      'Run tests and inspect failures.'
-    ],
-    code: `print("Use unittest or pytest to test Python code.")`
+  key: 'login',
+  title: 'Login',
+  description: 'Login is the process of verifying a user’s identity before allowing access to a protected application or service. A typical login system accepts credentials such as an email or username and password, validates them, and creates an authenticated session or token after successful verification.',
+
+  theory: [
+    `
+    <h3>1. What is Login?</h3>
+
+    <p>
+      <strong>Login</strong> is the process through which a user provides
+      their credentials to access an application, website, or system.
+      The most common credentials are a username or email address and a
+      password.
+    </p>
+
+    <div class="login-flow">
+
+      <div class="login-box">
+        👤
+        <strong>User</strong>
+        <span>Enters Credentials</span>
+      </div>
+
+      <div class="login-arrow">→</div>
+
+      <div class="login-box">
+        🔐
+        <strong>Login Form</strong>
+        <span>Username + Password</span>
+      </div>
+
+      <div class="login-arrow">→</div>
+
+      <div class="login-box">
+        🛡️
+        <strong>Authentication</strong>
+        <span>Verify User</span>
+      </div>
+
+      <div class="login-arrow">→</div>
+
+      <div class="login-box">
+        ✅
+        <strong>Access</strong>
+        <span>Login Successful</span>
+      </div>
+
+    </div>
+
+
+    <h3>2. Why is Login Important?</h3>
+
+    <ul>
+      <li>Protects private user accounts.</li>
+      <li>Restricts access to authorized users.</li>
+      <li>Helps identify users.</li>
+      <li>Protects application data.</li>
+      <li>Supports personalized user experiences.</li>
+      <li>Provides a foundation for access control.</li>
+    </ul>
+
+
+    <h3>3. Basic Login Components</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Username / Email</td>
+          <td>Identifies the user account.</td>
+        </tr>
+
+        <tr>
+          <td>Password</td>
+          <td>Secret credential used to verify the user.</td>
+        </tr>
+
+        <tr>
+          <td>Login Form</td>
+          <td>Collects the user's credentials.</td>
+        </tr>
+
+        <tr>
+          <td>Authentication</td>
+          <td>Verifies whether the credentials are correct.</td>
+        </tr>
+
+        <tr>
+          <td>Session / Token</td>
+          <td>Maintains the authenticated state after login.</td>
+        </tr>
+
+        <tr>
+          <td>Logout</td>
+          <td>Ends the authenticated session.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>4. Login Process</h3>
+
+    <div class="login-process">
+
+      <div class="process-login-box">
+        <span>1</span>
+        <strong>Enter Email</strong>
+      </div>
+
+      <div class="process-login-arrow">→</div>
+
+      <div class="process-login-box">
+        <span>2</span>
+        <strong>Enter Password</strong>
+      </div>
+
+      <div class="process-login-arrow">→</div>
+
+      <div class="process-login-box">
+        <span>3</span>
+        <strong>Validate Input</strong>
+      </div>
+
+      <div class="process-login-arrow">→</div>
+
+      <div class="process-login-box">
+        <span>4</span>
+        <strong>Verify Credentials</strong>
+      </div>
+
+      <div class="process-login-arrow">→</div>
+
+      <div class="process-login-box">
+        <span>5</span>
+        <strong>Grant Access</strong>
+      </div>
+
+    </div>
+
+
+    <h3>5. Login Form</h3>
+
+    <p>
+      A login form normally contains an email or username field,
+      a password field, and a submit button.
+    </p>
+
+    <pre><code>&lt;form&gt;
+
+  &lt;label&gt;Email&lt;/label&gt;
+  &lt;input
+    type="email"
+    name="email"
+    required
+  &gt;
+
+  &lt;label&gt;Password&lt;/label&gt;
+  &lt;input
+    type="password"
+    name="password"
+    required
+  &gt;
+
+  &lt;button type="submit"&gt;
+    Login
+  &lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+
+    <h3>6. Input Validation</h3>
+
+    <p>
+      Before authentication, the application should validate the
+      submitted data. For example, it can check whether the email
+      field is present and whether the password is not empty.
+    </p>
+
+    <pre><code>email = "user@example.com"
+password = "secret123"
+
+if not email:
+    print("Email is required")
+
+elif not password:
+    print("Password is required")
+
+else:
+    print("Input is valid")</code></pre>
+
+
+    <h3>7. Authentication</h3>
+
+    <p>
+      <strong>Authentication</strong> verifies the identity of a user.
+      The server compares the submitted credentials with the securely
+      stored account information.
+    </p>
+
+    <pre><code>stored_email = "user@example.com"
+stored_password = "secret123"
+
+email = "user@example.com"
+password = "secret123"
+
+if (
+    email == stored_email
+    and password == stored_password
+):
+    print("Login successful")
+else:
+    print("Invalid credentials")</code></pre>
+
+    <p>
+      The example above is only for understanding the concept.
+      Real applications should never store user passwords as plain text.
+    </p>
+
+
+    <h3>8. Password Hashing</h3>
+
+    <p>
+      Passwords should be stored using a secure password-hashing
+      algorithm rather than storing the original password.
+      During login, the entered password is checked against the
+      stored password hash.
+    </p>
+
+    <pre><code>import hashlib
+
+password = "secret123"
+
+password_hash = hashlib.sha256(
+    password.encode()
+).hexdigest()
+
+print(password_hash)</code></pre>
+
+    <p>
+      For production authentication systems, use a password-specific
+      hashing algorithm such as Argon2, bcrypt, or scrypt through a
+      well-maintained library rather than using plain SHA-256 alone
+      for password storage.
+    </p>
+
+
+    <h3>9. Authentication vs Authorization</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Authentication</th>
+          <th>Authorization</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Verifies who the user is.</td>
+          <td>Determines what the user can access.</td>
+        </tr>
+
+        <tr>
+          <td>Uses credentials.</td>
+          <td>Uses permissions or roles.</td>
+        </tr>
+
+        <tr>
+          <td>Example: Login.</td>
+          <td>Example: Admin can manage users.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>10. Session</h3>
+
+    <p>
+      After successful login, a server can create a
+      <strong>session</strong> to remember that the user has been
+      authenticated.
+    </p>
+
+    <div class="session-flow">
+
+      <div class="session-box">
+        🔑
+        <strong>Login</strong>
+      </div>
+
+      <div class="session-arrow">→</div>
+
+      <div class="session-box">
+        🪪
+        <strong>Session Created</strong>
+      </div>
+
+      <div class="session-arrow">→</div>
+
+      <div class="session-box">
+        🌐
+        <strong>Access Pages</strong>
+      </div>
+
+      <div class="session-arrow">→</div>
+
+      <div class="session-box">
+        🚪
+        <strong>Logout</strong>
+      </div>
+
+    </div>
+
+
+    <h3>11. Token-Based Authentication</h3>
+
+    <p>
+      In token-based authentication, the server provides a token after
+      successful login. The client sends the token with later requests
+      to access protected resources.
+    </p>
+
+    <pre><code>Authorization: Bearer YOUR_TOKEN</code></pre>
+
+
+    <h3>12. Login with Python Backend</h3>
+
+    <p>
+      A Python web framework such as Flask can receive login requests
+      from a frontend and perform authentication on the server.
+    </p>
+
+    <pre><code>from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.post("/login")
+def login():
+
+    data = request.get_json()
+
+    email = data.get("email")
+    password = data.get("password")
+
+    if not email or not password:
+        return jsonify({
+            "error": "Email and password are required"
+        }), 400
+
+    return jsonify({
+        "message": "Login request received"
+    })</code></pre>
+
+
+    <h3>13. Frontend Login Request</h3>
+
+    <p>
+      JavaScript can send the login credentials to a backend API using
+      the <strong>fetch()</strong> function.
+    </p>
+
+    <pre><code>fetch("/api/login", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
   },
+  body: JSON.stringify({
+    email: email,
+    password: password
+  })
+})
+.then(response => response.json())
+.then(data => {
+  console.log(data);
+});</code></pre>
+
+
+    <h3>14. Login Success and Failure</h3>
+
+    <div class="login-result">
+
+      <div class="login-result-box success">
+        ✅
+        <strong>Login Successful</strong>
+        <span>User can access protected resources.</span>
+      </div>
+
+      <div class="login-result-box failed">
+        ❌
+        <strong>Login Failed</strong>
+        <span>Credentials are invalid or request is rejected.</span>
+      </div>
+
+    </div>
+
+
+    <h3>15. Logout</h3>
+
+    <p>
+      <strong>Logout</strong> ends the user's authenticated state.
+      Depending on the authentication design, this may involve
+      destroying a server-side session or invalidating a token.
+    </p>
+
+    <pre><code>def logout():
+    print("User logged out")</code></pre>
+
+
+    <h3>16. Protected Routes</h3>
+
+    <p>
+      A <strong>protected route</strong> is a page or API endpoint that
+      should only be accessible to authenticated users.
+    </p>
+
+    <pre><code>if user_is_authenticated:
+    print("Access granted")
+else:
+    print("Please login first")</code></pre>
+
+
+    <h3>17. Login Security</h3>
+
+    <ul>
+      <li>Never store passwords in plain text.</li>
+      <li>Use HTTPS for login and authenticated traffic.</li>
+      <li>Use secure password hashing.</li>
+      <li>Validate input on the server.</li>
+      <li>Use secure session or token handling.</li>
+      <li>Protect against brute-force login attempts.</li>
+      <li>Do not expose sensitive information in error messages.</li>
+      <li>Keep authentication libraries and dependencies updated.</li>
+    </ul>
+
+
+    <h3>18. Common Login Errors</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Error</th>
+          <th>Possible Reason</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Invalid Credentials</td>
+          <td>Email or password is incorrect.</td>
+        </tr>
+
+        <tr>
+          <td>Required Field</td>
+          <td>Email or password was not provided.</td>
+        </tr>
+
+        <tr>
+          <td>Unauthorized</td>
+          <td>User is not authenticated.</td>
+        </tr>
+
+        <tr>
+          <td>Forbidden</td>
+          <td>User is authenticated but lacks permission.</td>
+        </tr>
+
+        <tr>
+          <td>Server Error</td>
+          <td>Something went wrong on the backend.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>19. Login Architecture</h3>
+
+    <div class="login-architecture">
+
+      <div class="architecture-box">
+        💻
+        <strong>Frontend</strong>
+        <span>Login Form</span>
+      </div>
+
+      <div class="architecture-arrow">→</div>
+
+      <div class="architecture-box">
+        🌐
+        <strong>API</strong>
+        <span>Login Request</span>
+      </div>
+
+      <div class="architecture-arrow">→</div>
+
+      <div class="architecture-box">
+        🖥️
+        <strong>Backend</strong>
+        <span>Authentication</span>
+      </div>
+
+      <div class="architecture-arrow">→</div>
+
+      <div class="architecture-box">
+        🗄️
+        <strong>Database</strong>
+        <span>User Information</span>
+      </div>
+
+    </div>
+
+
+    <h3>20. Login and Database</h3>
+
+    <p>
+      In a real application, user account information is generally
+      stored in a database. During login, the backend finds the
+      account and securely verifies the submitted password against
+      the stored password hash.
+    </p>
+
+    <pre><code>SELECT id, email, password_hash
+FROM users
+WHERE email = ?;</code></pre>
+
+
+    <h3>21. Multi-Factor Authentication</h3>
+
+    <p>
+      <strong>Multi-Factor Authentication (MFA)</strong> adds an
+      additional verification step after the password, such as a
+      one-time code or authenticator approval.
+    </p>
+
+    <div class="mfa-flow">
+
+      <div class="mfa-box">
+        👤
+        <strong>Password</strong>
+      </div>
+
+      <div class="mfa-arrow">→</div>
+
+      <div class="mfa-box">
+        📱
+        <strong>Second Factor</strong>
+      </div>
+
+      <div class="mfa-arrow">→</div>
+
+      <div class="mfa-box">
+        ✅
+        <strong>Access</strong>
+      </div>
+
+    </div>
+
+
+    <h3>22. Important Login Concepts</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Credential</td>
+          <td>Information used to verify a user.</td>
+        </tr>
+
+        <tr>
+          <td>Authentication</td>
+          <td>Verifying the identity of a user.</td>
+        </tr>
+
+        <tr>
+          <td>Authorization</td>
+          <td>Determining what an authenticated user can access.</td>
+        </tr>
+
+        <tr>
+          <td>Session</td>
+          <td>Maintains an authenticated user's state.</td>
+        </tr>
+
+        <tr>
+          <td>Token</td>
+          <td>Credential used to authenticate subsequent requests.</td>
+        </tr>
+
+        <tr>
+          <td>Password Hash</td>
+          <td>One-way representation used for secure password storage.</td>
+        </tr>
+
+        <tr>
+          <td>Protected Route</td>
+          <td>Resource that requires authentication.</td>
+        </tr>
+
+        <tr>
+          <td>MFA</td>
+          <td>Authentication using multiple verification factors.</td>
+        </tr>
+      </tbody>
+    </table>
+    `
+  ],
+
+  practice: [
+    'Create a simple login form using HTML.',
+    'Add email and password validation using JavaScript.',
+    'Create a basic Python login function.',
+    'Build a Flask login API.',
+    'Connect a login form with a backend API.',
+    'Store users in a database and verify credentials.',
+    'Practice secure password hashing.',
+    'Create a logout feature.',
+    'Create a protected page that requires authentication.',
+    'Add session-based authentication to a small project.'
+  ],
+
+  code: `from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.post("/api/login")
+def login():
+
+    data = request.get_json()
+
+    email = data.get("email")
+    password = data.get("password")
+
+    # Validate input
+    if not email or not password:
+        return jsonify({
+            "error": "Email and password are required"
+        }), 400
+
+    # Demo only:
+    # Real applications should verify a
+    # securely stored password hash.
+    if (
+        email == "user@example.com"
+        and password == "secret123"
+    ):
+        return jsonify({
+            "message": "Login successful"
+        }), 200
+
+    return jsonify({
+        "error": "Invalid credentials"
+    }), 401
+
+
+if __name__ == "__main__":
+    app.run(debug=True)`
+},
   {
-    key: 'logging',
-    title: 'Logging',
-    description: 'The logging module records runtime events and errors.',
-    theory: [
-      'Logging supports levels like INFO and ERROR.',
-      'Logs can be written to files or the console.'
-    ],
-    practice: [
-      'Log informational and error messages.',
-      'Configure basic logging output.'
-    ],
-    code: `import logging
-logging.basicConfig(level=logging.INFO)
-logging.info("This is an info message")`
-  },
+  key: 'coding-best-practices',
+  title: 'Coding Best Practices',
+  description: 'Coding best practices are recommended techniques and habits that help developers write clean, readable, maintainable, secure, efficient, and reliable Python programs.',
+
+  theory: [
+    `
+    <h3>1. What are Coding Best Practices?</h3>
+
+    <p>
+      <strong>Coding Best Practices</strong> are guidelines and techniques
+      that help developers write code that is easy to read, understand,
+      test, debug, maintain, and reuse.
+    </p>
+
+    <div class="best-practice-flow">
+
+      <div class="practice-box">
+        🧑‍💻
+        <strong>Write Code</strong>
+        <span>Implement Solution</span>
+      </div>
+
+      <div class="practice-arrow">→</div>
+
+      <div class="practice-box">
+        🧹
+        <strong>Clean Code</strong>
+        <span>Improve Structure</span>
+      </div>
+
+      <div class="practice-arrow">→</div>
+
+      <div class="practice-box">
+        🧪
+        <strong>Test</strong>
+        <span>Find Problems</span>
+      </div>
+
+      <div class="practice-arrow">→</div>
+
+      <div class="practice-box">
+        🚀
+        <strong>Maintain</strong>
+        <span>Reliable Software</span>
+      </div>
+
+    </div>
+
+
+    <h3>2. Why are Coding Best Practices Important?</h3>
+
+    <ul>
+      <li>Make code easier to understand.</li>
+      <li>Reduce programming errors.</li>
+      <li>Make debugging easier.</li>
+      <li>Improve code maintainability.</li>
+      <li>Make code easier to reuse.</li>
+      <li>Improve collaboration between developers.</li>
+      <li>Make testing easier.</li>
+      <li>Improve software quality.</li>
+    </ul>
+
+
+    <h3>3. Use Meaningful Variable Names</h3>
+
+    <p>
+      Variable names should clearly describe the data they contain.
+      Avoid unnecessary names such as <strong>x</strong>,
+      <strong>a</strong>, or <strong>temp</strong> when a more descriptive
+      name is possible.
+    </p>
+
+    <pre><code># Bad
+x = 500
+
+# Good
+student_marks = 500</code></pre>
+
+
+    <h3>4. Follow Python Naming Conventions</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Element</th>
+          <th>Recommended Style</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Variable</td>
+          <td>snake_case</td>
+          <td>student_name</td>
+        </tr>
+
+        <tr>
+          <td>Function</td>
+          <td>snake_case</td>
+          <td>calculate_total()</td>
+        </tr>
+
+        <tr>
+          <td>Class</td>
+          <td>PascalCase</td>
+          <td>StudentRecord</td>
+        </tr>
+
+        <tr>
+          <td>Constant</td>
+          <td>UPPER_CASE</td>
+          <td>MAX_SIZE</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>5. Use Proper Indentation</h3>
+
+    <p>
+      Python uses indentation to define blocks of code. Consistent
+      indentation is essential for readable and correct Python programs.
+    </p>
+
+    <pre><code># Good
+if age >= 18:
+    print("Adult")
+
+# Avoid inconsistent indentation</code></pre>
+
+
+    <h3>6. Keep Functions Small and Focused</h3>
+
+    <p>
+      A function should ideally perform one clear task. Small functions
+      are easier to test, reuse, understand, and maintain.
+    </p>
+
+    <pre><code>def calculate_area(length, width):
+    return length * width
+
+
+area = calculate_area(10, 5)
+
+print(area)</code></pre>
+
+
+    <h3>7. Avoid Repeating Code</h3>
+
+    <p>
+      Repeating the same code in multiple places makes maintenance
+      difficult. Use functions, loops, or reusable modules instead.
+    </p>
+
+    <pre><code># Better approach
+
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Aman"))
+print(greet("Rahul"))
+print(greet("Priya"))</code></pre>
+
+
+    <h3>8. Follow DRY Principle</h3>
+
+    <p>
+      <strong>DRY</strong> means <strong>Don't Repeat Yourself</strong>.
+      Code that performs the same operation repeatedly should usually
+      be placed in a reusable function or component.
+    </p>
+
+
+    <h3>9. Write Useful Comments</h3>
+
+    <p>
+      Comments should explain why something is done when the reason is
+      not obvious. Avoid comments that simply repeat what the code
+      already says.
+    </p>
+
+    <pre><code># Good:
+# Apply discount only to premium members.
+if is_premium:
+    price *= 0.90</code></pre>
+
+
+    <h3>10. Use Docstrings</h3>
+
+    <p>
+      A <strong>docstring</strong> documents a module, class, or function.
+      It helps other developers understand how the code should be used.
+    </p>
+
+    <pre><code>def calculate_area(length, width):
+    """
+    Calculate the area of a rectangle.
+
+    Args:
+        length: Length of the rectangle.
+        width: Width of the rectangle.
+
+    Returns:
+        The calculated area.
+    """
+
+    return length * width</code></pre>
+
+
+    <h3>11. Handle Errors Properly</h3>
+
+    <p>
+      Use exception handling when an operation can reasonably fail.
+      Avoid silently ignoring errors.
+    </p>
+
+    <pre><code>try:
+    number = int(input("Enter a number: "))
+
+except ValueError:
+    print("Please enter a valid number.")</code></pre>
+
+
+    <h3>12. Avoid Bare except</h3>
+
+    <p>
+      Catch specific exceptions whenever possible. A bare
+      <strong>except:</strong> can hide unexpected programming errors.
+    </p>
+
+    <pre><code># Better
+
+try:
+    value = int("abc")
+
+except ValueError:
+    print("Invalid number.")</code></pre>
+
+
+    <h3>13. Validate User Input</h3>
+
+    <p>
+      Input received from users should be validated before it is used.
+      This helps prevent unexpected behavior and improves application
+      reliability.
+    </p>
+
+    <pre><code>age = input("Enter your age: ")
+
+if age.isdigit():
+    age = int(age)
+    print("Age:", age)
+else:
+    print("Invalid age")</code></pre>
+
+
+    <h3>14. Keep Code Readable</h3>
+
+    <p>
+      Readable code is easier for both the original developer and other
+      developers to understand.
+    </p>
+
+    <pre><code># Less readable
+total=price*quantity+tax
+
+# More readable
+subtotal = price * quantity
+total = subtotal + tax</code></pre>
+
+
+    <h3>15. Avoid Extremely Long Lines</h3>
+
+    <p>
+      Long lines can make code difficult to read. Break complex
+      expressions into smaller and meaningful parts.
+    </p>
+
+    <pre><code>total_price = (
+    product_price
+    * quantity
+    + shipping_cost
+)</code></pre>
+
+
+    <h3>16. Use Constants for Fixed Values</h3>
+
+    <p>
+      Values that should remain fixed can be stored in constants with
+      descriptive names.
+    </p>
+
+    <pre><code>MAX_LOGIN_ATTEMPTS = 5
+TAX_RATE = 0.18
+
+print(MAX_LOGIN_ATTEMPTS)</code></pre>
+
+
+    <h3>17. Avoid Hard-Coding Sensitive Information</h3>
+
+    <p>
+      Passwords, API keys, database credentials, and other secrets
+      should not be written directly into source code.
+    </p>
+
+    <pre><code># Avoid
+API_KEY = "my-secret-key"
+
+# Better:
+# Load the value from an environment variable.</code></pre>
+
+
+    <h3>18. Use Environment Variables</h3>
+
+    <p>
+      Environment variables can be used to keep configuration and
+      sensitive values outside the source code.
+    </p>
+
+    <pre><code>import os
+
+api_key = os.getenv("API_KEY")
+
+if not api_key:
+    raise RuntimeError(
+        "API_KEY is not configured"
+    )</code></pre>
+
+
+    <h3>19. Use Virtual Environments</h3>
+
+    <p>
+      Virtual environments keep project dependencies isolated from
+      other Python projects.
+    </p>
+
+    <pre><code>python -m venv .venv</code></pre>
+
+
+    <h3>20. Manage Dependencies</h3>
+
+    <p>
+      Project dependencies should be documented so that the project
+      can be installed and reproduced on another system.
+    </p>
+
+    <pre><code>pip freeze > requirements.txt</code></pre>
+
+
+    <h3>21. Use Modules and Packages</h3>
+
+    <p>
+      Large programs should be divided into logical modules and
+      packages rather than keeping everything in one file.
+    </p>
+
+    <div class="module-flow">
+
+      <div class="module-box">
+        📁
+        <strong>Project</strong>
+      </div>
+
+      <div class="module-arrow">→</div>
+
+      <div class="module-box">
+        📄
+        <strong>Modules</strong>
+      </div>
+
+      <div class="module-arrow">→</div>
+
+      <div class="module-box">
+        📦
+        <strong>Packages</strong>
+      </div>
+
+      <div class="module-arrow">→</div>
+
+      <div class="module-box">
+        🚀
+        <strong>Application</strong>
+      </div>
+
+    </div>
+
+
+    <h3>22. Use Testing</h3>
+
+    <p>
+      Write tests to verify that functions and application features
+      work as expected.
+    </p>
+
+    <pre><code>def add(a, b):
+    return a + b
+
+
+def test_add():
+    assert add(2, 3) == 5</code></pre>
+
+
+    <h3>23. Use Logging Instead of print() for Applications</h3>
+
+    <p>
+      The <strong>logging</strong> module provides different log levels
+      and is more suitable than print statements for larger applications.
+    </p>
+
+    <pre><code>import logging
+
+logging.basicConfig(
+    level=logging.INFO
+)
+
+logging.info("Application started")
+logging.warning("Low disk space")</code></pre>
+
+
+    <h3>24. Use Git for Version Control</h3>
+
+    <p>
+      Git helps developers track code changes, create branches,
+      collaborate with others, and restore previous versions.
+    </p>
+
+    <pre><code>git add .
+git commit -m "Add user authentication"
+git push</code></pre>
+
+
+    <h3>25. Keep Functions and Classes Documented</h3>
+
+    <p>
+      Important functions and classes should have clear documentation
+      describing their purpose, inputs, outputs, and important behavior.
+    </p>
+
+    <pre><code>class Calculator:
+    """
+    Provides basic mathematical operations.
+    """
+
+    def add(self, a, b):
+        """Return the sum of two numbers."""
+        return a + b</code></pre>
+
+
+    <h3>26. Follow PEP 8</h3>
+
+    <p>
+      <strong>PEP 8</strong> is the main style guide for Python code.
+      It provides recommendations for formatting, naming, indentation,
+      imports, whitespace, and code organization.
+    </p>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Practice</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Indentation</td>
+          <td>Use consistent 4-space indentation.</td>
+        </tr>
+
+        <tr>
+          <td>Variable Names</td>
+          <td>Use snake_case.</td>
+        </tr>
+
+        <tr>
+          <td>Class Names</td>
+          <td>Use PascalCase.</td>
+        </tr>
+
+        <tr>
+          <td>Constants</td>
+          <td>Use UPPER_CASE.</td>
+        </tr>
+
+        <tr>
+          <td>Imports</td>
+          <td>Keep imports organized.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>27. Code Formatting Tools</h3>
+
+    <p>
+      Code formatting tools can automatically format Python source code
+      according to consistent style rules.
+    </p>
+
+    <pre><code>pip install black
+
+black main.py</code></pre>
+
+
+    <h3>28. Static Code Checking</h3>
+
+    <p>
+      Linters and static analysis tools inspect source code without
+      executing it. They can detect style problems, suspicious code,
+      and potential errors.
+    </p>
+
+    <pre><code>pip install ruff
+
+ruff check .</code></pre>
+
+
+    <h3>29. Code Review</h3>
+
+    <p>
+      <strong>Code Review</strong> is the process of examining code
+      changes before they are merged into a project.
+    </p>
+
+    <ul>
+      <li>Check correctness.</li>
+      <li>Check readability.</li>
+      <li>Check security issues.</li>
+      <li>Check test coverage.</li>
+      <li>Check unnecessary complexity.</li>
+    </ul>
+
+
+    <h3>30. Common Bad Practices to Avoid</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Bad Practice</th>
+          <th>Better Approach</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Meaningless variable names</td>
+          <td>Use descriptive names.</td>
+        </tr>
+
+        <tr>
+          <td>Repeated code</td>
+          <td>Create reusable functions.</td>
+        </tr>
+
+        <tr>
+          <td>Hard-coded secrets</td>
+          <td>Use environment variables or a secret manager.</td>
+        </tr>
+
+        <tr>
+          <td>Huge functions</td>
+          <td>Split them into smaller functions.</td>
+        </tr>
+
+        <tr>
+          <td>Ignoring errors</td>
+          <td>Handle expected exceptions properly.</td>
+        </tr>
+
+        <tr>
+          <td>No tests</td>
+          <td>Create automated tests.</td>
+        </tr>
+
+        <tr>
+          <td>No documentation</td>
+          <td>Use comments and docstrings where useful.</td>
+        </tr>
+
+        <tr>
+          <td>No version control</td>
+          <td>Use Git.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>31. Clean Code Example</h3>
+
+    <pre><code>MAX_MARKS = 100
+
+
+def calculate_percentage(marks):
+    """
+    Calculate percentage from obtained marks.
+    """
+
+    if marks < 0:
+        raise ValueError(
+            "Marks cannot be negative"
+        )
+
+    return (
+        marks / MAX_MARKS
+    ) * 100
+
+
+marks = 85
+
+percentage = calculate_percentage(marks)
+
+print(
+    f"Percentage: {percentage}%"
+)</code></pre>
+
+
+    <h3>32. Best Practices Checklist</h3>
+
+    <div class="best-practice-checklist">
+
+      <div>✅ Meaningful names</div>
+      <div>✅ Proper indentation</div>
+      <div>✅ Small functions</div>
+      <div>✅ Avoid repeated code</div>
+      <div>✅ Useful comments</div>
+      <div>✅ Docstrings</div>
+      <div>✅ Error handling</div>
+      <div>✅ Input validation</div>
+      <div>✅ Secure configuration</div>
+      <div>✅ Automated testing</div>
+      <div>✅ Logging</div>
+      <div>✅ Git version control</div>
+      <div>✅ Code formatting</div>
+      <div>✅ Code review</div>
+
+    </div>
+
+
+    <h3>33. Important Coding Best Practices</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Practice</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Readable Code</td>
+          <td>Makes code easy to understand.</td>
+        </tr>
+
+        <tr>
+          <td>DRY</td>
+          <td>Avoids unnecessary repetition.</td>
+        </tr>
+
+        <tr>
+          <td>PEP 8</td>
+          <td>Provides Python style guidelines.</td>
+        </tr>
+
+        <tr>
+          <td>Testing</td>
+          <td>Checks whether code behaves correctly.</td>
+        </tr>
+
+        <tr>
+          <td>Logging</td>
+          <td>Records application activity.</td>
+        </tr>
+
+        <tr>
+          <td>Documentation</td>
+          <td>Explains how code works and should be used.</td>
+        </tr>
+
+        <tr>
+          <td>Version Control</td>
+          <td>Tracks changes to source code.</td>
+        </tr>
+
+        <tr>
+          <td>Security</td>
+          <td>Protects applications and sensitive information.</td>
+        </tr>
+      </tbody>
+    </table>
+    `
+  ],
+
+  practice: [
+    'Rewrite poorly named variables using meaningful names.',
+    'Create small functions instead of one large function.',
+    'Find and remove repeated code from a Python program.',
+    'Add useful comments and docstrings to a project.',
+    'Add proper exception handling to a program.',
+    'Create unit tests for important functions.',
+    'Configure logging in a Python application.',
+    'Create a virtual environment for a project.',
+    'Create a requirements.txt file.',
+    'Use Git to track project changes.',
+    'Format a Python file using Black.',
+    'Check Python code using Ruff.',
+    'Review a Python project and create a coding best-practices checklist.'
+  ],
+
+  code: `import logging
+
+MAX_MARKS = 100
+
+
+def calculate_percentage(marks):
+    """
+    Calculate percentage from obtained marks.
+    """
+
+    if not isinstance(marks, (int, float)):
+        raise TypeError(
+            "Marks must be a number"
+        )
+
+    if marks < 0 or marks > MAX_MARKS:
+        raise ValueError(
+            "Marks must be between 0 and 100"
+        )
+
+    return (
+        marks / MAX_MARKS
+    ) * 100
+
+
+logging.basicConfig(
+    level=logging.INFO
+)
+
+marks = 85
+
+try:
+
+    percentage = calculate_percentage(
+        marks
+    )
+
+    logging.info(
+        "Percentage calculated successfully"
+    )
+
+    print(
+        f"Percentage: {percentage}%"
+    )
+
+except (TypeError, ValueError) as error:
+
+    logging.error(
+        "Calculation failed: %s",
+        error
+    )`
+},
   {
-    key: 'coding-best-practices',
-    title: 'Coding Best Practices',
-    description: 'Follow clear naming, formatting, and structure guidelines in Python.',
-    theory: [
-      'Use descriptive variable names and consistent indentation.',
-      'Follow PEP 8 style recommendations.'
-    ],
-    practice: [
-      'Refactor code for readability.',
-      'Add comments and meaningful names.'
-    ],
-    code: `print("Write clean and readable Python code.")`
-  },
+  key: 'mini-projects',
+  title: 'Mini Projects',
+  description: 'Mini projects are small practical applications that help learners apply Python concepts such as variables, conditions, loops, functions, data structures, file handling, modules, databases, APIs, and object-oriented programming.',
+
+  theory: [
+    `
+    <h3>1. What are Mini Projects?</h3>
+
+    <p>
+      <strong>Mini Projects</strong> are small applications created to
+      practice programming concepts in a practical way. They help
+      students move from learning individual topics to building
+      complete working programs.
+    </p>
+
+    <div class="mini-project-flow">
+
+      <div class="mini-project-box">
+        📚
+        <strong>Learn Concepts</strong>
+        <span>Python Basics</span>
+      </div>
+
+      <div class="mini-project-arrow">→</div>
+
+      <div class="mini-project-box">
+        💡
+        <strong>Choose Idea</strong>
+        <span>Project Planning</span>
+      </div>
+
+      <div class="mini-project-arrow">→</div>
+
+      <div class="mini-project-box">
+        💻
+        <strong>Build Project</strong>
+        <span>Write Code</span>
+      </div>
+
+      <div class="mini-project-arrow">→</div>
+
+      <div class="mini-project-box">
+        🧪
+        <strong>Test</strong>
+        <span>Find & Fix Bugs</span>
+      </div>
+
+      <div class="mini-project-arrow">→</div>
+
+      <div class="mini-project-box">
+        🚀
+        <strong>Complete</strong>
+        <span>Working Project</span>
+      </div>
+
+    </div>
+
+
+    <h3>2. Why Build Mini Projects?</h3>
+
+    <ul>
+      <li>Practice Python concepts in real programs.</li>
+      <li>Improve problem-solving skills.</li>
+      <li>Learn how multiple concepts work together.</li>
+      <li>Build confidence in programming.</li>
+      <li>Learn debugging and testing.</li>
+      <li>Create projects for a portfolio.</li>
+      <li>Understand real-world programming workflows.</li>
+    </ul>
+
+
+    <h3>3. Project Development Process</h3>
+
+    <div class="project-process">
+
+      <div class="project-step">
+        <span>1</span>
+        <strong>Idea</strong>
+      </div>
+
+      <div class="project-step-arrow">→</div>
+
+      <div class="project-step">
+        <span>2</span>
+        <strong>Requirements</strong>
+      </div>
+
+      <div class="project-step-arrow">→</div>
+
+      <div class="project-step">
+        <span>3</span>
+        <strong>Design</strong>
+      </div>
+
+      <div class="project-step-arrow">→</div>
+
+      <div class="project-step">
+        <span>4</span>
+        <strong>Coding</strong>
+      </div>
+
+      <div class="project-step-arrow">→</div>
+
+      <div class="project-step">
+        <span>5</span>
+        <strong>Testing</strong>
+      </div>
+
+      <div class="project-step-arrow">→</div>
+
+      <div class="project-step">
+        <span>6</span>
+        <strong>Deployment</strong>
+      </div>
+
+    </div>
+
+
+    <h3>4. Beginner Mini Projects</h3>
+
+    <p>
+      Beginner projects focus on basic Python concepts such as
+      variables, input/output, conditions, loops, and functions.
+    </p>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Project</th>
+          <th>Concepts Used</th>
+          <th>Difficulty</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Calculator</td>
+          <td>Input, Operators, Conditions</td>
+          <td>⭐ Beginner</td>
+        </tr>
+
+        <tr>
+          <td>Number Guessing Game</td>
+          <td>Loops, Conditions, Random</td>
+          <td>⭐ Beginner</td>
+        </tr>
+
+        <tr>
+          <td>Even/Odd Checker</td>
+          <td>Operators, Conditions</td>
+          <td>⭐ Beginner</td>
+        </tr>
+
+        <tr>
+          <td>Temperature Converter</td>
+          <td>Variables, Functions</td>
+          <td>⭐ Beginner</td>
+        </tr>
+
+        <tr>
+          <td>Simple Quiz</td>
+          <td>Lists, Conditions, Loops</td>
+          <td>⭐ Beginner</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>5. Intermediate Mini Projects</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Project</th>
+          <th>Concepts Used</th>
+          <th>Difficulty</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>To-Do List</td>
+          <td>Lists, Functions, File Handling</td>
+          <td>⭐⭐ Intermediate</td>
+        </tr>
+
+        <tr>
+          <td>Contact Book</td>
+          <td>Dictionaries, Functions, File Handling</td>
+          <td>⭐⭐ Intermediate</td>
+        </tr>
+
+        <tr>
+          <td>Expense Tracker</td>
+          <td>Lists, Dictionaries, CSV</td>
+          <td>⭐⭐ Intermediate</td>
+        </tr>
+
+        <tr>
+          <td>Student Management System</td>
+          <td>Classes, Files, Database</td>
+          <td>⭐⭐ Intermediate</td>
+        </tr>
+
+        <tr>
+          <td>Password Generator</td>
+          <td>Random, Strings, Functions</td>
+          <td>⭐⭐ Intermediate</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>6. Advanced Mini Projects</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Project</th>
+          <th>Concepts Used</th>
+          <th>Difficulty</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Weather App</td>
+          <td>API, JSON, GUI/Web</td>
+          <td>⭐⭐⭐ Advanced</td>
+        </tr>
+
+        <tr>
+          <td>Web Scraper</td>
+          <td>Requests, HTML Parsing, Data Processing</td>
+          <td>⭐⭐⭐ Advanced</td>
+        </tr>
+
+        <tr>
+          <td>Chat Application</td>
+          <td>Networking, Sockets, Threads</td>
+          <td>⭐⭐⭐ Advanced</td>
+        </tr>
+
+        <tr>
+          <td>Library Management System</td>
+          <td>OOP, SQLite, File Handling</td>
+          <td>⭐⭐⭐ Advanced</td>
+        </tr>
+
+        <tr>
+          <td>Task Management API</td>
+          <td>Flask, API, Database, Authentication</td>
+          <td>⭐⭐⭐ Advanced</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>7. Calculator Project</h3>
+
+    <p>
+      A calculator is one of the simplest Python projects for
+      practicing input, operators, functions, and conditional
+      statements.
+    </p>
+
+    <pre><code>def calculator(a, b, operator):
+
+    if operator == "+":
+        return a + b
+
+    elif operator == "-":
+        return a - b
+
+    elif operator == "*":
+        return a * b
+
+    elif operator == "/":
+
+        if b == 0:
+            return "Cannot divide by zero"
+
+        return a / b
+
+    else:
+        return "Invalid operator"
+
+
+a = float(input("Enter first number: "))
+b = float(input("Enter second number: "))
+operator = input("Enter operator (+, -, *, /): ")
+
+result = calculator(a, b, operator)
+
+print("Result:", result)</code></pre>
+
+
+    <h3>8. Number Guessing Game</h3>
+
+    <p>
+      This project uses the <strong>random</strong> module, loops,
+      conditions, and user input.
+    </p>
+
+    <pre><code>import random
+
+number = random.randint(1, 100)
+
+while True:
+
+    guess = int(
+        input("Guess the number: ")
+    )
+
+    if guess == number:
+        print("Correct!")
+        break
+
+    elif guess < number:
+        print("Too low")
+
+    else:
+        print("Too high")</code></pre>
+
+
+    <h3>9. To-Do List</h3>
+
+    <p>
+      A To-Do List project helps practice lists, functions, loops, and
+      file handling.
+    </p>
+
+    <pre><code>tasks = []
+
+
+def add_task(task):
+    tasks.append(task)
+
+
+def show_tasks():
+
+    if not tasks:
+        print("No tasks available")
+        return
+
+    for number, task in enumerate(
+        tasks,
+        start=1
+    ):
+        print(number, task)
+
+
+add_task("Learn Python")
+add_task("Build a project")
+
+show_tasks()</code></pre>
+
+
+    <h3>10. Expense Tracker</h3>
+
+    <p>
+      An expense tracker can store expenses and calculate the total
+      amount spent.
+    </p>
+
+    <pre><code>expenses = []
+
+
+def add_expense(name, amount):
+
+    expenses.append({
+        "name": name,
+        "amount": amount
+    })
+
+
+def total_expense():
+
+    return sum(
+        expense["amount"]
+        for expense in expenses
+    )
+
+
+add_expense("Food", 250)
+add_expense("Travel", 100)
+
+print(
+    "Total:",
+    total_expense()
+)</code></pre>
+
+
+    <h3>11. Contact Book</h3>
+
+    <p>
+      A contact book can store names and phone numbers using a
+      dictionary.
+    </p>
+
+    <pre><code>contacts = {}
+
+
+def add_contact(name, phone):
+
+    contacts[name] = phone
+
+
+def find_contact(name):
+
+    return contacts.get(
+        name,
+        "Contact not found"
+    )
+
+
+add_contact(
+    "Rahul",
+    "9876543210"
+)
+
+print(
+    find_contact("Rahul")
+)</code></pre>
+
+
+    <h3>12. Student Management System</h3>
+
+    <p>
+      This project can combine classes, lists, dictionaries, file
+      handling, and databases to manage student records.
+    </p>
+
+    <pre><code>class Student:
+
+    def __init__(
+        self,
+        name,
+        roll_number,
+        marks
+    ):
+        self.name = name
+        self.roll_number = roll_number
+        self.marks = marks
+
+    def display(self):
+
+        print(
+            self.roll_number,
+            self.name,
+            self.marks
+        )
+
+
+student = Student(
+    "Aman",
+    101,
+    85
+)
+
+student.display()</code></pre>
+
+
+    <h3>13. Weather App</h3>
+
+    <p>
+      A weather application can use a web API to retrieve current
+      weather information and display it to the user.
+    </p>
+
+    <div class="project-architecture">
+
+      <div class="architecture-project-box">
+        👤
+        <strong>User</strong>
+      </div>
+
+      <div class="architecture-project-arrow">→</div>
+
+      <div class="architecture-project-box">
+        💻
+        <strong>Python App</strong>
+      </div>
+
+      <div class="architecture-project-arrow">→</div>
+
+      <div class="architecture-project-box">
+        🌐
+        <strong>Weather API</strong>
+      </div>
+
+      <div class="architecture-project-arrow">→</div>
+
+      <div class="architecture-project-box">
+        📊
+        <strong>Weather Data</strong>
+      </div>
+
+    </div>
+
+
+    <h3>14. Project Folder Structure</h3>
+
+    <p>
+      A project should be organized into separate files and folders
+      when it becomes larger.
+    </p>
+
+    <pre><code>my_project/
+│
+├── main.py
+├── requirements.txt
+├── README.md
+│
+├── src/
+│   ├── __init__.py
+│   ├── functions.py
+│   └── database.py
+│
+├── tests/
+│   ├── test_functions.py
+│   └── test_database.py
+│
+└── data/
+    └── records.json</code></pre>
+
+
+    <h3>15. README File</h3>
+
+    <p>
+      A <strong>README.md</strong> file explains what the project does,
+      how to install it, how to run it, and how to use it.
+    </p>
+
+    <pre><code># To-Do List
+
+A simple Python To-Do List application.
+
+## Installation
+
+pip install -r requirements.txt
+
+## Run
+
+python main.py
+
+## Features
+
+- Add tasks
+- View tasks
+- Remove tasks
+- Save tasks</code></pre>
+
+
+    <h3>16. Testing a Project</h3>
+
+    <p>
+      Projects should be tested before they are considered complete.
+      Test normal inputs, invalid inputs, and edge cases.
+    </p>
+
+    <pre><code>def add(a, b):
+    return a + b
+
+
+def test_add():
+
+    assert add(2, 3) == 5
+    assert add(-2, 2) == 0</code></pre>
+
+
+    <h3>17. Debugging a Project</h3>
+
+    <p>
+      Debugging is the process of finding and fixing errors in a
+      program. Use error messages, logging, breakpoints, and small
+      test cases to identify problems.
+    </p>
+
+    <pre><code>try:
+
+    result = 10 / 0
+
+except ZeroDivisionError as error:
+
+    print(
+        "Error:",
+        error
+    )</code></pre>
+
+
+    <h3>18. Mini Project Development Checklist</h3>
+
+    <div class="project-checklist">
+
+      <div>💡 Choose an idea</div>
+      <div>📝 Define requirements</div>
+      <div>📁 Create project structure</div>
+      <div>💻 Write code</div>
+      <div>🧪 Test features</div>
+      <div>🐞 Fix bugs</div>
+      <div>📖 Write documentation</div>
+      <div>🔀 Use Git</div>
+      <div>🚀 Complete project</div>
+
+    </div>
+
+
+    <h3>19. Portfolio Projects</h3>
+
+    <p>
+      Completed mini projects can be added to a GitHub repository or
+      portfolio to demonstrate practical programming skills.
+    </p>
+
+    <ul>
+      <li>Keep the source code organized.</li>
+      <li>Add a README file.</li>
+      <li>Explain project features.</li>
+      <li>Include installation instructions.</li>
+      <li>Add screenshots when useful.</li>
+      <li>Document important technologies used.</li>
+      <li>Keep sensitive information out of the repository.</li>
+    </ul>
+
+
+    <h3>20. Mini Project Roadmap</h3>
+
+    <div class="project-roadmap">
+
+      <div class="roadmap-project beginner">
+        <span>LEVEL 1</span>
+        <strong>Beginner</strong>
+        <p>Calculator</p>
+        <p>Quiz Game</p>
+        <p>Number Guessing</p>
+      </div>
+
+      <div class="roadmap-project intermediate">
+        <span>LEVEL 2</span>
+        <strong>Intermediate</strong>
+        <p>To-Do List</p>
+        <p>Expense Tracker</p>
+        <p>Contact Book</p>
+      </div>
+
+      <div class="roadmap-project advanced">
+        <span>LEVEL 3</span>
+        <strong>Advanced</strong>
+        <p>Weather App</p>
+        <p>Web Scraper</p>
+        <p>Library System</p>
+      </div>
+
+    </div>
+
+
+    <h3>21. Important Project Concepts</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Planning</td>
+          <td>Defines what the project should do.</td>
+        </tr>
+
+        <tr>
+          <td>Functions</td>
+          <td>Organize reusable logic.</td>
+        </tr>
+
+        <tr>
+          <td>Modules</td>
+          <td>Separate code into logical files.</td>
+        </tr>
+
+        <tr>
+          <td>Database</td>
+          <td>Stores structured application data.</td>
+        </tr>
+
+        <tr>
+          <td>Testing</td>
+          <td>Checks whether features work correctly.</td>
+        </tr>
+
+        <tr>
+          <td>Debugging</td>
+          <td>Finds and fixes errors.</td>
+        </tr>
+
+        <tr>
+          <td>Documentation</td>
+          <td>Explains the project and its usage.</td>
+        </tr>
+
+        <tr>
+          <td>Git</td>
+          <td>Tracks project changes.</td>
+        </tr>
+      </tbody>
+    </table>
+    `
+  ],
+
+  practice: [
+    'Build a simple calculator project.',
+    'Create a number guessing game.',
+    'Build a quiz application.',
+    'Create a To-Do List using Python.',
+    'Build a Contact Book using dictionaries.',
+    'Create an Expense Tracker using CSV or JSON.',
+    'Build a Student Management System.',
+    'Create a Password Generator.',
+    'Build a Weather App using an API.',
+    'Create a simple web scraper.',
+    'Build a Library Management System using SQLite.',
+    'Create a Python project with tests and documentation.',
+    'Upload a completed project to GitHub with a README file.'
+  ],
+
+  code: `# Mini Project: To-Do List
+
+tasks = []
+
+
+def add_task(task):
+    tasks.append(task)
+    print("Task added successfully.")
+
+
+def show_tasks():
+
+    if not tasks:
+        print("No tasks available.")
+        return
+
+    print("\\nTasks:")
+
+    for number, task in enumerate(
+        tasks,
+        start=1
+    ):
+        print(
+            f"{number}. {task}"
+        )
+
+
+def remove_task(number):
+
+    if 1 <= number <= len(tasks):
+
+        removed = tasks.pop(
+            number - 1
+        )
+
+        print(
+            f"Removed: {removed}"
+        )
+
+    else:
+        print("Invalid task number.")
+
+
+while True:
+
+    print("\\n--- To-Do List ---")
+    print("1. Add Task")
+    print("2. Show Tasks")
+    print("3. Remove Task")
+    print("4. Exit")
+
+    choice = input(
+        "Enter your choice: "
+    )
+
+    if choice == "1":
+
+        task = input(
+            "Enter task: "
+        )
+
+        if task.strip():
+            add_task(task)
+        else:
+            print("Task cannot be empty.")
+
+    elif choice == "2":
+
+        show_tasks()
+
+    elif choice == "3":
+
+        show_tasks()
+
+        try:
+
+            number = int(
+                input(
+                    "Enter task number: "
+                )
+            )
+
+            remove_task(number)
+
+        except ValueError:
+
+            print(
+                "Please enter a valid number."
+            )
+
+    elif choice == "4":
+
+        print("Goodbye!")
+        break
+
+    else:
+
+        print(
+            "Invalid choice."
+        )`
+},
   {
-    key: 'mini-projects',
-    title: 'Mini Projects',
-    description: 'Mini projects reinforce Python concepts through practical examples.',
-    theory: [
-      'Small projects focus on specific Python skills.',
-      'They help you apply learning in real scenarios.'
-    ],
-    practice: [
-      'Build a calculator or to-do app.',
-      'Use functions, lists, and file I/O together.'
-    ],
-    code: `print("Build small projects to practice Python.")`
-  },
-  {
-    key: 'final-projects',
-    title: 'Final Projects',
-    description: 'Final projects combine multiple Python topics into a larger application.',
-    theory: [
-      'A final project can include OOP, file handling, and external libraries.',
-      'It is a great way to demonstrate your Python skills.'
-    ],
-    practice: [
-      'Plan a project that solves a real problem.',
-      'Build it step by step using the concepts learned.'
-    ],
-    code: `print("Start a final Python project using the skills you have learned.")`
-  }
+  key: 'final-projects',
+  title: 'Final Projects',
+  description: 'Final projects are complete Python applications that combine multiple programming concepts such as functions, OOP, databases, APIs, authentication, testing, file handling, and deployment into a single real-world project.',
+
+  theory: [
+    `
+    <h3>1. What are Final Projects?</h3>
+
+    <p>
+      A <strong>Final Project</strong> is a complete application developed
+      by combining multiple Python concepts learned throughout the course.
+      Unlike small practice programs, a final project solves a practical
+      problem and usually contains multiple features and components.
+    </p>
+
+    <div class="final-project-flow">
+
+      <div class="final-project-box">
+        💡
+        <strong>Problem</strong>
+        <span>Identify a real need</span>
+      </div>
+
+      <div class="final-project-arrow">→</div>
+
+      <div class="final-project-box">
+        📝
+        <strong>Planning</strong>
+        <span>Define features</span>
+      </div>
+
+      <div class="final-project-arrow">→</div>
+
+      <div class="final-project-box">
+        💻
+        <strong>Development</strong>
+        <span>Build application</span>
+      </div>
+
+      <div class="final-project-arrow">→</div>
+
+      <div class="final-project-box">
+        🧪
+        <strong>Testing</strong>
+        <span>Find and fix bugs</span>
+      </div>
+
+      <div class="final-project-arrow">→</div>
+
+      <div class="final-project-box">
+        🚀
+        <strong>Deployment</strong>
+        <span>Release project</span>
+      </div>
+
+    </div>
+
+
+    <h3>2. Difference Between Mini and Final Projects</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Mini Project</th>
+          <th>Final Project</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Small application</td>
+          <td>Complete application</td>
+        </tr>
+
+        <tr>
+          <td>Few features</td>
+          <td>Multiple features</td>
+        </tr>
+
+        <tr>
+          <td>Usually one or few files</td>
+          <td>Multiple modules and folders</td>
+        </tr>
+
+        <tr>
+          <td>Basic concepts</td>
+          <td>Multiple advanced concepts</td>
+        </tr>
+
+        <tr>
+          <td>Limited testing</td>
+          <td>Proper testing and validation</td>
+        </tr>
+
+        <tr>
+          <td>Practice focused</td>
+          <td>Real-world problem focused</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>3. Important Components of a Final Project</h3>
+
+    <div class="final-components">
+
+      <div>🖥️ User Interface</div>
+      <div>⚙️ Backend Logic</div>
+      <div>🗄️ Database</div>
+      <div>🔐 Authentication</div>
+      <div>🌐 APIs</div>
+      <div>🧪 Testing</div>
+      <div>📝 Documentation</div>
+      <div>🚀 Deployment</div>
+
+    </div>
+
+
+    <h3>4. Final Project Development Life Cycle</h3>
+
+    <div class="final-lifecycle">
+
+      <div class="lifecycle-item">
+        <span>1</span>
+        <strong>Requirement Analysis</strong>
+        <p>Understand the problem.</p>
+      </div>
+
+      <div class="lifecycle-item">
+        <span>2</span>
+        <strong>System Design</strong>
+        <p>Plan the application.</p>
+      </div>
+
+      <div class="lifecycle-item">
+        <span>3</span>
+        <strong>Database Design</strong>
+        <p>Plan data storage.</p>
+      </div>
+
+      <div class="lifecycle-item">
+        <span>4</span>
+        <strong>Implementation</strong>
+        <p>Write the code.</p>
+      </div>
+
+      <div class="lifecycle-item">
+        <span>5</span>
+        <strong>Testing</strong>
+        <p>Verify functionality.</p>
+      </div>
+
+      <div class="lifecycle-item">
+        <span>6</span>
+        <strong>Deployment</strong>
+        <p>Make the project available.</p>
+      </div>
+
+    </div>
+
+
+    <h3>5. Final Project Ideas</h3>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Project</th>
+          <th>Main Technologies</th>
+          <th>Level</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Student Management System</td>
+          <td>Python, SQLite, OOP</td>
+          <td>⭐⭐⭐</td>
+        </tr>
+
+        <tr>
+          <td>Library Management System</td>
+          <td>Python, SQLite, OOP</td>
+          <td>⭐⭐⭐</td>
+        </tr>
+
+        <tr>
+          <td>Expense Management System</td>
+          <td>Python, SQLite, Data Analysis</td>
+          <td>⭐⭐⭐</td>
+        </tr>
+
+        <tr>
+          <td>Online Quiz System</td>
+          <td>Python, Flask, Database</td>
+          <td>⭐⭐⭐</td>
+        </tr>
+
+        <tr>
+          <td>Blog Application</td>
+          <td>Python, Flask, SQLite</td>
+          <td>⭐⭐⭐⭐</td>
+        </tr>
+
+        <tr>
+          <td>Task Management System</td>
+          <td>Python, Flask, API, Database</td>
+          <td>⭐⭐⭐⭐</td>
+        </tr>
+
+        <tr>
+          <td>Weather Dashboard</td>
+          <td>Python, API, JSON, Data Visualization</td>
+          <td>⭐⭐⭐⭐</td>
+        </tr>
+
+        <tr>
+          <td>E-Commerce Backend</td>
+          <td>Python, Flask, MySQL, API</td>
+          <td>⭐⭐⭐⭐⭐</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>6. Student Management System</h3>
+
+    <p>
+      A Student Management System stores and manages student information
+      such as name, roll number, course, marks, and attendance.
+    </p>
+
+    <ul>
+      <li>Add students.</li>
+      <li>Update student information.</li>
+      <li>Delete student records.</li>
+      <li>Search students.</li>
+      <li>Display student records.</li>
+      <li>Store data in a database.</li>
+    </ul>
+
+    <div class="system-architecture">
+
+      <div class="architecture-box">
+        👤
+        <strong>User</strong>
+      </div>
+
+      <div class="architecture-arrow">→</div>
+
+      <div class="architecture-box">
+        🖥️
+        <strong>Application</strong>
+      </div>
+
+      <div class="architecture-arrow">→</div>
+
+      <div class="architecture-box">
+        ⚙️
+        <strong>Python Logic</strong>
+      </div>
+
+      <div class="architecture-arrow">→</div>
+
+      <div class="architecture-box">
+        🗄️
+        <strong>Database</strong>
+      </div>
+
+    </div>
+
+
+    <h3>7. Library Management System</h3>
+
+    <p>
+      A Library Management System manages books, students, borrowing,
+      returning, and library records.
+    </p>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Add Book</td>
+          <td>Add new books to the library.</td>
+        </tr>
+
+        <tr>
+          <td>Search Book</td>
+          <td>Find books by title or author.</td>
+        </tr>
+
+        <tr>
+          <td>Issue Book</td>
+          <td>Record a book issued to a user.</td>
+        </tr>
+
+        <tr>
+          <td>Return Book</td>
+          <td>Record returned books.</td>
+        </tr>
+
+        <tr>
+          <td>Database</td>
+          <td>Store books and user information.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>8. Online Quiz System</h3>
+
+    <p>
+      An Online Quiz System allows users to log in, answer questions,
+      submit quizzes, and view their scores.
+    </p>
+
+    <div class="quiz-flow">
+
+      <div>🔐 Login</div>
+      <span>→</span>
+      <div>📚 Select Quiz</div>
+      <span>→</span>
+      <div>❓ Answer Questions</div>
+      <span>→</span>
+      <div>📤 Submit</div>
+      <span>→</span>
+      <div>🏆 Result</div>
+
+    </div>
+
+
+    <h3>9. Blog Application</h3>
+
+    <p>
+      A blog application allows users to create, edit, delete, and
+      read posts. A backend framework such as Flask can be used to
+      build the application.
+    </p>
+
+    <ul>
+      <li>User registration and login.</li>
+      <li>Create blog posts.</li>
+      <li>Edit posts.</li>
+      <li>Delete posts.</li>
+      <li>Display posts.</li>
+      <li>Store posts in a database.</li>
+    </ul>
+
+
+    <h3>10. Expense Management System</h3>
+
+    <p>
+      An Expense Management System records daily expenses and provides
+      useful summaries of spending.
+    </p>
+
+    <pre><code>expenses = [
+    {
+        "category": "Food",
+        "amount": 250
+    },
+    {
+        "category": "Travel",
+        "amount": 150
+    },
+    {
+        "category": "Books",
+        "amount": 500
+    }
+]
+
+
+total = sum(
+    expense["amount"]
+    for expense in expenses
+)
+
+print("Total Expense:", total)</code></pre>
+
+
+    <h3>11. Weather Dashboard</h3>
+
+    <p>
+      A Weather Dashboard retrieves weather information from an API
+      and displays useful information such as temperature, humidity,
+      wind speed, and weather conditions.
+    </p>
+
+    <div class="api-architecture">
+
+      <div class="api-box">
+        👤
+        <strong>User</strong>
+      </div>
+
+      <div class="api-arrow">→</div>
+
+      <div class="api-box">
+        🖥️
+        <strong>Python App</strong>
+      </div>
+
+      <div class="api-arrow">→</div>
+
+      <div class="api-box">
+        🌐
+        <strong>Weather API</strong>
+      </div>
+
+      <div class="api-arrow">→</div>
+
+      <div class="api-box">
+        📊
+        <strong>JSON Data</strong>
+      </div>
+
+    </div>
+
+
+    <h3>12. E-Commerce Backend</h3>
+
+    <p>
+      An E-Commerce Backend is an advanced project that can manage
+      users, products, orders, payments, and authentication.
+    </p>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Module</th>
+          <th>Function</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>User Management</td>
+          <td>Registration and authentication.</td>
+        </tr>
+
+        <tr>
+          <td>Products</td>
+          <td>Add, update, delete, and view products.</td>
+        </tr>
+
+        <tr>
+          <td>Cart</td>
+          <td>Manage selected products.</td>
+        </tr>
+
+        <tr>
+          <td>Orders</td>
+          <td>Create and manage orders.</td>
+        </tr>
+
+        <tr>
+          <td>Database</td>
+          <td>Store application data.</td>
+        </tr>
+
+        <tr>
+          <td>API</td>
+          <td>Provide backend services.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>13. Recommended Project Structure</h3>
+
+    <pre><code>final_project/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+│
+├── config/
+│   └── settings.py
+│
+├── models/
+│   ├── user.py
+│   └── product.py
+│
+├── routes/
+│   ├── auth.py
+│   └── products.py
+│
+├── services/
+│   └── database.py
+│
+├── tests/
+│   ├── test_auth.py
+│   └── test_products.py
+│
+├── templates/
+│
+├── static/
+│
+└── data/</code></pre>
+
+
+    <h3>14. Database Design</h3>
+
+    <p>
+      Applications that store large amounts of structured information
+      should use a database. Common choices include SQLite and MySQL.
+    </p>
+
+    <div class="database-flow">
+
+      <div class="database-box">
+        👤
+        <strong>Users</strong>
+      </div>
+
+      <div class="database-arrow">↔</div>
+
+      <div class="database-box">
+        🗄️
+        <strong>Database</strong>
+      </div>
+
+      <div class="database-arrow">↔</div>
+
+      <div class="database-box">
+        📦
+        <strong>Application</strong>
+      </div>
+
+    </div>
+
+
+    <h3>15. Authentication</h3>
+
+    <p>
+      Authentication verifies the identity of a user. A final project
+      may include registration, login, logout, password protection,
+      and access control.
+    </p>
+
+    <pre><code>def login(username, password):
+
+    if username == "admin" and password == "1234":
+        return True
+
+    return False
+
+
+if login("admin", "1234"):
+    print("Login successful")
+else:
+    print("Invalid credentials")</code></pre>
+
+    <p>
+      This example is only for learning. Real applications should
+      never store plain-text passwords and should use secure password
+      hashing and proper authentication mechanisms.
+    </p>
+
+
+    <h3>16. API Integration</h3>
+
+    <p>
+      APIs allow a Python application to communicate with external
+      services and exchange data.
+    </p>
+
+    <pre><code>import requests
+
+response = requests.get(
+    "https://example.com/api/data",
+    timeout=10
+)
+
+if response.ok:
+    data = response.json()
+    print(data)</code></pre>
+
+
+    <h3>17. Testing Final Projects</h3>
+
+    <p>
+      A final project should be tested systematically before release.
+    </p>
+
+    <table class="data-type-table">
+      <thead>
+        <tr>
+          <th>Testing Type</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Unit Testing</td>
+          <td>Tests individual functions or components.</td>
+        </tr>
+
+        <tr>
+          <td>Integration Testing</td>
+          <td>Tests how different components work together.</td>
+        </tr>
+
+        <tr>
+          <td>Functional Testing</td>
+          <td>Checks whether features work as expected.</td>
+        </tr>
+
+        <tr>
+          <td>Security Testing</td>
+          <td>Checks common security problems.</td>
+        </tr>
+
+        <tr>
+          <td>User Testing</td>
+          <td>Checks usability from a user's perspective.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h3>18. Error Handling</h3>
+
+    <p>
+      Final applications should handle expected errors gracefully
+      instead of crashing unexpectedly.
+    </p>
+
+    <pre><code>try:
+
+    age = int(
+        input("Enter your age: ")
+    )
+
+except ValueError:
+
+    print(
+        "Please enter a valid number."
+    )</code></pre>
+
+
+    <h3>19. Security Best Practices</h3>
+
+    <ul>
+      <li>Never hard-code passwords or API keys.</li>
+      <li>Validate user input.</li>
+      <li>Use secure password hashing.</li>
+      <li>Protect sensitive configuration.</li>
+      <li>Use parameterized database queries.</li>
+      <li>Keep dependencies updated.</li>
+      <li>Use HTTPS when communicating with remote services.</li>
+      <li>Do not expose sensitive information in error messages.</li>
+    </ul>
+
+
+    <h3>20. Documentation</h3>
+
+    <p>
+      A final project should contain documentation explaining its
+      purpose, features, installation, configuration, usage, and
+      technologies.
+    </p>
+
+    <pre><code># Student Management System
+
+## Description
+
+A Python application for managing student records.
+
+## Features
+
+- Add student
+- Update student
+- Delete student
+- Search student
+- View student records
+
+## Technologies
+
+- Python
+- SQLite
+
+## Run
+
+python app.py</code></pre>
+
+
+    <h3>21. Version Control</h3>
+
+    <p>
+      Git can be used to track changes and maintain the project source
+      code. A final project should normally include a clear commit
+      history and a useful README.
+    </p>
+
+    <pre><code>git init
+
+git add .
+
+git commit -m "Initial project setup"
+
+git branch -M main
+
+git remote add origin YOUR_REPOSITORY_URL
+
+git push -u origin main</code></pre>
+
+
+    <h3>22. Final Project Checklist</h3>
+
+    <div class="final-project-checklist">
+
+      <div>✅ Problem clearly defined</div>
+      <div>✅ Requirements documented</div>
+      <div>✅ Project structure organized</div>
+      <div>✅ Database designed</div>
+      <div>✅ Core features implemented</div>
+      <div>✅ Input validation added</div>
+      <div>✅ Error handling implemented</div>
+      <div>✅ Authentication secured</div>
+      <div>✅ Tests written</div>
+      <div>✅ Documentation created</div>
+      <div>✅ Git repository maintained</div>
+      <div>✅ Project tested before release</div>
+
+    </div>
+
+
+    <h3>23. Final Project Roadmap</h3>
+
+    <div class="final-roadmap">
+
+      <div class="roadmap-stage">
+        <span>01</span>
+        <strong>Idea</strong>
+        <p>Choose a real-world problem.</p>
+      </div>
+
+      <div class="roadmap-stage">
+        <span>02</span>
+        <strong>Planning</strong>
+        <p>Define features and requirements.</p>
+      </div>
+
+      <div class="roadmap-stage">
+        <span>03</span>
+        <strong>Development</strong>
+        <p>Build the application.</p>
+      </div>
+
+      <div class="roadmap-stage">
+        <span>04</span>
+        <strong>Testing</strong>
+        <p>Find and fix problems.</p>
+      </div>
+
+      <div class="roadmap-stage">
+        <span>05</span>
+        <strong>Documentation</strong>
+        <p>Explain the project.</p>
+      </div>
+
+      <div class="roadmap-stage">
+        <span>06</span>
+        <strong>Deployment</strong>
+        <p>Release the application.</p>
+      </div>
+
+    </div>
+    `
+  ],
+
+  practice: [
+    'Build a complete Student Management System using Python and SQLite.',
+    'Build a Library Management System with book issue and return functionality.',
+    'Create an Online Quiz System with user login and score tracking.',
+    'Build a Blog Application using Python and Flask.',
+    'Create an Expense Management System with data visualization.',
+    'Build a Weather Dashboard using a public API.',
+    'Create a Task Management API with a database.',
+    'Build an E-Commerce backend with users, products, and orders.',
+    'Add authentication and proper input validation to a final project.',
+    'Write automated tests for the main features.',
+    'Create a complete README.md file.',
+    'Upload the project to GitHub and maintain it using Git.'
+  ],
+
+  code: `# Final Project Example
+# Student Management System
+
+import sqlite3
+
+
+DATABASE = "students.db"
+
+
+def create_database():
+
+    connection = sqlite3.connect(
+        DATABASE
+    )
+
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS students (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            roll_number TEXT UNIQUE NOT NULL,
+            marks REAL NOT NULL
+        )
+    """)
+
+    connection.commit()
+    connection.close()
+
+
+def add_student(
+    name,
+    roll_number,
+    marks
+):
+
+    connection = sqlite3.connect(
+        DATABASE
+    )
+
+    cursor = connection.cursor()
+
+    try:
+
+        cursor.execute(
+            """
+            INSERT INTO students
+            (name, roll_number, marks)
+            VALUES (?, ?, ?)
+            """,
+            (name, roll_number, marks)
+        )
+
+        connection.commit()
+
+        print(
+            "Student added successfully."
+        )
+
+    except sqlite3.IntegrityError:
+
+        print(
+            "Roll number already exists."
+        )
+
+    finally:
+
+        connection.close()
+
+
+def show_students():
+
+    connection = sqlite3.connect(
+        DATABASE
+    )
+
+    cursor = connection.cursor()
+
+    cursor.execute(
+        "SELECT * FROM students"
+    )
+
+    students = cursor.fetchall()
+
+    connection.close()
+
+    if not students:
+
+        print("No students found.")
+        return
+
+    for student in students:
+
+        print(
+            f"ID: {student[0]} | "
+            f"Name: {student[1]} | "
+            f"Roll: {student[2]} | "
+            f"Marks: {student[3]}"
+        )
+
+
+create_database()
+
+add_student(
+    "Aman",
+    "CS101",
+    85
+)
+
+show_students()`
+}
 ];
 
 const topicData = Object.fromEntries(topics.map((topic) => [topic.key, topic]));
