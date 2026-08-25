@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS Learn Hub</title>
+<link rel="stylesheet" href="courses.css">
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="#" class="brand">
+          <span class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+          <span>CS Learn Hub</span>
+        </a>
+
+        <div class="nav-actions">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode">
+            <i class="fa-solid fa-sun"></i>
+          </button>
+
+          <button class="auth-btn" id="auth-btn" type="button">Sign In</button>
+
+          <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+
+        <nav class="nav-menu" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="#topics">Courses</a>
+          <a href="#roadmap">Subject</a>
+          <a href="#quiz">Placement</a>
+          <a href="#quiz">About us</a>
+          <a href="#quiz">Contact</a>
+        </nav>
+      </div>
+    </header>
+     <section id="home" class="hero">
+        <div class="hero-content">
+          <div class="hero-text">
+            <p class="hero-badge">Learn • Practice • Build</p>
+            <h1>Explore Our Courses</h1>
+            <p class="hero-description">
+              Choose a course and start your learning journey with examples. practicals and projects.
+            </p>
+
+            <form class="search-box">
+              <input type="text" placeholder="Search topics like Python, AI, Coding..." />
+              <button type="submit">Search</button>
+            </form>
+          </div>
+
+          <div class="hero-image-box">
+            <img
+              src="logo.jpg"
+              alt="Students learning computer science"
+            />
+          </div>
+        </div>
+      </section>
+       <div class="auth-modal" id="auth-modal" aria-hidden="true">
+      <div class="auth-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+        <button class="auth-close" id="auth-close" type="button" aria-label="Close sign in">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h2 id="auth-modal-title">Sign in to CS Learn Hub</h2>
+        <p class="auth-modal-text">Access your courses, saved progress, and personalised learning.</p>
+
+        <form id="auth-form" class="auth-form">
+          <label class="auth-field">
+            <span>Email</span>
+            <input type="email" id="auth-email" placeholder="you@example.com" required />
+          </label>
+
+          <label class="auth-field">
+            <span>Password</span>
+            <input type="password" id="auth-password" placeholder="Enter password" required />
+          </label>
+
+          <button type="submit" class="auth-submit">Sign In</button>
+        </form>
+
+        <p class="auth-help">Demo mode: any valid email and password will sign you in.</p>
+      </div>
+    </div>
+
+
+<!-- ================= MAIN ================= -->
+
+<section class="main-section">
+
+<div class="container main-layout">
+<aside class="sidebar">
+<div class="category-box">
+<h2>
+<i class="fa-solid fa-list"></i>
+Categories
+</h2>
+<div class="course">
+<span>
+<i class="fa-solid fa-graduation-cap"></i>
+All Courses
+</span>
+<span class="arrow">
+<i class="fa-solid fa-arrow-right"></i>
+</span>
+</div>
+<div class="course">
+<span>
+<i class="fa-solid fa-code"></i>
+Programming Languages
+</span>
+<span class="arrow">
+<i class="fa-solid fa-arrow-right"></i>
+</span>
+</div>
+<div class="course">
+<span>
+<i class="fa-solid fa-book"></i>
+Core Subjects
+</span>
+<span class="arrow">
+<i class="fa-solid fa-arrow-right"></i>
+</span>
+</div>
+<div class="course">
+<span>
+<i class="fa-solid fa-globe"></i>
+Web Development
+</span>
+<span class="arrow">
+<i class="fa-solid fa-arrow-right"></i>
+</span>
+</div>
+<div class="course"><span>
+<i class="fa-solid fa-diagram-project"></i>
+Data Structure
+</span>
+<span class="arrow">
+<i class="fa-solid fa-arrow-right"></i>
+</span>
+</div>
+</div>
+<div class="search-card">
+<h2>
+<i class="fa-solid fa-magnifying-glass"></i>
+Search Courses
+<div id="searchResult"></div>
+</h2>
+<div class="sidebar-search">
+<input
+type="text"class="search-input"placeholder="Search Course...">
+<button>
+<i class="fa-solid fa-search"></i>
+</button>
+</div>
+<div class="level-title">
+<i class="fa-solid fa-layer-group"></i>
+Level
+</div>
+<label class="level">
+<input type="checkbox">
+<span>🌱 Beginner</span>
+</label>
+<label class="level">
+<input type="checkbox">
+<span>📘 Intermediate</span>
+</label>
+<label class="level">
+<input type="checkbox">
+<span>🚀 Advanced</span>
+</label>
+</div>
+</aside>
+<main class="content-area">
+<h2 class="section-title">
+Popular Courses
+</h2>
+<!-- ===========================
+PROGRAMMING LANGUAGE CARDS
+=========================== -->
+<div class="course-grid">
+<!-- C -->
+<div class="course-card" data-category="programming" data-level="beginner">
+<span class="badge beginner">Beginner</span>
+<i class="devicon-c-plain colored"></i>
+<h3>C </h3>
+<p>Complete C Programming for beginners.</p>
+<a href="c.html"><button>Start Learning</button></a>
+</div>
+<!-- C++ -->
+<div class="course-card" data-category="programming" data-level="intermediate">
+<span class="badge intermediate">Intermediate</span>
+<i class="devicon-cplusplus-plain colored"></i>
+<h3>C++</h3>
+<p>Object Oriented Programming using C++.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+
+<!-- Java -->
+
+<div class="course-card" data-category="programming" data-level="beginner">
+<span class="badge beginner">Beginner</span>
+<i class="devicon-java-plain colored"></i>
+<h3>Java</h3>
+<p>Core Java from beginner to advanced.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+<!-- Python -->
+
+<div class="course-card" data-category="programming" data-level="beginner">
+<span class="badge beginner">Beginner</span>
+<i class="devicon-python-plain colored"></i>
+<h3>Python</h3>
+<p>Python Programming with projects.</p>
+<a href="python.html"><button>Start Learning</button></a>
+</div>
+
+<!-- JavaScript -->
+
+<div class="course-card" data-category="programming" data-level="intermediate">
+<span class="badge intermediate">Intermediate</span>
+<i class="devicon-javascript-plain colored"></i>
+<h3>JavaScript</h3>
+<p>Modern JavaScript ES6+ Development.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+
+<!-- C# -->
+
+<div class="course-card" data-category="programming" data-level="advanced">
+<span class="badge advanced">Advanced</span>
+<i class="devicon-csharp-plain colored"></i>
+<h3>C#</h3>
+<p>Build Desktop and Web Applications.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+
+<!-- Go -->
+<div class="course-card" data-category="programming" data-level="advanced">
+<span class="badge advanced">Advanced</span>
+<i class="devicon-go-plain colored"></i>
+<h3>Go</h3>
+<p>Fast backend programming language.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+<!-- Rust -->
+<div class="course-card" data-category="programming" data-level="advanced">
+<span class="badge advanced">Advanced</span>
+<i class="devicon-rust-plain colored"></i>
+<h3>Rust</h3>
+<p>Memory-safe systems programming.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+<!-- ROW 1 -->
+
+<div class="course-card" data-category="core" data-level="beginner">
+<span class="badge beginner">Beginner</span>
+<i class="fa-solid fa-database"></i>
+<h3>DBMS</h3>
+<p>Database Management System from basic to advanced.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+
+<div class="course-card" data-category="core" data-level="intermediate">
+<span class="badge intermediate">Intermediate</span>
+<i class="fa-solid fa-microchip"></i>
+<h3>Operating System</h3>
+<p>Learn OS concepts, scheduling and memory management.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+
+<div class="course-card" data-category="core" data-level="intermediate">
+
+<span class="badge intermediate">Intermediate</span>
+<i class="fa-solid fa-network-wired"></i>
+<h3>Computer Network</h3>
+<p>OSI Model, TCP/IP, Routing and Networking.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+
+
+<!-- ROW 2 -->
+
+<div class="course-card" data-category="core" data-level="beginner">
+<span class="badge beginner">Beginner</span>
+<i class="fa-solid fa-memory"></i>
+<h3>Computer Organization</h3>
+<p>CPU, Memory, Registers and Architecture.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+
+<div class="course-card" data-category="core" data-level="advanced">
+<span class="badge advanced">Advanced</span>
+<i class="fa-solid fa-shield-halved"></i>
+<h3>Cyber Security</h3>
+<p>Ethical Hacking, Network Security and Cryptography.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+
+<div class="course-card" data-category="core" data-level="beginner">
+<span class="badge beginner">Beginner</span>
+<i class="fa-solid fa-brain"></i>
+<h3>Artificial Intelligence</h3>
+<p>Introduction to AI and intelligent systems.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+
+<!-- ROW 1 -->
+
+<div class="course-card" data-category="web" data-level="beginner">
+<span class="badge beginner">Beginner</span>
+<i class="devicon-html5-plain colored"></i>
+<h3>HTML5</h3>
+<p>Create the structure of modern websites.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+
+<div class="course-card" data-category="web" data-level="beginner">
+<span class="badge beginner">Beginner</span>
+<i class="devicon-css3-plain colored"></i>
+<h3>CSS3</h3>
+<p>Design responsive and attractive websites.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+
+<div class="course-card" data-category="web" data-level="intermediate">
+
+<span class="badge intermediate">Intermediate</span>
+<i class="devicon-javascript-plain colored"></i>
+<h3>JavaScript</h3>
+<p>Add interactive features to websites.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+
+<div class="course-card" data-category="web" data-level="beginner">
+<span class="badge beginner">Beginner</span>
+<i class="devicon-bootstrap-plain colored"></i>
+<h3>Bootstrap</h3>
+<p>Create responsive layouts quickly.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+
+<!-- ROW 2 -->
+
+<div class="course-card" data-category="web" data-level="intermediate">
+<span class="badge intermediate">Intermediate</span>
+<i class="devicon-react-original colored"></i>
+<h3>React JS</h3>
+<p>Build fast and modern web applications.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+
+<div class="course-card" data-category="web" data-level="advanced">
+<span class="badge advanced">Advanced</span>
+<i class="devicon-nodejs-plain colored"></i>
+<h3>Node JS</h3>
+<p>Backend development using JavaScript.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+
+<div class="course-card" data-category="web" data-level="advanced">
+<span class="badge advanced">Advanced</span>
+<i class="devicon-mongodb-plain colored"></i>
+<h3>MongoDB</h3>
+<p>NoSQL database for modern applications.</p>
+<a href="#"><button>Start Learning</button></a>
+</div>
+
+<!-- <div class="course-card" data-category="web" data-level="advanced">
+<span class="badge advanced">Advanced</span>
+<i class="devicon-express-original"></i>
+<h3>Express JS</h3>
+<p>Backend framework for Node.js.</p>
+<button>Start Learning</button>
+</div> -->
+<!-- Git & GitHub -->
+<div class="course-card" data-category="tools" data-level="beginner">
+
+    <span class="badge beginner">Beginner</span>
+
+    <i class="devicon-git-plain colored"></i>
+
+    <h3>Git & GitHub</h3>
+
+    <p>Version Control and GitHub Collaboration.</p>
+
+    <button>Start Learning</button>
+
+</div>
+
+<!-- Linux -->
+<div class="course-card" data-category="tools" data-level="beginner">
+
+    <span class="badge beginner">Beginner</span>
+
+    <i class="fa-brands fa-linux"></i>
+
+    <h3>Linux</h3>
+
+    <p>Linux Commands and File System.</p>
+
+    <button>Start Learning</button>
+
+</div>
+
+<!-- Machine Learning -->
+<div class="course-card" data-category="ai" data-level="advanced">
+    <span class="badge advanced">Advanced</span>
+    <i class="fa-solid fa-brain"></i>
+    <h3>Machine Learning</h3>
+    <p>Regression, Classification & Deep Learning.</p>
+    <button>Start Learning</button>
+</div>
+
+<!-- Ethical Hacking -->
+<div class="course-card" data-category="ai" data-level="advanced">
+    <span class="badge advanced">Advanced</span>
+    <i class="fa-solid fa-user-secret"></i>
+    <h3>Ethical Hacking</h3>
+    <p>Cyber Security and Penetration Testing.</p>
+    <button>Start Learning</button>
+</div>
+<!-- ===========================
+PROGRAMMING TOOLS
+(8 CARDS - 4 PER ROW)
+=========================== -->
+
+<!-- ROW 1 -->
+
+<div class="course-card" data-category="tools" data-level="beginner">
+
+<span class="badge beginner">Beginner</span>
+
+<i class="devicon-vscode-plain colored"></i>
+
+<h3>Visual Studio Code</h3>
+
+<p>Learn VS Code like a professional developer.</p>
+
+<button>Start Learning</button>
+
+</div>
+
+<div class="course-card" data-category="tools" data-level="beginner">
+
+<span class="badge beginner">Beginner</span>
+
+<i class="devicon-git-plain colored"></i>
+
+<h3>Git</h3>
+
+<p>Master Git version control from scratch.</p>
+
+<button>Start Learning</button>
+
+</div>
+
+<div class="course-card" data-category="tools" data-level="intermediate">
+
+<span class="badge intermediate">Intermediate</span>
+
+<i class="devicon-github-original colored"></i>
+
+<h3>GitHub</h3>
+
+<p>Push, Pull, Branch and Collaborate on GitHub.</p>
+
+<button>Start Learning</button>
+
+</div>
+
+<div class="course-card" data-category="app" data-level="advanced">
+<span class="badge advanced">Advanced</span>
+<i class="devicon-swift-plain colored"></i>
+<h3>Swift</h3>
+<p>Develop iOS applications using Swift.</p>
+<button>Start Learning</button>
+</div>
+
+
+<!-- ===========================
+ARTIFICIAL INTELLIGENCE
+(8 CARDS - 4 PER ROW)
+=========================== -->
+
+<div class="course-card" data-category="ai" data-level="advanced">
+
+<span class="badge advanced">Advanced</span>
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<h3>Cyber Security</h3>
+
+<p>Network Security and Ethical Hacking.</p>
+
+<button>Start Learning</button>
+
+</div>
+<!-- ===========================
+DATA SCIENCE & ANALYTICS
+(8 CARDS - 4 PER ROW)
+=========================== -->
+
+<!-- ROW 1 -->
+
+<div class="course-card" data-category="datascience" data-level="beginner">
+<span class="badge beginner">Beginner</span>
+<i class="fa-solid fa-chart-pie"></i>
+<h3>Data Science</h3>
+<p>Complete Data Science from beginner level.</p>
+<button>Start Learning</button>
+</div>
+
+<div class="course-card" data-category="placement" data-level="intermediate">
+
+<span class="badge intermediate">Intermediate</span>
+
+<i class="fa-solid fa-laptop-code"></i>
+
+<h3>Programming Practice</h3>
+
+<p>Practice Programming Questions Daily.</p>
+
+<button>Start Learning</button>
+
+</div>
+
+<div class="course-card" data-category="design" data-level="beginner">
+<span class="badge beginner">Beginner</span>
+<i class="fa-solid fa-palette"></i>
+<h3>UI Design</h3>
+<p>Create modern and beautiful user interfaces.</p>
+<button>Start Learning</button>
+</div>
+
+<div class="course-card" data-category="design" data-level="intermediate">
+<span class="badge intermediate">Intermediate</span>
+<i class="fa-solid fa-pen-ruler"></i>
+<h3>UX Design</h3>
+<p>Design better user experiences.</p>
+<button>Start Learning</button>
+</div>
+
+
+</div>
+</main>
+</div>
+</section>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <a href="#" class="brand">
+            <span class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+            <span>CS Learn Hub</span>
+          </a>
+          <p>Learn computer science with practical lessons, hands-on projects, and easy-to-follow roadmaps.</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="#home">Home</a>
+          <a href="#courses">Courses</a>
+          <a href="#quiz">Quiz</a>
+        </div>
+
+        <div class="footer-links">
+          <h4>Connect</h4>
+          <a href="#"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="#"><i class="fa-solid fa-envelope"></i> Contact</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 CS Learn Hub. All rights reserved.</p>
+      </div>
+    </footer>
+<script src="courses.js"></script>
+
+</body>
+</html>

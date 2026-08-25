@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C Programming | CS Learn Hub</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="c.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="index.html" class="brand">
+          <span class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+          <span>CS Learn Hub</span>
+        </a>
+
+        <div class="nav-actions">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Switch theme">
+            <i class="fa-solid fa-sun"></i>
+          </button>
+          <button class="auth-btn" id="auth-btn" type="button">Sign In</button>
+          <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+
+        <nav class="nav-menu" aria-label="Primary navigation">
+          <a href="index.html#home">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="index.html#roadmap">Subject</a>
+          <a href="index.html#quiz">Placement</a>
+          <a href="index.html#quiz">About us</a>
+          <a href="index.html#quiz">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="course-hero">
+        <div class="hero-copy">
+          <span class="hero-badge">C Programming</span>
+          <h1>Learn C from basics to advanced with live examples.</h1>
+          <p>Build your C skills with structured lessons, practice tasks, and a live code editor that runs C programs instantly.</p>
+          <div class="hero-stats">
+            <div><strong>24 Topics</strong></div>
+            <div><strong>8+ Hours</strong></div>
+            <div><strong>Beginner Friendly</strong></div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="Programming illustration" />
+        </div>
+      </section>
+
+      <section class="course-grid">
+        <aside class="course-sidebar">
+          <div class="panel-card panel-sidebar">
+            <div class="sidebar-head">
+              <h3>Course Contents</h3>
+              <span>24 lessons</span>
+            </div>
+            <div class="topic-list" id="topic-list">
+              <button type="button" class="topic-button active" data-topic="introduction">Introduction</button>
+              <button type="button" class="topic-button" data-topic="history">History</button>
+              <button type="button" class="topic-button" data-topic="features">Features</button>
+              <button type="button" class="topic-button" data-topic="structure">Program Structure</button>
+              <button type="button" class="topic-button" data-topic="variables">Variables</button>
+              <button type="button" class="topic-button" data-topic="operators">Operators</button>
+              <button type="button" class="topic-button" data-topic="loops">Loops</button>
+              <button type="button" class="topic-button" data-topic="functions">Functions</button>
+            </div>
+          </div>
+          <div class="panel-card progress-card">
+            <h3>Progress</h3>
+            <p>Move through the course with guided topics and run each example.</p>
+            <div class="progress-bar">
+              <span class="progress-fill" style="width: 0%"></span>
+            </div>
+            <p class="progress-text">0 of 24 completed</p>
+            <p class="progress-note" id="progress-note">Current topic: Introduction. Next topic: History.</p>
+            <div class="nav-buttons">
+              <button type="button" class="nav-button" id="prev-topic-btn">Previous Topic</button>
+              <button type="button" class="nav-button nav-button-primary" id="next-topic-btn">Next Topic</button>
+            </div>
+          </div>
+        </aside>
+
+        <section class="course-content">
+          <div class="page-header">
+            <div>
+              <div class="breadcrumbs">Home <span>›</span> Courses <span>›</span> C Programming</div>
+              <h1 id="page-title">1. Introduction to C</h1>
+              <p class="page-subtitle">Start with the most important concepts in C before writing your first program.</p>
+            </div>
+            <div class="page-badge">C Course</div>
+          </div>
+
+          <div class="info-box">
+            <div class="info-icon"><i class="fa-solid fa-lightbulb"></i></div>
+            <div>
+              <h3>What you will learn</h3>
+              <p>Understand C syntax, program structure, variables, control flow, and how to run code instantly.</p>
+            </div>
+          </div>
+
+          <div class="topic-detail">
+            <div class="topic-detail-head">
+              <span class="topic-label">Topic details</span>
+              <button type="button" class="small-button" id="copy-code-btn">Copy Code</button>
+            </div>
+            <h2 id="topic-title">Introduction to C</h2>
+            <p id="topic-description" class="topic-summary"></p>
+            <div class="topic-grid">
+              <div>
+                <h3>Theory</h3>
+                <div id="topic-theory" class="topic-text"></div>
+              </div>
+              <div>
+                <h3>Practice</h3>
+                <div id="topic-practice" class="topic-text"></div>
+              </div>
+            </div>
+          </div>
+
+          <section class="code-workspace" id="compiler">
+            <div class="workspace-header">
+              <div>
+                <span class="topic-label">Live C Compiler</span>
+                <h2>Write and run C code</h2>
+              </div>
+              <div class="workspace-buttons">
+                <button class="workspace-button" id="reset-code-btn" type="button">Reset Code</button>
+                <button class="workspace-button workspace-button-primary" id="run-code-btn" type="button">Run Code</button>
+              </div>
+            </div>
+            <div class="editor-area">
+              <textarea id="code-editor" class="code-editor" spellcheck="false"></textarea>
+            </div>
+            <div class="output-panel">
+              <div class="output-header">
+                <h3>Console output</h3>
+                <p>Output will show here after running your program.</p>
+              </div>
+              <pre id="code-output" class="code-output" aria-live="polite">Ready to compile C code. Select a topic and click Run Code.</pre>
+            </div>
+          </section>
+        </section>
+
+      </section>
+    </main>
+
+    <div class="auth-modal" id="auth-modal" aria-hidden="true">
+      <div class="auth-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+        <button class="auth-close" id="auth-close" type="button" aria-label="Close sign in">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h2 id="auth-modal-title">Sign in to CS Learn Hub</h2>
+        <p class="auth-modal-text">Access your courses, saved progress and practice history.</p>
+        <form id="auth-form" class="auth-form">
+          <label class="auth-field">
+            <span>Email</span>
+            <input type="email" id="auth-email" placeholder="you@example.com" required />
+          </label>
+          <label class="auth-field">
+            <span>Password</span>
+            <input type="password" id="auth-password" placeholder="Enter password" required />
+          </label>
+          <button type="submit" class="auth-submit">Sign In</button>
+        </form>
+        <p class="auth-help">Demo sign-in is enabled for this page.</p>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="brand">
+            <span class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+            <span>CS Learn Hub</span>
+          </a>
+          <p>Learn C programming with guided theory, examples, and a live editor.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="index.html#home">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="#compiler">Compiler</a>
+        </div>
+        <div class="footer-links">
+          <h4>Connect</h4>
+          <a href="#"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="#"><i class="fa-solid fa-envelope"></i> Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 CS Learn Hub. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="c.js"></script>
+  </body>
+</html>

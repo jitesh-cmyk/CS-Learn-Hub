@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Friendship Day!</title>
+    <style>
+        :root {
+            --primary-pink: #ff6b81;
+            --secondary-pink: #ff4757;
+            --accent-purple: #8a4fff;
+            --bg-gradient: linear-gradient(135deg, rgba(255,240,248,0.92), rgba(255,211,232,0.84) 40%);
+            --card-shadow: 0 30px 80px rgba(255, 107, 129, 0.18);
+            --text-dark: #5e4a64;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding: 24px 0;
+            position: relative;
+            background: var(--bg-gradient);
+        }
+
+        .background-layer {
+            position: absolute;
+            inset: 0;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter: blur(2px) saturate(1.1);
+            transform: scale(1.05);
+            z-index: 0;
+            opacity: 0.8;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top, rgba(255,255,255,0.4), transparent 35%);
+            pointer-events: none;
+            animation: glowShift 10s ease-in-out infinite alternate;
+            z-index: 1;
+        }
+
+        @keyframes glowShift {
+            from { transform: scale(1); opacity: 0.8; }
+            to { transform: scale(1.05); opacity: 1; }
+        }
+
+        .floating {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .spark, .heart {
+            position: absolute;
+            bottom: -40px;
+            animation: floatUp 6s linear infinite;
+            will-change: transform, opacity;
+        }
+
+        .spark {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+        }
+
+        .heart {
+            font-size: 28px;
+            text-shadow: 0 0 12px rgba(255,255,255,0.65);
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(0.9) rotate(0deg); opacity: 0.7; }
+            45% { opacity: 1; }
+            100% { transform: translateY(-110vh) scale(1.1) rotate(360deg); opacity: 0; }
+        }
+
+        .card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.97);
+            padding: 38px 32px;
+            border-radius: 36px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            max-width: 520px;
+            width: min(92%, 520px);
+            margin: 16px 0;
+            z-index: 10;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.3), transparent 42%);
+            pointer-events: none;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 40px 110px rgba(255, 107, 129, 0.24);
+        }
+
+        .rose-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid rgba(255, 107, 129, 0.35);
+            display: grid;
+            place-items: center;
+            font-size: 1.35rem;
+            color: #ff496b;
+            z-index: 5;
+            box-shadow: 0 12px 28px rgba(255, 107, 129, 0.18);
+        }
+
+        .hero-photo {
+            margin: 0 auto 18px;
+            width: 120px;
+            height: 120px;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.95);
+            box-shadow: 0 12px 30px rgba(255, 107, 129, 0.18);
+            background: #fff;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        h1 {
+            color: var(--secondary-pink);
+            margin-bottom: 14px;
+            font-size: 2.2rem;
+            letter-spacing: 0.03em;
+        }
+
+        p {
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .highlight {
+            color: var(--accent-purple);
+            font-weight: 700;
+        }
+
+        .input-group {
+            margin-bottom: 24px;
+        }
+
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #ffd3e8;
+            border-radius: 32px;
+            outline: none;
+            font-size: 1rem;
+            background: #fff7fb;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="file"] {
+            cursor: pointer;
+        }
+
+        input[type="text"]:focus,
+        input[type="file"]:focus {
+            border-color: var(--primary-pink);
+            box-shadow: 0 0 0 6px rgba(255, 107, 129, 0.14);
+        }
+
+        .file-hint {
+            margin-top: 8px;
+            font-size: 0.95rem;
+            color: #8e5b78;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .preview-thumb {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(255, 107, 129, 0.18);
+            border: 2px solid #ffe7f2;
+            background: #fff;
+        }
+
+        .preview-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .button-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 8px;
+        }
+
+        button {
+            background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 28px;
+            cursor: pointer;
+            transition: transform 0.14s ease, box-shadow 0.3s ease, filter 0.3s ease;
+            box-shadow: 0 14px 28px rgba(255, 107, 129, 0.28);
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 16px 34px rgba(255, 107, 129, 0.32);
+            filter: brightness(1.03);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .friend-name {
+            color: var(--accent-purple);
+            font-weight: 800;
+            text-shadow: 1px 1px 4px rgba(255, 107, 129, 0.18);
+        }
+
+        .message-box {
+            background: #fff0f6;
+            border: 1px dashed #ffb7ce;
+            padding: 22px 24px;
+            border-radius: 28px;
+            margin-bottom: 20px;
+            color: #5a3a57;
+            min-height: 150px;
+            text-align: left;
+            white-space: pre-wrap;
+            line-height: 1.75;
+            font-size: 1rem;
+            overflow: hidden;
+        }
+
+        .video-card {
+            margin: 20px auto 0;
+            max-width: 460px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 16px 38px rgba(255, 107, 129, 0.18);
+        }
+
+        .video-card video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-note {
+            background: rgba(255,255,255,0.9);
+            padding: 16px 18px;
+            text-align: left;
+            font-size: 0.95rem;
+            color: #664769;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin: 20px 0 0;
+        }
+
+        .gallery-item {
+            border-radius: 20px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 10px 25px rgba(255, 107, 129, 0.18);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .pulse {
+            animation: pulseGlow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            from { box-shadow: 0 0 0 0 rgba(255, 107, 129, 0.18); }
+            to { box-shadow: 0 0 0 18px rgba(255, 107, 129, 0.08); }
+        }
+
+        @media (max-width: 520px) {
+            h1 { font-size: 1.9rem; }
+            .card { padding: 28px 20px; }
+            .button-row { grid-template-columns: 1fr; }
+            .video-card { max-width: 100%; }
+            .preview-grid,
+            .image-gallery {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media print {
+            body { background: white; }
+            .background-layer, .floating, .button-row, .card::after { display: none !important; }
+            .card { box-shadow: none; border: none; width: 100%; padding: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-layer" id="backgroundLayer"></div>
+
+    <div class="floating" id="floatingLayer"></div>
+
+    <div class="card" id="inputCard">
+        <div class="rose-badge">🌹</div>
+        <div class="hero-photo">
+            <img id="heroPreview" src="https://assets.mixkit.co/photos/preview/mixkit-red-rose-on-a-black-background-2987-large.jpg" alt="Selected photo">
+        </div>
+        <h1>Happy Friendship Day!</h1>
+        <p>Write your best friend's name and upload up to 3 cute photos to make the surprise extra special for Siddhi.</p>
+        <div class="input-group">
+            <input type="text" id="friendNameInput" placeholder="Siddhi" value="Siddhi">
+        </div>
+        <div class="input-group">
+            <input type="file" id="imageInput" accept="image/*" multiple onchange="handleImageUpload(event)">
+            <div class="file-hint">Choose 1 to 3 images of Siddhi to show with the wish.</div>
+        </div>
+        <div class="preview-grid" id="previewGrid"></div>
+        <div class="button-row">
+            <button onclick="generateWish()">Create Cute Message</button>
+            <button onclick="toggleSong()">Play Song</button>
+        </div>
+    </div>
+
+    <div class="card hidden" id="wishCard">
+        <div class="rose-badge">🌹</div>
+        <div class="hero-photo">
+            <img id="heroPreviewWish" src="https://assets.mixkit.co/photos/preview/mixkit-red-rose-on-a-black-background-2987-large.jpg" alt="Selected photo">
+        </div>
+        <h1 id="greetingHeading">For My Best Friend</h1>
+        <div class="message-box" id="dynamicMessage">...</div>
+        <div class="image-gallery" id="imageGallery"></div>
+        <div class="button-row">
+            <button onclick="copyMessage()">Copy Wish</button>
+            <button onclick="printWish()">Print Wish</button>
+        </div>
+
+        <div class="video-card">
+            <video id="friendVideo" muted loop playsinline preload="auto" poster="https://assets.mixkit.co/videos/download/mixkit-beautiful-pink-rose-in-a-garden-4623-large.mp4">
+                <source src="rose.mp4" type="video/mp4">
+                <source src="https://assets.mixkit.co/videos/download/mixkit-beautiful-pink-rose-in-a-garden-4623-large.mp4" type="video/mp4">
+                Your browser does not support video playback.
+            </video>
+            <div class="video-note">
+                A rose-filled surprise for Siddhi — the cute message plays with a lovely rose video.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const floatingLayer = document.getElementById('floatingLayer');
+        const friendNameInput = document.getElementById('friendNameInput');
+        const imageInput = document.getElementById('imageInput');
+        const previewGrid = document.getElementById('previewGrid');
+        const imageGallery = document.getElementById('imageGallery');
+        const wishCard = document.getElementById('wishCard');
+        const inputCard = document.getElementById('inputCard');
+        const dynamicMessage = document.getElementById('dynamicMessage');
+        const greetingHeading = document.getElementById('greetingHeading');
+        const friendVideo = document.getElementById('friendVideo');
+        const backgroundLayer = document.getElementById('backgroundLayer');
+        const heroPreview = document.getElementById('heroPreview');
+        const heroPreviewWish = document.getElementById('heroPreviewWish');
+
+        const messages = [
+            "your laughter is sunshine, your kindness is my favourite melody, and every moment with you feels like the sweetest gift. Your smile lights my world, your heart makes every day better, and your friendship turns ordinary hours into magic. I promise to cherish you forever, today and always."
+        ];
+
+        let audioContext = null;
+        let songPlaying = false;
+        let selectedImages = [];
+        const defaultBackground = 'rose.avif';
+
+        function createFloatingPiece() {
+            const element = document.createElement('div');
+            const icons = ['🌹','❤️','💖','🌸','✨','💫'];
+            element.classList.add('heart');
+            element.innerText = icons[Math.floor(Math.random() * icons.length)];
+            const size = 24 + Math.random() * 18;
+            element.style.left = Math.random() * 100 + 'vw';
+            element.style.fontSize = size + 'px';
+            element.style.opacity = 0.35 + Math.random() * 0.6;
+            element.style.animationDuration = 4 + Math.random() * 3 + 's';
+            element.style.animationDelay = '-' + Math.random() * 5 + 's';
+            element.style.transform = `rotate(${Math.random() * 360}deg)`;
+            floatingLayer.appendChild(element);
+            setTimeout(() => element.remove(), 9000);
+        }
+
+        setInterval(createFloatingPiece, 260);
+
+        function updateBodyBackground(imageUrl) {
+            const backgroundUrl = imageUrl || defaultBackground;
+            backgroundLayer.style.backgroundImage = `url(${backgroundUrl})`;
+            if (heroPreview) heroPreview.src = backgroundUrl;
+            if (heroPreviewWish) heroPreviewWish.src = backgroundUrl;
+        }
+
+        function handleImageUpload(event) {
+            selectedImages = [];
+            previewGrid.innerHTML = '';
+            const files = Array.from(event.target.files).slice(0, 3);
+
+            if (files.length === 0) {
+                updateBodyBackground(null);
+                return;
+            }
+
+            files.forEach((file, index) => {
+                if (!file.type.startsWith('image/')) return;
+                const reader = new FileReader();
+                reader.onload = () => {
+                    selectedImages.push(reader.result);
+                    const thumb = document.createElement('div');
+                    thumb.className = 'preview-thumb';
+                    thumb.innerHTML = `<img src="${reader.result}" alt="Photo">`;
+                    previewGrid.appendChild(thumb);
+
+                    if (index === 0) {
+                        updateBodyBackground(reader.result);
+                        if (heroPreview) heroPreview.src = reader.result;
+                        if (heroPreviewWish) heroPreviewWish.src = reader.result;
+                    }
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function typeMessage(text, callback) {
+            dynamicMessage.innerText = '';
+            let index = 0;
+            const interval = setInterval(() => {
+                if (index < text.length) {
+                    dynamicMessage.innerText += text[index++];
+                } else {
+                    clearInterval(interval);
+                    callback && callback();
+                }
+            }, 26);
+        }
+
+        function generateWish() {
+            const name = (friendNameInput.value.trim() || 'Siddhi').replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            const fullMessage = `${name}, ${messages[0]}`;
+            greetingHeading.innerHTML = `Happy Friendship Day, <span class="friend-name">${name}</span>!`;
+            inputCard.classList.add('hidden');
+            wishCard.classList.remove('hidden');
+            wishCard.classList.add('pulse');
+            typeMessage(fullMessage, () => setTimeout(() => wishCard.classList.remove('pulse'), 600));
+            if (selectedImages.length > 0) {
+                friendVideo.poster = selectedImages[0];
+            }
+            friendVideo.currentTime = 0;
+            friendVideo.play();
+            startSong();
+            localStorage.setItem('friendName', name);
+            renderGallery();
+            for (let i = 0; i < 12; i++) {
+                setTimeout(createFloatingPiece, i * 90);
+            }
+        }
+
+        function renderGallery() {
+            imageGallery.innerHTML = '';
+            if (selectedImages.length === 0) {
+                imageGallery.innerHTML = `<div class="video-note">No images selected yet. Add her photos to make this message even sweeter.</div>`;
+                return;
+            }
+            selectedImages.forEach(src => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.innerHTML = `<img src="${src}" alt="Friend photo">`;
+                imageGallery.appendChild(item);
+            });
+        }
+
+        function startSong() {
+            if (songPlaying) return;
+            songPlaying = true;
+            if (!audioContext) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                audioContext = new AudioContext();
+            }
+            const now = audioContext.currentTime;
+            const melody = [659, 587, 523, 659, 783, 880, 783, 659];
+            melody.forEach((freq, index) => {
+                const osc = audioContext.createOscillator();
+                const gain = audioContext.createGain();
+                osc.type = 'triangle';
+                osc.frequency.value = freq;
+                gain.gain.setValueAtTime(0, now + index * 0.25);
+                gain.gain.linearRampToValueAtTime(0.15, now + index * 0.25 + 0.02);
+                gain.gain.linearRampToValueAtTime(0, now + index * 0.25 + 0.22);
+                osc.connect(gain);
+                gain.connect(audioContext.destination);
+                osc.start(now + index * 0.25);
+                osc.stop(now + index * 0.25 + 0.24);
+            });
+            setTimeout(() => songPlaying = false, melody.length * 250 + 100);
+            document.querySelector('button[onclick="toggleSong()"]').textContent = 'Song Playing';
+        }
+
+        function toggleSong() {
+            if (songPlaying) {
+                songPlaying = false;
+                document.querySelector('button[onclick="toggleSong()"]').textContent = 'Play Song';
+            } else {
+                startSong();
+                document.querySelector('button[onclick="toggleSong()"]').textContent = 'Song Playing';
+            }
+        }
+
+        function copyMessage() {
+            const text = `${greetingHeading.innerText}\n\n${dynamicMessage.innerText}`;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Message copied! Share it with Siddhi 💖');
+            });
+        }
+
+        function printWish() {
+            window.print();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedName = localStorage.getItem('friendName');
+            if (savedName) friendNameInput.value = savedName;
+            updateBodyBackground(null);
+        });
+    </script>
+</body>
+</html>
