@@ -569,3 +569,25 @@
     display: inline-flex;
   }
 }
+
+.data-type-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 15px;
+}
+
+.data-type-table th,
+.data-type-table td {
+  border: 1px solid #444;
+  padding: 12px;
+  text-align: left;
+}
+
+.data-type-table th {
+  font-weight: 600;
+}
+
+.data-type-table tr:hover {
+  background: rgba(76, 201, 240, 0.08);
+}
