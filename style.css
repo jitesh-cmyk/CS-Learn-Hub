@@ -9,6 +9,8 @@
   --header-bg: rgba(7, 17, 31, 0.95);
   --header-border: rgba(255, 255, 255, 0.08);
   --shadow: rgba(0, 0, 0, 0.25);
+  --code-bg: #07111f;
+  --code-text: #d8f3ff;
 }
 
 body.light-theme {
@@ -22,6 +24,8 @@ body.light-theme {
   --header-bg: rgba(255, 255, 255, 0.96);
   --header-border: rgba(0, 0, 0, 0.08);
   --shadow: rgba(15, 23, 42, 0.12);
+  --code-bg: #172235;
+  --code-text: #e4f7ff;
 }
 
 * {
@@ -36,6 +40,76 @@ body {
   color: var(--text);
   line-height: 1.6;
   transition: background 0.3s ease, color 0.3s ease;
+}
+
+.lesson-example {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.lesson-example h4,
+.lesson-reference-title {
+  margin-bottom: 0.55rem;
+  color: var(--text);
+}
+
+.lesson-example pre {
+  margin: 0;
+  overflow-x: auto;
+  padding: 0.9rem;
+  border: 1px solid rgba(76, 201, 240, 0.25);
+  border-radius: 10px;
+  background: var(--code-bg);
+  color: var(--code-text);
+  font-family: "Fira Code", "Courier New", monospace;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.topic-text pre {
+  margin: 0.9rem 0;
+  padding: 1rem;
+  overflow-x: auto;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  background: var(--code-bg);
+  color: var(--code-text);
+  font-family: "Fira Code", "Courier New", monospace;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.topic-text pre code {
+  color: inherit;
+  font-family: inherit;
+}
+
+.lesson-table {
+  width: 100%;
+  margin-top: 0.75rem;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.lesson-table th,
+.lesson-table td {
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.lesson-table th {
+  color: var(--text);
+  background: rgba(76, 201, 240, 0.1);
+}
+
+.lesson-table td {
+  color: var(--muted);
 }
 
 .container {
@@ -322,7 +396,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.02);
+  transform: scale(1.2);
 }
 
 @media (max-width: 900px) {

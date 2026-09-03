@@ -23,6 +23,7 @@ const lessonCountLabel = document.querySelector('.sidebar-head span');
 const progressFill = document.querySelector('.progress-fill');
 const progressText = document.querySelector('.progress-text');
 const progressNote = document.getElementById('progress-note');
+const escapeHtml = (value) => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 
 let topicButtons = [];
 let activeTopicKey = 'introduction';
@@ -457,7 +458,7 @@ function loadTopic(topicKey) {
   pageTitle.textContent = `${currentIndex + 1}. ${topic.title}`;
   topicTitle.textContent = topic.title;
   topicDescription.textContent = topic.description;
-  topicTheory.innerHTML = topic.theory;
+  topicTheory.innerHTML = `<p><strong>What is ${topic.title}?</strong></p><p>${topic.description} This lesson explains the idea, the syntax to remember, and where it is useful in a real C++ program.</p>${topic.theory}<div class="lesson-example"><h4>Example</h4><pre>${escapeHtml(topic.defaultCode)}</pre></div><h4 class="lesson-reference-title">Key Points</h4><ul><li>Pay attention to the syntax and data types used.</li><li>Compile the example and read the output.</li><li>Change one value and run it again to learn by doing.</li></ul><h4 class="lesson-reference-title">Quick Reference</h4><table class="lesson-table"><thead><tr><th>Concept</th><th>What it does</th></tr></thead><tbody><tr><td>${topic.title}</td><td>Core C++ concept for this lesson</td></tr><tr><td>Practice</td><td>Compile, run, and modify the example</td></tr></tbody></table>`;
   topicPractice.innerHTML = topic.practice;
   codeEditor.value = topic.defaultCode;
   codeOutput.textContent = 'Ready to execute C++ code. Click Run Code.';
@@ -515,30 +516,20 @@ runCodeBtn.addEventListener('click', async () => {
   codeOutput.textContent = 'Compiling and executing...';
   
   try {
-    // Using JDoodle API - Add your credentials
-    const response = await fetch('https://api.jdoodle.com/v1/execute', {
+    const response = await fetch('https://ce.judge0.com/submissions?base64_encoded=false&wait=true', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        clientId: 'YOUR_JDOODLE_CLIENT_ID',
-        clientSecret: 'YOUR_JDOODLE_CLIENT_SECRET',
-        script: code,
-        language: 'cpp',
-        versionIndex: '5'
-      })
+      body: JSON.stringify({ language_id: 54, source_code: code, stdin: '' })
     });
     
     const result = await response.json();
     
-    if (result.output) {
-      codeOutput.textContent = result.output;
-    } else {
-      codeOutput.textContent = 'Error executing code.\n' + (result.error || 'Unknown error');
-    }
+    const output = [result.stdout, result.stderr, result.compile_output, result.message].filter(Boolean).join('\n').trim();
+    codeOutput.textContent = output || 'Program finished with no output.';
   } catch (error) {
-    codeOutput.textContent = 'Error: Unable to execute code.\nSetup JDoodle API credentials for code execution.';
+    codeOutput.textContent = 'Unable to run code. Check your internet connection and try again.';
   }
 });
 
@@ -561,11 +552,30 @@ menuToggle.addEventListener('click', () => {
 });
 
 // Theme toggle
-themeToggle.addEventListener('click', () => {
-  document.documentElement.classList.toggle('dark');
-  themeToggle.innerHTML = document.documentElement.classList.contains('dark') 
-    ? '<i class="fa-solid fa-moon"></i>' 
-    : '<i class="fa-solid fa-sun"></i>';
+const setThemeIcon = () => {
+  const icon = themeToggle?.querySelector('i');
+  const isLight = document.body.classList.contains('light-theme');
+
+  if (icon) {
+    icon.className = isLight ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+  }
+
+  themeToggle?.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+};
+
+const initializeTheme = () => {
+  if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light-theme');
+  }
+
+  setThemeIcon();
+};
+
+themeToggle?.addEventListener('click', () => {
+  document.body.classList.toggle('light-theme');
+  const isLight = document.body.classList.contains('light-theme');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  setThemeIcon();
 });
 
 // Auth modal
@@ -594,4 +604,5 @@ authModal.addEventListener('click', (e) => {
 });
 
 // Initialize on page load
+initializeTheme();
 document.addEventListener('DOMContentLoaded', initializeCourse);

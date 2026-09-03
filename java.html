@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Java Programming | CS Learn Hub</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="cpp.css" />
+  <link rel="stylesheet" href="java.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand"><span class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></span><span>CS Learn Hub</span></a>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode"><i class="fa-solid fa-sun"></i></button>
+        <button class="auth-btn" id="auth-btn" type="button">Sign In</button>
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+      </div>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <a href="index.html#home">Home</a><a href="courses.html">Courses</a><a href="index.html#roadmap">Subject</a><a href="index.html#quiz">Placement</a><a href="index.html#quiz">About us</a><a href="index.html#quiz">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="course-hero java-hero">
+      <div class="hero-copy"><span class="hero-badge">Java Programming</span><h1>Learn Java from fundamentals to advanced development.</h1><p>Explore structured Java lessons, object-oriented concepts, enterprise tools, and practical projects in one guided course.</p><div class="hero-stats"><div><strong>30</strong><span> modules</span></div><div><strong id="lesson-count">0</strong><span> lessons</span></div></div></div>
+      <div class="hero-image"><img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80" alt="Java code on a laptop" /></div>
+    </section>
+
+    <section class="course-grid">
+      <aside class="course-sidebar">
+        <div class="panel-card panel-sidebar"><div class="sidebar-head"><h3>Java Topics</h3><span id="module-count">30 modules</span></div><div id="topic-list" class="topic-list"></div><div class="nav-buttons"><button id="prev-topic-btn" class="nav-button" type="button">← Previous</button><button id="next-topic-btn" class="nav-button" type="button">Next →</button></div></div>
+        <div class="panel-card progress-card"><h3>Progress</h3><div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div><p class="progress-text" id="progress-text">0 of 30 modules completed</p><p id="progress-note" class="progress-text">Choose a Java module to begin</p></div>
+      </aside>
+
+      <section class="course-content">
+        <div class="page-header"><h1 id="page-title">Java Programming</h1></div>
+        <div class="info-box"><span class="info-icon"><i class="fa-brands fa-java"></i></span><div><p id="topic-description">Select a module to explore its Java lessons.</p></div></div>
+        <div class="topic-detail"><div class="topic-detail-head"><h2 id="topic-title">Java Course Roadmap</h2></div><div class="topic-grid"><div><h3>What you will learn</h3><div class="topic-text" id="topic-theory"><p>Open any module from the left to see its subtopics and guided explanation.</p></div></div><div><h3>Module lessons</h3><div class="topic-text" id="topic-practice"><p>Your selected subtopics will appear here.</p></div></div></div></div>
+        <section class="code-workspace" id="compiler"><div class="workspace-header"><h2>Java Code Editor</h2><div class="workspace-buttons"><button id="run-code-btn" class="workspace-button-primary" type="button"><i class="fa-solid fa-play"></i> Run Code</button><button id="reset-code-btn" class="workspace-button" type="button"><i class="fa-solid fa-redo"></i> Reset</button><button id="copy-code-btn" class="workspace-button" type="button"><i class="fa-solid fa-copy"></i> Copy</button></div></div><textarea id="code-editor" class="code-editor" placeholder="Write your Java code here..."></textarea><div class="output-panel"><div class="output-header"><h3>Output</h3></div><pre id="code-output" class="code-output">Ready to execute Java code. Click Run Code.</pre></div></section>
+      </section>
+    </section>
+  </main>
+
+  <div class="auth-modal" id="auth-modal" aria-hidden="true"><div class="auth-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title"><button class="auth-close" id="auth-close" type="button" aria-label="Close sign in"><i class="fa-solid fa-xmark"></i></button><h2 id="auth-modal-title">Sign in to CS Learn Hub</h2><p class="auth-modal-text">Access your courses, saved progress and practice history.</p><form id="auth-form" class="auth-form"><label class="auth-field"><span>Email</span><input id="auth-email" type="email" required /></label><label class="auth-field"><span>Password</span><input id="auth-password" type="password" required /></label><button type="submit" class="auth-submit">Sign In</button></form><p class="auth-help">Demo sign-in is enabled for this page.</p></div></div>
+  <footer class="site-footer"><div class="container footer-content"><div class="footer-brand"><a href="index.html" class="brand"><span class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></span><span>CS Learn Hub</span></a><p>Learn Java with guided theory, examples, and a live editor.</p></div><div class="footer-links"><h4>Quick Links</h4><a href="index.html#home">Home</a><a href="courses.html">Courses</a><a href="#compiler">Compiler</a></div><div class="footer-links"><h4>Connect</h4><a href="#"><i class="fa-brands fa-github"></i> GitHub</a><a href="#"><i class="fa-solid fa-envelope"></i> Contact</a></div></div><div class="footer-bottom"><p>© 2026 CS Learn Hub. All rights reserved.</p></div></footer>
+  <script src="java.js"></script>
+</body>
+</html>

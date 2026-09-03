@@ -23964,7 +23964,7 @@ const loadTopic = (key) => {
   activeTopicKey = topic.key;
   topicTitle.textContent = topic.title;
   topicDescription.textContent = topic.description;
-  topicTheory.innerHTML = formatList(topic.theory);
+  topicTheory.innerHTML = `${formatList(topic.theory)}<div class="lesson-example"><h4>Example</h4><pre>${topic.code}</pre></div>`;
   topicPractice.innerHTML = formatList(topic.practice);
   if (codeEditor) {
     codeEditor.value = topic.code;
@@ -24001,10 +24001,10 @@ const runCode = async () => {
   document.querySelector('.output-panel')?.classList.add('running');
 
   try {
-    const response = await fetch('https://emkc.org/api/v2/piston/execute', {
+    const response = await fetch('https://ce.judge0.com/submissions?base64_encoded=false&wait=true', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ language: 'c', source, stdin: '' })
+      body: JSON.stringify({ language_id: 50, source_code: source, stdin: '' })
     });
 
     if (!response.ok) {
@@ -24012,9 +24012,7 @@ const runCode = async () => {
     }
 
     const data = await response.json();
-    const stderr = data?.run?.stderr?.trim();
-    const stdout = data?.run?.stdout?.trim();
-    const output = [stderr, stdout].filter(Boolean).join('\n');
+    const output = [data.stdout, data.stderr, data.compile_output, data.message].filter(Boolean).join('\n').trim();
     showOutput(output || 'Program finished with no output.');
   } catch (error) {
     console.error('Run error:', error);
@@ -24094,7 +24092,14 @@ const setThemeIcon = () => {
 };
 
 const initializeTheme = () => {
-  const savedTheme = localStorage.getItem('cTheme');
+  let savedTheme = localStorage.getItem('theme');
+  const legacyTheme = localStorage.getItem('cTheme');
+
+  if (!savedTheme && legacyTheme) {
+    savedTheme = legacyTheme;
+    localStorage.setItem('theme', legacyTheme);
+  }
+
   if (savedTheme === 'light') {
     document.body.classList.add('light-theme');
   }
@@ -24104,7 +24109,7 @@ const initializeTheme = () => {
 const toggleTheme = () => {
   document.body.classList.toggle('light-theme');
   const isLight = document.body.classList.contains('light-theme');
-  localStorage.setItem('cTheme', isLight ? 'light' : 'dark');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
   setThemeIcon();
 };
 

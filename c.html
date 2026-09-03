@@ -58,8 +58,8 @@
         <aside class="course-sidebar">
           <div class="panel-card panel-sidebar">
             <div class="sidebar-head">
-              <h3>Course Contents</h3>
-              <span>24 lessons</span>
+              <h3>Topics</h3>
+              <span id="lesson-count">24 lessons</span>
             </div>
             <div class="topic-list" id="topic-list">
               <button type="button" class="topic-button active" data-topic="introduction">Introduction</button>
@@ -71,6 +71,10 @@
               <button type="button" class="topic-button" data-topic="loops">Loops</button>
               <button type="button" class="topic-button" data-topic="functions">Functions</button>
             </div>
+            <div class="nav-buttons">
+              <button type="button" class="nav-button" id="prev-topic-btn">← Previous</button>
+              <button type="button" class="nav-button" id="next-topic-btn">Next →</button>
+            </div>
           </div>
           <div class="panel-card progress-card">
             <h3>Progress</h3>
@@ -80,10 +84,6 @@
             </div>
             <p class="progress-text">0 of 24 completed</p>
             <p class="progress-note" id="progress-note">Current topic: Introduction. Next topic: History.</p>
-            <div class="nav-buttons">
-              <button type="button" class="nav-button" id="prev-topic-btn">Previous Topic</button>
-              <button type="button" class="nav-button nav-button-primary" id="next-topic-btn">Next Topic</button>
-            </div>
           </div>
         </aside>
 
@@ -108,7 +108,6 @@
           <div class="topic-detail">
             <div class="topic-detail-head">
               <span class="topic-label">Topic details</span>
-              <button type="button" class="small-button" id="copy-code-btn">Copy Code</button>
             </div>
             <h2 id="topic-title">Introduction to C</h2>
             <p id="topic-description" class="topic-summary"></p>
@@ -131,8 +130,9 @@
                 <h2>Write and run C code</h2>
               </div>
               <div class="workspace-buttons">
-                <button class="workspace-button" id="reset-code-btn" type="button">Reset Code</button>
-                <button class="workspace-button workspace-button-primary" id="run-code-btn" type="button">Run Code</button>
+                <button class="workspace-button workspace-button-primary" id="run-code-btn" type="button"><i class="fa-solid fa-play"></i> Run Code</button>
+                <button class="workspace-button" id="reset-code-btn" type="button"><i class="fa-solid fa-redo"></i> Reset</button>
+                <button class="workspace-button" id="copy-code-btn" type="button"><i class="fa-solid fa-copy"></i> Copy</button>
               </div>
             </div>
             <div class="editor-area">

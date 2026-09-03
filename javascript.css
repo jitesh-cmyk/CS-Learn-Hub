@@ -1,0 +1,19 @@
+.javascript-hero { background: linear-gradient(135deg, rgba(250, 204, 21, .18), rgba(245, 158, 11, .08)), var(--surface); }
+.javascript-hero .hero-badge { background: rgba(250, 204, 21, .2); color: #ca8a04; }
+.javascript-hero .hero-stats { display: flex; gap: .75rem; flex-wrap: wrap; }
+.javascript-hero .hero-stats div { padding: .75rem 1rem; border: 1px solid var(--border); border-radius: 14px; background: rgba(255,255,255,.04); }
+.javascript-hero .hero-stats strong { color: var(--accent); font-size: 1.2rem; }
+.javascript-hero .hero-stats span { color: var(--muted); }
+.javascript-hero .hero-image img { width: 100%; min-height: 360px; object-fit: cover; border-radius: 28px; }
+.js-topic { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: .5rem; width: 100%; text-align: left; padding: .8rem .9rem; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); color: var(--text); cursor: pointer; font-size: .94rem; }
+.js-topic:hover, .js-topic.active { border-color: var(--accent); background: rgba(250, 204, 21, .1); }
+.js-topic .topic-arrow { color: var(--accent); transition: transform .2s ease; }
+.js-topic.expanded .topic-arrow { transform: rotate(90deg); }
+.js-subtopics { display: none; margin: -.35rem 0 .25rem .8rem; padding: .35rem 0 .35rem .75rem; border-left: 2px solid var(--accent); gap: .25rem; }
+.js-subtopics.open { display: grid; }
+.js-subtopic { border: 0; background: transparent; color: var(--muted); cursor: pointer; text-align: left; padding: .32rem .25rem; font-size: .84rem; }
+.js-subtopic:hover, .js-subtopic.active { color: var(--accent); }
+.js-lesson-list { margin: 0; padding-left: 1.2rem; }
+.js-lesson-list li { margin-bottom: .45rem; color: var(--muted); }
+.js-lesson-list li::marker { color: var(--accent); }
+@media (max-width: 840px) { .javascript-hero { grid-template-columns: 1fr; } .javascript-hero .hero-image img { min-height: 240px; } }

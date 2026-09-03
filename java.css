@@ -1,0 +1,21 @@
+body { font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); }
+.java-hero { background: linear-gradient(135deg, rgba(239, 68, 68, .16), rgba(245, 158, 11, .08)), var(--surface); }
+.java-hero .hero-badge { background: rgba(239, 68, 68, .16); color: #ef4444; }
+.java-hero .hero-stats { display: flex; gap: .75rem; flex-wrap: wrap; }
+.java-hero .hero-stats div { padding: .75rem 1rem; border: 1px solid var(--border); border-radius: 14px; background: rgba(255,255,255,.04); }
+.java-hero .hero-stats strong { color: var(--accent); font-size: 1.2rem; }
+.java-hero .hero-stats span { color: var(--muted); }
+.java-hero .hero-image img { width: 100%; min-height: 360px; object-fit: cover; border-radius: 28px; }
+.java-topic { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: .5rem; width: 100%; text-align: left; padding: .8rem .9rem; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); color: var(--text); cursor: pointer; font-size: .94rem; }
+.java-topic:hover, .java-topic.active { border-color: var(--accent); background: rgba(76, 201, 240, .1); }
+.java-topic .topic-arrow { color: var(--accent); transition: transform .2s ease; }
+.java-topic.expanded .topic-arrow { transform: rotate(90deg); }
+.java-subtopics { display: none; margin: -.35rem 0 .25rem .8rem; padding: .35rem 0 .35rem .75rem; border-left: 2px solid var(--accent); gap: .25rem; }
+.java-subtopics.open { display: grid; }
+.java-subtopic { border: 0; background: transparent; color: var(--muted); cursor: pointer; text-align: left; padding: .32rem .25rem; font-size: .84rem; }
+.java-subtopic:hover, .java-subtopic.active { color: var(--accent); }
+.java-lesson-list { margin: 0; padding-left: 1.2rem; }
+.java-lesson-list li { margin-bottom: .45rem; color: var(--muted); }
+.java-lesson-list li::marker { color: var(--accent); }
+.java-code { font-family: "Fira Code", "Courier New", monospace; }
+@media (max-width: 840px) { .java-hero { grid-template-columns: 1fr; } .java-hero .hero-image img { min-height: 240px; } }

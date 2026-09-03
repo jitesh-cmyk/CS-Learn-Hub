@@ -1,0 +1,98 @@
+.csharp-hero {
+    background: linear-gradient(135deg, rgba(139, 92, 246, .18), rgba(59, 130, 246, .08)), var(--surface);
+}
+.csharp-hero .hero-badge {
+    background: rgba(139, 92, 246, .18);
+    color: #a78bfa;
+}
+.csharp-hero .hero-stats {
+    display: flex;
+    gap: .75rem;
+    flex-wrap: wrap;
+}
+.csharp-hero .hero-stats div {
+    padding: .75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(255,255,255,.04);
+}
+.csharp-hero .hero-stats strong {
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+.csharp-hero .hero-stats span {
+    color: var(--muted);
+}
+.csharp-hero .hero-image img {
+    width: 100%;
+    min-height: 360px;
+    object-fit: cover;
+    border-radius: 28px;
+}
+.cs-topic {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: .5rem;
+    width: 100%;
+    text-align: left;
+    padding: .8rem .9rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    font-size: .94rem;
+}
+.cs-topic:hover, .cs-topic.active {
+    border-color: var(--accent);
+    background: rgba(139, 92, 246, .1);
+}
+.cs-topic .topic-arrow {
+    color: var(--accent);
+    transition: transform .2s ease;
+}
+.cs-topic.expanded .topic-arrow {
+    transform: rotate(90deg);
+}
+.cs-subtopics {
+    display: none;
+    margin: -.35rem 0 .25rem .8rem;
+    padding: .35rem 0 .35rem .75rem;
+    border-left: 2px solid var(--accent);
+    gap: .25rem;
+}
+.cs-subtopics.open {
+    display: grid;
+}
+.cs-subtopic {
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    text-align: left;
+    padding: .32rem .25rem;
+    font-size: .84rem;
+}
+.cs-subtopic:hover, .cs-subtopic.active {
+    color: var(--accent);
+}
+.cs-lesson-list {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+.cs-lesson-list li {
+    margin-bottom: .45rem;
+    color: var(--muted);
+}
+.cs-lesson-list li::marker {
+    color: var(--accent);
+}
+@media (max-width: 840px) {
+    .csharp-hero {
+        grid-template-columns: 1fr;
+    }
+    .csharp-hero .hero-image img {
+        min-height: 240px;
+    }
+}
