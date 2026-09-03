@@ -1,0 +1,30 @@
+body { font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.go-hero { background: linear-gradient(135deg, rgba(0, 173, 216, .16), rgba(245, 158, 11, .08)), var(--surface); }
+.go-hero .hero-badge { background: rgba(0, 173, 216, .16); color: var(--accent); }
+.go-hero .hero-stats { display: flex; gap: .75rem; flex-wrap: wrap; }
+.go-hero .hero-stats div { padding: .75rem 1rem; border: 1px solid var(--border); border-radius: 14px; background: rgba(255,255,255,.04); }
+.go-hero .hero-stats strong { color: var(--accent); font-size: 1.2rem; }
+.go-hero .hero-stats span { color: var(--muted); }
+.course-hero { display:grid; grid-template-columns:1.1fr .9fr; gap:2rem; align-items:center; margin:2rem auto 1.5rem; padding:2rem; border-radius:30px; background:linear-gradient(135deg,rgba(0,173,216,.16),rgba(255,255,255,.06)),var(--surface); box-shadow:0 20px 40px rgba(15,23,42,.12); }
+.hero-badge { display:inline-flex; padding:.5rem .85rem; border-radius:999px; background:rgba(0,173,216,.18); color:var(--accent-strong); font-weight:700; margin-bottom:1rem; }
+.course-hero h1 { font-size:clamp(2.3rem,3.4vw,3.4rem); margin:0; line-height:1.05; }
+.course-hero p { max-width:660px; margin:1.2rem 0 1.5rem; color:var(--muted); }
+.hero-stats { display:flex; flex-wrap:wrap; gap:1rem; }.hero-stats div { padding:1rem 1.1rem; border-radius:18px; background:var(--surface); border:1px solid var(--border); min-width:120px; font-weight:700; }.hero-image img { width:100%; border-radius:28px; object-fit:cover; min-height:360px; }
+.course-grid { display:grid; grid-template-columns:minmax(280px,320px) minmax(0,1.95fr); gap:1.5rem; margin-bottom:3rem; }.course-sidebar,.course-content { display:grid; gap:1rem; }.panel-card,.topic-detail,.code-workspace,.info-box { background:var(--surface); border:1px solid var(--border); border-radius:24px; box-shadow:0 18px 36px var(--shadow); }.panel-card,.topic-detail,.code-workspace,.info-box { padding:1.5rem; }.sidebar-head,.workspace-header,.topic-detail-head { display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-bottom:1rem; }.topic-list { display:grid; gap:.55rem; max-height:460px; overflow-y:auto; }.topic-button { width:100%; text-align:left; padding:.75rem .85rem; border-radius:12px; border:1px solid var(--border); background:var(--surface); color:var(--text); cursor:pointer; }.topic-button:hover,.topic-button.active { border-color:var(--accent); background:rgba(0,173,216,.12); }.nav-buttons,.workspace-buttons { display:flex; gap:.65rem; flex-wrap:wrap; }.nav-buttons { margin-top:1rem; }.nav-button,.workspace-button,.workspace-button-primary { flex:1 1 45%; padding:.75rem .85rem; border-radius:999px; border:1px solid var(--border); background:var(--surface); color:var(--text); cursor:pointer; }.workspace-button-primary { background:var(--accent); color:#04131f; border-color:transparent; }.progress-bar { height:10px; width:100%; background:rgba(0,173,216,.15); border-radius:999px; overflow:hidden; margin:.75rem 0; }.progress-fill { display:block; width:0; height:100%; background:var(--accent); border-radius:999px; transition:width .25s ease; }.progress-text,.topic-text p,.topic-text li,#topic-description { color:var(--muted); }.info-box { display:flex; gap:.75rem; align-items:flex-start; }.info-icon { color:var(--accent); font-size:1.3rem; }.topic-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:1.5rem; }.topic-text ul { padding-left:1.2rem; }.topic-text pre { overflow:auto; padding:1rem; border-radius:12px; background:var(--bg); color:var(--text); }.editor-area { border:1px solid var(--border); border-radius:14px; overflow:hidden; }.code-editor { width:100%; min-height:250px; padding:1rem; resize:vertical; border:0; outline:0; background:#07111f; color:#e2e8f0; font: .95rem/1.5 Consolas,monospace; }.output-panel { margin-top:1rem; }.code-output { min-height:90px; margin:0; padding:1rem; overflow:auto; border-radius:12px; background:var(--bg); color:var(--muted); white-space:pre-wrap; }.auth-modal { z-index:200; }.site-footer { margin-top:2rem; }
+@media(max-width:900px){ .course-hero,.course-grid { grid-template-columns:1fr; }.topic-grid { grid-template-columns:1fr; }.course-sidebar { order:2; } }.@media(max-width:700px){ .course-hero { padding:1.25rem; }.hero-image img { min-height:220px; }.workspace-header { align-items:flex-start; flex-direction:column; }.workspace-buttons { width:100%; }.nav-menu { z-index:3; } }
+.topic-section:first-child { margin-top:0; }
+.topic-button:disabled,.nav-button:disabled { cursor:not-allowed; opacity:.5; }
+.lesson-example { margin-top: 1rem; }
+.lesson-example h4,.lesson-reference-title { margin: 1rem 0 .45rem; color: var(--text); }
+.lesson-example pre { padding: 1rem; overflow-x: auto; border-radius: 12px; background: var(--bg); color: var(--text); font-family: Consolas, monospace; }
+.lesson-table { width: 100%; margin-top: .5rem; border-collapse: collapse; color: var(--muted); font-size: .9rem; }
+.lesson-table th,.lesson-table td { padding: .55rem; border: 1px solid var(--border); text-align: left; }
+.lesson-table th { color: var(--text); background: rgba(0,173,216,.08); }
+.go-topic { display:grid; grid-template-columns:1fr auto; align-items:center; gap:.5rem; width:100%; text-align:left; padding:.8rem .9rem; border:1px solid var(--border); border-radius:14px; background:var(--surface); color:var(--text); cursor:pointer; font-size:.94rem; }
+.go-topic:hover,.go-topic.active { border-color:var(--accent); background:rgba(0,173,216,.1); }
+.go-topic .topic-arrow { color:var(--accent); transition:transform .2s ease; }
+.go-topic.expanded .topic-arrow { transform:rotate(90deg); }
+.go-subtopics { display:none; margin:-.35rem 0 .25rem .8rem; padding:.35rem 0 .35rem .75rem; border-left:2px solid var(--accent); gap:.25rem; }
+.go-subtopics.open { display:grid; }
+.go-subtopic { border:0; background:transparent; color:var(--muted); cursor:pointer; text-align:left; padding:.32rem .25rem; font-size:.84rem; }
+.go-subtopic:hover,.go-subtopic.active { color:var(--accent); }

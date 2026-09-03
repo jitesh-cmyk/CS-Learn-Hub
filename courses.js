@@ -9,6 +9,10 @@ const authClose = document.getElementById('auth-close');
 const authForm = document.getElementById('auth-form');
 const authEmail = document.getElementById('auth-email');
 const authPassword = document.getElementById('auth-password');
+const searchForm = document.getElementById('course-search-form');
+const searchInput = document.getElementById('course-search');
+const sidebarSearchInput = document.getElementById('sidebar-course-search');
+const sidebarSearchButton = document.getElementById('sidebar-search-button');
 const authStatus = document.createElement('p');
 
 authStatus.className = 'auth-help';
@@ -211,20 +215,26 @@ fetchCurrentUser();
 // Category + Level Search
 // ===============================
 
-const courseCards = document.querySelectorAll(".course-card");
+const courseCards = document.querySelectorAll('.course-card');
+const categoryItems = document.querySelectorAll('.course');
+const levelCheckboxes = document.querySelectorAll('.level input');
+const courseGrid = document.querySelector('.course-grid');
+const resultMessage = document.createElement('p');
+resultMessage.className = 'course-result-message';
+courseGrid?.before(resultMessage);
 
-const categoryItems = document.querySelectorAll(".course");
-const levelCheckboxes = document.querySelectorAll(".level input");
-
-let selectedCategory = "all";
-let selectedLevel = "all";
+let selectedCategory = 'all';
+let selectedLevels = [];
+let selectedSearch = '';
 
 
 // Category Click Filter
 
 categoryItems.forEach(item => {
+  item.setAttribute('role', 'button');
+  item.setAttribute('tabindex', '0');
 
-    item.addEventListener("click", () => {
+  const selectCategory = () => {
 
         const text = item.innerText.toLowerCase();
 
@@ -244,14 +254,21 @@ categoryItems.forEach(item => {
             selectedCategory = "web";
         }
 
-        else if(text.includes("data")){
+        else if(text.includes("data structure")){
             selectedCategory = "datastructure";
         }
 
-
+        categoryItems.forEach(categoryItem => categoryItem.classList.toggle('active', categoryItem === item));
         filterCourses();
+      };
 
-    });
+      item.addEventListener('click', selectCategory);
+      item.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          selectCategory();
+        }
+      });
 
 });
 
@@ -265,35 +282,10 @@ levelCheckboxes.forEach(box => {
     box.addEventListener("change",()=>{
 
 
-        selectedLevel = "all";
-
-
-        levelCheckboxes.forEach(check=>{
-
-            if(check.checked){
-
-                let value = check.parentElement.innerText.toLowerCase();
-
-
-                if(value.includes("beginner")){
-                    selectedLevel="beginner";
-                }
-
-
-                if(value.includes("intermediate")){
-                    selectedLevel="intermediate";
-                }
-
-
-                if(value.includes("advanced")){
-                    selectedLevel="advanced";
-                }
-
-            }
-
-        });
-
-
+        selectedLevels = [...levelCheckboxes]
+          .filter(check => check.checked)
+          .map(check => check.parentElement.innerText.toLowerCase())
+          .map(value => value.includes('beginner') ? 'beginner' : value.includes('intermediate') ? 'intermediate' : 'advanced');
         filterCourses();
 
 
@@ -308,44 +300,63 @@ levelCheckboxes.forEach(box => {
 
 
 function filterCourses(){
+  const normalizedSearch = selectedSearch.trim().toLowerCase();
+  let visibleCount = 0;
 
+  courseCards.forEach(card => {
+    const categoryMatch = selectedCategory === 'all' || card.dataset.category === selectedCategory;
+    const levelMatch = !selectedLevels.length || selectedLevels.includes(card.dataset.level);
+    const cardText = `${card.querySelector('h3')?.textContent || ''} ${card.querySelector('p')?.textContent || ''}`.toLowerCase();
+    const searchMatch = !normalizedSearch || cardText.includes(normalizedSearch);
+    const isVisible = categoryMatch && levelMatch && searchMatch;
+    card.style.display = isVisible ? '' : 'none';
+    if (isVisible) visibleCount += 1;
+  });
 
-    courseCards.forEach(card=>{
+  const hasFilters = normalizedSearch || selectedCategory !== 'all' || selectedLevels.length;
+  resultMessage.textContent = hasFilters && visibleCount
+    ? `${visibleCount} course${visibleCount === 1 ? '' : 's'} found`
+    : visibleCount ? '' : 'No courses match your search. Try another keyword or filter.';
+  resultMessage.classList.toggle('is-empty', visibleCount === 0);
+}
 
+const applySearch = value => {
+  selectedSearch = value;
+  if (searchInput && searchInput.value !== value) searchInput.value = value;
+  if (sidebarSearchInput && sidebarSearchInput.value !== value) sidebarSearchInput.value = value;
+  filterCourses();
+};
 
-        let category = card.dataset.category;
-        let level = card.dataset.level;
+searchForm?.addEventListener('submit', event => {
+  event.preventDefault();
+  applySearch(searchInput.value);
+  document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+searchInput?.addEventListener('input', event => applySearch(event.target.value));
+sidebarSearchInput?.addEventListener('input', event => applySearch(event.target.value));
+sidebarSearchButton?.addEventListener('click', () => applySearch(sidebarSearchInput.value));
 
+const showCourseDetails = card => {
+  const title = card.querySelector('h3')?.textContent.trim() || 'Course';
+  const description = card.querySelector('p')?.textContent.trim() || 'Course details';
+  const level = card.dataset.level ? `${card.dataset.level[0].toUpperCase()}${card.dataset.level.slice(1)}` : '';
+  const dialog = document.createElement('div');
+  dialog.className = 'course-dialog';
+  dialog.innerHTML = `<div class="course-dialog-box" role="dialog" aria-modal="true" aria-labelledby="course-dialog-title"><button type="button" class="course-dialog-close" aria-label="Close">&times;</button><h2 id="course-dialog-title">${title}</h2><p>${description}</p><strong>${level} level</strong><button type="button" class="course-dialog-ok">Got it</button></div>`;
+  document.body.appendChild(dialog);
+  const close = () => dialog.remove();
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog || event.target.closest('.course-dialog-close, .course-dialog-ok')) close();
+  });
+};
 
+courseCards.forEach(card => {
+  const action = card.querySelector('a[href="#"]') || [...card.querySelectorAll('button')].find(button => !button.closest('a'));
+  action?.addEventListener('click', event => {
+    event.preventDefault();
+    showCourseDetails(card);
+  });
+});
 
-        let categoryMatch =
-        selectedCategory==="all" ||
-        category===selectedCategory;
-
-
-
-        let levelMatch =
-        selectedLevel==="all" ||
-        level===selectedLevel;
-
-
-
-        if(categoryMatch && levelMatch){
-
-            card.style.display="block";
-
-        }
-
-        else{
-
-            card.style.display="none";
-
-        }
-        
-
-
-
-    });
-   
-
-  }
+categoryItems[0]?.classList.add('active');
+filterCourses();

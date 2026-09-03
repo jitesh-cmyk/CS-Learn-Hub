@@ -33,10 +33,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         <nav class="nav-menu" aria-label="Primary navigation">
           <a href="index.html">Home</a>
           <a href="#topics">Courses</a>
-          <a href="#roadmap">Subject</a>
-          <a href="#quiz">Placement</a>
-          <a href="#quiz">About us</a>
-          <a href="#quiz">Contact</a>
+          <a href="#topics">Subject</a>
+          <a href="#courses">Placement</a>
+          <a href="#contact">About us</a>
+          <a href="#contact">Contact</a>
         </nav>
       </div>
     </header>
@@ -49,8 +49,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
               Choose a course and start your learning journey with examples. practicals and projects.
             </p>
 
-            <form class="search-box">
-              <input type="text" placeholder="Search topics like Python, AI, Coding..." />
+              <form class="search-box" id="course-search-form">
+                <input type="search" id="course-search" placeholder="Search topics like Python, AI, Coding..." autocomplete="off" />
               <button type="submit">Search</button>
             </form>
           </div>
@@ -93,7 +93,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <!-- ================= MAIN ================= -->
 
-<section class="main-section">
+<section class="main-section" id="topics">
 
 <div class="container main-layout">
 <aside class="sidebar">
@@ -155,8 +155,8 @@ Search Courses
 </h2>
 <div class="sidebar-search">
 <input
-type="text"class="search-input"placeholder="Search Course...">
-<button>
+type="search" id="sidebar-course-search" class="search-input"placeholder="Search Course..." autocomplete="off">
+<button type="button" id="sidebar-search-button" aria-label="Search courses">
 <i class="fa-solid fa-search"></i>
 </button>
 </div>
@@ -178,7 +178,7 @@ Level
 </label>
 </div>
 </aside>
-<main class="content-area">
+<main class="content-area" id="courses">
 <h2 class="section-title">
 Popular Courses
 </h2>
@@ -248,7 +248,7 @@ PROGRAMMING LANGUAGE CARDS
 <i class="devicon-go-plain colored"></i>
 <h3>Go</h3>
 <p>Fast backend programming language.</p>
-<a href="#"><button>Start Learning</button></a>
+<a href="go.html"><button>Start Learning</button></a>
 </div>
 <!-- Rust -->
 <div class="course-card" data-category="programming" data-level="advanced">
@@ -256,7 +256,7 @@ PROGRAMMING LANGUAGE CARDS
 <i class="devicon-rust-plain colored"></i>
 <h3>Rust</h3>
 <p>Memory-safe systems programming.</p>
-<a href="#"><button>Start Learning</button></a>
+<a href="rust.html"><button>Start Learning</button></a>
 </div>
 <!-- ROW 1 -->
 
@@ -265,7 +265,7 @@ PROGRAMMING LANGUAGE CARDS
 <i class="fa-solid fa-database"></i>
 <h3>DBMS</h3>
 <p>Database Management System from basic to advanced.</p>
-<a href="#"><button>Start Learning</button></a>
+<a href="dbms.html"><button>Start Learning</button></a>
 </div>
 
 <div class="course-card" data-category="core" data-level="intermediate">
@@ -273,7 +273,7 @@ PROGRAMMING LANGUAGE CARDS
 <i class="fa-solid fa-microchip"></i>
 <h3>Operating System</h3>
 <p>Learn OS concepts, scheduling and memory management.</p>
-<a href="#"><button>Start Learning</button></a>
+<a href="os.html"><button>Start Learning</button></a>
 </div>
 
 <div class="course-card" data-category="core" data-level="intermediate">
@@ -554,7 +554,7 @@ DATA SCIENCE & ANALYTICS
 </div>
 </section>
 
-    <footer class="site-footer">
+    <footer class="site-footer" id="contact">
       <div class="container footer-content">
         <div class="footer-brand">
           <a href="#" class="brand">
@@ -568,7 +568,7 @@ DATA SCIENCE & ANALYTICS
           <h4>Quick Links</h4>
           <a href="#home">Home</a>
           <a href="#courses">Courses</a>
-          <a href="#quiz">Quiz</a>
+          <a href="#courses">Quiz</a>
         </div>
 
         <div class="footer-links">
