@@ -1,0 +1,35 @@
+.co-hero {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.16), rgba(14, 165, 233, 0.1)), var(--surface);
+}
+
+.co-hero .hero-badge {
+  background: rgba(16, 185, 129, 0.16);
+  color: #34d399;
+}
+
+.co-hero .info-icon {
+  background: linear-gradient(135deg, #059669, #0ea5e9);
+}
+
+.computer-organization-page .subject-topic {
+  border-left-color: rgba(52, 211, 153, 0.55);
+}
+
+.computer-organization-page .subject-topic:hover,
+.computer-organization-page .subject-topic.active {
+  border-color: #34d399;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.computer-organization-page .subject-subtopics {
+  border-left-color: rgba(52, 211, 153, 0.4);
+}
+
+.computer-organization-page .subject-subtopic:hover,
+.computer-organization-page .subject-subtopic.active {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.computer-organization-page .progress-fill {
+  background: linear-gradient(90deg, #059669, #0ea5e9);
+}

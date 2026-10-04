@@ -1,0 +1,35 @@
+.react-hero {
+  background: linear-gradient(135deg, rgba(97, 218, 251, 0.16), rgba(8, 145, 178, 0.1)), var(--surface);
+}
+
+.react-hero .hero-badge {
+  background: rgba(97, 218, 251, 0.14);
+  color: #61dafb;
+}
+
+.react-hero .info-icon {
+  background: linear-gradient(135deg, #087ea4, #149eca);
+}
+
+.react-page .subject-topic {
+  border-left-color: rgba(97, 218, 251, 0.55);
+}
+
+.react-page .subject-topic:hover,
+.react-page .subject-topic.active {
+  border-color: #61dafb;
+  background: rgba(97, 218, 251, 0.1);
+}
+
+.react-page .subject-subtopics {
+  border-left-color: rgba(97, 218, 251, 0.4);
+}
+
+.react-page .subject-subtopic:hover,
+.react-page .subject-subtopic.active {
+  background: rgba(97, 218, 251, 0.1);
+}
+
+.react-page .progress-fill {
+  background: linear-gradient(90deg, #087ea4, #61dafb);
+}

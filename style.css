@@ -409,7 +409,7 @@ body {
 
 /* Names */
 .hero-image-box::after {
-  content: " Developer - SIDDHI   •   JITESH";
+  /* content: " Developer - SIDDHI   •   JITESH"; */
 
   position: absolute;
   left: 50%;

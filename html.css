@@ -1,0 +1,45 @@
+.html-hero {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.16), rgba(59, 130, 246, 0.08)), var(--surface);
+}
+
+.html-hero .hero-badge {
+  background: rgba(249, 115, 22, 0.16);
+  color: #fb923c;
+}
+
+.html-hero .info-icon {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+}
+
+.html-topic {
+  border-left: 3px solid rgba(249, 115, 22, 0.45);
+}
+
+.html-topic:hover,
+.html-topic.active {
+  border-color: #f97316;
+  background: rgba(249, 115, 22, 0.1);
+}
+
+.html-page .subject-topic {
+  border-left-color: rgba(249, 115, 22, 0.55);
+}
+
+.html-page .subject-topic:hover,
+.html-page .subject-topic.active {
+  border-color: #f97316;
+  background: rgba(249, 115, 22, 0.1);
+}
+
+.html-page .subject-subtopics {
+  border-left-color: rgba(249, 115, 22, 0.4);
+}
+
+.html-page .subject-subtopic:hover,
+.html-page .subject-subtopic.active {
+  background: rgba(249, 115, 22, 0.1);
+}
+
+.html-page .progress-fill {
+  background: linear-gradient(90deg, #f97316, #fb923c);
+}

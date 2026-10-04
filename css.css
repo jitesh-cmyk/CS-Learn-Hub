@@ -1,0 +1,35 @@
+.css-hero {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.16), rgba(139, 92, 246, 0.1)), var(--surface);
+}
+
+.css-hero .hero-badge {
+  background: rgba(59, 130, 246, 0.16);
+  color: #60a5fa;
+}
+
+.css-hero .info-icon {
+  background: linear-gradient(135deg, #2563eb, #8b5cf6);
+}
+
+.css-page .subject-topic {
+  border-left-color: rgba(96, 165, 250, 0.55);
+}
+
+.css-page .subject-topic:hover,
+.css-page .subject-topic.active {
+  border-color: #60a5fa;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.css-page .subject-subtopics {
+  border-left-color: rgba(96, 165, 250, 0.4);
+}
+
+.css-page .subject-subtopic:hover,
+.css-page .subject-subtopic.active {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.css-page .progress-fill {
+  background: linear-gradient(90deg, #2563eb, #8b5cf6);
+}

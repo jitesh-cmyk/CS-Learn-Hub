@@ -1,0 +1,35 @@
+.cyber-hero {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.16), rgba(249, 115, 22, 0.1)), var(--surface);
+}
+
+.cyber-hero .hero-badge {
+  background: rgba(239, 68, 68, 0.16);
+  color: #fb7185;
+}
+
+.cyber-hero .info-icon {
+  background: linear-gradient(135deg, #dc2626, #f97316);
+}
+
+.cyber-security-page .subject-topic {
+  border-left-color: rgba(251, 113, 133, 0.55);
+}
+
+.cyber-security-page .subject-topic:hover,
+.cyber-security-page .subject-topic.active {
+  border-color: #fb7185;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.cyber-security-page .subject-subtopics {
+  border-left-color: rgba(251, 113, 133, 0.4);
+}
+
+.cyber-security-page .subject-subtopic:hover,
+.cyber-security-page .subject-subtopic.active {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.cyber-security-page .progress-fill {
+  background: linear-gradient(90deg, #dc2626, #f97316);
+}

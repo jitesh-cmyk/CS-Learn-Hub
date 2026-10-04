@@ -1,0 +1,232 @@
+.subject-page {
+  min-height: 100vh;
+}
+
+.subject-page main.subject-container {
+  width: min(1360px, calc(100% - 2rem));
+}
+
+.subject-hero {
+  margin-top: 2rem;
+}
+
+.subject-hero .hero-image img {
+  min-height: 340px;
+}
+
+.subject-layout {
+  grid-template-columns: minmax(270px, 310px) minmax(0, 1fr);
+  gap: 1.75rem;
+}
+
+.subject-layout .course-sidebar {
+  min-width: 0;
+}
+
+.subject-layout .course-content {
+  min-width: 0;
+}
+
+.subject-page .topic-list {
+  max-height: 560px;
+  padding: 2px 5px 2px 0;
+}
+
+.subject-topic {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  border-left: 3px solid rgba(76, 201, 240, 0.45);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.93rem;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.subject-topic:hover,
+.subject-topic.active {
+  border-color: var(--accent);
+  background: rgba(76, 201, 240, 0.1);
+  transform: translateX(2px);
+}
+
+.subject-subtopics[hidden] {
+  display: none;
+}
+
+.subject-module {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.module-index {
+  color: var(--accent);
+  font-size: 0.77rem;
+  font-weight: 800;
+}
+
+.module-title {
+  font-weight: 650;
+}
+
+.module-chevron {
+  color: var(--accent);
+  transition: transform 0.2s ease;
+}
+
+.subject-module[aria-expanded="true"] .module-chevron {
+  transform: rotate(180deg);
+}
+
+.subject-subtopics {
+  display: grid;
+  gap: 0.2rem;
+  margin: 0.2rem 0 0.25rem 0.7rem;
+  padding: 0.25rem 0 0.35rem 0.8rem;
+  border-left: 2px solid rgba(76, 201, 240, 0.35);
+}
+
+.subject-subtopic {
+  width: 100%;
+  padding: 0.48rem 0.55rem;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  text-align: left;
+  font: inherit;
+  font-size: 0.86rem;
+  cursor: pointer;
+}
+
+.subject-subtopic:hover,
+.subject-subtopic.active {
+  background: rgba(76, 201, 240, 0.09);
+  color: var(--text);
+}
+
+.subject-page .topic-detail {
+  min-height: 320px;
+}
+
+.subject-page .subject-lesson {
+  display: grid;
+  gap: 1rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.subject-lesson p {
+  margin: 0;
+}
+
+.subject-lesson h3 {
+  color: var(--text);
+  margin: 0 0 0.35rem;
+}
+
+.subject-lesson .lesson-callout {
+  padding: 1rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 14px 14px 0;
+  background: rgba(76, 201, 240, 0.08);
+}
+
+.subject-lesson pre {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--code-bg, #07111f);
+  color: var(--code-text, #d8f3ff);
+  font: 0.9rem/1.7 "Fira Code", "Courier New", monospace;
+  white-space: pre;
+}
+
+.subject-lesson ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.subject-lesson li {
+  padding-left: 0.2rem;
+  margin-bottom: 0.35rem;
+}
+
+.subject-page .code-editor {
+  min-height: 300px;
+  tab-size: 2;
+}
+
+.subject-preview {
+  display: block;
+  width: 100%;
+  min-height: 320px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.compiler-status {
+  margin: 0 0 0.65rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.subject-page .nav-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1040px) {
+  .subject-layout {
+    grid-template-columns: minmax(250px, 290px) minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 840px) {
+  .subject-page main.subject-container {
+    width: min(100% - 1.25rem, 1360px);
+  }
+
+  .subject-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .subject-page .topic-list {
+    max-height: 360px;
+  }
+
+  .subject-hero .hero-image img {
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+  .subject-page .workspace-header {
+    display: grid;
+  }
+
+  .subject-page .workspace-buttons {
+    width: 100%;
+  }
+
+  .subject-page .workspace-buttons button {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .subject-page .panel-card,
+  .subject-page .topic-detail,
+  .subject-page .code-workspace,
+  .subject-page .info-box {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,35 @@
+.ai-hero {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.17), rgba(6, 182, 212, 0.1)), var(--surface);
+}
+
+.ai-hero .hero-badge {
+  background: rgba(139, 92, 246, 0.16);
+  color: #c4b5fd;
+}
+
+.ai-hero .info-icon {
+  background: linear-gradient(135deg, #7c3aed, #0891b2);
+}
+
+.artificial-intelligence-page .subject-topic {
+  border-left-color: rgba(196, 181, 253, 0.55);
+}
+
+.artificial-intelligence-page .subject-topic:hover,
+.artificial-intelligence-page .subject-topic.active {
+  border-color: #a78bfa;
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.artificial-intelligence-page .subject-subtopics {
+  border-left-color: rgba(196, 181, 253, 0.4);
+}
+
+.artificial-intelligence-page .subject-subtopic:hover,
+.artificial-intelligence-page .subject-subtopic.active {
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.artificial-intelligence-page .progress-fill {
+  background: linear-gradient(90deg, #7c3aed, #0891b2);
+}

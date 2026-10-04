@@ -1,0 +1,35 @@
+.bootstrap-hero {
+  background: linear-gradient(135deg, rgba(121, 82, 179, 0.18), rgba(108, 117, 125, 0.1)), var(--surface);
+}
+
+.bootstrap-hero .hero-badge {
+  background: rgba(121, 82, 179, 0.18);
+  color: #bda3e5;
+}
+
+.bootstrap-hero .info-icon {
+  background: linear-gradient(135deg, #7952b3, #5b3b8c);
+}
+
+.bootstrap-page .subject-topic {
+  border-left-color: rgba(189, 163, 229, 0.55);
+}
+
+.bootstrap-page .subject-topic:hover,
+.bootstrap-page .subject-topic.active {
+  border-color: #9b72cf;
+  background: rgba(121, 82, 179, 0.11);
+}
+
+.bootstrap-page .subject-subtopics {
+  border-left-color: rgba(189, 163, 229, 0.4);
+}
+
+.bootstrap-page .subject-subtopic:hover,
+.bootstrap-page .subject-subtopic.active {
+  background: rgba(121, 82, 179, 0.11);
+}
+
+.bootstrap-page .progress-fill {
+  background: linear-gradient(90deg, #7952b3, #5b3b8c);
+}

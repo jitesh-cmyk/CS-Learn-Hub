@@ -1,0 +1,55 @@
+.git-hero {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.16), rgba(14, 165, 233, 0.09)), var(--surface);
+}
+
+.git-hero .hero-badge {
+  background: rgba(249, 115, 22, 0.16);
+  color: #fb923c;
+}
+
+.git-hero .info-icon {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+}
+
+.git-github-page .subject-topic {
+  border-left-color: rgba(251, 146, 60, 0.55);
+}
+
+.git-github-page .subject-topic:hover,
+.git-github-page .subject-topic.active {
+  border-color: #fb923c;
+  background: rgba(249, 115, 22, 0.1);
+}
+
+.git-github-page .subject-subtopics {
+  border-left-color: rgba(251, 146, 60, 0.4);
+}
+
+.git-github-page .subject-subtopic:hover,
+.git-github-page .subject-subtopic.active {
+  background: rgba(249, 115, 22, 0.1);
+}
+
+.git-github-page .progress-fill {
+  background: linear-gradient(90deg, #f97316, #ea580c);
+}
+
+.git-simulator-notice {
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  border-radius: 12px;
+  background: rgba(34, 197, 94, 0.08);
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.git-simulator-notice i {
+  margin-right: 0.35rem;
+  color: #22c55e;
+}
+
+.git-github-page .git-preview {
+  min-height: 280px;
+  background: #0b1220;
+}

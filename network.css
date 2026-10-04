@@ -2045,3 +2045,11831 @@ body { font-family: "Segoe UI", Tahoma, sans-serif; background: var(--bg); color
   }
 
 }
+/* =========================================
+   MAN - METROPOLITAN AREA NETWORK 3D
+========================================= */
+
+.man-city-3d {
+  margin: 30px 0 45px;
+  padding: 22px;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #071522,
+      #172d46
+    );
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.28);
+
+  overflow: hidden;
+}
+
+
+/* Header */
+
+.man-city-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  color: white;
+
+  padding-bottom: 18px;
+}
+
+.man-title-area {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.man-title-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: rgba(255,255,255,.1);
+
+  font-size: 23px;
+}
+
+.man-title-area strong {
+  display: block;
+
+  font-size: 20px;
+}
+
+.man-title-area span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: rgba(255,255,255,.55);
+
+  font-size: 11px;
+}
+
+.man-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 8px 13px;
+
+  border-radius: 30px;
+
+  background: rgba(255,255,255,.08);
+
+  font-size: 11px;
+}
+
+.man-status span {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #3be58b;
+
+  box-shadow: 0 0 12px #3be58b;
+}
+
+
+/* =========================================
+   CITY MAP
+========================================= */
+
+.man-city-map {
+  position: relative;
+
+  width: 100%;
+  height: 550px;
+
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(72,170,230,.18),
+      transparent 32%
+    ),
+    linear-gradient(
+      145deg,
+      #0a2236,
+      #061521
+    );
+
+  perspective: 1000px;
+}
+
+
+/* City Ground */
+
+.man-city-map::before {
+  content: "";
+
+  position: absolute;
+
+  width: 80%;
+  height: 75%;
+
+  left: 10%;
+  top: 12%;
+
+  border-radius: 50%;
+
+  border:
+    2px dashed rgba(95,190,240,.22);
+
+  transform:
+    rotateX(63deg);
+
+  box-shadow:
+    0 0 60px rgba(70,180,240,.08);
+}
+
+
+/* =========================================
+   NETWORK BACKBONE
+========================================= */
+
+.man-backbone {
+  position: absolute;
+
+  height: 3px;
+
+  border-radius: 10px;
+
+  background: #55bce8;
+
+  box-shadow:
+    0 0 12px rgba(70,190,240,.8);
+
+  z-index: 2;
+
+  animation: manNetworkPulse 2s infinite;
+}
+
+.man-backbone-1 {
+  width: 36%;
+
+  left: 14%;
+  top: 30%;
+
+  transform: rotate(19deg);
+}
+
+.man-backbone-2 {
+  width: 36%;
+
+  right: 14%;
+  top: 30%;
+
+  transform: rotate(-19deg);
+}
+
+.man-backbone-3 {
+  width: 36%;
+
+  left: 14%;
+  bottom: 29%;
+
+  transform: rotate(-19deg);
+}
+
+.man-backbone-4 {
+  width: 36%;
+
+  right: 14%;
+  bottom: 29%;
+
+  transform: rotate(19deg);
+}
+
+@keyframes manNetworkPulse {
+  0%,100% {
+    opacity: .45;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================
+   CORE
+========================================= */
+
+.man-network-core {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    rotateX(-5deg);
+
+  width: 160px;
+  height: 125px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #d8eaf7
+    );
+
+  color: #172a3b;
+
+  box-shadow:
+    12px 22px 45px rgba(0,0,0,.45);
+
+  z-index: 6;
+}
+
+.man-network-core i {
+  font-size: 34px;
+
+  margin-bottom: 7px;
+}
+
+.man-network-core strong {
+  font-size: 15px;
+}
+
+.man-network-core span {
+  font-size: 10px;
+
+  color: #637789;
+}
+
+.man-core-glow {
+  position: absolute;
+
+  inset: -12px;
+
+  border-radius: 28px;
+
+  border:
+    1px solid rgba(85,190,240,.45);
+
+  animation: manCorePulse 2s infinite;
+}
+
+@keyframes manCorePulse {
+
+  0%,100% {
+    opacity: .3;
+    transform: scale(.96);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+
+}
+
+
+/* =========================================
+   CITY BUILDINGS
+========================================= */
+
+.man-city-building {
+  position: absolute;
+
+  width: 150px;
+  height: 135px;
+
+  padding: 13px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #dcebf5
+    );
+
+  color: #172a3b;
+
+  box-shadow:
+    10px 18px 35px rgba(0,0,0,.42);
+
+  transition: .35s;
+
+  z-index: 7;
+}
+
+.man-city-building:hover {
+  transform:
+    translateY(-10px)
+    translateZ(20px)
+    rotateY(5deg);
+
+  box-shadow:
+    15px 28px 45px rgba(0,0,0,.5);
+}
+
+.man-building-top {
+  position: absolute;
+
+  top: -7px;
+  left: 12px;
+  right: 12px;
+
+  height: 11px;
+
+  border-radius: 8px;
+
+  background: #9dbbd0;
+
+  transform: skewX(-18deg);
+}
+
+.man-building-icon {
+  margin-top: 8px;
+
+  font-size: 33px;
+
+  filter:
+    drop-shadow(
+      4px 6px 4px
+      rgba(0,0,0,.2)
+    );
+}
+
+.man-city-building strong {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 12px;
+}
+
+.man-city-building > span {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 10px;
+
+  color: #66798a;
+}
+
+.man-building-lights {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-top: 9px;
+}
+
+.man-building-lights i {
+  width: 18px;
+  height: 8px;
+
+  border-radius: 2px;
+
+  background: #6ec2e8;
+
+  box-shadow:
+    0 0 6px rgba(90,190,235,.5);
+}
+
+
+/* Positions */
+
+.man-office {
+  left: 5%;
+  top: 10%;
+}
+
+.man-university {
+  right: 5%;
+  top: 10%;
+}
+
+.man-hospital {
+  left: 5%;
+  bottom: 10%;
+}
+
+.man-data {
+  right: 5%;
+  bottom: 10%;
+}
+
+
+/* =========================================
+   INTERNET
+========================================= */
+
+.man-internet {
+  position: absolute;
+
+  left: 50%;
+  bottom: 15px;
+
+  transform:
+    translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 15px;
+
+  border-radius: 30px;
+
+  background: rgba(255,255,255,.08);
+
+  color: white;
+
+  border:
+    1px solid rgba(255,255,255,.12);
+
+  font-size: 11px;
+
+  z-index: 8;
+}
+
+.man-internet i {
+  font-size: 15px;
+}
+
+
+/* =========================================
+   LEGEND
+========================================= */
+
+.man-city-legend {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 22px;
+
+  margin-top: 17px;
+
+  color: rgba(255,255,255,.65);
+
+  font-size: 11px;
+}
+
+.man-city-legend div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.man-city-legend span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #62c9f2;
+
+  box-shadow:
+    0 0 8px #62c9f2;
+}
+
+
+/* =========================================
+   WORKING FLOW
+========================================= */
+
+.man-working-flow {
+  display: grid;
+
+  grid-template-columns:
+    1fr auto 1fr auto 1fr;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 30px 0;
+}
+
+.man-flow-card {
+  position: relative;
+
+  min-height: 210px;
+
+  padding: 25px 18px;
+
+  text-align: center;
+
+  border-radius: 21px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #e8f2f8
+    );
+
+  box-shadow:
+    8px 15px 30px rgba(0,0,0,.1);
+
+  transition: .35s;
+}
+
+.man-flow-card:hover {
+  transform:
+    translateY(-9px)
+    rotateX(4deg);
+}
+
+.man-flow-card.man-featured {
+  transform: translateY(-8px);
+}
+
+.man-flow-icon {
+  margin: 18px 0 10px;
+
+  font-size: 38px;
+
+  filter:
+    drop-shadow(
+      4px 6px 4px
+      rgba(0,0,0,.2)
+    );
+}
+
+.man-flow-card h4 {
+  margin: 5px 0 8px;
+}
+
+.man-flow-card p {
+  margin: 0;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  color: #687988;
+}
+
+.man-flow-number {
+  position: absolute;
+
+  top: 12px;
+  right: 15px;
+
+  font-size: 11px;
+
+  opacity: .35;
+}
+
+.man-flow-arrow {
+  font-size: 23px;
+
+  opacity: .5;
+}
+
+
+/* =========================================
+   DATA FLOW
+========================================= */
+
+.man-data-flow {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  margin: 30px 0;
+
+  padding: 25px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f5faff,
+      #ffffff
+    );
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+}
+
+.man-data-device {
+  min-width: 125px;
+
+  padding: 18px 15px;
+
+  text-align: center;
+
+  border-radius: 18px;
+
+  background: white;
+
+  box-shadow:
+    5px 10px 22px rgba(0,0,0,.1);
+
+  transition: .3s;
+}
+
+.man-data-device:hover {
+  transform: translateY(-8px);
+}
+
+.man-data-device i {
+  display: block;
+
+  font-size: 32px;
+
+  margin-bottom: 7px;
+}
+
+.man-data-device strong {
+  display: block;
+}
+
+.man-data-device span {
+  display: block;
+
+  margin-top: 4px;
+
+  font-size: 10px;
+
+  color: #687887;
+}
+
+.man-data-device.man-central {
+  transform: translateY(-8px);
+}
+
+.man-data-line {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  color: #5b9fca;
+
+  font-size: 18px;
+}
+
+.man-data-line span {
+  width: 18px;
+  height: 3px;
+
+  border-radius: 5px;
+
+  background: #5b9fca;
+
+  animation: manDataPulse 1.3s infinite;
+}
+
+.man-data-line span:last-child {
+  animation-delay: .5s;
+}
+
+@keyframes manDataPulse {
+
+  0%,100% {
+    opacity: .3;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:768px) {
+
+  .man-city-3d {
+    padding: 14px;
+  }
+
+  .man-city-header {
+    flex-wrap: wrap;
+  }
+
+  .man-status {
+    margin-left: 61px;
+  }
+
+  .man-city-map {
+    height: 650px;
+  }
+
+  .man-city-building {
+    width: 115px;
+    height: 110px;
+  }
+
+  .man-building-icon {
+    font-size: 27px;
+  }
+
+  .man-city-building strong {
+    font-size: 10px;
+  }
+
+  .man-office,
+  .man-hospital {
+    left: 3%;
+  }
+
+  .man-university,
+  .man-data {
+    right: 3%;
+  }
+
+  .man-network-core {
+    width: 130px;
+    height: 105px;
+  }
+
+  .man-working-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .man-flow-arrow {
+    transform: rotate(90deg);
+  }
+
+  .man-flow-card.man-featured {
+    transform: none;
+  }
+
+  .man-data-flow {
+    flex-direction: column;
+  }
+
+  .man-data-line {
+    transform: rotate(90deg);
+  }
+
+}
+/* =========================================
+   WAN - GLOBAL 3D NETWORK
+========================================= */
+
+.wan-world-3d {
+  margin: 30px 0 45px;
+  padding: 22px;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #061321,
+      #172d49
+    );
+
+  box-shadow:
+    0 25px 65px rgba(0,0,0,.3);
+
+  overflow: hidden;
+}
+
+
+/* Header */
+
+.wan-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  color: white;
+
+  padding-bottom: 18px;
+}
+
+.wan-title {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+}
+
+.wan-title-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: rgba(255,255,255,.1);
+
+  font-size: 24px;
+}
+
+.wan-title strong {
+  display: block;
+  font-size: 20px;
+}
+
+.wan-title span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: rgba(255,255,255,.55);
+
+  font-size: 11px;
+}
+
+.wan-status {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 8px 13px;
+
+  border-radius: 30px;
+
+  background: rgba(255,255,255,.08);
+
+  font-size: 11px;
+}
+
+.wan-status span {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #3ce58c;
+
+  box-shadow:
+    0 0 12px #3ce58c;
+}
+
+
+/* =========================================
+   GLOBAL MAP
+========================================= */
+
+.wan-global-map {
+  position: relative;
+
+  height: 570px;
+
+  border-radius: 23px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(75,170,235,.2),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      #092138,
+      #061420
+    );
+
+  perspective: 1100px;
+}
+
+
+/* World grid */
+
+.wan-global-map::before {
+  content: "";
+
+  position: absolute;
+
+  width: 82%;
+  height: 68%;
+
+  left: 9%;
+  top: 15%;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(80,185,240,.15);
+
+  transform:
+    rotateX(68deg);
+
+  box-shadow:
+    0 0 70px rgba(70,180,240,.08);
+}
+
+.wan-global-map::after {
+  content: "";
+
+  position: absolute;
+
+  width: 65%;
+  height: 50%;
+
+  left: 17.5%;
+  top: 24%;
+
+  border-radius: 50%;
+
+  border:
+    1px dashed rgba(80,185,240,.13);
+
+  transform:
+    rotateX(68deg);
+}
+
+
+/* =========================================
+   ORBITS
+========================================= */
+
+.wan-orbit {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(85,190,240,.2);
+
+  transform:
+    translate(-50%, -50%)
+    rotateX(65deg);
+
+  pointer-events: none;
+}
+
+.wan-orbit-one {
+  width: 310px;
+  height: 210px;
+}
+
+.wan-orbit-two {
+  width: 470px;
+  height: 300px;
+
+  transform:
+    translate(-50%, -50%)
+    rotateX(65deg)
+    rotateZ(30deg);
+}
+
+.wan-orbit-three {
+  width: 560px;
+  height: 360px;
+
+  transform:
+    translate(-50%, -50%)
+    rotateX(65deg)
+    rotateZ(-25deg);
+}
+
+
+/* =========================================
+   CONNECTION LINES
+========================================= */
+
+.wan-line {
+  position: absolute;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #58c4ed,
+      transparent
+    );
+
+  box-shadow:
+    0 0 10px rgba(70,195,240,.8);
+
+  transform-origin: center;
+
+  z-index: 2;
+
+  animation:
+    wanLinePulse 2s infinite;
+}
+
+.wan-line-1 {
+  width: 270px;
+
+  left: 22%;
+  top: 32%;
+
+  transform: rotate(20deg);
+}
+
+.wan-line-2 {
+  width: 270px;
+
+  right: 22%;
+  top: 32%;
+
+  transform: rotate(-20deg);
+}
+
+.wan-line-3 {
+  width: 260px;
+
+  left: 22%;
+  bottom: 30%;
+
+  transform: rotate(-22deg);
+}
+
+.wan-line-4 {
+  width: 260px;
+
+  right: 22%;
+  bottom: 30%;
+
+  transform: rotate(22deg);
+}
+
+.wan-line-5 {
+  width: 230px;
+
+  left: 34%;
+  top: 48%;
+
+  transform: rotate(-8deg);
+}
+
+.wan-line-6 {
+  width: 230px;
+
+  right: 34%;
+  top: 48%;
+
+  transform: rotate(8deg);
+}
+
+@keyframes wanLinePulse {
+
+  0%,100% {
+    opacity: .25;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================================
+   EARTH
+========================================= */
+
+.wan-earth {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    translateZ(20px);
+
+  width: 155px;
+  height: 155px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #dff7ff,
+      #4caed2 32%,
+      #17608b 65%,
+      #082c4b
+    );
+
+  color: white;
+
+  box-shadow:
+    0 0 35px rgba(70,195,240,.55),
+    inset -20px -15px 35px rgba(0,0,0,.3);
+
+  z-index: 6;
+
+  animation:
+    wanEarthFloat 4s ease-in-out infinite;
+}
+
+.wan-earth i {
+  font-size: 55px;
+
+  margin-bottom: 3px;
+
+  opacity: .95;
+}
+
+.wan-earth strong {
+  font-size: 18px;
+}
+
+.wan-earth span {
+  font-size: 9px;
+
+  color: rgba(255,255,255,.7);
+}
+
+.wan-earth-glow {
+  position: absolute;
+
+  inset: -16px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(85,205,255,.4);
+
+  animation:
+    wanGlow 2s infinite;
+}
+
+@keyframes wanEarthFloat {
+
+  0%,100% {
+    transform:
+      translate(-50%, -50%)
+      translateY(0)
+      translateZ(20px);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      translateY(-8px)
+      translateZ(35px);
+  }
+
+}
+
+@keyframes wanGlow {
+
+  0%,100% {
+    opacity: .3;
+    transform: scale(.96);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+}
+
+
+/* =========================================
+   LOCATIONS
+========================================= */
+
+.wan-location {
+  position: absolute;
+
+  width: 135px;
+  min-height: 112px;
+
+  padding: 13px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #dcebf5
+    );
+
+  color: #182b3d;
+
+  box-shadow:
+    9px 17px 35px rgba(0,0,0,.42);
+
+  z-index: 7;
+
+  transition: .35s;
+}
+
+.wan-location:hover {
+  transform:
+    translateY(-10px)
+    translateZ(25px)
+    rotateY(5deg);
+
+  box-shadow:
+    15px 28px 45px rgba(0,0,0,.5);
+}
+
+.wan-location-icon {
+  font-size: 28px;
+
+  margin-bottom: 5px;
+
+  filter:
+    drop-shadow(
+      3px 5px 3px
+      rgba(0,0,0,.2)
+    );
+}
+
+.wan-location strong {
+  display: block;
+
+  font-size: 12px;
+}
+
+.wan-location span {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 10px;
+
+  color: #647789;
+}
+
+.wan-location small {
+  display: inline-block;
+
+  margin-top: 6px;
+
+  padding: 3px 7px;
+
+  border-radius: 20px;
+
+  background: #e8f3f9;
+
+  color: #50809e;
+
+  font-size: 8px;
+}
+
+
+/* Positions */
+
+.wan-america {
+  left: 5%;
+  top: 10%;
+}
+
+.wan-europe {
+  right: 6%;
+  top: 9%;
+}
+
+.wan-asia {
+  left: 6%;
+  bottom: 11%;
+}
+
+.wan-australia {
+  right: 6%;
+  bottom: 11%;
+}
+
+.wan-japan {
+  left: 50%;
+  top: 8%;
+
+  transform:
+    translateX(-50%);
+}
+
+.wan-japan:hover {
+  transform:
+    translateX(-50%)
+    translateY(-10px)
+    translateZ(25px);
+}
+
+
+/* =========================================
+   SATELLITE
+========================================= */
+
+.wan-satellite {
+  position: absolute;
+
+  left: 50%;
+  bottom: 16px;
+
+  transform:
+    translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 8px 15px;
+
+  border-radius: 30px;
+
+  color: white;
+
+  background:
+    rgba(255,255,255,.08);
+
+  border:
+    1px solid rgba(255,255,255,.12);
+
+  font-size: 10px;
+
+  z-index: 8;
+}
+
+.wan-satellite i {
+  font-size: 16px;
+
+  animation:
+    wanSatellite 2s infinite;
+}
+
+@keyframes wanSatellite {
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+
+}
+
+
+/* =========================================
+   LEGEND
+========================================= */
+
+.wan-legend {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 22px;
+
+  margin-top: 17px;
+
+  color: rgba(255,255,255,.65);
+
+  font-size: 11px;
+}
+
+.wan-legend div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+}
+
+.wan-legend span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #60c9f2;
+
+  box-shadow:
+    0 0 8px #60c9f2;
+}
+
+
+/* =========================================
+   WORKING FLOW
+========================================= */
+
+.wan-working-flow {
+  display: grid;
+
+  grid-template-columns:
+    1fr auto 1fr auto 1fr;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 30px 0;
+}
+
+.wan-flow-card {
+  position: relative;
+
+  min-height: 210px;
+
+  padding: 25px 18px;
+
+  text-align: center;
+
+  border-radius: 21px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #e8f2f8
+    );
+
+  box-shadow:
+    8px 15px 30px rgba(0,0,0,.1);
+
+  transition: .35s;
+}
+
+.wan-flow-card:hover {
+  transform:
+    translateY(-9px)
+    rotateX(4deg);
+}
+
+.wan-flow-card.wan-featured {
+  transform: translateY(-8px);
+}
+
+.wan-number {
+  position: absolute;
+
+  top: 12px;
+  right: 15px;
+
+  font-size: 11px;
+
+  opacity: .35;
+}
+
+.wan-flow-icon {
+  margin: 18px 0 10px;
+
+  font-size: 38px;
+
+  filter:
+    drop-shadow(
+      4px 6px 4px
+      rgba(0,0,0,.2)
+    );
+}
+
+.wan-flow-card h4 {
+  margin: 5px 0 8px;
+}
+
+.wan-flow-card p {
+  margin: 0;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  color: #687988;
+}
+
+.wan-arrow {
+  font-size: 23px;
+
+  opacity: .5;
+}
+
+
+/* =========================================
+   DATA FLOW
+========================================= */
+
+.wan-data-flow {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  margin: 30px 0;
+
+  padding: 25px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f5faff,
+      #ffffff
+    );
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+}
+
+.wan-data-device {
+  min-width: 135px;
+
+  padding: 18px 15px;
+
+  text-align: center;
+
+  border-radius: 18px;
+
+  background: white;
+
+  box-shadow:
+    5px 10px 22px rgba(0,0,0,.1);
+
+  transition: .3s;
+}
+
+.wan-data-device:hover {
+  transform: translateY(-8px);
+}
+
+.wan-data-device i {
+  display: block;
+
+  font-size: 32px;
+
+  margin-bottom: 7px;
+}
+
+.wan-data-device strong {
+  display: block;
+}
+
+.wan-data-device span {
+  display: block;
+
+  margin-top: 4px;
+
+  font-size: 10px;
+
+  color: #687887;
+}
+
+.wan-data-device.wan-central {
+  transform: translateY(-8px);
+}
+
+.wan-flow-line {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 60px;
+
+  height: 30px;
+
+  color: #5ba8d2;
+
+  font-size: 22px;
+
+  animation:
+    wanDataPulse 1.5s infinite;
+}
+
+@keyframes wanDataPulse {
+
+  0%,100% {
+    opacity: .35;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:768px) {
+
+  .wan-world-3d {
+    padding: 14px;
+  }
+
+  .wan-header {
+    flex-wrap: wrap;
+  }
+
+  .wan-status {
+    margin-left: 61px;
+  }
+
+  .wan-global-map {
+    height: 700px;
+  }
+
+  .wan-location {
+    width: 108px;
+    min-height: 100px;
+  }
+
+  .wan-location-icon {
+    font-size: 23px;
+  }
+
+  .wan-location strong {
+    font-size: 10px;
+  }
+
+  .wan-america {
+    left: 2%;
+  }
+
+  .wan-europe {
+    right: 2%;
+  }
+
+  .wan-asia {
+    left: 2%;
+  }
+
+  .wan-australia {
+    right: 2%;
+  }
+
+  .wan-japan {
+    top: 4%;
+  }
+
+  .wan-earth {
+    width: 130px;
+    height: 130px;
+  }
+
+  .wan-earth i {
+    font-size: 45px;
+  }
+
+  .wan-orbit-two {
+    width: 380px;
+  }
+
+  .wan-orbit-three {
+    width: 450px;
+  }
+
+  .wan-working-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .wan-arrow {
+    transform: rotate(90deg);
+  }
+
+  .wan-flow-card.wan-featured {
+    transform: none;
+  }
+
+  .wan-data-flow {
+    flex-direction: column;
+  }
+
+  .wan-flow-line {
+    transform: rotate(90deg);
+  }
+
+}
+/* =========================================
+   WLAN - 3D WIRELESS NETWORK
+========================================= */
+
+.wlan-3d-network {
+  margin: 30px 0 45px;
+  padding: 22px;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #061521,
+      #18334b
+    );
+
+  box-shadow:
+    0 25px 65px rgba(0,0,0,.3);
+
+  overflow: hidden;
+}
+
+
+/* Header */
+
+.wlan-top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  color: white;
+
+  padding-bottom: 18px;
+}
+
+.wlan-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.wlan-heading-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: rgba(255,255,255,.1);
+
+  font-size: 24px;
+}
+
+.wlan-heading strong {
+  display: block;
+  font-size: 20px;
+}
+
+.wlan-heading span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: rgba(255,255,255,.55);
+
+  font-size: 11px;
+}
+
+.wlan-online {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 8px 13px;
+
+  border-radius: 30px;
+
+  background: rgba(255,255,255,.08);
+
+  font-size: 11px;
+}
+
+.wlan-online span {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #3be58b;
+
+  box-shadow:
+    0 0 12px #3be58b;
+}
+
+
+/* =========================================
+   ROOM
+========================================= */
+
+.wlan-room {
+  position: relative;
+
+  height: 560px;
+
+  overflow: hidden;
+
+  border-radius: 23px;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(70,190,240,.2),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      #0b263d,
+      #061520
+    );
+
+  perspective: 1100px;
+}
+
+
+/* Floor */
+
+.wlan-room::before {
+  content: "";
+
+  position: absolute;
+
+  width: 82%;
+  height: 55%;
+
+  left: 9%;
+  bottom: 3%;
+
+  border-radius: 50%;
+
+  border:
+    1px dashed rgba(85,190,240,.2);
+
+  transform:
+    rotateX(67deg);
+
+  box-shadow:
+    0 0 70px rgba(70,180,240,.08);
+}
+
+
+/* =========================================
+   WIRELESS WAVES
+========================================= */
+
+.wlan-wave {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  border:
+    2px solid rgba(75,200,250,.45);
+
+  border-radius: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    rotateX(63deg);
+
+  pointer-events: none;
+
+  z-index: 2;
+
+  animation:
+    wlanWavePulse 2.8s infinite;
+}
+
+.wlan-wave-1 {
+  width: 180px;
+  height: 130px;
+}
+
+.wlan-wave-2 {
+  width: 330px;
+  height: 230px;
+
+  animation-delay: .7s;
+}
+
+.wlan-wave-3 {
+  width: 500px;
+  height: 350px;
+
+  animation-delay: 1.4s;
+}
+
+@keyframes wlanWavePulse {
+
+  0% {
+    opacity: .15;
+    transform:
+      translate(-50%, -50%)
+      rotateX(63deg)
+      scale(.75);
+  }
+
+  50% {
+    opacity: .8;
+  }
+
+  100% {
+    opacity: .05;
+    transform:
+      translate(-50%, -50%)
+      rotateX(63deg)
+      scale(1.05);
+  }
+
+}
+
+
+/* =========================================
+   ROUTER
+========================================= */
+
+.wlan-router {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    translateZ(30px);
+
+  width: 165px;
+  height: 125px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  border-radius: 23px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #dcebf4
+    );
+
+  color: #172a3b;
+
+  box-shadow:
+    12px 25px 45px rgba(0,0,0,.5);
+
+  z-index: 7;
+
+  animation:
+    wlanRouterFloat 4s ease-in-out infinite;
+}
+
+.wlan-router i {
+  font-size: 38px;
+
+  margin-bottom: 5px;
+}
+
+.wlan-router strong {
+  font-size: 14px;
+}
+
+.wlan-router span {
+  font-size: 9px;
+
+  color: #68798a;
+}
+
+.wlan-router-light {
+  position: absolute;
+
+  top: 12px;
+  right: 15px;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #3be58b;
+
+  box-shadow:
+    0 0 12px #3be58b;
+}
+
+.wlan-router-dots {
+  display: flex;
+
+  gap: 5px;
+
+  margin-top: 8px;
+}
+
+.wlan-router-dots i {
+  width: 15px;
+  height: 4px;
+
+  margin: 0;
+
+  border-radius: 4px;
+
+  background: #69bddd;
+
+  box-shadow: none;
+}
+
+@keyframes wlanRouterFloat {
+
+  0%,100% {
+    transform:
+      translate(-50%, -50%)
+      translateY(0)
+      translateZ(30px);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      translateY(-7px)
+      translateZ(45px);
+  }
+
+}
+
+
+/* =========================================
+   DEVICES
+========================================= */
+
+.wlan-device {
+  position: absolute;
+
+  width: 130px;
+  min-height: 115px;
+
+  padding: 14px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #dfedf5
+    );
+
+  color: #172a3b;
+
+  box-shadow:
+    9px 17px 35px rgba(0,0,0,.42);
+
+  z-index: 6;
+
+  transition: .35s;
+}
+
+.wlan-device:hover {
+  transform:
+    translateY(-10px)
+    translateZ(25px)
+    rotateY(5deg);
+
+  box-shadow:
+    15px 28px 45px rgba(0,0,0,.5);
+}
+
+.wlan-device-icon {
+  font-size: 30px;
+
+  margin-bottom: 6px;
+
+  filter:
+    drop-shadow(
+      3px 5px 3px
+      rgba(0,0,0,.2)
+    );
+}
+
+.wlan-device strong {
+  display: block;
+
+  font-size: 11px;
+}
+
+.wlan-device span {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 9px;
+
+  color: #647789;
+}
+
+.wlan-device small {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  margin-top: 7px;
+
+  padding: 3px 7px;
+
+  border-radius: 20px;
+
+  background: #e6f4fa;
+
+  color: #4d91b2;
+
+  font-size: 8px;
+}
+
+
+/* Device positions */
+
+.wlan-laptop {
+  left: 5%;
+  top: 12%;
+}
+
+.wlan-mobile {
+  right: 5%;
+  top: 12%;
+}
+
+.wlan-tablet {
+  left: 5%;
+  bottom: 13%;
+}
+
+.wlan-tv {
+  right: 5%;
+  bottom: 13%;
+}
+
+.wlan-printer {
+  left: 50%;
+  bottom: 5px;
+
+  transform:
+    translateX(-50%);
+}
+
+.wlan-printer:hover {
+  transform:
+    translateX(-50%)
+    translateY(-10px)
+    translateZ(25px);
+}
+
+
+/* =========================================
+   INTERNET
+========================================= */
+
+.wlan-internet {
+  position: absolute;
+
+  left: 50%;
+  top: 12px;
+
+  transform:
+    translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 8px 15px;
+
+  border-radius: 30px;
+
+  background:
+    rgba(255,255,255,.08);
+
+  color: white;
+
+  border:
+    1px solid rgba(255,255,255,.12);
+
+  font-size: 10px;
+
+  z-index: 8;
+}
+
+.wlan-internet i {
+  font-size: 15px;
+}
+
+
+/* =========================================
+   LEGEND
+========================================= */
+
+.wlan-legend {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 22px;
+
+  margin-top: 17px;
+
+  color: rgba(255,255,255,.65);
+
+  font-size: 11px;
+}
+
+.wlan-legend div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.wlan-legend span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #62c9f2;
+
+  box-shadow:
+    0 0 8px #62c9f2;
+}
+
+
+/* =========================================
+   WORKING FLOW
+========================================= */
+
+.wlan-working {
+  display: grid;
+
+  grid-template-columns:
+    1fr auto 1fr auto 1fr;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 30px 0;
+}
+
+.wlan-work-card {
+  position: relative;
+
+  min-height: 205px;
+
+  padding: 25px 18px;
+
+  text-align: center;
+
+  border-radius: 21px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #e8f2f8
+    );
+
+  box-shadow:
+    8px 15px 30px rgba(0,0,0,.1);
+
+  transition: .35s;
+}
+
+.wlan-work-card:hover {
+  transform:
+    translateY(-9px)
+    rotateX(4deg);
+}
+
+.wlan-work-card.wlan-highlight {
+  transform:
+    translateY(-8px);
+}
+
+.wlan-work-number {
+  position: absolute;
+
+  top: 12px;
+  right: 15px;
+
+  font-size: 11px;
+
+  opacity: .35;
+}
+
+.wlan-work-icon {
+  margin: 18px 0 10px;
+
+  font-size: 38px;
+
+  filter:
+    drop-shadow(
+      4px 6px 4px
+      rgba(0,0,0,.2)
+    );
+}
+
+.wlan-work-card h4 {
+  margin: 5px 0 8px;
+}
+
+.wlan-work-card p {
+  margin: 0;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  color: #687988;
+}
+
+.wlan-work-arrow {
+  font-size: 23px;
+
+  opacity: .5;
+}
+
+
+/* =========================================
+   DATA FLOW
+========================================= */
+
+.wlan-data-flow {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  margin: 30px 0;
+
+  padding: 25px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f5faff,
+      #ffffff
+    );
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+}
+
+.wlan-data-device {
+  min-width: 130px;
+
+  padding: 18px 15px;
+
+  text-align: center;
+
+  border-radius: 18px;
+
+  background: white;
+
+  box-shadow:
+    5px 10px 22px rgba(0,0,0,.1);
+
+  transition: .3s;
+}
+
+.wlan-data-device:hover {
+  transform: translateY(-8px);
+}
+
+.wlan-data-device i {
+  display: block;
+
+  font-size: 32px;
+
+  margin-bottom: 7px;
+}
+
+.wlan-data-device strong {
+  display: block;
+}
+
+.wlan-data-device span {
+  display: block;
+
+  margin-top: 4px;
+
+  font-size: 10px;
+
+  color: #687887;
+}
+
+.wlan-main-device {
+  transform: translateY(-8px);
+}
+
+.wlan-signal {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 60px;
+
+  font-size: 24px;
+
+  color: #5baed5;
+
+  animation:
+    wlanSignalPulse 1.5s infinite;
+}
+
+@keyframes wlanSignalPulse {
+
+  0%,100% {
+    opacity: .3;
+    transform: scale(.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:768px) {
+
+  .wlan-3d-network {
+    padding: 14px;
+  }
+
+  .wlan-top-header {
+    flex-wrap: wrap;
+  }
+
+  .wlan-online {
+    margin-left: 61px;
+  }
+
+  .wlan-room {
+    height: 700px;
+  }
+
+  .wlan-device {
+    width: 105px;
+    min-height: 105px;
+  }
+
+  .wlan-laptop,
+  .wlan-tablet {
+    left: 2%;
+  }
+
+  .wlan-mobile,
+  .wlan-tv {
+    right: 2%;
+  }
+
+  .wlan-router {
+    width: 135px;
+    height: 110px;
+  }
+
+  .wlan-working {
+    grid-template-columns: 1fr;
+  }
+
+  .wlan-work-arrow {
+    transform: rotate(90deg);
+  }
+
+  .wlan-work-card.wlan-highlight {
+    transform: none;
+  }
+
+  .wlan-data-flow {
+    flex-direction: column;
+  }
+
+  .wlan-signal {
+    transform: rotate(90deg);
+  }
+
+}
+/* ================================
+   INTERNET 3D NETWORK
+================================ */
+
+.internet-3d-network {
+  width: 100%;
+  margin: 25px 0;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #07111f;
+  border: 1px solid rgba(76, 201, 240, 0.25);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.45),
+    inset 0 0 40px rgba(76, 201, 240, 0.04);
+}
+
+.internet-header {
+  height: 58px;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15, 29, 48, 0.95);
+  border-bottom: 1px solid rgba(76, 201, 240, 0.15);
+  color: #fff;
+}
+
+.internet-header i {
+  color: #4cc9f0;
+  margin-right: 8px;
+}
+
+.internet-status {
+  font-size: 12px;
+  color: #8ee6ff;
+}
+
+.internet-status i {
+  color: #55efc4;
+  font-size: 8px;
+}
+
+/* Main Space */
+
+.internet-space {
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at center,
+      rgba(76, 201, 240, 0.12),
+      transparent 35%),
+    linear-gradient(145deg, #081525, #030913);
+}
+
+/* Grid */
+
+.internet-space::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(76, 201, 240, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(76, 201, 240, 0.06) 1px, transparent 1px);
+
+  background-size: 45px 45px;
+  transform: perspective(500px) rotateX(55deg) scale(1.4);
+  transform-origin: center bottom;
+}
+
+/* Globe */
+
+.internet-globe {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 190px;
+  height: 190px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    radial-gradient(circle at 35% 30%,
+      rgba(76, 201, 240, 0.35),
+      rgba(6, 22, 38, 0.95) 65%);
+
+  border: 2px solid rgba(76, 201, 240, 0.55);
+
+  box-shadow:
+    0 0 25px rgba(76, 201, 240, 0.35),
+    inset 0 0 35px rgba(76, 201, 240, 0.12);
+
+  z-index: 5;
+}
+
+.internet-globe > i {
+  font-size: 62px;
+  color: #4cc9f0;
+  filter: drop-shadow(0 0 12px rgba(76, 201, 240, 0.7));
+}
+
+.internet-globe span {
+  margin-top: 8px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #bdefff;
+}
+
+/* Globe Rings */
+
+.globe-ring {
+  position: absolute;
+  border: 1px solid rgba(76, 201, 240, 0.25);
+  border-radius: 50%;
+}
+
+.ring-1 {
+  inset: 15px;
+}
+
+.ring-2 {
+  width: 65px;
+  height: 170px;
+  left: 61px;
+  top: 10px;
+}
+
+.ring-3 {
+  width: 170px;
+  height: 65px;
+  left: 10px;
+  top: 61px;
+}
+
+/* Nodes */
+
+.internet-node {
+  position: absolute;
+  width: 125px;
+  padding: 13px 8px;
+  text-align: center;
+  border-radius: 14px;
+
+  background: rgba(12, 29, 47, 0.96);
+  border: 1px solid rgba(76, 201, 240, 0.4);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.35),
+    0 0 15px rgba(76, 201, 240, 0.08);
+
+  z-index: 8;
+}
+
+.internet-node-icon {
+  width: 42px;
+  height: 42px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+
+  background: rgba(76, 201, 240, 0.1);
+}
+
+.internet-node-icon i {
+  color: #4cc9f0;
+  font-size: 21px;
+}
+
+.internet-node strong {
+  display: block;
+  margin-top: 7px;
+  color: #fff;
+  font-size: 12px;
+}
+
+.internet-node small {
+  color: #8194aa;
+  font-size: 10px;
+}
+
+/* Node Positions */
+
+.node-usa {
+  left: 8%;
+  top: 25%;
+}
+
+.node-india {
+  right: 8%;
+  top: 27%;
+}
+
+.node-europe {
+  left: 29%;
+  top: 8%;
+}
+
+.node-asia {
+  right: 29%;
+  top: 8%;
+}
+
+/* Users */
+
+.internet-user {
+  position: absolute;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 9px 13px;
+  border-radius: 10px;
+
+  background: rgba(10, 24, 40, 0.95);
+  border: 1px solid rgba(76, 201, 240, 0.25);
+
+  color: #ccefff;
+  font-size: 11px;
+}
+
+.internet-user i {
+  color: #4cc9f0;
+  font-size: 18px;
+}
+
+.user-1 {
+  left: 7%;
+  bottom: 18%;
+}
+
+.user-2 {
+  right: 8%;
+  bottom: 20%;
+}
+
+.user-3 {
+  left: 44%;
+  bottom: 7%;
+}
+
+/* Cloud */
+
+.internet-cloud {
+  position: absolute;
+  right: 4%;
+  bottom: 7%;
+
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 11px 16px;
+
+  border-radius: 12px;
+  background: rgba(13, 29, 47, 0.95);
+  border: 1px solid rgba(76, 201, 240, 0.3);
+
+  color: #ccefff;
+  font-size: 11px;
+}
+
+.internet-cloud i {
+  color: #4cc9f0;
+  font-size: 22px;
+}
+
+/* Connection Lines */
+
+.internet-line {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #4cc9f0,
+    transparent
+  );
+
+  transform-origin: left center;
+  opacity: 0.65;
+  z-index: 2;
+}
+
+.line-usa {
+  width: 290px;
+  left: 17%;
+  top: 45%;
+  transform: rotate(8deg);
+}
+
+.line-india {
+  width: 285px;
+  left: 57%;
+  top: 48%;
+  transform: rotate(-8deg);
+}
+
+.line-europe {
+  width: 150px;
+  left: 38%;
+  top: 31%;
+  transform: rotate(55deg);
+}
+
+.line-asia {
+  width: 155px;
+  left: 54%;
+  top: 31%;
+  transform: rotate(125deg);
+}
+
+.line-cloud {
+  width: 145px;
+  left: 57%;
+  top: 60%;
+  transform: rotate(-25deg);
+}
+
+/* Data Packets */
+
+.internet-packet {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+
+  background: #8ee6ff;
+  box-shadow: 0 0 14px #4cc9f0;
+
+  z-index: 6;
+}
+
+.packet-1 {
+  left: 20%;
+  top: 44%;
+  animation: internetPacket1 3s linear infinite;
+}
+
+.packet-2 {
+  left: 75%;
+  top: 47%;
+  animation: internetPacket2 3.5s linear infinite;
+}
+
+.packet-3 {
+  left: 40%;
+  top: 30%;
+  animation: internetPacket3 3s linear infinite;
+}
+
+.packet-4 {
+  left: 55%;
+  top: 63%;
+  animation: internetPacket4 3.2s linear infinite;
+}
+
+@keyframes internetPacket1 {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(250px);
+    opacity: 0;
+  }
+}
+
+@keyframes internetPacket2 {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-220px);
+    opacity: 0;
+  }
+}
+
+@keyframes internetPacket3 {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(150px);
+    opacity: 0;
+  }
+}
+
+@keyframes internetPacket4 {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(140px);
+    opacity: 0;
+  }
+}
+
+/* Legend */
+
+.internet-legend {
+  min-height: 55px;
+  padding: 12px 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+
+  background: rgba(8, 18, 31, 0.95);
+  color: #8499af;
+  font-size: 11px;
+}
+
+.internet-legend i {
+  color: #4cc9f0;
+  margin-right: 5px;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .internet-space {
+    height: 620px;
+  }
+
+  .internet-globe {
+    width: 145px;
+    height: 145px;
+  }
+
+  .internet-globe > i {
+    font-size: 45px;
+  }
+
+  .internet-node {
+    width: 105px;
+  }
+
+  .node-usa {
+    left: 3%;
+    top: 23%;
+  }
+
+  .node-india {
+    right: 3%;
+    top: 23%;
+  }
+
+  .node-europe {
+    left: 8%;
+    top: 7%;
+  }
+
+  .node-asia {
+    right: 8%;
+    top: 7%;
+  }
+
+  .user-1 {
+    left: 4%;
+    bottom: 18%;
+  }
+
+  .user-2 {
+    right: 4%;
+    bottom: 18%;
+  }
+
+  .user-3 {
+    left: 35%;
+    bottom: 7%;
+  }
+
+  .internet-cloud {
+    right: 3%;
+    bottom: 7%;
+  }
+
+  .internet-line {
+    opacity: 0.4;
+  }
+}
+/* =================================
+   INTRANET 3D NETWORK
+================================= */
+
+.intranet-3d-network {
+  width: 130%;
+  margin: 25px -5%;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #06111e;
+  border: 1px solid rgba(76, 201, 240, 0.25);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.45),
+    inset 0 0 40px rgba(76, 201, 240, 0.04);
+}
+
+.intranet-header {
+  height: 58px;
+  padding: 0 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(12, 27, 44, 0.96);
+  border-bottom: 1px solid rgba(76, 201, 240, 0.15);
+
+  color: #fff;
+}
+
+.intranet-header i {
+  color: #4cc9f0;
+  margin-right: 8px;
+}
+
+.intranet-status {
+  color: #8ee6ff;
+  font-size: 11px;
+}
+
+.intranet-status i {
+  color: #55efc4;
+  font-size: 11px;
+}
+
+/* Main Area */
+
+.intranet-space {
+  position: relative;
+  height: 540px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(76, 201, 240, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(145deg, #081727, #020912);
+}
+
+/* 3D Grid */
+
+.intranet-space::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(76, 201, 240, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(76, 201, 240, 0.055) 1px,
+      transparent 1px
+    );
+
+  background-size: 42px 42px;
+
+  transform:
+    perspective(500px)
+    rotateX(55deg)
+    scale(1.4);
+
+  transform-origin: center bottom;
+}
+
+/* Central Server */
+
+.intranet-server {
+  position: absolute;
+
+  left: 50%;
+  top: 48%;
+
+  width: 155px;
+  height: 150px;
+
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(16, 42, 65, 0.98),
+      rgba(5, 19, 32, 0.98)
+    );
+
+  border: 2px solid rgba(76, 201, 240, 0.55);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.55),
+    0 0 30px rgba(76, 201, 240, 0.16);
+
+  z-index: 10;
+}
+
+.intranet-server > i {
+  font-size: 45px;
+  color: #4cc9f0;
+
+  filter:
+    drop-shadow(
+      0 0 12px rgba(76, 201, 240, 0.7)
+    );
+}
+
+.intranet-server strong {
+  margin-top: 8px;
+
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.intranet-server small {
+  color: #849aae;
+  font-size: 10px;
+}
+
+.server-status {
+  margin-top: 8px;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  color: #55efc4;
+  font-size: 9px;
+}
+
+.server-status span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+  background: #55efc4;
+
+  box-shadow: 0 0 8px #55efc4;
+
+  animation: serverBlink 1.5s infinite;
+}
+
+@keyframes serverBlink {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Firewall */
+
+.intranet-firewall {
+  position: absolute;
+
+  left: 50%;
+  top: 68%;
+
+  transform: translateX(-50%);
+
+  width: 135px;
+  padding: 12px;
+
+  text-align: center;
+
+  background: rgba(18, 31, 48, 0.98);
+
+  border: 1px solid rgba(255, 180, 80, 0.5);
+
+  border-radius: 13px;
+
+  z-index: 11;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.intranet-firewall i {
+  color: #ffb454;
+  font-size: 22px;
+}
+
+.intranet-firewall strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #fff;
+  font-size: 11px;
+}
+
+.intranet-firewall small {
+  color: #899bad;
+  font-size: 9px;
+}
+
+/* Departments */
+
+.intranet-department {
+  position: absolute;
+
+  width: 135px;
+  padding: 13px 8px;
+
+  text-align: center;
+
+  border-radius: 14px;
+
+  background: rgba(10, 27, 44, 0.97);
+
+  border: 1px solid rgba(76, 201, 240, 0.38);
+
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.35);
+
+  z-index: 8;
+
+  transition: 0.3s ease;
+}
+
+.intranet-department:hover {
+  transform: translateY(-6px) scale(1.03);
+
+  border-color: #4cc9f0;
+
+  box-shadow:
+    0 15px 35px rgba(76, 201, 240, 0.18);
+}
+
+.dept-icon {
+  width: 42px;
+  height: 42px;
+
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: rgba(76, 201, 240, 0.1);
+}
+
+.dept-icon i {
+  color: #4cc9f0;
+  font-size: 20px;
+}
+
+.intranet-department strong {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #fff;
+  font-size: 11px;
+}
+
+.intranet-department small {
+  color: #8194a9;
+  font-size: 9px;
+}
+
+/* Department Positions */
+
+.dept-hr {
+  left: 6%;
+  top: 18%;
+}
+
+.dept-it {
+  right: 6%;
+  top: 18%;
+}
+
+.dept-finance {
+  left: 7%;
+  bottom: 17%;
+}
+
+.dept-management {
+  right: 7%;
+  bottom: 17%;
+}
+
+/* Employees */
+
+.intranet-user {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 9px 12px;
+
+  border-radius: 10px;
+
+  background: rgba(9, 24, 40, 0.97);
+
+  border: 1px solid rgba(76, 201, 240, 0.25);
+
+  color: #ccefff;
+
+  font-size: 10px;
+
+  z-index: 12;
+}
+
+.intranet-user i {
+  color: #4cc9f0;
+  font-size: 17px;
+}
+
+.employee-1 {
+  left: 26%;
+  bottom: 8%;
+}
+
+.employee-2 {
+  right: 26%;
+  bottom: 8%;
+}
+
+/* Database */
+
+.intranet-database {
+  position: absolute;
+
+  left: 50%;
+  top: 7%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 15px;
+
+  border-radius: 11px;
+
+  background: rgba(9, 25, 42, 0.98);
+
+  border: 1px solid rgba(76, 201, 240, 0.35);
+
+  color: #ccefff;
+
+  font-size: 10px;
+
+  z-index: 10;
+}
+
+.intranet-database i {
+  color: #4cc9f0;
+  font-size: 19px;
+}
+
+/* Connection Lines */
+
+.intranet-line {
+  position: absolute;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #4cc9f0,
+      transparent
+    );
+
+  opacity: 0.7;
+
+  transform-origin: left center;
+
+  z-index: 3;
+}
+
+.line-hr {
+  width: 270px;
+  left: 18%;
+  top: 40%;
+  transform: rotate(12deg);
+}
+
+.line-it {
+  width: 270px;
+  left: 55%;
+  top: 40%;
+  transform: rotate(-12deg);
+}
+
+.line-finance {
+  width: 275px;
+  left: 19%;
+  top: 59%;
+  transform: rotate(-12deg);
+}
+
+.line-management {
+  width: 275px;
+  left: 55%;
+  top: 59%;
+  transform: rotate(12deg);
+}
+
+.line-db {
+  width: 145px;
+  left: 50%;
+  top: 29%;
+  transform: rotate(90deg);
+}
+
+/* Data Packets */
+
+.intranet-packet {
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #8ee6ff;
+
+  box-shadow:
+    0 0 12px #4cc9f0;
+
+  z-index: 6;
+}
+
+.packet-a {
+  left: 20%;
+  top: 40%;
+
+  animation:
+    intranetPacketA 3s linear infinite;
+}
+
+.packet-b {
+  left: 74%;
+  top: 40%;
+
+  animation:
+    intranetPacketB 3.2s linear infinite;
+}
+
+.packet-c {
+  left: 50%;
+  top: 30%;
+
+  animation:
+    intranetPacketC 2.5s linear infinite;
+}
+
+@keyframes intranetPacketA {
+
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(260px);
+    opacity: 0;
+  }
+}
+
+@keyframes intranetPacketB {
+
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-250px);
+    opacity: 0;
+  }
+}
+
+@keyframes intranetPacketC {
+
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(160px);
+    opacity: 0;
+  }
+}
+
+/* Legend */
+
+.intranet-legend {
+  min-height: 55px;
+
+  padding: 12px 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 25px;
+  flex-wrap: wrap;
+
+  background: rgba(7, 18, 31, 0.97);
+
+  color: #8499af;
+
+  font-size: 10px;
+}
+
+.intranet-legend i {
+  color: #4cc9f0;
+  margin-right: 5px;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .intranet-space {
+    height: 680px;
+  }
+
+  .intranet-server {
+    width: 125px;
+    height: 125px;
+  }
+
+  .intranet-server > i {
+    font-size: 35px;
+  }
+
+  .intranet-department {
+    width: 105px;
+  }
+
+  .dept-hr {
+    left: 3%;
+    top: 20%;
+  }
+
+  .dept-it {
+    right: 3%;
+    top: 20%;
+  }
+
+  .dept-finance {
+    left: 3%;
+    bottom: 20%;
+  }
+
+  .dept-management {
+    right: 3%;
+    bottom: 20%;
+  }
+
+  .employee-1 {
+    left: 5%;
+    bottom: 7%;
+  }
+
+  .employee-2 {
+    right: 5%;
+    bottom: 7%;
+  }
+
+  .intranet-database {
+    top: 6%;
+  }
+
+  .intranet-firewall {
+    top: 66%;
+  }
+
+  .intranet-line {
+    opacity: 0.4;
+  }
+}
+/* =================================
+   EXTRANET 3D NETWORK
+================================= */
+
+.extranet-3d-network {
+  width: 110%;
+  margin: 25px -5%;
+  border-radius: 22px;
+  overflow: hidden;
+
+  background: #06111e;
+
+  border: 1px solid rgba(76, 201, 240, 0.25);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.45),
+    inset 0 0 40px rgba(76, 201, 240, 0.04);
+}
+
+.extranet-header {
+  height: 58px;
+  padding: 0 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(12, 27, 44, 0.96);
+
+  border-bottom: 1px solid rgba(76, 201, 240, 0.15);
+
+  color: #fff;
+}
+
+.extranet-header i {
+  color: #4cc9f0;
+  margin-right: 8px;
+}
+
+.extranet-status {
+  color: #8ee6ff;
+  font-size: 11px;
+}
+
+.extranet-status i {
+  color: #55efc4;
+  font-size: 11px;
+}
+
+/* Main Area */
+
+.extranet-space {
+  position: relative;
+
+  height: 560px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(76, 201, 240, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      #081727,
+      #020912
+    );
+}
+
+/* 3D Grid */
+
+.extranet-space::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(76, 201, 240, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(76, 201, 240, 0.055) 1px,
+      transparent 1px
+    );
+
+  background-size: 42px 42px;
+
+  transform:
+    perspective(500px)
+    rotateX(55deg)
+    scale(1.4);
+
+  transform-origin: center bottom;
+}
+
+/* Company */
+
+.extranet-company {
+  position: absolute;
+
+  left: 50%;
+  top: 48%;
+
+  transform: translate(-50%, -50%);
+
+  width: 175px;
+  min-height: 180px;
+
+  padding: 18px;
+
+  text-align: center;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 44, 68, 0.98),
+      rgba(5, 19, 32, 0.98)
+    );
+
+  border: 2px solid rgba(76, 201, 240, 0.55);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.55),
+    0 0 30px rgba(76, 201, 240, 0.16);
+
+  z-index: 10;
+}
+
+.company-icon {
+  width: 50px;
+  height: 50px;
+
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: rgba(76, 201, 240, 0.1);
+}
+
+.company-icon i {
+  color: #4cc9f0;
+  font-size: 25px;
+}
+
+.extranet-company strong {
+  display: block;
+
+  margin-top: 9px;
+
+  color: #fff;
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+}
+
+.extranet-company small {
+  color: #8194a9;
+  font-size: 10px;
+}
+
+/* Company Server */
+
+.company-server {
+  margin-top: 13px;
+
+  padding: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  border-radius: 9px;
+
+  background: rgba(76, 201, 240, 0.07);
+
+  color: #bdefff;
+
+  font-size: 9px;
+}
+
+.company-server i {
+  color: #4cc9f0;
+}
+
+/* Firewall */
+
+.extranet-firewall {
+  position: absolute;
+
+  left: 50%;
+  top: 75%;
+
+  transform: translateX(-50%);
+
+  width: 140px;
+
+  padding: 12px;
+
+  text-align: center;
+
+  border-radius: 13px;
+
+  background: rgba(18, 31, 48, 0.98);
+
+  border: 1px solid rgba(255, 180, 80, 0.55);
+
+  box-shadow:
+    0 12px 25px rgba(0, 0, 0, 0.35);
+
+  z-index: 12;
+}
+
+.extranet-firewall i {
+  color: #ffb454;
+  font-size: 23px;
+}
+
+.extranet-firewall strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #fff;
+
+  font-size: 11px;
+}
+
+.extranet-firewall small {
+  color: #899bad;
+
+  font-size: 9px;
+}
+
+/* Partners */
+
+.extranet-partner {
+  position: absolute;
+
+  width: 145px;
+
+  padding: 13px 8px;
+
+  text-align: center;
+
+  border-radius: 14px;
+
+  background: rgba(10, 27, 44, 0.97);
+
+  border: 1px solid rgba(76, 201, 240, 0.38);
+
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.35);
+
+  z-index: 8;
+
+  transition: 0.3s ease;
+}
+
+.extranet-partner:hover {
+  transform: translateY(-7px) scale(1.04);
+
+  border-color: #4cc9f0;
+
+  box-shadow:
+    0 15px 35px rgba(76, 201, 240, 0.2);
+}
+
+.partner-icon {
+  width: 43px;
+  height: 43px;
+
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: rgba(76, 201, 240, 0.1);
+}
+
+.partner-icon i {
+  color: #4cc9f0;
+
+  font-size: 20px;
+}
+
+.extranet-partner strong {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #fff;
+
+  font-size: 10px;
+}
+
+.extranet-partner small {
+  color: #8194a9;
+
+  font-size: 9px;
+}
+
+/* Partner Positions */
+
+.partner-1 {
+  left: 5%;
+  top: 15%;
+}
+
+.partner-2 {
+  right: 5%;
+  top: 15%;
+}
+
+.partner-3 {
+  left: 7%;
+  bottom: 15%;
+}
+
+.partner-4 {
+  right: 7%;
+  bottom: 15%;
+}
+
+/* Shared Portal */
+
+.extranet-portal {
+  position: absolute;
+
+  left: 50%;
+  top: 8%;
+
+  transform: translateX(-50%);
+
+  padding: 10px 17px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  border-radius: 11px;
+
+  background: rgba(9, 25, 42, 0.98);
+
+  border: 1px solid rgba(76, 201, 240, 0.35);
+
+  color: #ccefff;
+
+  font-size: 10px;
+
+  z-index: 10;
+}
+
+.extranet-portal i {
+  color: #4cc9f0;
+
+  font-size: 19px;
+}
+
+.extranet-portal small {
+  color: #8194a9;
+}
+
+/* Lines */
+
+.extranet-line {
+  position: absolute;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #4cc9f0,
+      transparent
+    );
+
+  opacity: 0.7;
+
+  transform-origin: left center;
+
+  z-index: 3;
+}
+
+.company-line {
+  width: 145px;
+
+  left: 50%;
+
+  top: 27%;
+
+  transform: rotate(90deg);
+}
+
+.partner-line-1 {
+  width: 300px;
+
+  left: 17%;
+
+  top: 39%;
+
+  transform: rotate(10deg);
+}
+
+.partner-line-2 {
+  width: 300px;
+
+  left: 56%;
+
+  top: 39%;
+
+  transform: rotate(-10deg);
+}
+
+.partner-line-3 {
+  width: 290px;
+
+  left: 18%;
+
+  top: 60%;
+
+  transform: rotate(-10deg);
+}
+
+.partner-line-4 {
+  width: 290px;
+
+  left: 56%;
+
+  top: 60%;
+
+  transform: rotate(10deg);
+}
+
+/* Packets */
+
+.extranet-packet {
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #8ee6ff;
+
+  box-shadow:
+    0 0 13px #4cc9f0;
+
+  z-index: 7;
+}
+
+.packet-1 {
+  left: 20%;
+  top: 40%;
+
+  animation:
+    extranetPacket1 3s linear infinite;
+}
+
+.packet-2 {
+  left: 75%;
+  top: 40%;
+
+  animation:
+    extranetPacket2 3.2s linear infinite;
+}
+
+.packet-3 {
+  left: 50%;
+  top: 29%;
+
+  animation:
+    extranetPacket3 2.7s linear infinite;
+}
+
+@keyframes extranetPacket1 {
+
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(270px);
+    opacity: 0;
+  }
+}
+
+@keyframes extranetPacket2 {
+
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-260px);
+    opacity: 0;
+  }
+}
+
+@keyframes extranetPacket3 {
+
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(170px);
+    opacity: 0;
+  }
+}
+
+/* Legend */
+
+.extranet-legend {
+  min-height: 55px;
+
+  padding: 12px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 25px;
+
+  flex-wrap: wrap;
+
+  background: rgba(7, 18, 31, 0.97);
+
+  color: #8499af;
+
+  font-size: 10px;
+}
+
+.extranet-legend i {
+  color: #4cc9f0;
+
+  margin-right: 5px;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .extranet-3d-network {
+    width: 100%;
+    margin: 25px 0;
+  }
+
+  .extranet-space {
+    height: 680px;
+  }
+
+  .extranet-company {
+    width: 135px;
+    min-height: 155px;
+  }
+
+  .extranet-partner {
+    width: 105px;
+  }
+
+  .partner-1 {
+    left: 2%;
+    top: 18%;
+  }
+
+  .partner-2 {
+    right: 2%;
+    top: 18%;
+  }
+
+  .partner-3 {
+    left: 2%;
+    bottom: 19%;
+  }
+
+  .partner-4 {
+    right: 2%;
+    bottom: 19%;
+  }
+
+  .extranet-firewall {
+    top: 70%;
+  }
+
+  .extranet-line {
+    opacity: 0.4;
+  }
+}
+/* =========================================================
+   NETWORK TOPOLOGY - COMPLETE CSS
+   DARK + LIGHT MODE
+========================================================= */
+
+.topology-3d-network {
+  --top-bg: #ffffff;
+  --top-surface: #f4f8fb;
+  --top-surface-2: #eaf2f7;
+  --top-text: #17202a;
+  --top-muted: #64748b;
+  --top-accent: #159bc2;
+  --top-border: rgba(76, 201, 240, 0.28);
+  --top-shadow: rgba(0, 0, 0, 0.15);
+  --top-grid: rgba(76, 201, 240, 0.09);
+
+  width: 110%;
+  margin: 28px -5%;
+
+  border-radius: 24px;
+  overflow: hidden;
+
+  background: var(--top-bg);
+
+  border: 1px solid var(--top-border);
+
+  box-shadow:
+    0 22px 55px var(--top-shadow),
+    inset 0 0 45px rgba(76, 201, 240, 0.04);
+
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+/* =========================================================
+   DARK MODE
+   Works with common dark-mode selectors
+========================================================= */
+
+body.dark .topology-3d-network,
+body.dark-mode .topology-3d-network,
+body[data-theme="dark"] .topology-3d-network,
+[data-theme="dark"] .topology-3d-network {
+
+  --top-bg: #06111e;
+  --top-surface: #0b1b2b;
+  --top-surface-2: #10263a;
+  --top-text: #ffffff;
+  --top-muted: #91a2b4;
+  --top-accent: #4cc9f0;
+  --top-border: rgba(76, 201, 240, 0.28);
+  --top-shadow: rgba(0, 0, 0, 0.55);
+  --top-grid: rgba(76, 201, 240, 0.055);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.topology-header {
+  min-height: 60px;
+
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: var(--top-surface);
+
+  border-bottom: 1px solid var(--top-border);
+
+  color: var(--top-text);
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease;
+}
+
+.topology-header > div {
+  display: flex;
+  align-items: center;
+}
+
+.topology-header i {
+  color: var(--top-accent);
+
+  margin-right: 8px;
+
+  filter:
+    drop-shadow(
+      0 0 8px rgba(76, 201, 240, 0.5)
+    );
+}
+
+.topology-header strong {
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.topology-status {
+  color: var(--top-accent);
+
+  font-size: 11px;
+
+  display: flex;
+  align-items: center;
+}
+
+.topology-status i {
+  color: #18c98b;
+
+  font-size: 8px;
+
+  margin-right: 5px;
+}
+
+
+/* =========================================================
+   3D NETWORK AREA
+========================================================= */
+
+.topology-space {
+  position: relative;
+
+  height: 560px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(76, 201, 240, 0.14),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      var(--top-surface-2),
+      var(--top-bg)
+    );
+
+  transition:
+    background 0.35s ease;
+}
+
+
+/* =========================================================
+   3D GRID FLOOR
+========================================================= */
+
+.topology-space::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      var(--top-grid) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      var(--top-grid) 1px,
+      transparent 1px
+    );
+
+  background-size: 45px 45px;
+
+  transform:
+    perspective(520px)
+    rotateX(55deg)
+    scale(1.45);
+
+  transform-origin:
+    center bottom;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CENTRAL SWITCH
+========================================================= */
+
+.topology-switch {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    perspective(500px)
+    rotateX(8deg);
+
+  width: 180px;
+  height: 145px;
+
+  padding: 15px;
+
+  text-align: center;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(76, 201, 240, 0.16),
+      var(--top-surface)
+    );
+
+  border:
+    2px solid
+    rgba(76, 201, 240, 0.55);
+
+  box-shadow:
+    0 25px 50px var(--top-shadow),
+    0 0 35px rgba(76, 201, 240, 0.15);
+
+  z-index: 10;
+
+  transition:
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+/* Switch icon */
+
+.switch-top {
+  width: 48px;
+  height: 48px;
+
+  margin: auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background:
+    rgba(76, 201, 240, 0.10);
+
+  border:
+    1px solid
+    rgba(76, 201, 240, 0.18);
+}
+
+.switch-top i {
+  color: var(--top-accent);
+
+  font-size: 25px;
+
+  filter:
+    drop-shadow(
+      0 0 10px
+      rgba(76, 201, 240, 0.7)
+    );
+}
+
+
+/* Switch text */
+
+.topology-switch strong {
+  display: block;
+
+  margin-top: 8px;
+
+  color: var(--top-text);
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+}
+
+.topology-switch small {
+  color: var(--top-muted);
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   SWITCH PORTS
+========================================================= */
+
+.switch-ports {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  margin-top: 12px;
+}
+
+.switch-ports span {
+  width: 10px;
+  height: 6px;
+
+  border-radius: 2px;
+
+  background: #18c98b;
+
+  box-shadow:
+    0 0 8px
+    rgba(24, 201, 139, 0.75);
+
+  animation:
+    portBlink 1.8s infinite;
+}
+
+.switch-ports span:nth-child(2) {
+  animation-delay: .2s;
+}
+
+.switch-ports span:nth-child(3) {
+  animation-delay: .4s;
+}
+
+.switch-ports span:nth-child(4) {
+  animation-delay: .6s;
+}
+
+.switch-ports span:nth-child(5) {
+  animation-delay: .8s;
+}
+
+.switch-ports span:nth-child(6) {
+  animation-delay: 1s;
+}
+
+@keyframes portBlink {
+  50% {
+    opacity: .25;
+  }
+}
+
+
+/* =========================================================
+   NETWORK DEVICES
+========================================================= */
+
+.topology-device {
+  position: absolute;
+
+  width: 115px;
+
+  padding: 13px 8px;
+
+  text-align: center;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--top-surface),
+      var(--top-bg)
+    );
+
+  border:
+    1px solid
+    rgba(76, 201, 240, 0.38);
+
+  box-shadow:
+    0 15px 30px var(--top-shadow);
+
+  z-index: 9;
+
+  transition:
+    transform .3s ease,
+    border-color .3s ease,
+    background .35s ease;
+}
+
+
+/* Device hover */
+
+.topology-device:hover {
+  transform:
+    translateY(-7px)
+    scale(1.04);
+
+  border-color:
+    var(--top-accent);
+
+  box-shadow:
+    0 15px 35px
+    rgba(76, 201, 240, 0.20);
+}
+
+
+/* Device icon */
+
+.topology-device i {
+  display: block;
+
+  color:
+    var(--top-accent);
+
+  font-size: 25px;
+
+  margin-bottom: 7px;
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(76, 201, 240, 0.4)
+    );
+}
+
+
+/* Device name */
+
+.topology-device strong {
+  color:
+    var(--top-text);
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   DEVICE POSITIONS
+========================================================= */
+
+.device-1 {
+  left: 7%;
+  top: 18%;
+}
+
+.device-2 {
+  left: 29%;
+  top: 7%;
+}
+
+.device-3 {
+  right: 7%;
+  top: 18%;
+}
+
+.device-4 {
+  right: 29%;
+  top: 7%;
+}
+
+.device-5 {
+  left: 7%;
+  bottom: 18%;
+}
+
+.device-6 {
+  right: 7%;
+  bottom: 18%;
+}
+
+
+/* =========================================================
+   CONNECTION LINES
+========================================================= */
+
+.topology-line {
+  position: absolute;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--top-accent),
+      transparent
+    );
+
+  opacity: .78;
+
+  transform-origin:
+    left center;
+
+  z-index: 3;
+
+  box-shadow:
+    0 0 8px
+    rgba(76, 201, 240, .35);
+}
+
+
+/* Line 1 */
+
+.line-1 {
+  width: 300px;
+
+  left: 18%;
+  top: 32%;
+
+  transform:
+    rotate(12deg);
+}
+
+
+/* Line 2 */
+
+.line-2 {
+  width: 190px;
+
+  left: 38%;
+  top: 22%;
+
+  transform:
+    rotate(55deg);
+}
+
+
+/* Line 3 */
+
+.line-3 {
+  width: 300px;
+
+  left: 54%;
+  top: 32%;
+
+  transform:
+    rotate(-12deg);
+}
+
+
+/* Line 4 */
+
+.line-4 {
+  width: 190px;
+
+  left: 54%;
+  top: 22%;
+
+  transform:
+    rotate(125deg);
+}
+
+
+/* Line 5 */
+
+.line-5 {
+  width: 300px;
+
+  left: 18%;
+  top: 67%;
+
+  transform:
+    rotate(-12deg);
+}
+
+
+/* Line 6 */
+
+.line-6 {
+  width: 300px;
+
+  left: 54%;
+  top: 67%;
+
+  transform:
+    rotate(12deg);
+}
+
+
+/* =========================================================
+   DATA PACKETS
+========================================================= */
+
+.topology-packet {
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background:
+    var(--top-accent);
+
+  box-shadow:
+    0 0 14px
+    var(--top-accent);
+
+  z-index: 6;
+}
+
+
+/* Packet 1 */
+
+.packet-1 {
+  left: 20%;
+  top: 33%;
+
+  animation:
+    topologyPacket1
+    2.8s
+    linear
+    infinite;
+}
+
+
+/* Packet 2 */
+
+.packet-2 {
+  left: 73%;
+  top: 33%;
+
+  animation:
+    topologyPacket2
+    3s
+    linear
+    infinite;
+}
+
+
+/* Packet 3 */
+
+.packet-3 {
+  left: 20%;
+  top: 66%;
+
+  animation:
+    topologyPacket3
+    3.2s
+    linear
+    infinite;
+}
+
+
+/* Packet 4 */
+
+.packet-4 {
+  left: 72%;
+  top: 66%;
+
+  animation:
+    topologyPacket4
+    2.9s
+    linear
+    infinite;
+}
+
+
+/* =========================================================
+   PACKET ANIMATIONS
+========================================================= */
+
+@keyframes topologyPacket1 {
+
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(240px);
+    opacity: 0;
+  }
+
+}
+
+
+@keyframes topologyPacket2 {
+
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-230px);
+    opacity: 0;
+  }
+
+}
+
+
+@keyframes topologyPacket3 {
+
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(245px);
+    opacity: 0;
+  }
+
+}
+
+
+@keyframes topologyPacket4 {
+
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-240px);
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================================
+   LEGEND
+========================================================= */
+
+.topology-legend {
+  min-height: 58px;
+
+  padding: 12px 20px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 25px;
+
+  flex-wrap: wrap;
+
+  background:
+    var(--top-surface);
+
+  color:
+    var(--top-muted);
+
+  font-size: 10px;
+
+  transition:
+    background .35s ease,
+    color .35s ease;
+}
+
+
+.topology-legend span {
+  display: flex;
+  align-items: center;
+}
+
+
+.topology-legend i {
+  color:
+    var(--top-accent);
+
+  margin-right: 5px;
+}
+
+
+/* =========================================================
+   TOPOLOGY TYPE CARDS
+========================================================= */
+
+.topology-types-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 16px;
+
+  margin: 22px 0;
+}
+
+
+.topology-type-card {
+  padding: 20px;
+
+  border-radius: 16px;
+
+  background:
+    var(--topology-card-bg, var(--top-surface));
+
+  border:
+    1px solid
+    var(--top-border, var(--topology-border));
+
+  transition:
+    transform .3s ease,
+    background .35s ease,
+    border-color .3s ease;
+}
+
+
+.topology-type-card:hover {
+  transform:
+    translateY(-5px);
+
+  border-color:
+    rgba(76, 201, 240, 0.45);
+}
+
+
+.topology-type-card i {
+  display: block;
+
+  font-size: 25px;
+
+  color:
+    var(--top-accent);
+
+  margin-bottom: 10px;
+}
+
+
+.topology-type-card h4 {
+  margin: 5px 0;
+
+  color:
+    var(--top-text);
+
+  font-size: 15px;
+}
+
+
+.topology-type-card p {
+  margin: 0;
+
+  color:
+    var(--top-muted);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   MOBILE - TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .topology-3d-network {
+    width: 100%;
+    margin: 25px 0;
+
+    border-radius: 18px;
+  }
+
+
+  .topology-header {
+    min-height: 55px;
+
+    padding: 0 14px;
+  }
+
+
+  .topology-header strong {
+    font-size: 11px;
+  }
+
+
+  .topology-status {
+    font-size: 9px;
+  }
+
+
+  .topology-space {
+    height: 600px;
+  }
+
+
+  /* Switch */
+
+  .topology-switch {
+    width: 125px;
+    height: 125px;
+
+    padding: 11px;
+  }
+
+
+  .switch-top {
+    width: 40px;
+    height: 40px;
+  }
+
+
+  .switch-top i {
+    font-size: 20px;
+  }
+
+
+  .topology-switch strong {
+    font-size: 11px;
+  }
+
+
+  .switch-ports {
+    gap: 4px;
+  }
+
+
+  .switch-ports span {
+    width: 7px;
+    height: 5px;
+  }
+
+
+  /* Devices */
+
+  .topology-device {
+    width: 82px;
+
+    padding: 10px 5px;
+
+    border-radius: 11px;
+  }
+
+
+  .topology-device i {
+    font-size: 19px;
+
+    margin-bottom: 5px;
+  }
+
+
+  .topology-device strong {
+    font-size: 9px;
+  }
+
+
+  /* Positions */
+
+  .device-1 {
+    left: 2%;
+    top: 17%;
+  }
+
+  .device-2 {
+    left: 35%;
+    top: 7%;
+  }
+
+  .device-3 {
+    right: 2%;
+    top: 17%;
+  }
+
+  .device-4 {
+    right: 35%;
+    top: 7%;
+  }
+
+  .device-5 {
+    left: 2%;
+    bottom: 16%;
+  }
+
+  .device-6 {
+    right: 2%;
+    bottom: 16%;
+  }
+
+
+  /* Lines */
+
+  .topology-line {
+    opacity: .45;
+  }
+
+
+  .line-1 {
+    width: 150px;
+    left: 18%;
+  }
+
+  .line-2 {
+    width: 105px;
+  }
+
+  .line-3 {
+    width: 150px;
+    left: 53%;
+  }
+
+  .line-4 {
+    width: 105px;
+  }
+
+  .line-5 {
+    width: 150px;
+    left: 18%;
+  }
+
+  .line-6 {
+    width: 150px;
+    left: 53%;
+  }
+
+
+  /* Type cards */
+
+  .topology-types-grid {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+
+  .topology-type-card {
+    padding: 16px;
+  }
+
+
+  /* Legend */
+
+  .topology-legend {
+    gap: 12px;
+
+    padding: 12px;
+
+    font-size: 9px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .topology-space {
+    height: 560px;
+  }
+
+
+  .topology-switch {
+    width: 110px;
+    height: 115px;
+  }
+
+
+  .topology-device {
+    width: 72px;
+  }
+
+
+  .device-2 {
+    left: 32%;
+  }
+
+
+  .device-4 {
+    right: 32%;
+  }
+
+
+  .topology-header strong {
+    font-size: 10px;
+  }
+
+
+  .topology-status {
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 350px) {
+
+  .topology-space {
+    height: 520px;
+  }
+
+
+  .topology-switch {
+    width: 100px;
+    height: 108px;
+
+    padding: 9px;
+  }
+
+
+  .topology-device {
+    width: 65px;
+    padding: 8px 4px;
+  }
+
+
+  .topology-device i {
+    font-size: 17px;
+  }
+
+
+  .topology-device strong {
+    font-size: 8px;
+  }
+
+
+  .switch-top {
+    width: 35px;
+    height: 35px;
+  }
+
+
+  .switch-top i {
+    font-size: 17px;
+  }
+
+
+  .topology-switch strong {
+    font-size: 10px;
+  }
+
+}
+/* =========================================================
+   BUS TOPOLOGY
+   DARK + LIGHT MODE
+   3D + ANIMATION + RESPONSIVE
+========================================================= */
+
+.bus-3d-network {
+
+  --bus-bg: #ffffff;
+  --bus-surface: #f4f8fb;
+  --bus-surface-2: #eaf2f7;
+
+  --bus-text: #17202a;
+  --bus-muted: #64748b;
+
+  --bus-accent: #159bc2;
+  --bus-accent-light: #4cc9f0;
+
+  --bus-border: rgba(76, 201, 240, 0.28);
+
+  --bus-shadow: rgba(0, 0, 0, 0.15);
+
+  --bus-grid: rgba(76, 201, 240, 0.09);
+
+  width: 110%;
+  margin: 28px -5%;
+
+  border-radius: 24px;
+  overflow: hidden;
+
+  background: var(--bus-bg);
+
+  border: 1px solid var(--bus-border);
+
+  box-shadow:
+    0 22px 55px var(--bus-shadow),
+    inset 0 0 45px rgba(76, 201, 240, 0.04);
+
+  transition:
+    background .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark .bus-3d-network,
+body.dark-mode .bus-3d-network,
+body[data-theme="dark"] .bus-3d-network,
+[data-theme="dark"] .bus-3d-network {
+
+  --bus-bg: #06111e;
+  --bus-surface: #0b1b2b;
+  --bus-surface-2: #10263a;
+
+  --bus-text: #ffffff;
+  --bus-muted: #91a2b4;
+
+  --bus-accent: #4cc9f0;
+  --bus-accent-light: #8ee6ff;
+
+  --bus-border: rgba(76, 201, 240, 0.28);
+
+  --bus-shadow: rgba(0, 0, 0, 0.55);
+
+  --bus-grid: rgba(76, 201, 240, 0.055);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.bus-header {
+
+  min-height: 60px;
+
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: var(--bus-surface);
+
+  color: var(--bus-text);
+
+  border-bottom:
+    1px solid var(--bus-border);
+
+  transition:
+    background .35s ease,
+    color .35s ease;
+}
+
+
+.bus-header > div {
+
+  display: flex;
+  align-items: center;
+}
+
+
+.bus-header i {
+
+  color: var(--bus-accent);
+
+  margin-right: 8px;
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(76, 201, 240, .5)
+    );
+}
+
+
+.bus-header strong {
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+}
+
+
+.bus-status {
+
+  display: flex;
+  align-items: center;
+
+  color: var(--bus-accent);
+
+  font-size: 11px;
+}
+
+
+.bus-status i {
+
+  color: #18c98b;
+
+  font-size: 8px;
+
+  margin-right: 5px;
+}
+
+
+/* =========================================================
+   3D AREA
+========================================================= */
+
+.bus-space {
+
+  position: relative;
+
+  height: 560px;
+
+  overflow: hidden;
+
+  background:
+
+    radial-gradient(
+      circle at center,
+      rgba(76, 201, 240, .13),
+      transparent 35%
+    ),
+
+    linear-gradient(
+      145deg,
+      var(--bus-surface-2),
+      var(--bus-bg)
+    );
+
+  transition:
+    background .35s ease;
+}
+
+
+/* =========================================================
+   3D GRID
+========================================================= */
+
+.bus-space::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+
+    linear-gradient(
+      var(--bus-grid) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      var(--bus-grid) 1px,
+      transparent 1px
+    );
+
+  background-size: 45px 45px;
+
+  transform:
+    perspective(520px)
+    rotateX(55deg)
+    scale(1.45);
+
+  transform-origin:
+    center bottom;
+}
+
+
+/* =========================================================
+   BACKBONE CABLE
+========================================================= */
+
+.bus-backbone {
+
+  position: absolute;
+
+  left: 7%;
+  right: 7%;
+
+  top: 52%;
+
+  height: 8px;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #0d536c,
+      var(--bus-accent),
+      #0d536c
+    );
+
+  box-shadow:
+
+    0 0 10px
+    rgba(76, 201, 240, .5),
+
+    0 0 25px
+    rgba(76, 201, 240, .2),
+
+    0 8px 18px
+    var(--bus-shadow);
+
+  z-index: 5;
+}
+
+
+/* Cable inner glow */
+
+.bus-backbone::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: 2px;
+
+  height: 2px;
+
+  background:
+    rgba(255,255,255,.35);
+
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   DATA SIGNAL ON BACKBONE
+========================================================= */
+
+.bus-signal {
+
+  position: absolute;
+
+  top: -4px;
+
+  left: 0;
+
+  width: 15px;
+  height: 15px;
+
+  border-radius: 50%;
+
+  background:
+    #ffffff;
+
+  box-shadow:
+
+    0 0 8px
+    var(--bus-accent-light),
+
+    0 0 18px
+    var(--bus-accent);
+
+  animation:
+    busSignal 3.5s
+    linear
+    infinite;
+}
+
+
+@keyframes busSignal {
+
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    left: calc(100% - 15px);
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================================
+   TERMINATORS
+========================================================= */
+
+.bus-terminator {
+
+  position: absolute;
+
+  top: 47%;
+
+  width: 12px;
+  height: 30px;
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #5b6875,
+      #26323d
+    );
+
+  border:
+    2px solid
+    var(--bus-accent);
+
+  box-shadow:
+    0 0 12px
+    rgba(76, 201, 240, .3);
+
+  z-index: 7;
+}
+
+
+.terminator-left {
+
+  left: 6%;
+}
+
+
+.terminator-right {
+
+  right: 6%;
+}
+
+
+.bus-terminator small {
+
+  position: absolute;
+
+  top: 35px;
+
+  width: 65px;
+
+  color:
+    var(--bus-muted);
+
+  font-size: 8px;
+
+  white-space: nowrap;
+}
+
+
+.terminator-left small {
+
+  left: -27px;
+}
+
+
+.terminator-right small {
+
+  right: -27px;
+}
+
+
+/* =========================================================
+   NETWORK DEVICES
+========================================================= */
+
+.bus-device {
+
+  position: absolute;
+
+  width: 110px;
+
+  padding: 12px 8px;
+
+  text-align: center;
+
+  border-radius: 15px;
+
+  background:
+
+    linear-gradient(
+      145deg,
+      var(--bus-surface),
+      var(--bus-bg)
+    );
+
+  border:
+    1px solid
+    rgba(76, 201, 240, .38);
+
+  box-shadow:
+    0 15px 30px
+    var(--bus-shadow);
+
+  z-index: 9;
+
+  transition:
+    transform .3s ease,
+    border-color .3s ease,
+    background .35s ease;
+}
+
+
+.bus-device:hover {
+
+  transform:
+    translateY(-8px)
+    scale(1.05);
+
+  border-color:
+    var(--bus-accent);
+
+  box-shadow:
+    0 15px 35px
+    rgba(76, 201, 240, .22);
+}
+
+
+/* =========================================================
+   DEVICE ICON
+========================================================= */
+
+.bus-device-icon {
+
+  width: 45px;
+  height: 45px;
+
+  margin: auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background:
+    rgba(76, 201, 240, .10);
+
+  border:
+    1px solid
+    rgba(76, 201, 240, .18);
+}
+
+
+.bus-device-icon i {
+
+  color:
+    var(--bus-accent);
+
+  font-size: 22px;
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(76, 201, 240, .45)
+    );
+}
+
+
+.bus-device strong {
+
+  display: block;
+
+  margin-top: 7px;
+
+  color:
+    var(--bus-text);
+
+  font-size: 11px;
+}
+
+
+.bus-device small {
+
+  display: block;
+
+  margin-top: 3px;
+
+  color:
+    var(--bus-muted);
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   DEVICE POSITIONS
+========================================================= */
+
+.bus-device-1 {
+
+  left: 12%;
+
+  top: 18%;
+}
+
+
+.bus-device-2 {
+
+  left: 29%;
+
+  top: 18%;
+}
+
+
+.bus-device-3 {
+
+  left: 46%;
+
+  top: 18%;
+}
+
+
+.bus-device-4 {
+
+  left: 63%;
+
+  top: 18%;
+}
+
+
+.bus-device-5 {
+
+  left: 80%;
+
+  top: 18%;
+}
+
+
+/* =========================================================
+   DROP CABLES
+========================================================= */
+
+.bus-drop {
+
+  position: absolute;
+
+  width: 2px;
+
+  height: 88px;
+
+  top: 29%;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      var(--bus-accent)
+    );
+
+  box-shadow:
+    0 0 7px
+    rgba(76, 201, 240, .35);
+
+  z-index: 4;
+}
+
+
+/* Drop positions */
+
+.drop-1 {
+
+  left: calc(12% + 55px);
+}
+
+
+.drop-2 {
+
+  left: calc(29% + 55px);
+}
+
+
+.drop-3 {
+
+  left: calc(46% + 55px);
+}
+
+
+.drop-4 {
+
+  left: calc(63% + 55px);
+}
+
+
+.drop-5 {
+
+  left: calc(80% + 55px);
+}
+
+
+/* =========================================================
+   DATA PACKETS
+========================================================= */
+
+.bus-packet {
+
+  position: absolute;
+
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background:
+    var(--bus-accent-light);
+
+  box-shadow:
+
+    0 0 8px
+    var(--bus-accent),
+
+    0 0 18px
+    var(--bus-accent);
+
+  z-index: 8;
+}
+
+
+.bus-packet-1 {
+
+  top: 51%;
+
+  left: 10%;
+
+  animation:
+    busPacketMove1
+    3s
+    linear
+    infinite;
+}
+
+
+.bus-packet-2 {
+
+  top: 51%;
+
+  left: 45%;
+
+  animation:
+    busPacketMove2
+    3.5s
+    linear
+    infinite;
+}
+
+
+.bus-packet-3 {
+
+  top: 51%;
+
+  left: 75%;
+
+  animation:
+    busPacketMove3
+    2.8s
+    linear
+    infinite;
+}
+
+
+/* =========================================================
+   PACKET ANIMATION
+========================================================= */
+
+@keyframes busPacketMove1 {
+
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(220px);
+    opacity: 0;
+  }
+
+}
+
+
+@keyframes busPacketMove2 {
+
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(210px);
+    opacity: 0;
+  }
+
+}
+
+
+@keyframes busPacketMove3 {
+
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================================
+   LABELS
+========================================================= */
+
+.bus-label {
+
+  position: absolute;
+
+  padding: 7px 12px;
+
+  border-radius: 20px;
+
+  background:
+    var(--bus-surface);
+
+  border:
+    1px solid
+    var(--bus-border);
+
+  color:
+    var(--bus-muted);
+
+  font-size: 9px;
+
+  z-index: 11;
+
+  box-shadow:
+    0 8px 20px
+    var(--bus-shadow);
+}
+
+
+.bus-label i {
+
+  color:
+    var(--bus-accent);
+
+  margin-right: 5px;
+}
+
+
+.backbone-label {
+
+  left: 50%;
+
+  top: 60%;
+
+  transform:
+    translateX(-50%);
+}
+
+
+.data-label {
+
+  left: 50%;
+
+  top: 72%;
+
+  transform:
+    translateX(-50%);
+}
+
+
+/* =========================================================
+   LEGEND
+========================================================= */
+
+.bus-legend {
+
+  min-height: 58px;
+
+  padding: 12px 20px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 25px;
+
+  flex-wrap: wrap;
+
+  background:
+    var(--bus-surface);
+
+  color:
+    var(--bus-muted);
+
+  font-size: 10px;
+}
+
+
+.bus-legend span {
+
+  display: flex;
+
+  align-items: center;
+}
+
+
+.bus-legend i {
+
+  color:
+    var(--bus-accent);
+
+  margin-right: 5px;
+}
+
+
+/* =========================================================
+   WORKING CARDS
+========================================================= */
+
+.bus-working {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 16px;
+
+  margin: 22px 0;
+}
+
+
+.bus-working-card {
+
+  display: flex;
+
+  gap: 14px;
+
+  padding: 18px;
+
+  border-radius: 16px;
+
+  background:
+    var(--bus-surface);
+
+  border:
+    1px solid
+    var(--bus-border);
+
+  transition:
+    transform .3s ease,
+    border-color .3s ease,
+    background .35s ease;
+}
+
+
+.bus-working-card:hover {
+
+  transform:
+    translateY(-4px);
+
+  border-color:
+    rgba(76, 201, 240, .5);
+}
+
+
+.bus-working-card > i {
+
+  min-width: 36px;
+  height: 36px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background:
+    rgba(76, 201, 240, .10);
+
+  color:
+    var(--bus-accent);
+}
+
+
+.bus-working-card strong {
+
+  color:
+    var(--bus-text);
+
+  font-size: 14px;
+}
+
+
+.bus-working-card p {
+
+  margin: 5px 0 0;
+
+  color:
+    var(--bus-muted);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   CALLOUT
+========================================================= */
+
+.bus-callout {
+
+  display: flex;
+
+  gap: 15px;
+
+  align-items: flex-start;
+
+  margin: 24px 0;
+
+  padding: 18px 20px;
+
+  border-radius: 16px;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      rgba(76, 201, 240, .10),
+      rgba(76, 201, 240, .035)
+    );
+
+  border:
+    1px solid
+    rgba(76, 201, 240, .25);
+}
+
+
+.bus-callout > i {
+
+  color:
+    var(--bus-accent);
+
+  font-size: 22px;
+}
+
+
+.bus-callout strong {
+
+  color:
+    var(--bus-text);
+}
+
+
+.bus-callout p {
+
+  margin:
+    6px 0 0;
+
+  color:
+    var(--bus-muted);
+
+  line-height: 1.7;
+}
+
+/* =========================================
+   BUS TOPOLOGY - 3D NETWORK
+========================================= */
+
+.bus-3d-network {
+  width: 125%;
+  margin: 30px -12.5% 45px;
+  padding: 22px;
+  box-sizing: border-box;
+  border-radius: 28px;
+  background:
+    linear-gradient(
+      145deg,
+      #061521,
+      #18334b
+    );
+  box-shadow:
+    0 25px 65px rgba(0,0,0,.3);
+  overflow: hidden;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.bus-top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  color: white;
+  padding-bottom: 18px;
+}
+
+.bus-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.bus-heading-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(255,255,255,.1);
+  font-size: 24px;
+}
+
+.bus-heading strong {
+  display: block;
+  font-size: 20px;
+}
+
+.bus-heading span {
+  display: block;
+  margin-top: 4px;
+  color: rgba(255,255,255,.55);
+  font-size: 11px;
+}
+
+.bus-online {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 13px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.08);
+  font-size: 11px;
+}
+
+.bus-online span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3be58b;
+  box-shadow: 0 0 12px #3be58b;
+}
+
+
+/* =========================================
+   3D ROOM
+========================================= */
+
+.bus-room {
+  position: relative;
+  height: 560px;
+  overflow: hidden;
+  border-radius: 23px;
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(70,190,240,.18),
+      transparent 32%
+    ),
+    linear-gradient(
+      145deg,
+      #0b263d,
+      #061520
+    );
+  perspective: 1100px;
+}
+
+
+/* 3D Floor */
+
+.bus-room::before {
+  content: "";
+  position: absolute;
+  width: 86%;
+  height: 55%;
+  left: 7%;
+  bottom: 2%;
+  border-radius: 50%;
+  border: 1px dashed rgba(85,190,240,.22);
+  transform: rotateX(67deg);
+  box-shadow:
+    0 0 70px rgba(70,180,240,.08);
+}
+
+
+/* =========================================
+   BACKBONE CABLE
+========================================= */
+
+.bus-backbone {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 59%;
+  height: 11px;
+  border-radius: 20px;
+  background:
+    linear-gradient(
+      90deg,
+      #263f52,
+      #68d8fa,
+      #263f52
+    );
+  box-shadow:
+    0 0 15px rgba(80,210,250,.8),
+    0 12px 28px rgba(0,0,0,.5);
+  transform:
+    translateY(-50%)
+    rotateX(10deg);
+  z-index: 3;
+}
+
+.bus-backbone-light {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 70px;
+  height: 5px;
+  border-radius: 20px;
+  background: white;
+  box-shadow:
+    0 0 10px white,
+    0 0 25px #4edcff;
+  transform: translateY(-50%);
+  animation: backboneLight 3s linear infinite;
+}
+
+@keyframes backboneLight {
+
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    left: calc(100% - 70px);
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================
+   DROP CABLES
+========================================= */
+
+.bus-drop {
+  position: absolute;
+  top: 32%;
+  width: 3px;
+  height: 27%;
+  border-radius: 5px;
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      #67dafa
+    );
+  box-shadow:
+    0 0 10px rgba(80,210,250,.55);
+  transform-origin: bottom;
+  z-index: 2;
+}
+
+.bus-drop-1 {
+  left: 14%;
+}
+
+.bus-drop-2 {
+  left: 32%;
+}
+
+.bus-drop-3 {
+  left: 50%;
+}
+
+.bus-drop-4 {
+  left: 68%;
+}
+
+.bus-drop-5 {
+  left: 86%;
+}
+
+
+/* =========================================
+   DEVICES
+========================================= */
+
+.bus-device {
+  position: absolute;
+  width: 130px;
+  min-height: 115px;
+  padding: 14px;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #dfedf5
+    );
+
+  color: #172a3b;
+
+  box-shadow:
+    9px 17px 35px rgba(0,0,0,.42);
+
+  z-index: 6;
+  transition: .35s;
+}
+
+.bus-device:hover {
+  transform:
+    translateY(-10px)
+    translateZ(25px)
+    rotateY(5deg);
+
+  box-shadow:
+    15px 28px 45px rgba(0,0,0,.5);
+}
+
+.bus-device-icon {
+  font-size: 30px;
+  margin-bottom: 6px;
+  filter:
+    drop-shadow(
+      3px 5px 3px
+      rgba(0,0,0,.2)
+    );
+}
+
+.bus-device strong {
+  display: block;
+  font-size: 11px;
+}
+
+.bus-device span {
+  display: block;
+  margin-top: 3px;
+  font-size: 9px;
+  color: #647789;
+}
+
+.bus-device small {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 7px;
+  padding: 3px 7px;
+  border-radius: 20px;
+  background: #e6f4fa;
+  color: #4d91b2;
+  font-size: 8px;
+}
+
+
+/* Device Positions */
+
+.bus-device-1 {
+  left: 7%;
+  top: 8%;
+}
+
+.bus-device-2 {
+  left: 25%;
+  top: 8%;
+}
+
+.bus-device-3 {
+  left: 43%;
+  top: 8%;
+}
+
+.bus-device-4 {
+  left: 61%;
+  top: 8%;
+}
+
+.bus-device-5 {
+  left: 79%;
+  top: 8%;
+}
+
+
+/* =========================================
+   DATA PACKETS
+========================================= */
+
+.bus-packet {
+  position: absolute;
+  top: calc(59% - 5px);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+
+  box-shadow:
+    0 0 8px white,
+    0 0 22px #52d8ff;
+
+  z-index: 5;
+}
+
+.bus-packet-1 {
+  animation:
+    busPacketMove 4s linear infinite;
+}
+
+.bus-packet-2 {
+  animation:
+    busPacketMove 4s linear 1.3s infinite;
+}
+
+.bus-packet-3 {
+  animation:
+    busPacketMove 4s linear 2.6s infinite;
+}
+
+@keyframes busPacketMove {
+
+  0% {
+    left: 8%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 91%;
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================
+   TERMINATORS
+========================================= */
+
+.bus-terminator {
+  position: absolute;
+  top: 59%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 70px;
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #263e50,
+      #101e2b
+    );
+
+  border: 1px solid rgba(100,220,250,.3);
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,.45);
+
+  color: #72dafa;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 5;
+}
+
+.bus-terminator i {
+  font-size: 18px;
+}
+
+.bus-terminator span {
+  margin-top: 5px;
+  font-size: 7px;
+  color: rgba(255,255,255,.6);
+}
+
+.bus-terminator-left {
+  left: 1%;
+}
+
+.bus-terminator-right {
+  right: 1%;
+}
+
+
+/* =========================================
+   LABELS
+========================================= */
+
+.bus-label {
+  position: absolute;
+  padding: 7px 12px;
+  border-radius: 20px;
+
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.1);
+
+  color: rgba(255,255,255,.75);
+  font-size: 9px;
+
+  z-index: 8;
+
+  backdrop-filter: blur(8px);
+}
+
+.bus-backbone-label {
+  left: 50%;
+  top: 68%;
+  transform: translateX(-50%);
+}
+
+.bus-data-label {
+  right: 3%;
+  top: 75%;
+}
+
+.bus-label i {
+  margin-right: 4px;
+}
+
+
+/* =========================================
+   LEGEND
+========================================= */
+
+.bus-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 17px;
+
+  color: rgba(255,255,255,.65);
+  font-size: 11px;
+}
+
+.bus-legend div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bus-legend span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #62c9f2;
+  box-shadow:
+    0 0 8px #62c9f2;
+}
+
+
+/* =========================================
+   WORKING FLOW
+========================================= */
+
+.bus-working {
+  display: grid;
+  grid-template-columns:
+    1fr auto 1fr auto 1fr;
+
+  align-items: center;
+  gap: 12px;
+  margin: 30px 0;
+}
+
+.bus-work-card {
+  position: relative;
+  min-height: 205px;
+  padding: 25px 18px;
+  text-align: center;
+
+  border-radius: 21px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #e8f2f8
+    );
+
+  box-shadow:
+    8px 15px 30px rgba(0,0,0,.1);
+
+  transition: .35s;
+}
+
+.bus-work-card:hover {
+  transform:
+    translateY(-9px)
+    rotateX(4deg);
+}
+
+.bus-work-card.bus-highlight {
+  transform: translateY(-8px);
+}
+
+.bus-work-number {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-size: 11px;
+  opacity: .35;
+}
+
+.bus-work-icon {
+  margin: 18px 0 10px;
+  font-size: 38px;
+
+  filter:
+    drop-shadow(
+      4px 6px 4px
+      rgba(0,0,0,.2)
+    );
+}
+
+.bus-work-card h4 {
+  margin: 5px 0 8px;
+}
+
+.bus-work-card p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #687988;
+}
+
+.bus-work-arrow {
+  font-size: 23px;
+  opacity: .5;
+}
+
+
+/* =========================================
+   DATA FLOW
+========================================= */
+
+.bus-data-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  margin: 30px 0;
+  padding: 25px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f5faff,
+      #ffffff
+    );
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+}
+
+.bus-data-device {
+  min-width: 130px;
+  padding: 18px 15px;
+
+  text-align: center;
+
+  border-radius: 18px;
+
+  background: white;
+
+  box-shadow:
+    5px 10px 22px rgba(0,0,0,.1);
+
+  transition: .3s;
+}
+
+.bus-data-device:hover {
+  transform: translateY(-8px);
+}
+
+.bus-data-device i {
+  display: block;
+  font-size: 32px;
+  margin-bottom: 7px;
+}
+
+.bus-data-device strong {
+  display: block;
+}
+
+.bus-data-device span {
+  display: block;
+  margin-top: 4px;
+  font-size: 10px;
+  color: #687887;
+}
+
+.bus-main-device {
+  transform: translateY(-8px);
+}
+
+.bus-signal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 60px;
+
+  font-size: 24px;
+  color: #5baed5;
+
+  animation:
+    busSignalPulse 1.5s infinite;
+}
+
+@keyframes busSignalPulse {
+
+  0%,100% {
+    opacity: .3;
+    transform: scale(.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+}
+
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+body.dark .bus-work-card,
+body.dark-mode .bus-work-card,
+body[data-theme="dark"] .bus-work-card,
+[data-theme="dark"] .bus-work-card {
+
+  background:
+    linear-gradient(
+      145deg,
+      #172b3a,
+      #10222f
+    );
+
+  color: #eef8ff;
+
+  box-shadow:
+    8px 15px 30px rgba(0,0,0,.3);
+}
+
+body.dark .bus-work-card p,
+body.dark-mode .bus-work-card p,
+body[data-theme="dark"] .bus-work-card p,
+[data-theme="dark"] .bus-work-card p {
+
+  color: #a7bac8;
+}
+
+
+body.dark .bus-data-flow,
+body.dark-mode .bus-data-flow,
+body[data-theme="dark"] .bus-data-flow,
+[data-theme="dark"] .bus-data-flow {
+
+  background:
+    linear-gradient(
+      145deg,
+      #102331,
+      #172d3d
+    );
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.3);
+}
+
+
+body.dark .bus-data-device,
+body.dark-mode .bus-data-device,
+body[data-theme="dark"] .bus-data-device,
+[data-theme="dark"] .bus-data-device {
+
+  background: #1b3445;
+  color: #eef8ff;
+
+  box-shadow:
+    5px 10px 22px rgba(0,0,0,.3);
+}
+
+
+body.dark .bus-data-device span,
+body.dark-mode .bus-data-device span,
+body[data-theme="dark"] .bus-data-device span,
+[data-theme="dark"] .bus-data-device span {
+
+  color: #a7bac8;
+}
+
+
+/* =========================================
+   TABLE DARK MODE
+========================================= */
+
+body.dark .network-table,
+body.dark-mode .network-table,
+body[data-theme="dark"] .network-table,
+[data-theme="dark"] .network-table {
+
+  color: #eaf6ff;
+}
+
+body.dark .network-table th,
+body.dark-mode .network-table th,
+body[data-theme="dark"] .network-table th,
+[data-theme="dark"] .network-table th {
+
+  background: #18384b;
+}
+
+body.dark .network-table td,
+body.dark-mode .network-table td,
+body[data-theme="dark"] .network-table td {
+
+  background: #102532;
+  border-color: rgba(255,255,255,.1);
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .bus-3d-network {
+    width: 100%;
+    margin: 25px 0 40px;
+    padding: 14px;
+    border-radius: 22px;
+  }
+
+
+  .bus-top-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+
+  .bus-heading strong {
+    font-size: 17px;
+  }
+
+
+  .bus-online {
+    margin-left: 0;
+  }
+
+
+  /* Taller room for mobile */
+
+  .bus-room {
+    height: 760px;
+    border-radius: 18px;
+  }
+
+
+  /* Devices become smaller */
+
+  .bus-device {
+    width: 105px;
+    min-height: 102px;
+    padding: 11px;
+  }
+
+
+  .bus-device-icon {
+    font-size: 25px;
+  }
+
+
+  /* Two-column device arrangement */
+
+  .bus-device-1 {
+    left: 4%;
+    top: 7%;
+  }
+
+  .bus-device-2 {
+    left: auto;
+    right: 4%;
+    top: 7%;
+  }
+
+  .bus-device-3 {
+    left: 4%;
+    top: 25%;
+  }
+
+  .bus-device-4 {
+    left: auto;
+    right: 4%;
+    top: 25%;
+  }
+
+  .bus-device-5 {
+    left: 50%;
+    top: 43%;
+    transform: translateX(-50%);
+  }
+
+
+  /* Backbone becomes horizontal */
+
+  .bus-backbone {
+    left: 12%;
+    right: 12%;
+    top: 66%;
+  }
+
+  .bus-backbone-glow {
+    left: 12%;
+    right: 12%;
+  }
+
+
+  /* Drop cables */
+
+  .bus-drop {
+    display: none;
+  }
+
+
+  /* Terminators */
+
+  .bus-terminator {
+    top: 66%;
+    width: 40px;
+    height: 58px;
+  }
+
+  .bus-terminator-left {
+    left: 3%;
+  }
+
+  .bus-terminator-right {
+    right: 3%;
+  }
+
+
+  /* Labels */
+
+  .bus-backbone-label {
+    top: 71%;
+    left: 50%;
+    width: max-content;
+    max-width: 80%;
+    text-align: center;
+  }
+
+  .bus-data-label {
+    top: 78%;
+    right: 50%;
+    transform: translateX(50%);
+    white-space: nowrap;
+  }
+
+
+  /* Legend */
+
+  .bus-legend {
+    gap: 12px 18px;
+    font-size: 10px;
+  }
+
+
+  /* Working cards */
+
+  .bus-working {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+
+  .bus-work-card {
+    min-height: auto;
+    padding: 28px 18px;
+  }
+
+
+  .bus-work-card.bus-highlight {
+    transform: none;
+  }
+
+
+  .bus-work-arrow {
+    transform: rotate(90deg);
+    margin: 2px 0;
+  }
+
+
+  /* Data flow */
+
+  .bus-data-flow {
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 12px;
+  }
+
+
+  .bus-data-device {
+    width: 100%;
+    max-width: 240px;
+    min-width: 0;
+  }
+
+
+  .bus-main-device {
+    transform: none;
+  }
+
+
+  .bus-signal {
+    width: auto;
+    transform: rotate(90deg);
+  }
+
+
+  /* Tables */
+
+  .network-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .network-table table {
+    min-width: 600px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 480px) {
+
+  .bus-3d-network {
+    padding: 10px;
+    border-radius: 18px;
+  }
+
+
+  .bus-room {
+    height: 780px;
+  }
+
+
+  .bus-device {
+    width: 92px;
+    min-height: 96px;
+    padding: 9px;
+  }
+
+
+  .bus-device-icon {
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+
+
+  .bus-device strong {
+    font-size: 10px;
+  }
+
+
+  .bus-device span {
+    font-size: 8px;
+  }
+
+
+  .bus-device small {
+    font-size: 7px;
+    padding: 3px 5px;
+  }
+
+
+  .bus-device-1,
+  .bus-device-3 {
+    left: 2%;
+  }
+
+
+  .bus-device-2,
+  .bus-device-4 {
+    right: 2%;
+  }
+
+
+  .bus-device-5 {
+    left: 50%;
+  }
+
+
+  .bus-backbone {
+    left: 11%;
+    right: 11%;
+  }
+
+
+  .bus-backbone-label {
+    font-size: 8px;
+  }
+
+
+  .bus-data-label {
+    font-size: 8px;
+  }
+
+
+  .bus-heading-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+
+
+  .bus-heading strong {
+    font-size: 15px;
+  }
+
+
+  .bus-heading span {
+    font-size: 9px;
+  }
+
+
+  .bus-legend {
+    gap: 10px;
+    font-size: 9px;
+  }
+
+}
+/* ================================
+   STAR TOPOLOGY - 3D NETWORK
+================================ */
+
+.star-3d-network {
+  width: 125%;
+  margin: 30px -12.5% 45px;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  background: #07111f;
+  border: 1px solid rgba(100, 180, 255, .25);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, .35);
+  color: #fff;
+}
+
+.star-top-header {
+  min-height: 85px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background: rgba(10, 25, 45, .92);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.star-heading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.star-heading h3 {
+  margin: 0;
+  color: #fff;
+}
+
+.star-heading p {
+  margin: 4px 0 0;
+  color: #9fb3ca;
+  font-size: .9rem;
+}
+
+.star-heading-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(70, 150, 255, .15);
+  border: 1px solid rgba(90, 180, 255, .35);
+  font-size: 22px;
+}
+
+.star-online {
+  padding: 8px 13px;
+  border-radius: 30px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .7px;
+  background: rgba(40, 220, 130, .1);
+  border: 1px solid rgba(40, 220, 130, .3);
+}
+
+.star-online i {
+  font-size: 7px;
+  margin-right: 6px;
+}
+
+/* ROOM */
+
+.star-room {
+  height: 650px;
+  position: relative;
+  overflow: hidden;
+  perspective: 1000px;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(60, 150, 255, .12), transparent 32%),
+    linear-gradient(145deg, #071321, #0a1c30 55%, #06101c);
+}
+
+.star-floor {
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  left: 12.5%;
+  bottom: -20%;
+  transform: rotateX(63deg);
+  transform-origin: center;
+  background-image:
+    linear-gradient(rgba(80,160,255,.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(80,160,255,.12) 1px, transparent 1px);
+  background-size: 45px 45px;
+  opacity: .65;
+}
+
+/* CENTRAL SWITCH */
+
+.star-switch {
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  transform: translate(-50%, -50%);
+  width: 160px;
+  text-align: center;
+  z-index: 10;
+}
+
+.star-switch-box {
+  height: 105px;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: linear-gradient(145deg, #162f4c, #071525);
+  border: 1px solid rgba(100,190,255,.55);
+  box-shadow:
+    0 0 25px rgba(60,170,255,.2),
+    inset 0 0 20px rgba(60,150,255,.08);
+  position: relative;
+}
+
+.star-switch-box > i {
+  font-size: 28px;
+}
+
+.star-switch-box strong {
+  font-size: .8rem;
+  letter-spacing: 1px;
+}
+
+.star-switch-ports {
+  display: flex;
+  gap: 5px;
+}
+
+.star-switch-ports span {
+  width: 8px;
+  height: 5px;
+  border-radius: 2px;
+  background: #35e6a1;
+  box-shadow: 0 0 8px rgba(53,230,161,.8);
+}
+
+.star-switch-label {
+  display: block;
+  margin-top: 10px;
+  color: #9fc5e8;
+  font-size: .75rem;
+}
+
+/* CONNECTION LINES */
+
+.star-line {
+  position: absolute;
+  height: 3px;
+  transform-origin: left center;
+  background: linear-gradient(90deg,
+    rgba(60,180,255,.9),
+    rgba(60,180,255,.12)
+  );
+  box-shadow: 0 0 10px rgba(60,180,255,.6);
+  z-index: 3;
+}
+
+.star-line::after {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 100%;
+  background: #6de8ff;
+  box-shadow: 0 0 12px #6de8ff;
+  animation: starDataMove 2s linear infinite;
+}
+
+@keyframes starDataMove {
+  from {
+    left: -40px;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+/* DEVICE POSITIONS */
+
+.star-device {
+  position: absolute;
+  width: 125px;
+  min-height: 105px;
+  padding: 12px;
+  border-radius: 18px;
+  text-align: center;
+  z-index: 7;
+  background: rgba(12, 31, 52, .94);
+  border: 1px solid rgba(100,180,255,.3);
+  box-shadow: 0 15px 35px rgba(0,0,0,.35);
+  backdrop-filter: blur(8px);
+}
+
+.star-device-icon {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 7px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(70,160,255,.13);
+  border: 1px solid rgba(80,180,255,.25);
+  font-size: 20px;
+}
+
+.star-device strong {
+  display: block;
+  font-size: .82rem;
+}
+
+.star-device small {
+  color: #8ea8c1;
+  font-size: .68rem;
+}
+
+.star-device-1 {
+  left: 8%;
+  top: 15%;
+}
+
+.star-device-2 {
+  left: 38%;
+  top: 8%;
+}
+
+.star-device-3 {
+  right: 8%;
+  top: 15%;
+}
+
+.star-device-4 {
+  left: 8%;
+  bottom: 15%;
+}
+
+.star-device-5 {
+  left: 38%;
+  bottom: 8%;
+}
+
+.star-device-6 {
+  right: 8%;
+  bottom: 15%;
+}
+
+/* LINES */
+
+.star-line-1 {
+  width: 310px;
+  left: 17%;
+  top: 25%;
+  transform: rotate(27deg);
+}
+
+.star-line-2 {
+  width: 225px;
+  left: 45%;
+  top: 20%;
+  transform: rotate(86deg);
+}
+
+.star-line-3 {
+  width: 310px;
+  left: 53%;
+  top: 25%;
+  transform: rotate(153deg);
+}
+
+.star-line-4 {
+  width: 310px;
+  left: 17%;
+  top: 75%;
+  transform: rotate(-27deg);
+}
+
+.star-line-5 {
+  width: 225px;
+  left: 45%;
+  top: 75%;
+  transform: rotate(-88deg);
+}
+
+.star-line-6 {
+  width: 310px;
+  left: 53%;
+  top: 75%;
+  transform: rotate(27deg);
+}
+
+/* PACKETS */
+
+.star-packet {
+  position: absolute;
+  z-index: 12;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  background: #32dcff;
+  color: #04111d;
+  box-shadow: 0 0 20px rgba(50,220,255,.9);
+}
+
+.star-packet-1 {
+  left: 26%;
+  top: 36%;
+  animation: starPacket1 3s linear infinite;
+}
+
+.star-packet-2 {
+  left: 65%;
+  top: 39%;
+  animation: starPacket2 3.5s linear infinite;
+}
+
+.star-packet-3 {
+  left: 30%;
+  top: 62%;
+  animation: starPacket3 3.2s linear infinite;
+}
+
+@keyframes starPacket1 {
+  0%,100% {
+    transform: translate(0,0);
+  }
+  50% {
+    transform: translate(150px,70px);
+  }
+}
+
+@keyframes starPacket2 {
+  0%,100% {
+    transform: translate(0,0);
+  }
+  50% {
+    transform: translate(-150px,80px);
+  }
+}
+
+@keyframes starPacket3 {
+  0%,100% {
+    transform: translate(0,0);
+  }
+  50% {
+    transform: translate(130px,-80px);
+  }
+}
+
+.star-data-label {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  padding: 9px 16px;
+  border-radius: 30px;
+  font-size: .72rem;
+  color: #b9d7f0;
+  background: rgba(4,14,25,.75);
+  border: 1px solid rgba(100,180,255,.2);
+  white-space: nowrap;
+  z-index: 15;
+}
+
+.star-data-label i {
+  margin-right: 7px;
+}
+
+/* LEGEND */
+
+.star-legend {
+  padding: 15px 22px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  background: rgba(5,15,27,.95);
+  border-top: 1px solid rgba(255,255,255,.07);
+  font-size: .78rem;
+  color: #9fb4ca;
+}
+
+.star-legend i {
+  margin-right: 6px;
+}
+
+/* DATA FLOW */
+
+.star-data-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 18px;
+  align-items: center;
+  margin: 25px 0 35px;
+}
+
+.star-data-device {
+  padding: 22px;
+  border-radius: 18px;
+  text-align: center;
+  background: var(--card-bg, #f6f8fb);
+  border: 1px solid var(--border-color, #ddd);
+}
+
+.star-data-device i {
+  display: block;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.star-data-device strong,
+.star-data-device small {
+  display: block;
+}
+
+.star-data-device small {
+  margin-top: 4px;
+  opacity: .7;
+}
+
+.star-central-flow {
+  border-color: rgba(70,160,255,.5);
+}
+
+.star-flow-arrow {
+  font-size: 25px;
+  opacity: .75;
+}
+
+/* DARK MODE */
+
+body.dark .star-data-device,
+body.dark-mode .star-data-device,
+body[data-theme="dark"] .star-data-device,
+[data-theme="dark"] .star-data-device {
+  background: #101d2c;
+  border-color: rgba(120,180,230,.18);
+  color: #eaf3ff;
+}
+
+body.dark .network-table,
+body.dark-mode .network-table,
+body[data-theme="dark"] .network-table,
+[data-theme="dark"] .network-table {
+  background: #0f1c2b;
+  color: #e7f2ff;
+}
+
+body.dark .network-table th,
+body.dark-mode .network-table th,
+body[data-theme="dark"] .network-table th,
+[data-theme="dark"] .network-table th {
+  background: #172a40;
+}
+
+body.dark .network-table td,
+body.dark-mode .network-table td,
+body[data-theme="dark"] .network-table td {
+  border-color: rgba(255,255,255,.1);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .star-3d-network {
+    width: 100%;
+    margin: 25px 0 35px;
+    border-radius: 18px;
+  }
+
+  .star-top-header {
+    padding: 15px;
+    align-items: flex-start;
+  }
+
+  .star-heading {
+    gap: 10px;
+  }
+
+  .star-heading-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .star-heading h3 {
+    font-size: 1rem;
+  }
+
+  .star-heading p {
+    font-size: .72rem;
+  }
+
+  .star-online {
+    font-size: .58rem;
+    padding: 7px 9px;
+  }
+
+  .star-room {
+    height: 760px;
+  }
+
+  .star-floor {
+    width: 110%;
+    height: 55%;
+    left: -5%;
+    bottom: -10%;
+    background-size: 30px 30px;
+  }
+
+  .star-switch {
+    top: 50%;
+    width: 130px;
+  }
+
+  .star-switch-box {
+    height: 90px;
+  }
+
+  .star-device {
+    width: 105px;
+    min-height: 92px;
+    padding: 9px;
+    border-radius: 15px;
+  }
+
+  .star-device-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .star-device-1 {
+    left: 5%;
+    top: 8%;
+  }
+
+  .star-device-2 {
+    right: 5%;
+    left: auto;
+    top: 8%;
+  }
+
+  .star-device-3 {
+    left: 5%;
+    right: auto;
+    top: 30%;
+  }
+
+  .star-device-4 {
+    right: 5%;
+    left: auto;
+    bottom: auto;
+    top: 30%;
+  }
+
+  .star-device-5 {
+    left: 5%;
+    bottom: 8%;
+  }
+
+  .star-device-6 {
+    right: 5%;
+    bottom: 8%;
+  }
+
+  .star-line {
+    display: none;
+  }
+
+  .star-packet {
+    display: none;
+  }
+
+  .star-data-label {
+    bottom: 18px;
+    width: 90%;
+    text-align: center;
+    white-space: normal;
+    font-size: .68rem;
+  }
+
+  .star-legend {
+    padding: 13px 10px;
+    gap: 12px;
+    font-size: .67rem;
+  }
+
+  .star-data-flow {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .star-flow-arrow {
+    transform: rotate(90deg);
+    text-align: center;
+  }
+
+  .network-table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  .network-table {
+    min-width: 600px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .star-room {
+    height: 720px;
+  }
+
+  .star-device {
+    width: 95px;
+  }
+
+  .star-device-1,
+  .star-device-3,
+  .star-device-5 {
+    left: 3%;
+  }
+
+  .star-device-2,
+  .star-device-4,
+  .star-device-6 {
+    right: 3%;
+  }
+
+  .star-switch {
+    width: 115px;
+  }
+
+  .star-switch-box {
+    height: 82px;
+  }
+
+  .star-switch-box > i {
+    font-size: 23px;
+  }
+
+  .star-switch-label {
+    font-size: .65rem;
+  }
+}
+/* =================================
+   RING TOPOLOGY - 3D NETWORK
+================================= */
+
+.ring-3d-network {
+  width: 125%;
+  margin: 30px -12.5% 45px;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  background: #07111f;
+  border: 1px solid rgba(100,180,255,.25);
+  box-shadow: 0 25px 70px rgba(0,0,0,.35);
+  color: #fff;
+}
+
+.ring-top-header {
+  min-height: 85px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background: rgba(10,25,45,.92);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.ring-heading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.ring-heading h3 {
+  margin: 0;
+  color: #fff;
+}
+
+.ring-heading p {
+  margin: 4px 0 0;
+  color: #9fb3ca;
+  font-size: .9rem;
+}
+
+.ring-heading-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(70,150,255,.15);
+  border: 1px solid rgba(90,180,255,.35);
+  font-size: 22px;
+}
+
+.ring-online {
+  padding: 8px 13px;
+  border-radius: 30px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .7px;
+  background: rgba(40,220,130,.1);
+  border: 1px solid rgba(40,220,130,.3);
+}
+
+.ring-online i {
+  font-size: 7px;
+  margin-right: 6px;
+}
+
+/* ROOM */
+
+.ring-room {
+  height: 680px;
+  position: relative;
+  overflow: hidden;
+  perspective: 1000px;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(70,160,255,.12), transparent 32%),
+    linear-gradient(145deg,#071321,#0a1c30 55%,#06101c);
+}
+
+.ring-floor {
+  position: absolute;
+  width: 80%;
+  height: 70%;
+  left: 10%;
+  bottom: -18%;
+  transform: rotateX(63deg);
+  background-image:
+    linear-gradient(rgba(80,160,255,.12) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(80,160,255,.12) 1px,transparent 1px);
+  background-size: 45px 45px;
+  opacity: .6;
+}
+
+/* RING */
+
+.ring-core {
+  position: absolute;
+  width: 390px;
+  height: 390px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%) rotateX(62deg);
+  border: 6px solid rgba(55,190,255,.65);
+  border-radius: 50%;
+  box-shadow:
+    0 0 25px rgba(55,190,255,.4),
+    inset 0 0 25px rgba(55,190,255,.2);
+  z-index: 2;
+}
+
+.ring-core-inner {
+  position: absolute;
+  width: 310px;
+  height: 310px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%) rotateX(62deg);
+  border: 2px dashed rgba(100,210,255,.22);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* DEVICES */
+
+.ring-device {
+  position: absolute;
+  width: 125px;
+  min-height: 105px;
+  padding: 12px;
+  border-radius: 18px;
+  text-align: center;
+  z-index: 8;
+  background: rgba(12,31,52,.95);
+  border: 1px solid rgba(100,180,255,.3);
+  box-shadow: 0 15px 35px rgba(0,0,0,.35);
+  backdrop-filter: blur(8px);
+}
+
+.ring-device-icon {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 7px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(70,160,255,.13);
+  border: 1px solid rgba(80,180,255,.25);
+  font-size: 20px;
+}
+
+.ring-device strong {
+  display: block;
+  font-size: .82rem;
+}
+
+.ring-device small {
+  color: #8ea8c1;
+  font-size: .68rem;
+}
+
+.ring-device-1 {
+  left: 26%;
+  top: 6%;
+}
+
+.ring-device-2 {
+  right: 16%;
+  top: 24%;
+}
+
+.ring-device-3 {
+  right: 16%;
+  bottom: 18%;
+}
+
+.ring-device-4 {
+  left: 26%;
+  bottom: 6%;
+}
+
+.ring-device-5 {
+  left: 9%;
+  bottom: 27%;
+}
+
+.ring-device-6 {
+  left: 9%;
+  top: 27%;
+}
+
+/* CENTER */
+
+.ring-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 150px;
+  height: 115px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  background: radial-gradient(circle,#14395a,#071321);
+  border: 1px solid rgba(80,190,255,.3);
+  box-shadow: 0 0 35px rgba(50,160,255,.15);
+}
+
+.ring-center i {
+  font-size: 30px;
+  margin-bottom: 7px;
+}
+
+.ring-center strong {
+  font-size: .85rem;
+  letter-spacing: 1px;
+}
+
+.ring-center small {
+  color: #8eabc5;
+  font-size: .67rem;
+}
+
+/* PACKETS */
+
+.ring-packet {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #35e1ff;
+  color: #03111c;
+  box-shadow: 0 0 20px rgba(53,225,255,.95);
+  z-index: 12;
+}
+
+.ring-packet-1 {
+  left: 43%;
+  top: 16%;
+  animation: ringMove1 5s linear infinite;
+}
+
+.ring-packet-2 {
+  left: 70%;
+  top: 43%;
+  animation: ringMove2 5s linear infinite;
+}
+
+.ring-packet-3 {
+  left: 53%;
+  bottom: 14%;
+  animation: ringMove3 5s linear infinite;
+}
+
+.ring-packet-4 {
+  left: 22%;
+  top: 42%;
+  animation: ringMove4 5s linear infinite;
+}
+
+@keyframes ringMove1 {
+  0% {
+    transform: translate(0,0);
+  }
+  25% {
+    transform: translate(120px,100px);
+  }
+  50% {
+    transform: translate(60px,260px);
+  }
+  75% {
+    transform: translate(-130px,250px);
+  }
+  100% {
+    transform: translate(-200px,100px);
+  }
+}
+
+@keyframes ringMove2 {
+  0% {
+    transform: translate(0,0);
+  }
+  25% {
+    transform: translate(-40px,160px);
+  }
+  50% {
+    transform: translate(-180px,190px);
+  }
+  75% {
+    transform: translate(-280px,50px);
+  }
+  100% {
+    transform: translate(-230px,-100px);
+  }
+}
+
+@keyframes ringMove3 {
+  0% {
+    transform: translate(0,0);
+  }
+  25% {
+    transform: translate(-150px,0);
+  }
+  50% {
+    transform: translate(-260px,-150px);
+  }
+  75% {
+    transform: translate(-180px,-280px);
+  }
+  100% {
+    transform: translate(0,-260px);
+  }
+}
+
+@keyframes ringMove4 {
+  0% {
+    transform: translate(0,0);
+  }
+  25% {
+    transform: translate(0,-150px);
+  }
+  50% {
+    transform: translate(160px,-260px);
+  }
+  75% {
+    transform: translate(270px,-130px);
+  }
+  100% {
+    transform: translate(210px,20px);
+  }
+}
+
+.ring-data-label {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  padding: 9px 16px;
+  border-radius: 30px;
+  font-size: .72rem;
+  color: #b9d7f0;
+  background: rgba(4,14,25,.75);
+  border: 1px solid rgba(100,180,255,.2);
+  white-space: nowrap;
+  z-index: 15;
+}
+
+/* LEGEND */
+
+.ring-legend {
+  padding: 15px 22px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  background: rgba(5,15,27,.95);
+  border-top: 1px solid rgba(255,255,255,.07);
+  font-size: .78rem;
+  color: #9fb4ca;
+}
+
+/* DATA FLOW */
+
+.ring-data-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 18px;
+  align-items: center;
+  margin: 25px 0 35px;
+}
+
+.ring-data-device {
+  padding: 22px;
+  border-radius: 18px;
+  text-align: center;
+  background: var(--card-bg,#f6f8fb);
+  border: 1px solid var(--border-color,#ddd);
+}
+
+.ring-data-device i {
+  display: block;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.ring-data-device strong,
+.ring-data-device small {
+  display: block;
+}
+
+.ring-data-device small {
+  margin-top: 4px;
+  opacity: .7;
+}
+
+.ring-destination {
+  border-color: rgba(60,170,255,.5);
+}
+
+.ring-flow-arrow {
+  font-size: 25px;
+  opacity: .75;
+}
+
+/* DARK MODE */
+
+body.dark .ring-data-device,
+body.dark-mode .ring-data-device,
+body[data-theme="dark"] .ring-data-device,
+[data-theme="dark"] .ring-data-device {
+  background: #101d2c;
+  border-color: rgba(120,180,230,.18);
+  color: #eaf3ff;
+}
+
+body.dark .network-table,
+body.dark-mode .network-table,
+body[data-theme="dark"] .network-table,
+[data-theme="dark"] .network-table {
+  background: #0f1c2b;
+  color: #e7f2ff;
+}
+
+body.dark .network-table th,
+body.dark-mode .network-table th,
+body[data-theme="dark"] .network-table th,
+[data-theme="dark"] .network-table th {
+  background: #172a40;
+}
+
+body.dark .network-table td,
+body.dark-mode .network-table td,
+body[data-theme="dark"] .network-table td,
+[data-theme="dark"] .network-table td {
+  border-color: rgba(255,255,255,.1);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .ring-3d-network {
+    width: 100%;
+    margin: 25px 0 35px;
+    border-radius: 18px;
+  }
+
+  .ring-top-header {
+    padding: 15px;
+    align-items: flex-start;
+  }
+
+  .ring-heading {
+    gap: 10px;
+  }
+
+  .ring-heading-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .ring-heading h3 {
+    font-size: 1rem;
+  }
+
+  .ring-heading p {
+    font-size: .7rem;
+  }
+
+  .ring-online {
+    font-size: .58rem;
+    padding: 7px 9px;
+  }
+
+  .ring-room {
+    height: 760px;
+  }
+
+  .ring-floor {
+    width: 110%;
+    left: -5%;
+    height: 55%;
+    bottom: -10%;
+    background-size: 30px 30px;
+  }
+
+  .ring-core {
+    width: 260px;
+    height: 260px;
+    top: 50%;
+  }
+
+  .ring-core-inner {
+    width: 200px;
+    height: 200px;
+    top: 50%;
+  }
+
+  .ring-center {
+    width: 115px;
+    height: 90px;
+  }
+
+  .ring-center i {
+    font-size: 22px;
+  }
+
+  .ring-center strong {
+    font-size: .72rem;
+  }
+
+  .ring-center small {
+    font-size: .58rem;
+  }
+
+  .ring-device {
+    width: 100px;
+    min-height: 90px;
+    padding: 9px;
+    border-radius: 15px;
+  }
+
+  .ring-device-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .ring-device-1 {
+    left: 4%;
+    top: 7%;
+  }
+
+  .ring-device-2 {
+    right: 4%;
+    top: 22%;
+  }
+
+  .ring-device-3 {
+    right: 4%;
+    bottom: 18%;
+  }
+
+  .ring-device-4 {
+    left: 4%;
+    bottom: 7%;
+  }
+
+  .ring-device-5 {
+    left: 4%;
+    bottom: 29%;
+  }
+
+  .ring-device-6 {
+    left: 4%;
+    top: 29%;
+  }
+
+  .ring-packet {
+    display: none;
+  }
+
+  .ring-data-label {
+    width: 90%;
+    white-space: normal;
+    text-align: center;
+    bottom: 18px;
+    font-size: .67rem;
+  }
+
+  .ring-legend {
+    padding: 13px 10px;
+    gap: 12px;
+    font-size: .67rem;
+  }
+
+  .ring-data-flow {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .ring-flow-arrow {
+    transform: rotate(90deg);
+    text-align: center;
+  }
+
+  .network-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .network-table {
+    min-width: 650px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .ring-room {
+    height: 720px;
+  }
+
+  .ring-core {
+    width: 220px;
+    height: 220px;
+  }
+
+  .ring-core-inner {
+    width: 170px;
+    height: 170px;
+  }
+
+  .ring-device {
+    width: 92px;
+  }
+
+  .ring-device-1,
+  .ring-device-4,
+  .ring-device-5,
+  .ring-device-6 {
+    left: 2%;
+  }
+
+  .ring-device-2,
+  .ring-device-3 {
+    right: 2%;
+  }
+}
+/* =================================
+   MESH TOPOLOGY - 3D NETWORK
+================================= */
+
+.mesh-3d-network {
+  width: 125%;
+  margin: 30px -12.5% 45px;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  background: #07111f;
+  border: 1px solid rgba(100,180,255,.25);
+  box-shadow: 0 25px 70px rgba(0,0,0,.35);
+  color: #fff;
+}
+
+.mesh-top-header {
+  min-height: 85px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background: rgba(10,25,45,.92);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.mesh-heading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.mesh-heading h3 {
+  margin: 0;
+  color: #fff;
+}
+
+.mesh-heading p {
+  margin: 4px 0 0;
+  color: #9fb3ca;
+  font-size: .9rem;
+}
+
+.mesh-heading-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(70,150,255,.15);
+  border: 1px solid rgba(90,180,255,.35);
+  font-size: 22px;
+}
+
+.mesh-online {
+  padding: 8px 13px;
+  border-radius: 30px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .7px;
+  background: rgba(40,220,130,.1);
+  border: 1px solid rgba(40,220,130,.3);
+}
+
+.mesh-online i {
+  font-size: 7px;
+  margin-right: 6px;
+}
+
+/* ROOM */
+
+.mesh-room {
+  height: 700px;
+  position: relative;
+  overflow: hidden;
+  perspective: 1000px;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(60,160,255,.13),transparent 32%),
+    linear-gradient(145deg,#071321,#0a1c30 55%,#06101c);
+}
+
+.mesh-floor {
+  position: absolute;
+  width: 82%;
+  height: 70%;
+  left: 9%;
+  bottom: -18%;
+  transform: rotateX(63deg);
+  background-image:
+    linear-gradient(rgba(80,160,255,.12) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(80,160,255,.12) 1px,transparent 1px);
+  background-size: 45px 45px;
+  opacity: .6;
+}
+
+/* DEVICES */
+
+.mesh-device {
+  position: absolute;
+  width: 120px;
+  min-height: 100px;
+  padding: 11px;
+  border-radius: 18px;
+  text-align: center;
+  z-index: 10;
+  background: rgba(12,31,52,.95);
+  border: 1px solid rgba(100,180,255,.3);
+  box-shadow: 0 15px 35px rgba(0,0,0,.35);
+  backdrop-filter: blur(8px);
+}
+
+.mesh-device-icon {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 7px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(70,160,255,.13);
+  border: 1px solid rgba(80,180,255,.25);
+  font-size: 20px;
+}
+
+.mesh-device strong {
+  display: block;
+  font-size: .82rem;
+}
+
+.mesh-device small {
+  color: #8ea8c1;
+  font-size: .68rem;
+}
+
+.mesh-device-1 {
+  left: 14%;
+  top: 10%;
+}
+
+.mesh-device-2 {
+  left: 43%;
+  top: 6%;
+}
+
+.mesh-device-3 {
+  right: 14%;
+  top: 10%;
+}
+
+.mesh-device-4 {
+  right: 14%;
+  bottom: 10%;
+}
+
+.mesh-device-5 {
+  left: 43%;
+  bottom: 6%;
+}
+
+.mesh-device-6 {
+  left: 14%;
+  bottom: 10%;
+}
+
+/* CENTER */
+
+.mesh-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 145px;
+  height: 110px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 8;
+  background: radial-gradient(circle,#153b5e,#071321);
+  border: 1px solid rgba(80,190,255,.4);
+  box-shadow: 0 0 40px rgba(50,160,255,.18);
+}
+
+.mesh-center i {
+  font-size: 30px;
+  margin-bottom: 6px;
+}
+
+.mesh-center strong {
+  font-size: .85rem;
+  letter-spacing: 1px;
+}
+
+.mesh-center small {
+  color: #8eabc5;
+  font-size: .67rem;
+}
+
+/* CONNECTION LINES */
+
+.mesh-line {
+  position: absolute;
+  height: 3px;
+  transform-origin: left center;
+  background: rgba(70,180,255,.45);
+  box-shadow: 0 0 9px rgba(70,180,255,.45);
+  z-index: 3;
+}
+
+.mesh-line::after {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 0;
+  width: 30px;
+  height: 3px;
+  background: #6eeaff;
+  box-shadow: 0 0 12px #6eeaff;
+  animation: meshFlow 2.4s linear infinite;
+}
+
+@keyframes meshFlow {
+  from {
+    left: -35px;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+/* LINE 1 */
+.mesh-line-1 {
+  width: 300px;
+  left: 24%;
+  top: 25%;
+  transform: rotate(16deg);
+}
+
+/* LINE 2 */
+.mesh-line-2 {
+  width: 300px;
+  left: 48%;
+  top: 24%;
+  transform: rotate(155deg);
+}
+
+/* LINE 3 */
+.mesh-line-3 {
+  width: 300px;
+  left: 56%;
+  top: 25%;
+  transform: rotate(27deg);
+}
+
+/* LINE 4 */
+.mesh-line-4 {
+  width: 300px;
+  left: 24%;
+  top: 72%;
+  transform: rotate(-16deg);
+}
+
+/* LINE 5 */
+.mesh-line-5 {
+  width: 300px;
+  left: 48%;
+  top: 72%;
+  transform: rotate(-155deg);
+}
+
+/* LINE 6 */
+.mesh-line-6 {
+  width: 300px;
+  left: 56%;
+  top: 72%;
+  transform: rotate(-27deg);
+}
+
+/* CROSS CONNECTIONS */
+
+.mesh-line-7 {
+  width: 470px;
+  left: 23%;
+  top: 20%;
+  transform: rotate(0deg);
+}
+
+.mesh-line-8 {
+  width: 470px;
+  left: 23%;
+  top: 80%;
+  transform: rotate(0deg);
+}
+
+.mesh-line-9 {
+  width: 450px;
+  left: 22%;
+  top: 25%;
+  transform: rotate(90deg);
+}
+
+.mesh-line-10 {
+  width: 450px;
+  left: 78%;
+  top: 25%;
+  transform: rotate(90deg);
+}
+
+.mesh-line-11 {
+  width: 420px;
+  left: 25%;
+  top: 30%;
+  transform: rotate(28deg);
+}
+
+.mesh-line-12 {
+  width: 420px;
+  left: 75%;
+  top: 30%;
+  transform: rotate(152deg);
+}
+
+/* PACKETS */
+
+.mesh-packet {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #35e1ff;
+  color: #03111c;
+  box-shadow: 0 0 20px rgba(53,225,255,.95);
+  z-index: 15;
+}
+
+.mesh-packet-1 {
+  left: 27%;
+  top: 24%;
+  animation: meshPacket1 4s linear infinite;
+}
+
+.mesh-packet-2 {
+  left: 65%;
+  top: 26%;
+  animation: meshPacket2 4.5s linear infinite;
+}
+
+.mesh-packet-3 {
+  left: 67%;
+  top: 68%;
+  animation: meshPacket3 4.2s linear infinite;
+}
+
+.mesh-packet-4 {
+  left: 25%;
+  top: 67%;
+  animation: meshPacket4 4.7s linear infinite;
+}
+
+@keyframes meshPacket1 {
+  0%,100% {
+    transform: translate(0,0);
+  }
+
+  50% {
+    transform: translate(230px,270px);
+  }
+}
+
+@keyframes meshPacket2 {
+  0%,100% {
+    transform: translate(0,0);
+  }
+
+  50% {
+    transform: translate(-250px,270px);
+  }
+}
+
+@keyframes meshPacket3 {
+  0%,100% {
+    transform: translate(0,0);
+  }
+
+  50% {
+    transform: translate(-230px,-260px);
+  }
+}
+
+@keyframes meshPacket4 {
+  0%,100% {
+    transform: translate(0,0);
+  }
+
+  50% {
+    transform: translate(240px,-260px);
+  }
+}
+
+.mesh-data-label {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  padding: 9px 16px;
+  border-radius: 30px;
+  font-size: .72rem;
+  color: #b9d7f0;
+  background: rgba(4,14,25,.78);
+  border: 1px solid rgba(100,180,255,.2);
+  white-space: nowrap;
+  z-index: 20;
+}
+
+/* LEGEND */
+
+.mesh-legend {
+  padding: 15px 22px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  background: rgba(5,15,27,.95);
+  border-top: 1px solid rgba(255,255,255,.07);
+  font-size: .78rem;
+  color: #9fb4ca;
+}
+
+/* DATA FLOW */
+
+.mesh-data-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 18px;
+  align-items: center;
+  margin: 25px 0 35px;
+}
+
+.mesh-data-device {
+  padding: 22px;
+  border-radius: 18px;
+  text-align: center;
+  background: var(--card-bg,#f6f8fb);
+  border: 1px solid var(--border-color,#ddd);
+}
+
+.mesh-data-device i {
+  display: block;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.mesh-data-device strong,
+.mesh-data-device small {
+  display: block;
+}
+
+.mesh-data-device small {
+  margin-top: 4px;
+  opacity: .7;
+}
+
+.mesh-route-device {
+  border-color: rgba(70,170,255,.5);
+}
+
+.mesh-flow-arrow {
+  font-size: 25px;
+  opacity: .75;
+}
+
+/* DARK MODE */
+
+body.dark .mesh-data-device,
+body.dark-mode .mesh-data-device,
+body[data-theme="dark"] .mesh-data-device,
+[data-theme="dark"] .mesh-data-device {
+  background: #101d2c;
+  border-color: rgba(120,180,230,.18);
+  color: #eaf3ff;
+}
+
+body.dark .network-table,
+body.dark-mode .network-table,
+body[data-theme="dark"] .network-table,
+[data-theme="dark"] .network-table {
+  background: #0f1c2b;
+  color: #e7f2ff;
+}
+
+body.dark .network-table th,
+body.dark-mode .network-table th,
+body[data-theme="dark"] .network-table th,
+[data-theme="dark"] .network-table th {
+  background: #172a40;
+}
+
+body.dark .network-table td,
+body.dark-mode .network-table td,
+body[data-theme="dark"] .network-table td,
+[data-theme="dark"] .network-table td {
+  border-color: rgba(255,255,255,.1);
+}
+
+/* =================================
+   MOBILE RESPONSIVE
+================================= */
+
+@media (max-width: 768px) {
+
+  .mesh-3d-network {
+    width: 100%;
+    margin: 25px 0 35px;
+    border-radius: 18px;
+  }
+
+  .mesh-top-header {
+    padding: 15px;
+    align-items: flex-start;
+  }
+
+  .mesh-heading {
+    gap: 10px;
+  }
+
+  .mesh-heading-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .mesh-heading h3 {
+    font-size: 1rem;
+  }
+
+  .mesh-heading p {
+    font-size: .7rem;
+  }
+
+  .mesh-online {
+    font-size: .58rem;
+    padding: 7px 9px;
+  }
+
+  .mesh-room {
+    height: 780px;
+  }
+
+  .mesh-floor {
+    width: 110%;
+    left: -5%;
+    height: 55%;
+    bottom: -10%;
+    background-size: 30px 30px;
+  }
+
+  .mesh-line {
+    display: none;
+  }
+
+  .mesh-packet {
+    display: none;
+  }
+
+  .mesh-device {
+    width: 100px;
+    min-height: 90px;
+    padding: 9px;
+    border-radius: 15px;
+  }
+
+  .mesh-device-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .mesh-device-1 {
+    left: 4%;
+    top: 8%;
+  }
+
+  .mesh-device-2 {
+    right: 4%;
+    left: auto;
+    top: 8%;
+  }
+
+  .mesh-device-3 {
+    left: 4%;
+    top: 30%;
+  }
+
+  .mesh-device-4 {
+    right: 4%;
+    top: 30%;
+    bottom: auto;
+  }
+
+  .mesh-device-5 {
+    left: 4%;
+    bottom: 8%;
+  }
+
+  .mesh-device-6 {
+    right: 4%;
+    left: auto;
+    bottom: 8%;
+  }
+
+  .mesh-center {
+    width: 120px;
+    height: 90px;
+  }
+
+  .mesh-center i {
+    font-size: 23px;
+  }
+
+  .mesh-center strong {
+    font-size: .72rem;
+  }
+
+  .mesh-center small {
+    font-size: .58rem;
+  }
+
+  .mesh-data-label {
+    width: 90%;
+    white-space: normal;
+    text-align: center;
+    bottom: 18px;
+    font-size: .67rem;
+  }
+
+  .mesh-legend {
+    padding: 13px 10px;
+    gap: 12px;
+    font-size: .67rem;
+  }
+
+  .mesh-data-flow {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .mesh-flow-arrow {
+    transform: rotate(90deg);
+    text-align: center;
+  }
+
+  .network-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .network-table {
+    min-width: 650px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .mesh-room {
+    height: 730px;
+  }
+
+  .mesh-device {
+    width: 92px;
+  }
+
+  .mesh-device-1,
+  .mesh-device-3,
+  .mesh-device-5 {
+    left: 2%;
+  }
+
+  .mesh-device-2,
+  .mesh-device-4,
+  .mesh-device-6 {
+    right: 2%;
+  }
+
+  .mesh-center {
+    width: 108px;
+    height: 82px;
+  }
+}
+/* =========================
+   TREE TOPOLOGY
+========================= */
+
+.tree-3d-network {
+  width: 125%;
+  margin: 30px -12.5% 45px;
+  padding: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(0, 210, 255, .16), transparent 35%),
+    linear-gradient(145deg, #071321, #0b1d31 55%, #06101d);
+  border: 1px solid rgba(0, 210, 255, .25);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, .35);
+  color: #eaf8ff;
+}
+
+.tree-top-header {
+  height: 68px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(4, 13, 25, .82);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.tree-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.tree-heading-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(0, 210, 255, .12);
+  color: #00d9ff;
+  box-shadow: 0 0 25px rgba(0, 210, 255, .2);
+}
+
+.tree-online {
+  color: #63f6a7;
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.tree-online i {
+  font-size: .55rem;
+  margin-right: 6px;
+}
+
+.tree-room {
+  height: 650px;
+  position: relative;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.tree-floor {
+  position: absolute;
+  width: 82%;
+  height: 75%;
+  left: 9%;
+  bottom: 5%;
+  transform: rotateX(62deg) rotateZ(-1deg);
+  transform-origin: center bottom;
+  background:
+    linear-gradient(rgba(0, 210, 255, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 210, 255, .07) 1px, transparent 1px),
+    linear-gradient(145deg, #0b2034, #06111e);
+  background-size: 45px 45px;
+  border: 1px solid rgba(0, 210, 255, .15);
+  box-shadow: 0 0 80px rgba(0, 180, 255, .08);
+}
+
+.tree-root {
+  position: absolute;
+  left: 50%;
+  top: 65px;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.tree-root-glow {
+  position: absolute;
+  inset: -25px;
+  border-radius: 50%;
+  background: rgba(0, 210, 255, .18);
+  filter: blur(22px);
+  animation: treePulse 2.5s infinite;
+}
+
+.tree-root-box {
+  position: relative;
+  width: 145px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #123552, #081b2d);
+  border: 1px solid rgba(0, 210, 255, .55);
+  box-shadow:
+    0 20px 35px rgba(0, 0, 0, .35),
+    inset 0 0 25px rgba(0, 210, 255, .08);
+}
+
+.tree-root-box i {
+  color: #00dcff;
+  font-size: 1.5rem;
+}
+
+.tree-root-box strong {
+  font-size: .85rem;
+}
+
+.tree-root-box small {
+  color: #65eaff;
+  font-size: .62rem;
+  letter-spacing: 2px;
+}
+
+.tree-branch,
+.tree-sub-branch {
+  position: absolute;
+  height: 3px;
+  transform-origin: left center;
+  background: linear-gradient(90deg, #00e5ff, #668cff);
+  box-shadow: 0 0 12px rgba(0, 210, 255, .75);
+  z-index: 3;
+}
+
+.tree-branch-1 {
+  width: 225px;
+  left: 50%;
+  top: 155px;
+  transform: rotate(152deg);
+}
+
+.tree-branch-2 {
+  width: 210px;
+  left: 50%;
+  top: 155px;
+  transform: rotate(90deg);
+}
+
+.tree-branch-3 {
+  width: 225px;
+  left: 50%;
+  top: 155px;
+  transform: rotate(28deg);
+}
+
+.tree-switch {
+  position: absolute;
+  width: 105px;
+  height: 58px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #182c4a, #0b1729);
+  border: 1px solid rgba(110, 145, 255, .5);
+  box-shadow: 0 14px 25px rgba(0, 0, 0, .35);
+  z-index: 8;
+  font-size: .72rem;
+}
+
+.tree-switch i {
+  color: #8da6ff;
+  font-size: 1.1rem;
+}
+
+.tree-switch-1 {
+  left: 19%;
+  top: 185px;
+}
+
+.tree-switch-2 {
+  left: calc(50% - 52px);
+  top: 185px;
+}
+
+.tree-switch-3 {
+  right: 19%;
+  top: 185px;
+}
+
+.tree-sub-1 {
+  width: 130px;
+  left: 23%;
+  top: 243px;
+  transform: rotate(155deg);
+}
+
+.tree-sub-2 {
+  width: 130px;
+  left: 23%;
+  top: 243px;
+  transform: rotate(25deg);
+}
+
+.tree-sub-3 {
+  width: 125px;
+  left: calc(50% - 1px);
+  top: 243px;
+  transform: rotate(155deg);
+}
+
+.tree-sub-4 {
+  width: 125px;
+  left: calc(50% - 1px);
+  top: 243px;
+  transform: rotate(25deg);
+}
+
+.tree-sub-5 {
+  width: 130px;
+  right: 23%;
+  top: 243px;
+  transform: rotate(155deg);
+}
+
+.tree-sub-6 {
+  width: 130px;
+  right: 23%;
+  top: 243px;
+  transform: rotate(25deg);
+}
+
+.tree-device {
+  position: absolute;
+  width: 82px;
+  height: 68px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(145deg, #102941, #071625);
+  border: 1px solid rgba(0, 220, 255, .35);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, .35);
+  z-index: 7;
+  font-size: .67rem;
+}
+
+.tree-device i {
+  color: #00d9ff;
+  font-size: 1.2rem;
+}
+
+.tree-device-1 { left: 8%; top: 300px; }
+.tree-device-2 { left: 28%; top: 300px; }
+.tree-device-3 { left: 39%; top: 300px; }
+.tree-device-4 { left: 48%; top: 300px; }
+.tree-device-5 { right: 39%; top: 300px; }
+.tree-device-6 { right: 28%; top: 300px; }
+.tree-device-7 { right: 8%; top: 300px; }
+.tree-device-8 { left: 50%; top: 405px; transform: translateX(-50%); }
+
+.tree-packet {
+  position: absolute;
+  z-index: 12;
+  color: #fff;
+  font-size: .75rem;
+  filter: drop-shadow(0 0 8px #00eaff);
+  animation: treePacket 3.5s linear infinite;
+}
+
+.tree-packet-1 {
+  left: 46%;
+  top: 150px;
+}
+
+.tree-packet-2 {
+  left: 28%;
+  top: 245px;
+  animation-delay: 1s;
+}
+
+.tree-packet-3 {
+  right: 28%;
+  top: 245px;
+  animation-delay: 2s;
+}
+
+.tree-data-label {
+  position: absolute;
+  left: 50%;
+  bottom: 45px;
+  transform: translateX(-50%);
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(3, 14, 27, .82);
+  border: 1px solid rgba(0, 220, 255, .25);
+  color: #aeeeff;
+  font-size: .78rem;
+  white-space: nowrap;
+  z-index: 15;
+}
+
+.tree-data-label i {
+  margin-right: 7px;
+  color: #00ddff;
+}
+
+.tree-legend {
+  min-height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 14px 20px;
+  background: rgba(3, 12, 22, .88);
+  border-top: 1px solid rgba(255, 255, 255, .06);
+  font-size: .75rem;
+}
+
+.tree-legend i {
+  color: #00dfff;
+  margin-right: 5px;
+}
+
+.tree-data-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(0, 210, 255, .04);
+  border: 1px solid rgba(0, 210, 255, .12);
+}
+
+.tree-flow-device {
+  min-width: 120px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  border-radius: 15px;
+  background: var(--card-bg, rgba(255,255,255,.05));
+  border: 1px solid rgba(0, 210, 255, .15);
+}
+
+.tree-flow-device i {
+  color: #00dfff;
+  font-size: 1.35rem;
+}
+
+.tree-flow-arrow {
+  color: #00dfff;
+  font-size: 1.2rem;
+  animation: treeArrow 1.4s infinite;
+}
+
+@keyframes treePulse {
+  0%, 100% {
+    transform: scale(.9);
+    opacity: .5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: .9;
+  }
+}
+
+@keyframes treePacket {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(.7);
+  }
+  25%, 75% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-12px) scale(.7);
+  }
+}
+
+@keyframes treeArrow {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark .tree-flow-device,
+body.dark-mode .tree-flow-device,
+body[data-theme="dark"] .tree-flow-device,
+[data-theme="dark"] .tree-flow-device {
+  background: rgba(255,255,255,.05);
+  color: #eaf8ff;
+}
+
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body:not(.dark):not(.dark-mode):not([data-theme="dark"]) .tree-3d-network {
+  box-shadow: 0 20px 55px rgba(20, 80, 120, .18);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .tree-3d-network {
+    width: 100%;
+    margin: 25px 0 35px;
+    border-radius: 18px;
+  }
+
+  .tree-top-header {
+    height: auto;
+    min-height: 65px;
+    padding: 12px 15px;
+    gap: 10px;
+  }
+
+  .tree-heading {
+    font-size: .88rem;
+  }
+
+  .tree-online {
+    font-size: .7rem;
+  }
+
+  .tree-room {
+    height: 650px;
+  }
+
+  .tree-floor {
+    width: 94%;
+    left: 3%;
+    height: 70%;
+    bottom: 5%;
+    background-size: 28px 28px;
+  }
+
+  .tree-root {
+    top: 45px;
+  }
+
+  .tree-root-box {
+    width: 125px;
+    height: 78px;
+  }
+
+  .tree-branch-1,
+  .tree-branch-2,
+  .tree-branch-3 {
+    width: 125px;
+  }
+
+  .tree-branch-1 {
+    top: 125px;
+    left: 50%;
+    transform: rotate(155deg);
+  }
+
+  .tree-branch-2 {
+    top: 125px;
+    left: 50%;
+    transform: rotate(90deg);
+  }
+
+  .tree-branch-3 {
+    top: 125px;
+    left: 50%;
+    transform: rotate(25deg);
+  }
+
+  .tree-switch {
+    width: 82px;
+    height: 52px;
+    font-size: .62rem;
+  }
+
+  .tree-switch-1 {
+    left: 5%;
+    top: 150px;
+  }
+
+  .tree-switch-2 {
+    left: calc(50% - 41px);
+    top: 150px;
+  }
+
+  .tree-switch-3 {
+    right: 5%;
+    top: 150px;
+  }
+
+  .tree-sub-branch {
+    display: none;
+  }
+
+  .tree-device {
+    width: 68px;
+    height: 60px;
+    font-size: .58rem;
+  }
+
+  .tree-device-1 {
+    left: 5%;
+    top: 250px;
+  }
+
+  .tree-device-2 {
+    left: 27%;
+    top: 250px;
+  }
+
+  .tree-device-3 {
+    left: 5%;
+    top: 345px;
+  }
+
+  .tree-device-4 {
+    left: 27%;
+    top: 345px;
+  }
+
+  .tree-device-5 {
+    right: 27%;
+    top: 250px;
+  }
+
+  .tree-device-6 {
+    right: 5%;
+    top: 250px;
+  }
+
+  .tree-device-7 {
+    right: 27%;
+    top: 345px;
+  }
+
+  .tree-device-8 {
+    right: 5%;
+    left: auto;
+    top: 345px;
+    transform: none;
+  }
+
+  .tree-packet {
+    display: none;
+  }
+
+  .tree-data-label {
+    width: 90%;
+    text-align: center;
+    white-space: normal;
+    bottom: 35px;
+    font-size: .68rem;
+  }
+
+  .tree-legend {
+    gap: 12px;
+    justify-content: flex-start;
+    font-size: .65rem;
+  }
+
+  .tree-data-flow {
+    flex-direction: column;
+  }
+
+  .tree-flow-arrow {
+    transform: rotate(90deg);
+  }
+
+  .tree-flow-device {
+    width: 100%;
+  }
+}
+/* =========================
+   HYBRID TOPOLOGY
+========================= */
+
+.hybrid-3d-network {
+  width: 125%;
+  margin: 30px -12.5% 45px;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 50% 25%, rgba(0, 220, 255, .16), transparent 35%),
+    linear-gradient(145deg, #061321, #0b1d31 55%, #050d18);
+  border: 1px solid rgba(0, 220, 255, .25);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, .35);
+  color: #eaf8ff;
+}
+
+.hybrid-top-header {
+  min-height: 68px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(3, 12, 23, .86);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.hybrid-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.hybrid-heading-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(0, 220, 255, .12);
+  color: #00ddff;
+}
+
+.hybrid-online {
+  color: #64f6a5;
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.hybrid-online i {
+  font-size: .55rem;
+  margin-right: 6px;
+}
+
+.hybrid-room {
+  height: 700px;
+  position: relative;
+  perspective: 1100px;
+  overflow: hidden;
+}
+
+.hybrid-floor {
+  position: absolute;
+  width: 90%;
+  height: 72%;
+  left: 5%;
+  bottom: 3%;
+  transform: rotateX(62deg);
+  transform-origin: center bottom;
+  background:
+    linear-gradient(rgba(0, 220, 255, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 220, 255, .07) 1px, transparent 1px),
+    linear-gradient(145deg, #0b2034, #06111e);
+  background-size: 42px 42px;
+  border: 1px solid rgba(0, 220, 255, .14);
+}
+
+.hybrid-core {
+  position: absolute;
+  left: 50%;
+  top: 35px;
+  transform: translateX(-50%);
+  z-index: 15;
+}
+
+.hybrid-core-glow {
+  position: absolute;
+  inset: -30px;
+  border-radius: 50%;
+  background: rgba(0, 220, 255, .18);
+  filter: blur(25px);
+  animation: hybridPulse 2.5s infinite;
+}
+
+.hybrid-core-box {
+  position: relative;
+  width: 155px;
+  height: 90px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: linear-gradient(145deg, #123652, #071b2d);
+  border: 1px solid rgba(0, 220, 255, .6);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+}
+
+.hybrid-core-box i {
+  color: #00ddff;
+  font-size: 1.5rem;
+}
+
+.hybrid-core-box strong {
+  font-size: .85rem;
+}
+
+.hybrid-core-box small {
+  color: #76eaff;
+  font-size: .58rem;
+  letter-spacing: 1.5px;
+}
+
+.hybrid-section {
+  position: absolute;
+  width: 250px;
+  height: 260px;
+  border-radius: 22px;
+  background: rgba(7, 23, 39, .82);
+  border: 1px solid rgba(0, 220, 255, .18);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .3);
+  z-index: 5;
+}
+
+.hybrid-star-section {
+  left: 6%;
+  top: 180px;
+}
+
+.hybrid-bus-section {
+  left: calc(50% - 125px);
+  top: 180px;
+}
+
+.hybrid-ring-section {
+  right: 6%;
+  top: 180px;
+}
+
+.hybrid-section-title {
+  position: absolute;
+  top: 14px;
+  left: 15px;
+  right: 15px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  font-size: .76rem;
+  font-weight: 800;
+  color: #ccefff;
+}
+
+.hybrid-section-title i {
+  color: #00ddff;
+  margin-right: 6px;
+}
+
+.hybrid-star-switch {
+  position: absolute;
+  left: 50%;
+  top: 82px;
+  transform: translateX(-50%);
+  width: 82px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  background: #0d2941;
+  border: 1px solid rgba(0, 220, 255, .4);
+  font-size: .6rem;
+  z-index: 8;
+}
+
+.hybrid-star-switch i {
+  color: #00ddff;
+}
+
+.hybrid-star-line {
+  position: absolute;
+  width: 75px;
+  height: 2px;
+  left: 50%;
+  top: 105px;
+  transform-origin: left center;
+  background: #00ddff;
+  box-shadow: 0 0 10px rgba(0, 220, 255, .8);
+}
+
+.hybrid-star-line-1 {
+  transform: rotate(155deg);
+}
+
+.hybrid-star-line-2 {
+  transform: rotate(90deg);
+}
+
+.hybrid-star-line-3 {
+  transform: rotate(25deg);
+}
+
+.hybrid-device {
+  position: absolute;
+  width: 58px;
+  height: 52px;
+  border-radius: 11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  background: linear-gradient(145deg, #132e47, #071625);
+  border: 1px solid rgba(0, 220, 255, .3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
+  z-index: 7;
+  font-size: .52rem;
+}
+
+.hybrid-device i {
+  color: #00ddff;
+  font-size: .9rem;
+}
+
+.hybrid-device-1 {
+  left: 12px;
+  top: 132px;
+}
+
+.hybrid-device-2 {
+  left: calc(50% - 29px);
+  top: 155px;
+}
+
+.hybrid-device-3 {
+  right: 12px;
+  top: 132px;
+}
+
+.hybrid-device-4 {
+  left: 25px;
+  top: 145px;
+}
+
+.hybrid-device-5 {
+  left: calc(50% - 29px);
+  top: 145px;
+}
+
+.hybrid-device-6 {
+  right: 25px;
+  top: 145px;
+}
+
+.hybrid-bus-line {
+  position: absolute;
+  width: 82%;
+  height: 3px;
+  left: 9%;
+  top: 110px;
+  background: #00ddff;
+  box-shadow: 0 0 14px rgba(0, 220, 255, .8);
+}
+
+.hybrid-bus-drop {
+  position: absolute;
+  width: 2px;
+  height: 45px;
+  top: 112px;
+  background: #00ddff;
+  box-shadow: 0 0 10px rgba(0, 220, 255, .7);
+}
+
+.hybrid-bus-drop-1 {
+  left: 24%;
+}
+
+.hybrid-bus-drop-2 {
+  left: 50%;
+}
+
+.hybrid-bus-drop-3 {
+  left: 76%;
+}
+
+.hybrid-ring {
+  position: absolute;
+  width: 135px;
+  height: 135px;
+  left: 50%;
+  top: 75px;
+  transform: translateX(-50%);
+  border: 3px solid #00ddff;
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(0, 220, 255, .25);
+  animation: hybridRingGlow 3s infinite;
+}
+
+.hybrid-ring-node {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #0d2941;
+  border: 1px solid rgba(0, 220, 255, .55);
+  color: #00ddff;
+}
+
+.hybrid-ring-node-1 {
+  left: -20px;
+  top: 45px;
+}
+
+.hybrid-ring-node-2 {
+  left: 45px;
+  top: -20px;
+}
+
+.hybrid-ring-node-3 {
+  right: -20px;
+  top: 45px;
+}
+
+.hybrid-ring-node-4 {
+  left: 45px;
+  bottom: -20px;
+}
+
+.hybrid-core-link {
+  position: absolute;
+  width: 190px;
+  height: 3px;
+  top: 125px;
+  background: linear-gradient(90deg, #00ddff, #7b8cff);
+  box-shadow: 0 0 13px rgba(0, 220, 255, .7);
+  z-index: 4;
+}
+
+.hybrid-link-star {
+  left: calc(50% - 190px);
+  transform: rotate(148deg);
+  transform-origin: right center;
+}
+
+.hybrid-link-bus {
+  left: 50%;
+  transform: translateX(-50%) rotate(90deg);
+  width: 90px;
+}
+
+.hybrid-link-ring {
+  right: calc(50% - 190px);
+  transform: rotate(32deg);
+  transform-origin: left center;
+}
+
+.hybrid-packet {
+  position: absolute;
+  color: #fff;
+  z-index: 20;
+  filter: drop-shadow(0 0 8px #00eaff);
+  animation: hybridPacket 3s linear infinite;
+}
+
+.hybrid-packet-1 {
+  left: 38%;
+  top: 135px;
+}
+
+.hybrid-packet-2 {
+  left: 58%;
+  top: 160px;
+  animation-delay: 1s;
+}
+
+.hybrid-packet-3 {
+  left: 47%;
+  top: 330px;
+  animation-delay: 2s;
+}
+
+.hybrid-data-label {
+  position: absolute;
+  left: 50%;
+  bottom: 45px;
+  transform: translateX(-50%);
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(3, 14, 27, .85);
+  border: 1px solid rgba(0, 220, 255, .25);
+  color: #aeeeff;
+  font-size: .76rem;
+  white-space: nowrap;
+  z-index: 20;
+}
+
+.hybrid-data-label i {
+  color: #00ddff;
+  margin-right: 7px;
+}
+
+.hybrid-legend {
+  min-height: 65px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  background: rgba(3, 12, 22, .9);
+  border-top: 1px solid rgba(255, 255, 255, .07);
+  font-size: .72rem;
+}
+
+.hybrid-legend i {
+  color: #00ddff;
+  margin-right: 5px;
+}
+
+.hybrid-data-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 13px;
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(0, 220, 255, .04);
+  border: 1px solid rgba(0, 220, 255, .12);
+}
+
+.hybrid-flow-device {
+  min-width: 115px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  border-radius: 14px;
+  background: var(--card-bg, rgba(255,255,255,.05));
+  border: 1px solid rgba(0, 220, 255, .15);
+}
+
+.hybrid-flow-device i {
+  color: #00ddff;
+  font-size: 1.25rem;
+}
+
+.hybrid-flow-arrow {
+  color: #00ddff;
+  animation: hybridArrow 1.4s infinite;
+}
+
+@keyframes hybridPulse {
+  0%, 100% {
+    transform: scale(.9);
+    opacity: .45;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: .9;
+  }
+}
+
+@keyframes hybridPacket {
+  0% {
+    opacity: 0;
+    transform: scale(.6);
+  }
+
+  25%, 75% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(.6);
+  }
+}
+
+@keyframes hybridRingGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(0, 220, 255, .15);
+  }
+
+  50% {
+    box-shadow: 0 0 35px rgba(0, 220, 255, .45);
+  }
+}
+
+@keyframes hybridArrow {
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(6px);
+  }
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark .hybrid-flow-device,
+body.dark-mode .hybrid-flow-device,
+body[data-theme="dark"] .hybrid-flow-device,
+[data-theme="dark"] .hybrid-flow-device {
+  background: rgba(255,255,255,.05);
+  color: #eaf8ff;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .hybrid-3d-network {
+    width: 100%;
+    margin: 25px 0 35px;
+    border-radius: 18px;
+  }
+
+  .hybrid-top-header {
+    min-height: 65px;
+    padding: 12px 15px;
+    gap: 8px;
+  }
+
+  .hybrid-heading {
+    font-size: .82rem;
+  }
+
+  .hybrid-heading-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .hybrid-online {
+    font-size: .65rem;
+  }
+
+  .hybrid-room {
+    height: 900px;
+  }
+
+  .hybrid-floor {
+    width: 95%;
+    left: 2.5%;
+    height: 85%;
+    background-size: 28px 28px;
+  }
+
+  .hybrid-core {
+    top: 35px;
+  }
+
+  .hybrid-core-box {
+    width: 125px;
+    height: 75px;
+  }
+
+  .hybrid-section {
+    width: 90%;
+    left: 5% !important;
+    right: auto !important;
+    height: 220px;
+  }
+
+  .hybrid-star-section {
+    top: 165px;
+  }
+
+  .hybrid-bus-section {
+    top: 410px;
+  }
+
+  .hybrid-ring-section {
+    top: 655px;
+  }
+
+  .hybrid-core-link {
+    display: none;
+  }
+
+  .hybrid-packet {
+    display: none;
+  }
+
+  .hybrid-data-label {
+    width: 88%;
+    text-align: center;
+    white-space: normal;
+    bottom: 25px;
+    font-size: .65rem;
+  }
+
+  .hybrid-legend {
+    gap: 10px;
+    justify-content: flex-start;
+    font-size: .62rem;
+  }
+
+  .hybrid-data-flow {
+    flex-direction: column;
+  }
+
+  .hybrid-flow-device {
+    width: 100%;
+  }
+
+  .hybrid-flow-arrow {
+    transform: rotate(90deg);
+  }
+}
+
+/* =========================================================
+   ADVANTAGES & DISADVANTAGES OF NETWORK TOPOLOGY
+   Completely isolated CSS
+   ========================================================= */
+
+.topology-ad-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.topology-ad-content *,
+.topology-ad-content *::before,
+.topology-ad-content *::after {
+  box-sizing: border-box;
+}
+
+.topology-ad-section {
+  margin-bottom: 42px;
+}
+
+.topology-ad-section h2 {
+  margin: 0 0 16px;
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--text-color, #172033);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topology-ad-section h2 i {
+  color: #4f7cff;
+}
+
+.topology-ad-section > p {
+  margin: 0 0 18px;
+  line-height: 1.8;
+  color: var(--text-color, #4b5563);
+}
+
+
+/* =========================
+   CALLOUT
+   ========================= */
+
+.topology-ad-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 20px;
+  margin: 20px 0;
+  border-radius: 16px;
+  border: 1px solid rgba(79, 124, 255, 0.25);
+  background: rgba(79, 124, 255, 0.08);
+  color: var(--text-color, #334155);
+  line-height: 1.7;
+}
+
+.topology-ad-callout > i {
+  font-size: 1.35rem;
+  color: #4f7cff;
+  margin-top: 3px;
+}
+
+
+/* =========================================================
+   3D NETWORK
+   ========================================================= */
+
+.topology-ad-3d {
+  width: 125%;
+  margin: 32px -12.5% 48px;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(79,124,255,.18), transparent 35%),
+    linear-gradient(145deg, #07111f, #0a1628 50%, #050b14);
+  border: 1px solid rgba(110,160,255,.22);
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.35),
+    inset 0 0 60px rgba(70,130,255,.05);
+}
+
+
+/* Header */
+
+.topology-ad-header {
+  height: 68px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 20;
+  background: rgba(5,12,25,.76);
+  border-bottom: 1px solid rgba(120,160,255,.14);
+  backdrop-filter: blur(10px);
+}
+
+.topology-ad-heading {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: #eef5ff;
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.topology-ad-heading-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: linear-gradient(135deg, #527dff, #7357ff);
+  box-shadow: 0 0 22px rgba(82,125,255,.4);
+}
+
+.topology-ad-online {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #b9c8dd;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.topology-ad-online span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #48e88a;
+  box-shadow: 0 0 12px #48e88a;
+}
+
+
+/* Room */
+
+.topology-ad-room {
+  height: 610px;
+  position: relative;
+  overflow: hidden;
+  perspective: 1000px;
+  background:
+    radial-gradient(circle at center, rgba(68,111,255,.13), transparent 34%),
+    linear-gradient(rgba(100,150,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100,150,255,.035) 1px, transparent 1px);
+  background-size: auto, 45px 45px, 45px 45px;
+}
+
+
+/* Floor */
+
+.topology-ad-floor {
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  bottom: 45px;
+  height: 300px;
+  transform: perspective(700px) rotateX(60deg);
+  transform-origin: bottom;
+  background:
+    linear-gradient(rgba(74,120,255,.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74,120,255,.12) 1px, transparent 1px);
+  background-size: 45px 45px;
+  border: 1px solid rgba(90,130,255,.15);
+  box-shadow: 0 0 50px rgba(44,92,255,.08);
+}
+
+
+/* Router */
+
+.topology-ad-router {
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  width: 150px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+  z-index: 12;
+}
+
+.topology-ad-router-glow {
+  position: absolute;
+  inset: -35px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(74,126,255,.38),
+    rgba(74,126,255,.08) 45%,
+    transparent 72%
+  );
+  animation: topologyAdRouterGlow 2.8s ease-in-out infinite;
+}
+
+.topology-ad-router-box {
+  position: relative;
+  width: 150px;
+  height: 88px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: #edf4ff;
+  background:
+    linear-gradient(145deg, #172a49, #0a1425);
+  border: 1px solid rgba(105,153,255,.5);
+  box-shadow:
+    0 18px 35px rgba(0,0,0,.45),
+    inset 0 0 22px rgba(70,120,255,.1);
+}
+
+.topology-ad-router-box i {
+  font-size: 1.7rem;
+  color: #74a0ff;
+}
+
+.topology-ad-router-box strong {
+  font-size: .85rem;
+}
+
+.topology-ad-router-lights {
+  display: flex;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.topology-ad-router-lights span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #49e889;
+  box-shadow: 0 0 8px #49e889;
+}
+
+
+/* Connection lines */
+
+.topology-ad-line {
+  position: absolute;
+  height: 3px;
+  transform-origin: left center;
+  border-radius: 20px;
+  background: linear-gradient(
+    90deg,
+    rgba(77,130,255,.15),
+    #6092ff,
+    rgba(77,130,255,.15)
+  );
+  box-shadow:
+    0 0 8px rgba(77,130,255,.7),
+    0 0 18px rgba(77,130,255,.25);
+  z-index: 5;
+}
+
+.topology-ad-line-1 {
+  width: 260px;
+  left: 50%;
+  top: 44%;
+  transform: rotate(-145deg);
+}
+
+.topology-ad-line-2 {
+  width: 255px;
+  left: 50%;
+  top: 44%;
+  transform: rotate(-105deg);
+}
+
+.topology-ad-line-3 {
+  width: 245px;
+  left: 50%;
+  top: 44%;
+  transform: rotate(-65deg);
+}
+
+.topology-ad-line-4 {
+  width: 245px;
+  left: 50%;
+  top: 44%;
+  transform: rotate(-25deg);
+}
+
+.topology-ad-line-5 {
+  width: 255px;
+  left: 50%;
+  top: 44%;
+  transform: rotate(20deg);
+}
+
+.topology-ad-line-6 {
+  width: 260px;
+  left: 50%;
+  top: 44%;
+  transform: rotate(55deg);
+}
+
+
+/* Devices */
+
+.topology-ad-device {
+  position: absolute;
+  width: 82px;
+  height: 70px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: #dce8ff;
+  background: linear-gradient(145deg, #172944, #091322);
+  border: 1px solid rgba(104,153,255,.4);
+  box-shadow:
+    0 12px 25px rgba(0,0,0,.38),
+    inset 0 0 16px rgba(75,120,255,.08);
+  z-index: 10;
+}
+
+.topology-ad-device i {
+  font-size: 1.3rem;
+  color: #76a3ff;
+}
+
+.topology-ad-device span {
+  font-size: .68rem;
+  font-weight: 700;
+}
+
+
+/* Device positions */
+
+.topology-ad-device-1 {
+  left: 11%;
+  top: 13%;
+}
+
+.topology-ad-device-2 {
+  left: 4%;
+  top: 43%;
+}
+
+.topology-ad-device-3 {
+  left: 15%;
+  bottom: 14%;
+}
+
+.topology-ad-device-4 {
+  right: 11%;
+  top: 13%;
+}
+
+.topology-ad-device-5 {
+  right: 4%;
+  top: 43%;
+}
+
+.topology-ad-device-6 {
+  right: 15%;
+  bottom: 14%;
+}
+
+
+/* Packets */
+
+.topology-ad-packet {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #7aa6ff;
+  box-shadow:
+    0 0 8px #7aa6ff,
+    0 0 20px rgba(122,166,255,.8);
+  z-index: 9;
+}
+
+.topology-ad-packet-1 {
+  left: 38%;
+  top: 30%;
+  animation: topologyAdPacketOne 3s linear infinite;
+}
+
+.topology-ad-packet-2 {
+  right: 38%;
+  top: 40%;
+  animation: topologyAdPacketTwo 3.5s linear infinite;
+}
+
+.topology-ad-packet-3 {
+  left: 48%;
+  bottom: 30%;
+  animation: topologyAdPacketThree 3.2s linear infinite;
+}
+
+
+/* Caption */
+
+.topology-ad-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 90%;
+  padding: 10px 16px;
+  border-radius: 12px;
+  color: #b9c9df;
+  background: rgba(5,12,24,.72);
+  border: 1px solid rgba(100,145,255,.16);
+  font-size: .78rem;
+  text-align: center;
+  z-index: 20;
+}
+
+.topology-ad-caption i {
+  color: #73a0ff;
+  margin-right: 5px;
+}
+
+
+/* Legend */
+
+.topology-ad-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  padding: 17px 20px;
+  color: #aebed4;
+  background: rgba(4,10,20,.7);
+  border-top: 1px solid rgba(100,145,255,.12);
+  font-size: .76rem;
+}
+
+.topology-ad-legend span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.topology-ad-legend i {
+  color: #76a2ff;
+}
+
+
+/* =========================================================
+   ADVANTAGES CARDS
+   ========================================================= */
+
+.topology-ad-benefit-grid,
+.topology-ad-disadvantage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.topology-ad-benefit-card,
+.topology-ad-disadvantage-card {
+  padding: 22px;
+  border-radius: 18px;
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, #e5e7eb);
+  box-shadow: 0 8px 25px rgba(0,0,0,.06);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.topology-ad-benefit-card:hover,
+.topology-ad-disadvantage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 35px rgba(0,0,0,.1);
+}
+
+.topology-ad-benefit-icon,
+.topology-ad-disadvantage-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.topology-ad-benefit-icon {
+  color: #25734a;
+  background: rgba(72,190,120,.13);
+}
+
+.topology-ad-disadvantage-icon {
+  color: #b34242;
+  background: rgba(220,80,80,.12);
+}
+
+.topology-ad-benefit-card h3,
+.topology-ad-disadvantage-card h3 {
+  margin: 0 0 9px;
+  color: var(--text-color, #172033);
+  font-size: 1rem;
+}
+
+.topology-ad-benefit-card p,
+.topology-ad-disadvantage-card p {
+  margin: 0;
+  line-height: 1.7;
+  color: var(--text-color, #5b6473);
+  font-size: .92rem;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.topology-ad-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 16px;
+  border: 1px solid var(--border-color, #e5e7eb);
+}
+
+.topology-ad-table {
+  width: 100%;
+  min-width: 650px;
+  border-collapse: collapse;
+  background: var(--card-bg, #fff);
+}
+
+.topology-ad-table th,
+.topology-ad-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+  color: var(--text-color, #344054);
+  line-height: 1.55;
+}
+
+.topology-ad-table th {
+  font-weight: 800;
+  background: rgba(79,124,255,.08);
+  color: var(--text-color, #172033);
+}
+
+.topology-ad-table tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   EXAM ANSWER
+   ========================================================= */
+
+.topology-ad-exam-answer {
+  padding: 22px;
+  border-radius: 18px;
+  background: var(--card-bg, #fff);
+  border-left: 5px solid #4f7cff;
+  box-shadow: 0 8px 25px rgba(0,0,0,.06);
+}
+
+.topology-ad-exam-answer p {
+  margin: 0;
+  line-height: 1.85;
+  color: var(--text-color, #4b5563);
+}
+
+
+/* =========================================================
+   CONCLUSION
+   ========================================================= */
+
+.topology-ad-conclusion {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 24px;
+  margin-bottom: 25px;
+  border-radius: 20px;
+  background: rgba(79,124,255,.08);
+  border: 1px solid rgba(79,124,255,.2);
+}
+
+.topology-ad-conclusion-icon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  color: #fff;
+  background: linear-gradient(135deg, #527dff, #7357ff);
+  box-shadow: 0 8px 20px rgba(79,124,255,.25);
+}
+
+.topology-ad-conclusion h2 {
+  margin: 0 0 8px;
+  color: var(--text-color, #172033);
+}
+
+.topology-ad-conclusion p {
+  margin: 0;
+  line-height: 1.75;
+  color: var(--text-color, #566174);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes topologyAdRouterGlow {
+  0%, 100% {
+    transform: scale(.92);
+    opacity: .55;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: .9;
+  }
+}
+
+@keyframes topologyAdPacketOne {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(-80px, -80px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-160px, -140px);
+    opacity: 0;
+  }
+}
+
+@keyframes topologyAdPacketTwo {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  55% {
+    transform: translate(100px, 55px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(180px, 120px);
+    opacity: 0;
+  }
+}
+
+@keyframes topologyAdPacketThree {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  60% {
+    transform: translate(-55px, 85px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-110px, 150px);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+body.dark .topology-ad-benefit-card,
+body.dark .topology-ad-disadvantage-card,
+body.dark-mode .topology-ad-benefit-card,
+body.dark-mode .topology-ad-disadvantage-card,
+body[data-theme="dark"] .topology-ad-benefit-card,
+body[data-theme="dark"] .topology-ad-disadvantage-card {
+  background: #111a2a;
+  border-color: rgba(130,160,220,.15);
+}
+
+body.dark .topology-ad-table,
+body.dark-mode .topology-ad-table,
+body[data-theme="dark"] .topology-ad-table,
+[data-theme="dark"] .topology-ad-table {
+  background: #111a2a;
+}
+
+body.dark .topology-ad-table th,
+body.dark-mode .topology-ad-table th,
+body[data-theme="dark"] .topology-ad-table th,
+[data-theme="dark"] .topology-ad-table th {
+  background: rgba(79,124,255,.12);
+}
+
+body.dark .topology-ad-callout,
+body.dark-mode .topology-ad-callout,
+body[data-theme="dark"] .topology-ad-callout,
+[data-theme="dark"] .topology-ad-callout {
+  background: rgba(79,124,255,.1);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .topology-ad-benefit-grid,
+  .topology-ad-disadvantage-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .topology-ad-3d {
+    width: 115%;
+    margin-left: -7.5%;
+    margin-right: -7.5%;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 768px) {
+
+  .topology-ad-section {
+    margin-bottom: 32px;
+  }
+
+  .topology-ad-section h2 {
+    font-size: 1.25rem;
+  }
+
+  .topology-ad-3d {
+    width: 100%;
+    margin: 25px 0 35px;
+    border-radius: 20px;
+  }
+
+  .topology-ad-header {
+    height: auto;
+    min-height: 62px;
+    padding: 12px 15px;
+    gap: 10px;
+  }
+
+  .topology-ad-heading {
+    font-size: .88rem;
+  }
+
+  .topology-ad-heading-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .topology-ad-online {
+    font-size: .58rem;
+  }
+
+  .topology-ad-room {
+    height: 610px;
+  }
+
+  .topology-ad-floor {
+    left: 3%;
+    right: 3%;
+    bottom: 80px;
+    height: 300px;
+  }
+
+  /* Central router */
+
+  .topology-ad-router {
+    top: 44%;
+  }
+
+  /* Hide diagonal lines on small screens.
+     Devices remain clearly visible. */
+
+  .topology-ad-line {
+    display: none;
+  }
+
+  .topology-ad-device {
+    width: 76px;
+    height: 66px;
+  }
+
+  .topology-ad-device-1 {
+    left: 8%;
+    top: 15%;
+  }
+
+  .topology-ad-device-2 {
+    left: 5%;
+    top: 40%;
+  }
+
+  .topology-ad-device-3 {
+    left: 9%;
+    bottom: 16%;
+  }
+
+  .topology-ad-device-4 {
+    right: 8%;
+    top: 15%;
+  }
+
+  .topology-ad-device-5 {
+    right: 5%;
+    top: 40%;
+  }
+
+  .topology-ad-device-6 {
+    right: 9%;
+    bottom: 16%;
+  }
+
+  .topology-ad-packet {
+    display: none;
+  }
+
+  .topology-ad-caption {
+    width: 88%;
+    bottom: 17px;
+    font-size: .7rem;
+  }
+
+  .topology-ad-legend {
+    gap: 10px 15px;
+    padding: 14px;
+    font-size: .68rem;
+  }
+
+  .topology-ad-benefit-grid,
+  .topology-ad-disadvantage-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .topology-ad-benefit-card,
+  .topology-ad-disadvantage-card {
+    padding: 18px;
+  }
+
+  .topology-ad-conclusion {
+    padding: 19px;
+  }
+
+  .topology-ad-conclusion-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+   ========================= */
+
+@media (max-width: 480px) {
+
+  .topology-ad-room {
+    height: 590px;
+  }
+
+  .topology-ad-router,
+  .topology-ad-router-box {
+    width: 125px;
+  }
+
+  .topology-ad-router-box {
+    height: 78px;
+  }
+
+  .topology-ad-router-box i {
+    font-size: 1.35rem;
+  }
+
+  .topology-ad-device {
+    width: 68px;
+    height: 60px;
+  }
+
+  .topology-ad-device i {
+    font-size: 1.05rem;
+  }
+
+  .topology-ad-device span {
+    font-size: .6rem;
+  }
+
+  .topology-ad-device-1 {
+    left: 4%;
+  }
+
+  .topology-ad-device-3 {
+    left: 5%;
+  }
+
+  .topology-ad-device-4 {
+    right: 4%;
+  }
+
+  .topology-ad-device-6 {
+    right: 5%;
+  }
+
+  .topology-ad-caption {
+    font-size: .64rem;
+  }
+
+  .topology-ad-callout {
+    padding: 15px;
+    font-size: .86rem;
+  }
+
+}

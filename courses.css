@@ -34,6 +34,126 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
+.subject-spotlight {
+  padding: 2rem 0 1rem;
+}
+
+.subject-spotlight .hero-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.subject-spotlight .hero-content::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  right: -30px;
+  bottom: -80px;
+  background: radial-gradient(circle, rgba(76, 201, 240, 0.22), transparent 65%);
+  border-radius: 50%;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--header-border);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 1.45rem;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.stat-card span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.learning-paths {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0 0 2.5rem;
+}
+
+.path-card {
+  background: var(--surface);
+  border: 1px solid var(--header-border);
+  border-radius: 18px;
+  padding: 1.2rem;
+  box-shadow: 0 12px 28px var(--shadow);
+}
+
+.path-card .mini-tag {
+  display: inline-block;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(76, 201, 240, 0.12);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.path-card h3 {
+  margin: 0.85rem 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.path-card p {
+  color: var(--muted);
+  margin-bottom: 0.8rem;
+}
+
+.path-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.45rem;
+  color: var(--text);
+}
+
+.path-card li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+}
+
+.path-card li::before {
+  content: "✓";
+  color: var(--accent);
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .stat-grid,
+  .learning-paths {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .stat-grid,
+  .learning-paths {
+    grid-template-columns: 1fr;
+  }
+}
+
 .container {
   width: min(1100px, calc(100% - 2rem));
   margin: 0 auto;

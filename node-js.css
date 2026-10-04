@@ -1,0 +1,35 @@
+.node-hero {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.16), rgba(16, 185, 129, 0.1)), var(--surface);
+}
+
+.node-hero .hero-badge {
+  background: rgba(34, 197, 94, 0.16);
+  color: #4ade80;
+}
+
+.node-hero .info-icon {
+  background: linear-gradient(135deg, #15803d, #10b981);
+}
+
+.node-js-page .subject-topic {
+  border-left-color: rgba(74, 222, 128, 0.55);
+}
+
+.node-js-page .subject-topic:hover,
+.node-js-page .subject-topic.active {
+  border-color: #4ade80;
+  background: rgba(34, 197, 94, 0.1);
+}
+
+.node-js-page .subject-subtopics {
+  border-left-color: rgba(74, 222, 128, 0.4);
+}
+
+.node-js-page .subject-subtopic:hover,
+.node-js-page .subject-subtopic.active {
+  background: rgba(34, 197, 94, 0.1);
+}
+
+.node-js-page .progress-fill {
+  background: linear-gradient(90deg, #15803d, #10b981);
+}
